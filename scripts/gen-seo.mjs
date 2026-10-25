@@ -247,7 +247,7 @@ const feedItems = items
     (it) => `    <item>
       <title>${esc(it.title)}</title>
       <link>${esc(it.link)}</link>
-      <guid>${esc(it.link)}</guid>
+      <guid isPermaLink="true">${esc(it.link)}</guid>
       <pubDate>${it.date.toUTCString()}</pubDate>
       <description>${esc(it.description)}</description>
     </item>`
@@ -255,13 +255,14 @@ const feedItems = items
   .join('\n')
 
 const feed = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${esc(SITE_TITLE)}</title>
     <link>${CANONICAL_URL}/</link>
+    <atom:link href="${CANONICAL_URL}/feed.xml" rel="self" type="application/rss+xml" />
     <description>${esc(SITE_DESC)}</description>
     <language>zh-CN</language>
-${feedItems}
+${items.length > 0 ? `    <lastBuildDate>${items[0].date.toUTCString()}</lastBuildDate>\n` : ''}${feedItems}
   </channel>
 </rss>
 `
