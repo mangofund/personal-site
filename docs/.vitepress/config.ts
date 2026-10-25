@@ -177,7 +177,8 @@ export default defineConfig({
       '/thinking/': [
         { text: '思考', link: '/thinking/' },
         { text: '长期思考', items: [{ text: '财富的第一性原理是什么？', link: '/thinking/wealth/first-principles' }, { text: '当智能可以无限复制，什么才是真正稀缺？', link: '/thinking/first-principles/scarcity' }, { text: '当 AI 能帮你做任何事，你最重要的能力是什么？', link: '/thinking/technology/ai-most-important-ability' }] },
-        { text: 'AI 与社会', items: [{ text: 'AI 技术终将造福每个人吗？', link: '/thinking/society/ai-labor-capital' }] }
+        { text: 'AI 与社会', items: [{ text: 'AI 技术终将造福每个人吗？', link: '/thinking/society/ai-labor-capital' }] },
+        { text: '人生与选择', items: [{ text: '别急着移民：未来十年，如何设计自己的全球生活系统', link: '/thinking/life/global-living-system' }] }
       ],
       '/about/': [
         { text: '关于', link: '/about/' },

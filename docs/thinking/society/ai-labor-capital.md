@@ -202,3 +202,8 @@ AI时代正在把一个经典的宏观经济学悖论推向极致：生产力爆
 3. Piketty, T. (2014). *Capital in the Twenty-First Century*. Harvard University Press.
 
 4. Autor, D. H. (2015). *Why Are There Still So Many Jobs? The History and Future of Workplace Automation*. Journal of Economic Perspectives, 29(3), 3-30.
+
+## 相关文章
+
+- [当 AI 能帮你做任何事，你最重要的能力是什么？](/thinking/technology/ai-most-important-ability)
+- [当智能可以无限复制，什么才是真正稀缺？](/thinking/first-principles/scarcity)

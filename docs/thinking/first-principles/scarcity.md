@@ -67,6 +67,7 @@ draft: false
 ## 相关文章
 
 - [财富的第一性原理是什么？](/thinking/wealth/first-principles)
+- [当 AI 能帮你做任何事，你最重要的能力是什么？](/thinking/technology/ai-most-important-ability)
 - [AI Agent 会成为下一代操作系统吗？](/ai/agents/agent-os)
 
 上一篇：无 · 下一篇：[财富的第一性原理是什么？](/thinking/wealth/first-principles)
