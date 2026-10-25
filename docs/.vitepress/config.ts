@@ -28,6 +28,9 @@ function configuredXHandle(handle: string): string | null {
   return trimmed
 }
 
+// 默认值为站长账号 ID（页面源码里本就公开可见），环境变量可覆盖；设为空字符串即可关闭
+const GA_MEASUREMENT_ID = (process.env.GA_MEASUREMENT_ID ?? 'G-59PPF02MZT').trim()
+const ADSENSE_CLIENT = (process.env.ADSENSE_CLIENT ?? 'ca-pub-4963054235083860').trim()
 const xHandle = configuredXHandle(X_HANDLE)
 const xProfile = xHandle ? `https://x.com/${xHandle}` : ''
 const authorSameAs = [GITHUB_PROFILE, ...(xProfile ? [xProfile] : [])]
@@ -46,6 +49,39 @@ type LatestPost = { title: string; description: string; category: string; url: s
 const latestPosts = () => readJson<LatestPost[]>(join(DOCS_DIR, '.vitepress', 'latest-posts.json'), [])
 // gen-seo.mjs 维护的内容更新时间快照(key: docs/<relativePath>)，用作 dateModified
 const contentDates = readJson<Record<string, string>>(fileURLToPath(new URL('../../scripts/content-dates.json', import.meta.url)), {})
+
+interface PageVideo {
+  name: string
+  description: string
+  thumbnail: string
+  src: string
+}
+
+/** 文章正文里的 <video>，以及技能详情页头图使用的演示视频（来自 homeSkills.ts） */
+function pageVideos(relativePath: string, isEn: boolean, title: string, desc: string): PageVideo[] {
+  const source = readFileSync(join(DOCS_DIR, relativePath), 'utf8')
+  const out: PageVideo[] = []
+  for (const tag of source.match(/<video\b[^>]*>/g) ?? []) {
+    const src = tag.match(/\ssrc="([^"]+)"/)?.[1]
+    if (src) out.push({ name: title, description: desc, thumbnail: tag.match(/\sposter="([^"]+)"/)?.[1] ?? '', src })
+  }
+  const skillId = source.match(/<SkillDetail\s+skill-id="([^"]+)"/)?.[1]
+  if (skillId) {
+    const text = readFileSync(join(DOCS_DIR, '.vitepress', 'theme', 'homeSkills.ts'), 'utf8')
+    // 缩进 4 格的 id 才是技能条目本身；顶部分类表里同名的 id 要跳过
+    const start = text.search(new RegExp(`\\n {4}id: '${skillId}',`))
+    if (start >= 0) {
+      const next = text.slice(start + 1).search(/\n {4}id: '/)
+      const block = next >= 0 ? text.slice(start, start + 1 + next) : text.slice(start)
+      const video = block.match(/video: '([^']+)'/)?.[1]
+      const image = block.match(/image: '([^']+)'/)?.[1]
+      const name = block.match(isEn ? /nameEn: '([^']+)'/ : /nameZh: '([^']+)'/)?.[1]
+      const pitch = block.match(isEn ? /pitchEn: '([^']+)'/ : /pitchZh: '([^']+)'/)?.[1]
+      if (video && name) out.push({ name, description: pitch ?? desc, thumbnail: image ?? '', src: video })
+    }
+  }
+  return out
+}
 
 // 面包屑里的栏目名(按路径第一段)
 const SECTION_NAMES: Record<string, { zh: string; en: string }> = {
@@ -155,7 +191,7 @@ export default defineConfig({
     ],
     footer: {
       message: '每天做有价值的事情，人生永远要有 Plan B。',
-      copyright: '© 2026 PRO的茶里芒果'
+      copyright: '© 2026 PRO的茶里芒果 · <a href="/privacy">隐私政策</a>'
     },
     outline: { label: '本页目录', level: [2, 3] },
     docFooter: { prev: '上一篇', next: '下一篇' },
@@ -233,6 +269,15 @@ export default defineConfig({
                   link: '/en/ai/coding/muse-auto-deploy'
                 }
               ]
+            },
+            {
+              text: 'Workflows',
+              items: [
+                {
+                  text: 'How to Make an AI Rap Video: Tools, Workflow, and Pitfalls',
+                  link: '/en/ai/workflows/ai-rap-video-generator-guide'
+                }
+              ]
             }
           ],
           '/en/investment/': [
@@ -265,6 +310,22 @@ export default defineConfig({
         skipToContentLabel: 'Skip to content'
       }
     }
+  },
+
+  // 文章页可见「更新于」：只在更新日晚于发布日时显示，日期取 frontmatter updated，其次内容更新时间快照。
+  // 与 JSON-LD 的 dateModified 同源，避免页面可见日期和结构化数据对不上。
+  transformHtml(code, _id, { pageData }) {
+    const fm = pageData.frontmatter ?? {}
+    if (typeof fm.date !== 'string' || !fm.date) return
+    const raw = typeof fm.updated === 'string' && fm.updated ? fm.updated : contentDates[`docs/${pageData.relativePath}`]
+    const day = raw ? String(raw).slice(0, 10) : ''
+    const published = fm.date.slice(0, 10)
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || day <= published) return
+    const label = pageData.relativePath.startsWith('en/') ? 'Updated' : '更新于'
+    return code.replace(
+      /(class="meta-line">\s*\d{4}\.\d{2}\.\d{2})/,
+      `$1 · <time datetime="${day}">${label} ${day.replace(/-/g, '.')}</time>`
+    )
   },
 
   // 每页自动输出 canonical + Open Graph / Twitter Card,取值来自该页 frontmatter
@@ -431,6 +492,12 @@ export default defineConfig({
           article.dateModified = (!Number.isNaN(u.getTime()) && u >= d ? u : d).toISOString()
         }
       }
+      // 没有 frontmatter date 的页面（如工作流指南）不进 feed，但仍给搜索/AI 引擎一个更新时间
+      if (!article.dateModified) {
+        const snap = contentDates[`docs/${pageData.relativePath}`]
+        const sd = snap ? new Date(snap) : null
+        if (sd && !Number.isNaN(sd.getTime())) article.dateModified = sd.toISOString()
+      }
       if (typeof fm.category === 'string' && fm.category) article.articleSection = fm.category
       const tags = Array.isArray(fm.tags) ? fm.tags.filter((t: unknown) => typeof t === 'string') : []
       if (tags.length > 0) article.keywords = tags.join(', ')
@@ -470,6 +537,27 @@ export default defineConfig({
           }))
         if (qa.length > 0) {
           schemas.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qa })
+        }
+      }
+    }
+    // 带演示视频的页面（文章与技能详情页）输出 VideoObject，供视频富媒体结果与 AI 引用
+    if (!isHome && !isAbout && title) {
+      const rawDate = typeof fm.updated === 'string' && fm.updated ? fm.updated : typeof fm.date === 'string' && fm.date ? fm.date : contentDates[`docs/${pageData.relativePath}`]
+      const uploaded = rawDate ? new Date(rawDate) : null
+      if (uploaded && !Number.isNaN(uploaded.getTime())) {
+        const toAbs = (p: string) => (/^https?:\/\//i.test(p) ? p : `${CANONICAL_URL}${p.startsWith('/') ? p : '/' + p}`)
+        for (const v of pageVideos(pageData.relativePath, isEn, title, desc)) {
+          schemas.push({
+            '@context': 'https://schema.org',
+            '@type': 'VideoObject',
+            name: v.name,
+            description: v.description,
+            ...(v.thumbnail ? { thumbnailUrl: toAbs(v.thumbnail) } : {}),
+            uploadDate: uploaded.toISOString(),
+            contentUrl: toAbs(v.src),
+            embedUrl: canonical,
+            inLanguage: localeLang
+          })
         }
       }
     }
@@ -519,5 +607,15 @@ export default defineConfig({
     ['script', { defer: '', src: 'https://cloud.umami.is/script.js', 'data-website-id': '9be496a4-8003-46ab-9f02-de2fa19abab4' }],
     // Plausible(备用,未启用):
     // ['script', { defer: '', 'data-domain': 'mangofund.github.io', src: 'https://plausible.io/js/script.js' }]
+
+    // ---- Google Analytics 4 / AdSense(可选,由构建环境变量开启;未设置时不输出任何 Google 脚本) ----
+    // Cloudflare Pages 构建变量:GA_MEASUREMENT_ID=G-XXXXXXX,ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX
+    ...(/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) ? [
+      ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}` }],
+      ['script', {}, `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_MEASUREMENT_ID}');`]
+    ] as HeadConfig[] : []),
+    ...(/^ca-pub-\d+$/.test(ADSENSE_CLIENT) ? [
+      ['script', { async: '', src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`, crossorigin: 'anonymous' }]
+    ] as HeadConfig[] : [])
   ]
 })

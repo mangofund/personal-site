@@ -1,6 +1,12 @@
 # 由 scripts/gen-seo.mjs 生成,勿手工改。
 # 哈希静态资源长期 immutable;图片长缓存;HTML / feed / sitemap 每次重新验证。
 
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
 /about
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -191,6 +197,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/ai/workflows/ai-project-delivery-workflow/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai/workflows/ai-rap-video-generator-guide
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai/workflows/ai-rap-video-generator-guide/
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/ai/workflows/website-launch-checklist
@@ -404,6 +416,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /investment/us-stocks/ai-stage-invest-guide/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/privacy
+  Cache-Control: public, max-age=0, must-revalidate
+
+/privacy/
   Cache-Control: public, max-age=0, must-revalidate
 
 /projects
