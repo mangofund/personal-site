@@ -43,6 +43,12 @@
 /ai/coding/muse-auto-deploy/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/coding/muse-build-personal-site
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/coding/muse-build-personal-site/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/coding/muse-seo-automation
   Cache-Control: public, max-age=0, must-revalidate
 
