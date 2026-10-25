@@ -154,9 +154,9 @@ export default defineConfig({
         items: [
           { text: '思考', link: '/thinking/' },
           { text: '投资', link: '/investment/' },
-          { text: '友链', link: '/friends/' },
-          { text: '订阅', link: '/subscribe/' },
-          { text: '留言板', link: '/guestbook/' }
+          { text: '友链', link: '/friends' },
+          { text: '订阅', link: '/subscribe' },
+          { text: '留言板', link: '/guestbook' }
         ]
       },
       { component: 'LangSwitch' }
@@ -234,9 +234,9 @@ export default defineConfig({
                 link: '/en/investment/tesla/q3-earnings-preview',
                 activeMatch: '^/en/investment/'
               },
-              { text: 'Friends', link: '/en/friends/' },
-              { text: 'Subscribe', link: '/subscribe/' },
-              { text: 'Guestbook', link: '/guestbook/' }
+              { text: 'Friends', link: '/en/friends' },
+              { text: 'Subscribe', link: '/subscribe' },
+              { text: 'Guestbook', link: '/guestbook' }
             ]
           },
           { component: 'LangSwitch' }

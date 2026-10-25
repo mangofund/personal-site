@@ -79,7 +79,7 @@ function copyRss(): void {
       <p class="side-note">新文章发布后 RSS 会同步更新，也可以收藏本站，回访时提醒你有新文章。</p>
       <div class="side-actions">
         <button type="button" class="side-btn" @click="copyRss">{{ copied ? '已复制 RSS 地址' : '复制 RSS 地址' }}</button>
-        <a class="side-btn side-btn-primary" :href="withBase('/subscribe/')">去订阅</a>
+        <a class="side-btn side-btn-primary" :href="withBase('/subscribe')">去订阅</a>
       </div>
     </section>
   </aside>
