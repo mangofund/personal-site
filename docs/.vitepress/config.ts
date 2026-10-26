@@ -222,17 +222,17 @@ export default defineConfig({
         logoLink: '/en/',
         nav: [
           { text: 'Home', link: '/en/', activeMatch: '^/en/?$' },
-          { text: 'AI', link: '/en/ai/trends/claude-search-surge', activeMatch: '^/en/ai/' },
+          { text: 'AI', link: '/en/ai/', activeMatch: '^/en/ai/' },
           { text: 'Skills', link: '/en/skills/', activeMatch: '^/en/skills/' },
           { text: 'Projects', link: '/en/projects/', activeMatch: '^/en/projects/' },
           {
             text: 'About',
-            activeMatch: '^(/thinking|/en/investment|/en/friends|/subscribe|/guestbook)',
+            activeMatch: '^(/en/thinking|/en/investment|/en/friends|/subscribe|/guestbook)',
             items: [
-              { text: 'Thinking', link: '/thinking/' },
+              { text: 'Thinking', link: '/en/thinking/' },
               {
                 text: 'Investing',
-                link: '/en/investment/tesla/q3-earnings-preview',
+                link: '/en/investment/',
                 activeMatch: '^/en/investment/'
               },
               { text: 'Friends', link: '/en/friends' },
@@ -244,6 +244,7 @@ export default defineConfig({
         ],
         sidebar: {
           '/en/ai/': [
+            { text: 'AI', link: '/en/ai/' },
             {
               text: 'Trends',
               items: [
@@ -256,6 +257,14 @@ export default defineConfig({
             {
               text: 'Products',
               items: [
+                {
+                  text: 'Bing Wallpaper for Mac: An Open-Source Port Reverse-Engineered from the Official Windows App with REA',
+                  link: '/en/ai/products/bing-wallpaper-for-mac'
+                },
+                {
+                  text: "Anthropic's Claude Duet Is an Official AI Butler App — Isn't That the Muse and GrokBot I've Been Using All Along?",
+                  link: '/en/ai/products/claude-duet'
+                },
                 {
                   text: 'Codex Usage Desktop Guide: See Where Your Codex Tokens and Quota Go',
                   link: '/en/ai/products/codex-usage-desktop-guide'
@@ -277,11 +286,28 @@ export default defineConfig({
                 {
                   text: 'How to Make an AI Rap Video: Tools, Workflow, and Pitfalls',
                   link: '/en/ai/workflows/ai-rap-video-generator-guide'
+                },
+                {
+                  text: 'Agent Skills Installation Guide: How to Use SKILL.md with Coding Agents',
+                  link: '/en/ai/workflows/agent-skills-installation-guide'
+                },
+                {
+                  text: 'AI Data Analysis Workflow: From Raw Data to Verifiable Decisions',
+                  link: '/en/ai/workflows/ai-data-analysis-workflow'
+                },
+                {
+                  text: 'AI Coding Project Delivery: From Request to Verifiable Results',
+                  link: '/en/ai/workflows/ai-project-delivery-workflow'
+                },
+                {
+                  text: 'Website Launch Checklist: QA, SEO, Mobile, Analytics, and Rollback',
+                  link: '/en/ai/workflows/website-launch-checklist'
                 }
               ]
             }
           ],
           '/en/investment/': [
+            { text: 'Investing', link: '/en/investment/' },
             {
               text: 'US stocks',
               items: [
@@ -291,6 +317,9 @@ export default defineConfig({
                 }
               ]
             }
+          ],
+          '/en/thinking/': [
+            { text: 'Thinking', link: '/en/thinking/' }
           ],
           '/en/about/': [
             { text: 'About', link: '/en/about/' }

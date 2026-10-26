@@ -1,6 +1,7 @@
 [
   "",
   "about",
+  "ai",
   "ai/coding/muse-auto-deploy",
   "ai/products/bing-wallpaper-for-mac",
   "ai/products/claude-duet",
@@ -10,7 +11,9 @@
   "ai/workflows/ai-data-analysis-workflow",
   "ai/workflows/ai-project-delivery-workflow",
   "ai/workflows/website-launch-checklist",
+  "archive",
   "friends",
+  "investment",
   "investment/tesla/q3-earnings-preview",
   "projects",
   "skills",
@@ -35,5 +38,7 @@
   "skills/verification-before-completion",
   "skills/website-launch-check",
   "skills/writing-plans",
-  "skills/writing-skills"
+  "skills/writing-skills",
+  "sponsor",
+  "thinking"
 ]

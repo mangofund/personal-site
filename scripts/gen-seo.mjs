@@ -562,7 +562,10 @@ writeFileSync(join(DOCS_DIR, '.vitepress', 'latest-posts.json'), JSON.stringify(
 const ARCHIVE_ALL = 'all'
 // list 已按时间倒序;groupOf(it) 给出筛选分组名,tabs 的顺序为 [分组, 显示名];不传则按篇数排序、显示名即分组名。
 // style 'list':单列列表(标题 · 日期 / 缩略图 + 摘要 / 分隔线),否则是一大三小的卡片流
-function renderFeed(list, groupOf, tabs, style = 'cards') {
+// labels 可选:all / aria / empty,英文栏目页传入英文文案
+function renderFeed(list, groupOf, tabs, style = 'cards', labels = {}) {
+  const allLabel = labels.all || '全部'
+  const ariaLabel = labels.aria || '按分类筛选'
   const groupIndex = new Map()
   const cards = list.map((it, i) => {
     const group = groupOf(it)
@@ -595,9 +598,13 @@ function renderFeed(list, groupOf, tabs, style = 'cards') {
     const lit = JSON.stringify(id).replace(/"/g, "'")
     return `<button type="button" class="archive-tab" :aria-pressed="filter === ${lit}" @click="filter = ${lit}">${esc(label)}<span>${count}</span></button>`
   }
-  const tabsHtml = `<div class="archive-tabs" role="group" aria-label="按分类筛选">` +
-    tab(ARCHIVE_ALL, '全部', list.length) +
+  const tabsHtml = `<div class="archive-tabs" role="group" aria-label="${esc(ariaLabel)}">` +
+    tab(ARCHIVE_ALL, allLabel, list.length) +
     tabList.map(([g, label]) => tab(g, label, groupIndex.get(g))).join('') + '</div>'
+  const emptyHtml = list.length === 0 && labels.empty
+    ? `\n<p class="archive-empty" v-show="filter === '${ARCHIVE_ALL}'">${esc(labels.empty)}</p>`
+    : ''
+  if (list.length === 0 && labels.empty) return emptyHtml.trim()
   if (style === 'list') return `${tabsHtml}\n<div class="feed-list">\n${cards.join('\n')}\n</div>`
   return tabsHtml +
     `\n<div class="archive-feed" :data-filter="filter === '${ARCHIVE_ALL}' ? 'all' : 'cat'">\n${cards.join('\n')}\n</div>`
@@ -615,12 +622,14 @@ writeFeedBlock(join(DOCS_DIR, 'archive.md'), 'ARCHIVE', renderFeed(items, (it) =
 // ---- AI 栏目页:同归档页版式(无侧栏),收 docs/ai/ 下全部中文页面,按子目录筛选 ----
 // workflows 等落地页没写 date,也不进 RSS/归档,这里用内容最后修改日期补上
 const AI_TABS = [['trends', '趋势'], ['agents', 'Agent'], ['coding', 'Coding'], ['workflows', '工作流'], ['products', '产品'], ['thinking', '思考']]
-// 栏目页共用:收 docs/<栏目>/ 下全部中文页面,按子目录筛选
-function collectSectionItems(section) {
+const AI_TABS_EN = [['trends', 'Trends'], ['agents', 'Agents'], ['coding', 'Coding'], ['workflows', 'Workflows'], ['products', 'Products'], ['thinking', 'Thinking']]
+// 栏目页共用:收 docs/<栏目>/ 或 docs/en/<栏目>/ 下的页面,按子目录筛选
+function collectSectionItems(section, locale = 'zh') {
+  const prefix = locale === 'en' ? `en/${section}/` : `${section}/`
   const out = []
   for (const file of files) {
     const rel = relative(DOCS_DIR, file).split(sep).join('/')
-    if (!rel.startsWith(`${section}/`) || rel === `${section}/index.md`) continue
+    if (!rel.startsWith(prefix) || rel === `${prefix}index.md`) continue
     const fm = parseFrontmatter(file)
     if (!fm || !fm.title || fm.draft === 'true' || fm.noindex === 'true') continue
     const dateRaw = fm.date || String(contentLastmod(file, fm, gitDates, snapshotDates) || '').slice(0, 10)
@@ -629,7 +638,7 @@ function collectSectionItems(section) {
     out.push({
       title: fm.title,
       description: fm.description || '',
-      group: rel.split('/')[1],
+      group: rel.slice(prefix.length).split('/')[0],
       image: fm.image || (readFileSync(file, 'utf8').match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || ''),
       date: d,
       dateStr: dateRaw.replace(/-/g, '.'),
@@ -644,6 +653,37 @@ const THINKING_TABS = [['society', '社会'], ['first-principles', '第一性原
 const INVESTMENT_TABS = [['tesla', 'Tesla'], ['us-stocks', '美股'], ['ai-infrastructure', 'AI 基础设施'], ['asset-allocation', '资产配置'], ['methodology', '方法论']]
 writeFeedBlock(join(DOCS_DIR, 'thinking', 'index.md'), 'THINKING-FEED', renderFeed(collectSectionItems('thinking'), (it) => it.group, THINKING_TABS, 'list'))
 writeFeedBlock(join(DOCS_DIR, 'investment', 'index.md'), 'INVESTMENT-FEED', renderFeed(collectSectionItems('investment'), (it) => it.group, INVESTMENT_TABS, 'list'))
+
+// 英文栏目页只收 docs/en/ 下已有文章,不把中文稿写进英文列表
+const EN_FEED_LABELS = { all: 'All', aria: 'Filter by category', empty: 'No English notes in this section yet.' }
+const THINKING_TABS_EN = [['society', 'Society'], ['first-principles', 'First principles'], ['wealth', 'Wealth'], ['technology', 'Technology'], ['life', 'Life']]
+const INVESTMENT_TABS_EN = [['tesla', 'Tesla'], ['us-stocks', 'US stocks'], ['ai-infrastructure', 'AI infrastructure'], ['asset-allocation', 'Asset allocation'], ['methodology', 'Methodology']]
+writeFeedBlock(join(DOCS_DIR, 'en', 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai', 'en'), (it) => it.group, AI_TABS_EN, 'list', EN_FEED_LABELS))
+writeFeedBlock(join(DOCS_DIR, 'en', 'thinking', 'index.md'), 'THINKING-FEED', renderFeed(collectSectionItems('thinking', 'en'), (it) => it.group, THINKING_TABS_EN, 'list', EN_FEED_LABELS))
+writeFeedBlock(join(DOCS_DIR, 'en', 'investment', 'index.md'), 'INVESTMENT-FEED', renderFeed(collectSectionItems('investment', 'en'), (it) => it.group, INVESTMENT_TABS_EN, 'list', EN_FEED_LABELS))
+
+function collectEnglishArticles() {
+  const out = []
+  for (const file of files) {
+    if (!isEnglishDoc(file)) continue
+    const fm = parseFrontmatter(file)
+    if (!fm || !fm.title || !fm.date) continue
+    if (fm.draft === 'true' || fm.noindex === 'true') continue
+    const d = new Date(fm.date)
+    if (Number.isNaN(d.getTime())) continue
+    out.push({
+      title: fm.title,
+      description: fm.description || '',
+      category: fm.category || 'Uncategorized',
+      image: fm.image || (readFileSync(file, 'utf8').match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || ''),
+      date: d,
+      dateStr: fm.date.replace(/-/g, '.'),
+      urlPath: baseNoSlash + toUrlPath(file)
+    })
+  }
+  return out.sort((a, b) => b.date - a.date)
+}
+writeFeedBlock(join(DOCS_DIR, 'en', 'archive.md'), 'ARCHIVE', renderFeed(collectEnglishArticles(), (it) => it.category, undefined, 'cards', EN_FEED_LABELS))
 
 // ---- articles.json:给「我的收藏」页用的文章清单(含更新时间) ----
 // updated 取 git 最后提交时间(frontmatter 写了 updated 则优先),收藏夹用它判断"有更新"

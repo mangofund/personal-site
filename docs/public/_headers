@@ -163,6 +163,12 @@
 /en/ai/coding/muse-auto-deploy/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/ai
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/ai/products/bing-wallpaper-for-mac
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -217,6 +223,12 @@
 /en/ai/workflows/website-launch-checklist/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/archive
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/archive/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/friends
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -227,6 +239,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/investment
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/investment/
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/investment/tesla/q3-earnings-preview
@@ -377,6 +395,18 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/skills/writing-skills/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/sponsor
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/sponsor/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/thinking
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/thinking/
   Cache-Control: public, max-age=0, must-revalidate
 
 /friends

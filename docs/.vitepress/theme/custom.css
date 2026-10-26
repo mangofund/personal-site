@@ -1434,7 +1434,8 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   color: var(--vp-c-text-1);
 }
 
-.archive-header p {
+.archive-header p,
+.archive-empty {
   margin-top: 6px;
   font-size: 15px;
   color: var(--vp-c-text-2);
