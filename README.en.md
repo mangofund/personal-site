@@ -48,8 +48,8 @@ Without `SITE_URL`, the canonical host defaults to `https://mangofund.github.io`
 These blocks are rewritten by the build. Do not edit them by hand:
 
 - `LATEST-START` … `LATEST-END` in `docs/index.md`
-- `ARCHIVE-START` … `ARCHIVE-END` in `docs/archive.md`
-- `*-FEED` blocks in `docs/ai/index.md`, `docs/thinking/index.md`, and `docs/investment/index.md`
+- `ARCHIVE-START` … `ARCHIVE-END` in `docs/archive.md` and `docs/en/archive.md`
+- `*-FEED` blocks in `docs/ai/index.md`, `docs/thinking/index.md`, `docs/investment/index.md`, and the same section indexes under `docs/en/`. The English lists include only files under `docs/en/`
 
 `scripts/content-dates.json` and `docs/public/articles.json` change with git timestamp formatting. If you did not mean to change content, restore them before committing:
 
@@ -71,12 +71,12 @@ Everything published is under `docs/`. An English page belongs at the same relat
 | `docs/skills/` | Skill pages. Entries live in `docs/.vitepress/theme/homeSkills.ts`. Sources live in `docs/public/skills/sources/` and are zipped at build time |
 | `docs/projects/` | Projects |
 | `docs/about/` | About |
-| `docs/archive.md` | Archive |
-| `docs/friends.md`, `subscribe.md`, `guestbook.md`, `sponsor.md`, `privacy.md`, `utm.md` | Friends, subscribe, guestbook, sponsor, privacy, UTM link builder |
+| `docs/archive.md`, `docs/en/archive.md` | Chinese archive and English archive |
+| `docs/friends.md`, `subscribe.md`, `guestbook.md`, `sponsor.md`, `privacy.md`, `utm.md` | Friends, subscribe, guestbook, sponsor, privacy, UTM link builder. English copies today: `docs/en/friends.md`, `docs/en/sponsor.md` |
 
 `docs/public/skills/**/*.md` is in `srcExclude` and is not turned into a site page. Put images in `docs/public/images/`. Keep each file under 200KB and no wider than 1600px.
 
-`docs/en/` currently has the home page, some AI and investing posts, skills, projects, about, and the friends page. There is no English thinking section yet.
+`docs/en/` has the home page, section indexes for AI, thinking, and investing, an archive, some articles, skills, projects, about, friends, and sponsor. A section index does not mean every Chinese post has an English version. The thinking index exists and currently lists no English articles.
 
 ## Add an article
 

@@ -48,8 +48,8 @@ npm run docs:preview
 本地构建会改写这些生成区块，不要手改：
 
 - `docs/index.md` 的 `LATEST-START` … `LATEST-END`
-- `docs/archive.md` 的 `ARCHIVE-START` … `ARCHIVE-END`
-- `docs/ai/index.md`、`docs/thinking/index.md`、`docs/investment/index.md` 里的 `*-FEED` 区块
+- `docs/archive.md` 和 `docs/en/archive.md` 的 `ARCHIVE-START` … `ARCHIVE-END`
+- `docs/ai/index.md`、`docs/thinking/index.md`、`docs/investment/index.md`，以及 `docs/en/` 下同名栏目页里的 `*-FEED` 区块。英文列表只收 `docs/en/` 里的文章
 
 `scripts/content-dates.json` 和 `docs/public/articles.json` 会随 git 时间格式变动。没有故意改内容时，提交前还原：
 
@@ -71,12 +71,12 @@ git checkout -- scripts/content-dates.json docs/public/articles.json
 | `docs/skills/` | 技能页。条目数据在 `docs/.vitepress/theme/homeSkills.ts`；源文件在 `docs/public/skills/sources/`，构建时打成 ZIP |
 | `docs/projects/` | 项目 |
 | `docs/about/` | 关于 |
-| `docs/archive.md` | 归档 |
-| `docs/friends.md`、`subscribe.md`、`guestbook.md`、`sponsor.md`、`privacy.md`、`utm.md` | 友链、订阅、留言、赞助、隐私、UTM 生成页 |
+| `docs/archive.md`、`docs/en/archive.md` | 中文归档、英文归档 |
+| `docs/friends.md`、`subscribe.md`、`guestbook.md`、`sponsor.md`、`privacy.md`、`utm.md` | 友链、订阅、留言、赞助、隐私、UTM 生成页。英文稿目前有 `docs/en/friends.md`、`docs/en/sponsor.md` |
 
 `docs/public/skills/**/*.md` 被 `srcExclude` 排除，不会变成站内页面。图片放 `docs/public/images/`，上传前压到 200KB 以内，宽度不超过 1600px。
 
-`docs/en/` 目前覆盖首页、部分 AI / 投资文章、技能、项目、关于和友链。思考栏目还没有英文目录。
+`docs/en/` 有首页、AI / 思考 / 投资栏目页、归档、部分文章、技能、项目、关于、友链和赞助。栏目页在，不代表每篇中文稿都有英文版。思考栏目页目前没有英文文章，构建后列表是空的。
 
 ## 新增文章
 
