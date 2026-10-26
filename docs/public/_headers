@@ -37,6 +37,12 @@
 /ai/coding/ai-coding-leverage/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/coding/claude-code-team-review
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/coding/claude-code-team-review/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/coding/muse-auto-deploy
   Cache-Control: public, max-age=0, must-revalidate
 
