@@ -1,10 +1,15 @@
 ---
-image: /images/claude-ban-reasons/cover.jpg
 title: Claude 为什么动不动封号？官方条款 vs X 上的防封玄学
 description: Anthropic 半年封了 1140 万账号。官方三类封因、Supported Regions（含控股穿透）、Usage Policy 与社区传闻怎么对照，以及被封后能做什么。
 date: 2026-10-27
 category: AI
-tags: [AI, Claude, Anthropic, 封号, Usage Policy]
+tags:
+  - AI
+  - Claude
+  - Anthropic
+  - 封号
+  - Usage Policy
+image: /images/claude-ban-reasons/cover.jpg
 draft: false
 ---
 
@@ -12,7 +17,7 @@ draft: false
 
 <div class="meta-line">2026.10.27 · AI · 阅读约 11 分钟</div>
 
-Claude 一封号，X 上就炸一轮。
+昨天，我的Claude 被封号了，很郁闷。我就去X 上看大家是怎么对待被封号的情况。
 
 有人晒截图，有人复盘「指纹」，有人卖「防封 checklist」。
 
@@ -381,7 +386,7 @@ Claude 封号讨论热，是因为产品热，也因为执行量大。
 
 三类封因已经写在 Help Center 上：反复违反 Usage Policy、从不支持地区创建、违反服务条款。
 
-对中文用户，**Supported Regions（含控股穿透）**往往比「提示词技巧」更先决定你能不能合规使用。
+对中文用户，\*\*Supported Regions（含控股穿透）\*\*往往比「提示词技巧」更先决定你能不能合规使用。
 
 Usage Policy 的平台滥用条款，则覆盖共享与转售/proxy、订阅当管道、蒸馏、欺诈支付等社区高频话题。
 
