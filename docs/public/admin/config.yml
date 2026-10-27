@@ -1,0 +1,189 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# 浏览器编辑：https://promangofund.com/admin/
+# 站长用 Sign in with Token（GitHub PAT）。不要加 base_url，OAuth 以后再接。
+# 不收录 docs/public、docs/.vitepress，也不收录 docs/public/skills 里的技能 ZIP 源文件。
+
+backend:
+  name: github
+  repo: mangofund/personal-site
+  branch: main
+
+site_url: https://promangofund.com
+# 空的可选字段不写回 front matter，避免栏目页被补上 date: ""。
+# 布尔值 false 仍会写出，所以草稿字段只放在文章集合里。
+output:
+  omit_empty_optional_fields: true
+
+media_folder: docs/public/images
+public_folder: /images
+
+collections:
+  - name: ai
+    label: AI
+    label_singular: 文章
+    folder: docs/ai
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: ai/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    # 与现有文章 front matter 一致。未声明的键（keywords、faq、aside、layout 等）保存时保留。
+    fields: &article_fields
+      - { name: title, label: 标题, widget: string }
+      - { name: description, label: 摘要, widget: text, required: false }
+      - name: date
+        label: 日期
+        widget: datetime
+        type: date
+        input_timezone: utc
+        required: false
+      - name: category
+        label: 栏目
+        widget: string
+        required: false
+        hint: 中文常用 AI、投资、思考；英文投资稿用 Investing
+      - { name: tags, label: 标签, widget: list, required: false }
+      - name: image
+        label: 封面
+        widget: image
+        required: false
+        hint: 对应 /images/...，文件在 docs/public/images/
+      - { name: draft, label: 草稿, widget: boolean, required: false }
+      - { name: body, label: 正文, widget: markdown }
+  - name: investment
+    label: 投资
+    label_singular: 文章
+    folder: docs/investment
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: investment/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *article_fields
+  - name: thinking
+    label: 思考
+    label_singular: 文章
+    folder: docs/thinking
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: thinking/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *article_fields
+  - name: projects
+    label: 项目
+    label_singular: 页面
+    folder: docs/projects
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: projects/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: &page_fields
+      - { name: title, label: 标题, widget: string }
+      - { name: description, label: 摘要, widget: text, required: false }
+      - { name: body, label: 正文, widget: markdown }
+  - name: about
+    label: 关于
+    label_singular: 页面
+    folder: docs/about
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: about/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *page_fields
+  - name: skills
+    label: 技能
+    label_singular: 技能页
+    folder: docs/skills
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: skills/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    # 技能页，不是 docs/public/skills 里的 ZIP 源文件。
+    fields: &skill_fields
+      - { name: title, label: 标题, widget: string }
+      - { name: description, label: 摘要, widget: text, required: false }
+      - name: updated
+        label: 更新日期
+        widget: datetime
+        type: date
+        input_timezone: utc
+        required: false
+      - { name: aside, label: 侧栏, widget: boolean, required: false }
+      - { name: pageClass, label: 页面 class, widget: string, required: false }
+      - { name: body, label: 正文, widget: markdown }
+  - name: en-ai
+    label: English / AI
+    label_singular: Article
+    folder: docs/en/ai
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: en/ai/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *article_fields
+  - name: en-investment
+    label: English / Investing
+    label_singular: Article
+    folder: docs/en/investment
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: en/investment/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *article_fields
+  - name: en-thinking
+    label: English / Thinking
+    label_singular: Article
+    folder: docs/en/thinking
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: en/thinking/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *article_fields
+  - name: en-projects
+    label: English / Projects
+    label_singular: Page
+    folder: docs/en/projects
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: en/projects/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *page_fields
+  - name: en-about
+    label: English / About
+    label_singular: Page
+    folder: docs/en/about
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: en/about/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *page_fields
+  - name: en-skills
+    label: English / Skills
+    label_singular: Skill page
+    folder: docs/en/skills
+    create: true
+    extension: md
+    format: frontmatter
+    preview_path: en/skills/{{slug}}
+    nested: { subfolders: false }
+    meta: { path: {} }
+    fields: *skill_fields
