@@ -1,12 +1,13 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 # 浏览器编辑：https://promangofund.com/admin/
-# 站长用 Sign in with Token（GitHub PAT）。不要加 base_url，OAuth 以后再接。
+# Sign in with GitHub 走 sveltia-cms-auth Worker（OAuth）。Sign in with Token（GitHub PAT）仍可作为备用。
 # 不收录 docs/public、docs/.vitepress，也不收录 docs/public/skills 里的技能 ZIP 源文件。
 
 backend:
   name: github
   repo: mangofund/personal-site
   branch: main
+  base_url: https://sveltia-cms-auth.lyrics-effect.workers.dev
 
 site_url: https://promangofund.com
 # 空的可选字段不写回 front matter，避免栏目页被补上 date: ""。
