@@ -109,6 +109,9 @@ console.log(`[check-seo] 检查 ${pages.length} 个页面...`)
 
 // 1. 每个页面有唯一的 title（跳过 GSC 验证文件等特殊页面）
 const skipFiles = ['google', '404.html']
+function isCmsAdmin(filePath) {
+  return filePath.includes('/admin/')
+}
 const titles = new Map()
 for (const p of pages) {
   if (skipFiles.some(s => p.includes(s))) continue
@@ -130,7 +133,7 @@ for (const [t, ps] of titles) {
 
 // 2. 每个页面有 description（跳过特殊页面，允许首页等用默认）
 for (const p of pages) {
-  if (p.endsWith('404.html') || p.includes('google')) continue
+  if (p.endsWith('404.html') || p.includes('google') || isCmsAdmin(p)) continue
   const html = readFileSync(p, 'utf8')
   const desc = getMeta(html, 'description')
   if (!desc) errors.push(`${p}: 缺少 meta description`)
@@ -140,7 +143,7 @@ for (const p of pages) {
 // 允许的域名：环境变量 CANONICAL_URL 或默认的 github.io（本地构建）
 const allowedDomains = ['https://promangofund.com', 'https://mangofund.github.io', 'https://mangofund.pages.dev']
 for (const p of pages) {
-  if (p.includes('google')) continue
+  if (p.includes('google') || isCmsAdmin(p)) continue
   const html = readFileSync(p, 'utf8')
   const m = html.match(/<link rel="canonical" href="([^"]+)"/)
   if (!m) {
@@ -213,6 +216,12 @@ if (!existsSync(headersFile)) {
   }
   for (const h of ['X-Content-Type-Options: nosniff', 'Referrer-Policy:', 'X-Frame-Options:']) {
     if (!headers.includes(h)) errors.push(`_headers 缺少安全头 ${h}`)
+  }
+  if (!headers.includes('/admin/') || !headers.includes('https://unpkg.com') || !headers.includes('https://api.github.com')) {
+    errors.push('_headers 未给 /admin 放行 Sveltia CMS 与 GitHub API')
+  }
+  if (!headers.includes("script-src 'self' https://unpkg.com")) {
+    errors.push('_headers 的管理页 CSP 未限制 script-src')
   }
 }
 
@@ -1016,7 +1025,7 @@ if (!existsSync(robots)) warnings.push('缺少 robots.txt')
 const expectedNoindex = ['timeline', 'muse-seo-automation', 'guestbook', 'sponsor', 'subscribe']  // timeline/guestbook/sponsor/subscribe: 主动 noindex；muse-seo-automation: 正文里出现该词
 for (const p of pages) {
   const html = readFileSync(p, 'utf8')
-  if (html.includes('noindex') && !expectedNoindex.some(s => p.includes(s))) {
+  if (html.includes('noindex') && !expectedNoindex.some(s => p.includes(s)) && !isCmsAdmin(p)) {
     warnings.push(`${p}: 发现 noindex（确认是否预期）`)
   }
 }

@@ -283,7 +283,18 @@ function pushCache(pattern, value) {
   headerBlocks.push(`${pattern}\n  Cache-Control: ${value}\n`)
 }
 // 安全响应头（参考 claude-seo 的技术审计清单）。与 Cache-Control 是不同的头，/* 不会和缓存规则叠加。
-// 不设 CSP：站内注入 GA4 / AdSense，贸然收紧会拦截脚本。
+// 全站不设 CSP：站内注入 GA4 / AdSense，贸然收紧会拦截脚本。
+// /admin 单独收紧。与 docs/public/admin/index.html 的 meta CSP 保持一致（Sveltia CSP builder：基础指令 + GitHub）。
+const ADMIN_CSP = [
+  "style-src 'self' 'unsafe-inline'",
+  'font-src \'self\' https://cdn.jsdelivr.net',
+  "img-src 'self' blob: data: https://*.githubusercontent.com",
+  'media-src blob:',
+  'frame-src blob:',
+  "script-src 'self' https://unpkg.com",
+  "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com",
+  'manifest-src blob:'
+].join('; ')
 headerBlocks.push([
   '/*',
   '  X-Content-Type-Options: nosniff',
@@ -314,6 +325,18 @@ pushCache('/skills/zips/*', htmlCache)
 for (const icon of ['/favicon.ico', '/favicon-32x32.png', '/favicon-16x16.png', '/apple-touch-icon.png']) {
   pushCache(icon, `public, max-age=${IMAGE_CACHE_SECONDS}`)
 }
+const adminHeaderBody = [
+  '  Cache-Control: public, max-age=0, must-revalidate',
+  `  Content-Security-Policy: ${ADMIN_CSP}`,
+  '  X-Content-Type-Options: nosniff',
+  '  X-Frame-Options: SAMEORIGIN',
+  '  Referrer-Policy: strict-origin-when-cross-origin',
+  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  ''
+].join('\n')
+for (const pattern of ['/admin', '/admin/', '/admin/*']) {
+  headerBlocks.push(`${pattern}\n${adminHeaderBody}`)
+}
 writeFileSync(join(PUBLIC_DIR, '_headers'), headerBlocks.join('\n'))
 writeFileSync(join(PUBLIC_DIR, 'robots.txt'),
 `# PRO的茶里芒果 - 爬虫访问策略
@@ -324,6 +347,7 @@ writeFileSync(join(PUBLIC_DIR, 'robots.txt'),
 
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 # --- AI 搜索爬虫：明确允许 ---
 # 用于 ChatGPT / Claude / Perplexity 的搜索结果展示，不用于模型训练

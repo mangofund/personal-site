@@ -85,6 +85,23 @@ git checkout -- scripts/content-dates.json docs/public/articles.json
 3. 需要出现在侧栏时，改 `docs/.vitepress/config.ts` 的 `sidebar`（英文在 `locales.en.themeConfig.sidebar`）。栏目列表本身由 `gen-seo.mjs` 按 frontmatter 生成，不用手改 `*-FEED`。
 4. 构建一次，确认列表、sitemap 和 SEO 检查通过。
 
+## 在浏览器里改文章
+
+管理页是 [Sveltia CMS](https://sveltiacms.app/)，地址 <https://promangofund.com/admin/>（`/admin/index.html` 也可以）。页脚的「编辑」链到这里，并加了 `target="_self"`，避免被 VitePress 的站内路由当成一篇不存在的文章。
+
+本地 `npm run docs:dev` 不会把 `/admin/` 落到 `index.html`，请打开 <http://localhost:5173/admin/index.html>。构建后的预览和 Cloudflare Pages 上，`/admin/` 可用。
+
+登录用 **Sign In Using Access Token**（文档里也叫 Sign In with Token），贴 GitHub Personal Access Token。旁边的 Sign In with GitHub 会走 Netlify OAuth，这个站不在 Netlify 上，点了不会成功。不要开 Netlify Identity，`docs/public/admin/config.yml` 里也不要写 `base_url`（OAuth 以后再加）。界面语言跟着浏览器，中文浏览器会显示中文。
+
+Fine-grained token：仓库选 `mangofund/personal-site`，权限：
+
+- Contents：Read and write（读文章、提交到 `main`）
+- Pull requests：Read and write（登录页预选；当前是直接提交 `main`，还没用 Editorial Workflow）
+
+经典 token 用 `repo` scope 即可。令牌只留在浏览器里，不要写进仓库。
+
+保存会直接提交 `main`，Cloudflare Pages 大约 1 分钟上线。栏目 `index.md` 里的列表由 `scripts/gen-seo.mjs` 生成，不要在 CMS 里改那一块。新建文章时把 Slug 改成英文短横线文件名（例如 `claude-code-team-review`），和现有文章一致。需要出现在侧栏时，仍改 `docs/.vitepress/config.ts`。封面传到媒体库，落在 `docs/public/images/`，文章里写 `/images/...`。
+
 ## 部署
 
 主站是 **Cloudflare Pages**，不是 GitHub Pages。
