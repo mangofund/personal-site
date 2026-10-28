@@ -126,9 +126,12 @@ function ensureGitHistory() {
   }
 }
 
-// 每个文件只保留最新一次提交的 committer 时间(%cI)。不用工作区 mtime:checkout/构建会把它刷成现在。
+// 每个文件的 map 值是最新一次提交的 committer 时间(%cI)，给 lastmod / updated 用。
+// history 另存该文件全部提交时间（新→旧），同日排序时只取与 frontmatter date 同一天的那次。
+// 不用工作区 mtime:checkout/构建会把它刷成现在。
 function loadGitDates() {
   const map = new Map()
+  const history = new Map()
   try {
     const out = execFileSync('git', ['log', '--format=%cI', '--name-only'], {
       cwd: REPO_DIR,
@@ -143,11 +146,19 @@ function loadGitDates() {
         pending = text
         continue
       }
-      if (pending && !map.has(text)) map.set(text, pending)
+      if (!pending) continue
+      if (!map.has(text)) map.set(text, pending)
+      let commits = history.get(text)
+      if (!commits) {
+        commits = []
+        history.set(text, commits)
+      }
+      commits.push(pending)
     }
   } catch {
     console.warn('[gen-seo] 读取 git 提交时间失败,lastmod 回退到 frontmatter / content-dates.json')
   }
+  map.history = history
   return map
 }
 
@@ -199,6 +210,54 @@ try {
   writeFileSync(CONTENT_DATES_PATH, snapshotOut)
 }
 
+// frontmatter 的 date 只到日历日，解析后都是 UTC 午夜，同日文章时间戳相同。
+// 次级键：显式 order（整数，越大越靠前；未写 order 时 featured: true 视为 1），
+// 再次是与 date 同一日历日（Asia/Shanghai）的 git 提交时间：取该日最新一次提交，
+// 忽略之后改旧文的提交（浅克隆缺历史时回退 content-dates.json 里同一天的时间）。
+// 展示仍用 dateStr，不把时间写进 date。
+const SHANGHAI_OFFSET_MS = 8 * 60 * 60 * 1000
+
+function shanghaiDay(ms) {
+  const shifted = new Date(ms + SHANGHAI_OFFSET_MS)
+  const month = String(shifted.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(shifted.getUTCDate()).padStart(2, '0')
+  return `${shifted.getUTCFullYear()}-${month}-${day}`
+}
+
+function publishedAtOf(file, frontmatterDate) {
+  const rel = repoRel(file)
+  const day = String(frontmatterDate || '').slice(0, 10)
+  const wantDay = /^\d{4}-\d{2}-\d{2}$/.test(day)
+  const history = gitDates.history?.get(rel) || []
+  for (const raw of history) {
+    const parsed = Date.parse(raw)
+    if (Number.isNaN(parsed)) continue
+    if (wantDay && shanghaiDay(parsed) !== day) continue
+    return parsed
+  }
+  const snap = Date.parse(snapshotDates.get(rel) || '')
+  if (Number.isNaN(snap)) return 0
+  if (wantDay && shanghaiDay(snap) !== day) return 0
+  return snap
+}
+
+function articleOrder(fm) {
+  if (!fm) return 0
+  if (fm.order != null && String(fm.order).trim() !== '') {
+    const n = Number(fm.order)
+    if (Number.isFinite(n)) return n
+  }
+  return fm.featured === 'true' ? 1 : 0
+}
+
+function compareByRecency(a, b) {
+  const byDate = b.date - a.date
+  if (byDate !== 0) return byDate
+  const byOrder = (b.order || 0) - (a.order || 0)
+  if (byOrder !== 0) return byOrder
+  return (b.publishedAt || 0) - (a.publishedAt || 0)
+}
+
 // ---- sitemap.xml:全部会构建出来的真实页面,noindex 页除外 ----
 // 2026-10-23 用户拍板:noindex 页移出 sitemap(Google 指引:noindex URL 不应进 sitemap)。
 // 页面本身照常构建、可访问,只是不主动提交给搜索引擎;RSS 继续只收正式文章。
@@ -236,11 +295,13 @@ for (const file of files) {
     image: fm.image || (readFileSync(file, 'utf8').match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || ''),
     date: d,
     dateStr: fm.date.replace(/-/g, '.'),
+    order: articleOrder(fm),
+    publishedAt: publishedAtOf(file, fm.date),
     link: CANONICAL_URL + toUrlPath(file),
     urlPath: baseNoSlash + toUrlPath(file)
   })
 }
-items.sort((a, b) => b.date - a.date)
+items.sort(compareByRecency)
 
 const feedItems = items
   .map(
@@ -415,11 +476,14 @@ for (const file of files) {
   enLlmsItems.push({
     title: fm.title,
     description: fm.description || '',
+    date: d,
     dateStr: fm.date.replace(/-/g, '.'),
+    order: articleOrder(fm),
+    publishedAt: publishedAtOf(file, fm.date),
     link: CANONICAL_URL + toUrlPath(file)
   })
 }
-enLlmsItems.sort((a, b) => b.dateStr.localeCompare(a.dateStr))
+enLlmsItems.sort(compareByRecency)
 const enPageItems = []
 for (const file of files) {
   if (!isEnglishDoc(file)) continue
@@ -675,10 +739,12 @@ function collectSectionItems(section, locale = 'zh') {
       image: fm.image || (readFileSync(file, 'utf8').match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || ''),
       date: d,
       dateStr: dateRaw.replace(/-/g, '.'),
+      order: articleOrder(fm),
+      publishedAt: publishedAtOf(file, fm.date || dateRaw),
       urlPath: baseNoSlash + toUrlPath(file)
     })
   }
-  return out.sort((a, b) => b.date - a.date)
+  return out.sort(compareByRecency)
 }
 writeFeedBlock(join(DOCS_DIR, 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai'), (it) => it.group, AI_TABS, 'list'))
 
@@ -711,10 +777,12 @@ function collectEnglishArticles() {
       image: fm.image || (readFileSync(file, 'utf8').match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || ''),
       date: d,
       dateStr: fm.date.replace(/-/g, '.'),
+      order: articleOrder(fm),
+      publishedAt: publishedAtOf(file, fm.date),
       urlPath: baseNoSlash + toUrlPath(file)
     })
   }
-  return out.sort((a, b) => b.date - a.date)
+  return out.sort(compareByRecency)
 }
 writeFeedBlock(join(DOCS_DIR, 'en', 'archive.md'), 'ARCHIVE', renderFeed(collectEnglishArticles(), (it) => it.category, undefined, 'cards', EN_FEED_LABELS))
 
@@ -748,10 +816,27 @@ for (const file of files) {
         .filter(Boolean)
     }
   }
-  articleList.push({ key: rel, title: fm.title, date: fm.date, updated, tags })
+  articleList.push({
+    key: rel,
+    title: fm.title,
+    date: fm.date,
+    updated,
+    tags,
+    order: articleOrder(fm),
+    publishedAt: publishedAtOf(file, fm.date)
+  })
 }
-articleList.sort((a, b) => b.date.localeCompare(a.date))
-writeFileSync(join(PUBLIC_DIR, 'articles.json'), JSON.stringify(articleList))
+articleList.sort((a, b) => {
+  const byDate = b.date.localeCompare(a.date)
+  if (byDate !== 0) return byDate
+  const byOrder = (b.order || 0) - (a.order || 0)
+  if (byOrder !== 0) return byOrder
+  return (b.publishedAt || 0) - (a.publishedAt || 0)
+})
+writeFileSync(
+  join(PUBLIC_DIR, 'articles.json'),
+  JSON.stringify(articleList.map(({ key, title, date, updated, tags }) => ({ key, title, date, updated, tags })))
+)
 
 const zhSlugs = new Set()
 const enSlugs = new Set()

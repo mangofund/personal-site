@@ -53,7 +53,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/agents/multiagent-eng-problems"><img class="hc-img" src="/images/multiagent-eng-problems.jpg" alt="工程师觉得自己要失业？多 Agent 真正卡在软件工程" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/claude-drug-development"><img class="hc-img" src="/images/claude-drug-development/cover.jpg" alt="用 Claude 加速药物研发：早期进展" loading="eager" fetchpriority="high" decoding="async" /></a>
         <a class="hc-slide" href="/ai/design/how-i-design-with-ai-pt1"><img class="hc-img" src="/images/how-i-design-with-ai-pt1/cover.jpg" alt="我如何用 AI 做设计（其一）" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/design/how-i-design-with-ai-pt2"><img class="hc-img" src="/images/how-i-design-with-ai-pt2/cover.jpg" alt="我如何用 AI 做设计（其二）" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
@@ -61,9 +61,9 @@ onUnmounted(() => { if (hcStop) hcStop() })
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/agents/multiagent-eng-problems">
+        <a class="hc-panel is-active" href="/ai/trends/claude-drug-development">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-28">2026.10.28</time></span>
-          <strong>工程师觉得自己要失业？多 Agent 真正卡在软件工程</strong><small>Anthropic 平台负责人 Katelyn Lesse 说，多 Agent 系统要解锁真正硬问题，必须先由软件工程师把基础设施、身份授权、隔离和熔断做出来。</small>
+          <strong>用 Claude 加速药物研发：早期进展</strong><small>Anthropic 生命科学团队与六家药企/机构合作，用 Claude 覆盖靶点、分子设计、优化、生产文书与临床试验规划；并收购 Mithril，推进罕见肌营养不良症项目。</small>
         </a>
         <a class="hc-panel" href="/ai/design/how-i-design-with-ai-pt1">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-28">2026.10.28</time></span>
@@ -75,17 +75,17 @@ onUnmounted(() => { if (hcStop) hcStop() })
         </a>
       </div>
     </div>
-      <a class="article-card" href="/ai/trends/claude-drug-development">
-        <img class="article-card-thumb" src="/images/claude-drug-development/cover.jpg" alt="用 Claude 加速药物研发：早期进展" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-28">2026.10.28</time></span><strong>用 Claude 加速药物研发：早期进展</strong></div>
-      </a>
-      <a class="article-card" href="/ai/coding/claude-code-team-review">
-        <img class="article-card-thumb" src="/images/claude-code-team-review/cover.jpg" alt="Claude Code 团队如何做代码审查" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-27">2026.10.27</time></span><strong>Claude Code 团队如何做代码审查</strong></div>
+      <a class="article-card" href="/ai/agents/multiagent-eng-problems">
+        <img class="article-card-thumb" src="/images/multiagent-eng-problems.jpg" alt="工程师觉得自己要失业？多 Agent 真正卡在软件工程" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-28">2026.10.28</time></span><strong>工程师觉得自己要失业？多 Agent 真正卡在软件工程</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-ban-reasons">
         <img class="article-card-thumb" src="/images/claude-ban-reasons/cover.jpg" alt="Claude 为什么动不动封号？官方条款 vs X 上的防封玄学" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-27">2026.10.27</time></span><strong>Claude 为什么动不动封号？官方条款 vs X 上的防封玄学</strong></div>
+      </a>
+      <a class="article-card" href="/ai/coding/claude-code-team-review">
+        <img class="article-card-thumb" src="/images/claude-code-team-review/cover.jpg" alt="Claude Code 团队如何做代码审查" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-27">2026.10.27</time></span><strong>Claude Code 团队如何做代码审查</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -93,7 +93,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
-      <li><a href="/thinking/technology/ai-most-important-ability"><span class="latest-row-head"><span class="latest-row-title">当 AI 能帮你做任何事，你最重要的能力是什么？</span><span class="latest-row-date">· <time datetime="2026-10-25">2026.10.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-most-important-ability-cover.jpg" alt="当 AI 能帮你做任何事，你最重要的能力是什么？" loading="lazy" decoding="async" /><span class="latest-row-desc">AI 时代最重要的能力是什么？当 AI 让想法的实现成本大幅下降，真正决定一个人能走多远的，不再是能做多少事，而是判断什么事值得做。</span></span></a></li>
+      <li><a href="/ai/coding/muse-build-personal-site"><span class="latest-row-head"><span class="latest-row-title">从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程</span><span class="latest-row-date">· <time datetime="2026-10-25">2026.10.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/muse-site-home.png" alt="从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程" loading="lazy" decoding="async" /><span class="latest-row-desc">这个站从 10 月 5 日第一行配置，到今天每一次改版，都是我一句话、Muse 去干活。</span></span></a></li>
       <li><a href="/ai/workflows/my-ai-skills-part-1"><span class="latest-row-head"><span class="latest-row-title">我的 AI 技能包（上）：每天在用的 10 个技能，全部带演示视频</span><span class="latest-row-date">· <time datetime="2026-10-23">2026.10.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-skills-part1-cover.jpg" alt="我的 AI 技能包（上）：每天在用的 10 个技能，全部带演示视频" loading="lazy" decoding="async" /><span class="latest-row-desc">我给自己攒了 22 个 AI 技能，这篇只写每天真在用的 10 个：去AI味写作、封面图生成、水彩插画、浏览器自动化、个人网站搭建、原理解剖图、图解设计、一稿多用、数据分析、出海新词上站。每个技能都配了一段 30 秒演示视频。</span></span></a></li>
       <li><a href="/ai/workflows/my-ai-skills-part-2"><span class="latest-row-head"><span class="latest-row-title">我的 AI 技能包（下）：另外 10 个每天在用的技能，全部带演示视频</span><span class="latest-row-date">· <time datetime="2026-10-23">2026.10.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-skills-part2-cover.jpg" alt="我的 AI 技能包（下）：另外 10 个每天在用的技能，全部带演示视频" loading="lazy" decoding="async" /><span class="latest-row-desc">技能包下篇：AI 界面设计规范、前端设计、UI 设计参考清单、出海变现转化、技能编写、头脑风暴、系统化排查、交付前验证、网站上线验收、AI 项目交付。管设计、管变现、管排查、管交付，每个技能配一段 30 秒演示视频。</span></span></a></li>
       <li><a href="/ai/products/bing-wallpaper-for-mac"><span class="latest-row-head"><span class="latest-row-title">必应每日壁纸 for Mac：用 REA 逆向 Windows 官方版，复刻到 macOS 的开源应用</span><span class="latest-row-date">· <time datetime="2026-10-22">2026.10.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/bing-wallpaper/cover.jpg" alt="必应每日壁纸 for Mac：用 REA 逆向 Windows 官方版，复刻到 macOS 的开源应用" loading="lazy" decoding="async" /><span class="latest-row-desc">微软官方必应壁纸只有 Windows 版。fairzy 用 REA 逆向官方版 1.1.469.0 的行为，用 Swift 在 macOS 上原生复刻：菜单栏应用、每 30 分钟检查新图、12 个市场、主题轮换，MIT 开源免费。</span></span></a></li>
