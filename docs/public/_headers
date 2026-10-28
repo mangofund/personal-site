@@ -694,6 +694,12 @@
 /utm/
   Cache-Control: public, max-age=0, must-revalidate
 
+/xmade-privacy
+  Cache-Control: public, max-age=0, must-revalidate
+
+/xmade-privacy/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /feed.xml
   Cache-Control: public, max-age=0, must-revalidate
 
