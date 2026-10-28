@@ -645,7 +645,7 @@ writeFeedBlock(join(DOCS_DIR, 'archive.md'), 'ARCHIVE', renderFeed(items, (it) =
 
 // ---- AI 栏目页:同归档页版式(无侧栏),收 docs/ai/ 下全部中文页面,按子目录筛选 ----
 // workflows 等落地页没写 date,也不进 RSS/归档,这里用内容最后修改日期补上
-const AI_TABS = [['trends', '趋势'], ['agents', 'Agent'], ['coding', 'Coding'], ['workflows', '工作流'], ['products', '产品'], ['thinking', '思考']]
+const AI_TABS = [['design', '设计'], ['trends', '趋势'], ['agents', 'Agent'], ['coding', 'Coding'], ['workflows', '工作流'], ['products', '产品'], ['thinking', '思考']]
 const AI_TABS_EN = [['trends', 'Trends'], ['agents', 'Agents'], ['coding', 'Coding'], ['workflows', 'Workflows'], ['products', 'Products'], ['thinking', 'Thinking']]
 // 栏目页共用:收 docs/<栏目>/ 或 docs/en/<栏目>/ 下的页面,按子目录筛选
 function collectSectionItems(section, locale = 'zh') {
