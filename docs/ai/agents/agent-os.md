@@ -75,6 +75,7 @@ Ben Thompson 9 月的文章点破了价值归属：利润不在模型本身，�
 它的位置在中间那层，干协调的活。
 ## 相关文章
 
+- [工程师觉得自己要失业？多 Agent 真正卡在软件工程](/ai/agents/multiagent-eng-problems)
 - [AI 产业的下一阶段](/ai/trends/next-stage)
 - [AI 编程的真正杠杆](/ai/coding/ai-coding-leverage)
 
