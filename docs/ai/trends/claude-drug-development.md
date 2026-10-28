@@ -1,5 +1,5 @@
 ---
-image: /images/claude-drug-development/cover.jpg
+image: /images/claude-drug-development/cover-scene.jpg
 title: 用 Claude 加速药物研发：早期进展
 description: Anthropic 生命科学团队与六家药企/机构合作，用 Claude 覆盖靶点、分子设计、优化、生产文书与临床试验规划；并收购 Mithril，推进罕见肌营养不良症项目。
 date: 2026-10-28
@@ -14,7 +14,7 @@ draft: false
 
 <div class="article-cover">
 
-![用 Claude 加速药物研发](/images/claude-drug-development/cover.jpg)
+![用 Claude 加速药物研发](/images/claude-drug-development/cover-scene.jpg)
 
 </div>
 
