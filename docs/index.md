@@ -48,7 +48,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>20</span></a><a class="home-topic" href="/thinking/">思考<span>5</span></a><a class="home-topic" href="/investment/">投资<span>4</span></a><a class="home-topic is-all" href="/archive">全部 29 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>21</span></a><a class="home-topic" href="/thinking/">思考<span>5</span></a><a class="home-topic" href="/investment/">投资<span>4</span></a><a class="home-topic is-all" href="/archive">全部 30 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
@@ -75,6 +75,10 @@ onUnmounted(() => { if (hcStop) hcStop() })
         </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/claude-drug-development">
+        <img class="article-card-thumb" src="/images/claude-drug-development/cover.jpg" alt="用 Claude 加速药物研发：早期进展" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-28">2026.10.28</time></span><strong>用 Claude 加速药物研发：早期进展</strong></div>
+      </a>
       <a class="article-card" href="/ai/coding/claude-code-team-review">
         <img class="article-card-thumb" src="/images/claude-code-team-review/cover.jpg" alt="Claude Code 团队如何做代码审查" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-27">2026.10.27</time></span><strong>Claude Code 团队如何做代码审查</strong></div>
@@ -83,22 +87,18 @@ onUnmounted(() => { if (hcStop) hcStop() })
         <img class="article-card-thumb" src="/images/claude-ban-reasons/cover.jpg" alt="Claude 为什么动不动封号？官方条款 vs X 上的防封玄学" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-27">2026.10.27</time></span><strong>Claude 为什么动不动封号？官方条款 vs X 上的防封玄学</strong></div>
       </a>
-      <a class="article-card" href="/ai/coding/muse-build-personal-site">
-        <img class="article-card-thumb" src="/images/muse-site-home.png" alt="从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-25">2026.10.25</time></span><strong>从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程</strong></div>
-      </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-16">2026.10.16</time></span><strong>Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude</strong></div>
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/thinking/technology/ai-most-important-ability"><span class="latest-row-head"><span class="latest-row-title">当 AI 能帮你做任何事，你最重要的能力是什么？</span><span class="latest-row-date">· <time datetime="2026-10-25">2026.10.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-most-important-ability-cover.jpg" alt="当 AI 能帮你做任何事，你最重要的能力是什么？" loading="lazy" decoding="async" /><span class="latest-row-desc">AI 时代最重要的能力是什么？当 AI 让想法的实现成本大幅下降，真正决定一个人能走多远的，不再是能做多少事，而是判断什么事值得做。</span></span></a></li>
       <li><a href="/ai/workflows/my-ai-skills-part-1"><span class="latest-row-head"><span class="latest-row-title">我的 AI 技能包（上）：每天在用的 10 个技能，全部带演示视频</span><span class="latest-row-date">· <time datetime="2026-10-23">2026.10.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-skills-part1-cover.jpg" alt="我的 AI 技能包（上）：每天在用的 10 个技能，全部带演示视频" loading="lazy" decoding="async" /><span class="latest-row-desc">我给自己攒了 22 个 AI 技能，这篇只写每天真在用的 10 个：去AI味写作、封面图生成、水彩插画、浏览器自动化、个人网站搭建、原理解剖图、图解设计、一稿多用、数据分析、出海新词上站。每个技能都配了一段 30 秒演示视频。</span></span></a></li>
       <li><a href="/ai/workflows/my-ai-skills-part-2"><span class="latest-row-head"><span class="latest-row-title">我的 AI 技能包（下）：另外 10 个每天在用的技能，全部带演示视频</span><span class="latest-row-date">· <time datetime="2026-10-23">2026.10.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-skills-part2-cover.jpg" alt="我的 AI 技能包（下）：另外 10 个每天在用的技能，全部带演示视频" loading="lazy" decoding="async" /><span class="latest-row-desc">技能包下篇：AI 界面设计规范、前端设计、UI 设计参考清单、出海变现转化、技能编写、头脑风暴、系统化排查、交付前验证、网站上线验收、AI 项目交付。管设计、管变现、管排查、管交付，每个技能配一段 30 秒演示视频。</span></span></a></li>
       <li><a href="/ai/products/bing-wallpaper-for-mac"><span class="latest-row-head"><span class="latest-row-title">必应每日壁纸 for Mac：用 REA 逆向 Windows 官方版，复刻到 macOS 的开源应用</span><span class="latest-row-date">· <time datetime="2026-10-22">2026.10.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/bing-wallpaper/cover.jpg" alt="必应每日壁纸 for Mac：用 REA 逆向 Windows 官方版，复刻到 macOS 的开源应用" loading="lazy" decoding="async" /><span class="latest-row-desc">微软官方必应壁纸只有 Windows 版。fairzy 用 REA 逆向官方版 1.1.469.0 的行为，用 Swift 在 macOS 上原生复刻：菜单栏应用、每 30 分钟检查新图、12 个市场、主题轮换，MIT 开源免费。</span></span></a></li>
       <li><a href="/ai/products/claude-duet"><span class="latest-row-head"><span class="latest-row-title">Anthropic上线官方AI 管家App：Claude Duet ，这不就是一直我在用的Muse和GrokBot吗？</span><span class="latest-row-date">· <time datetime="2026-10-22">2026.10.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/claude-duet/cover.jpg" alt="Anthropic上线官方AI 管家App：Claude Duet ，这不就是一直我在用的Muse和GrokBot吗？" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 发布主动型 AI 助理 Claude Duet：每天晨报、定时巡查、动手前先审批。与 Meta Muse、OpenAI Dots 放在一起对比，以及它和我用了一个月的自建助理的异同。</span></span></a></li>
       <li><a href="/ai/products/codex-usage-desktop-guide"><span class="latest-row-head"><span class="latest-row-title">Codex Usage Desktop 使用指南：看清 Token 去向与剩余额度</span><span class="latest-row-date">· <time datetime="2026-10-21">2026.10.21</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/codex-usage/cover.jpg" alt="Codex Usage Desktop 使用指南：看清 Token 去向与剩余额度" loading="lazy" decoding="async" /><span class="latest-row-desc">朋友开源的 Codex 用量桌面应用，本地读取会话日志，查看 Token、5 小时与周额度、项目与会话明细。附安装方式、使用步骤与隐私说明。</span></span></a></li>
-      <li><a href="/investment/methodology/ai-invest-clear"><span class="latest-row-head"><span class="latest-row-title">AI 越成功，投资者越需要保持清醒</span><span class="latest-row-date">· <time datetime="2026-10-18">2026.10.18</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-invest-clear/cover.jpg" alt="AI 越成功，投资者越需要保持清醒" loading="lazy" decoding="async" /><span class="latest-row-desc">李录在 2026 年格雷厄姆—多德午餐会上把 AI 的技术前景与资本市场的定价逻辑分开：技术能走多远、企业能赚多少、价格计入多少，是三道不同的题目。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
