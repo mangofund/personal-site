@@ -25,6 +25,12 @@
 /ai/agents/agent-os/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/agents/multiagent-eng-problems
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/agents/multiagent-eng-problems/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/x-auto-ops
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -65,6 +71,18 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/coding/twikoo-anonymous-comments/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/design/how-i-design-with-ai-pt1
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/design/how-i-design-with-ai-pt1/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/design/how-i-design-with-ai-pt2
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/design/how-i-design-with-ai-pt2/
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai
