@@ -53,7 +53,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/claude-drug-development"><img class="hc-img" src="/images/claude-drug-development/cover.jpg" alt="用 Claude 加速药物研发：早期进展" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/claude-drug-development"><img class="hc-img" src="/images/claude-drug-development/cover-scene.jpg" alt="用 Claude 加速药物研发：早期进展" loading="eager" fetchpriority="high" decoding="async" /></a>
         <a class="hc-slide" href="/ai/design/how-i-design-with-ai-pt1"><img class="hc-img" src="/images/how-i-design-with-ai-pt1/cover.jpg" alt="我如何用 AI 做设计（其一）" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/design/how-i-design-with-ai-pt2"><img class="hc-img" src="/images/how-i-design-with-ai-pt2/cover.jpg" alt="我如何用 AI 做设计（其二）" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
