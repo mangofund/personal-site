@@ -176,6 +176,7 @@ const countText = computed(() => {
             :href="articleHref(entry) || undefined"
           >
             <img
+              class="emcp-logo"
               :src="withBase(entry.logo)"
               :alt="nameFor(entry)"
               width="256"
@@ -187,6 +188,7 @@ const countText = computed(() => {
           </a>
           <div v-else class="skill-thumb emcp-mark">
             <img
+              class="emcp-logo"
               :src="withBase(entry.logo)"
               :alt="nameFor(entry)"
               width="256"

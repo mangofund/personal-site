@@ -277,7 +277,7 @@
       "articleUrl": null,
       "status": "limited",
       "featured": false,
-      "logo": "/images/enterprise-mcp/dingtalk.png"
+      "logo": "/images/enterprise-mcp/dingtalk.svg"
     },
     {
       "id": "alipay",
@@ -294,7 +294,7 @@
       "articleUrl": null,
       "status": "limited",
       "featured": false,
-      "logo": "/images/enterprise-mcp/alipay.png"
+      "logo": "/images/enterprise-mcp/alipay.svg"
     },
     {
       "id": "yuque",
