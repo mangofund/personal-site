@@ -173,7 +173,7 @@ export default defineConfig({
       '/investment/': [
         { text: '投资', link: '/investment/' },
         { text: '美股与长期主义', items: [{ text: '特斯拉 Q3 财报前瞻：会飞的 Roadster 之后，真正决定股价的是什么', link: '/investment/tesla/q3-earnings-preview' }, { text: 'Tesla 的长期价值究竟来自汽车吗？', link: '/investment/tesla/long-term-value' }] },
-        { text: '美股策略', items: [{ text: 'AI 进行到哪一步了？普通人如何投资美股', link: '/investment/us-stocks/ai-stage-invest-guide' }] }
+        { text: '美股策略', items: [{ text: 'AI 进行到哪一步了？普通人如何投资美股', link: '/investment/us-stocks/ai-stage-invest-guide' }, { text: 'Alphabet Q3：销售额和利润双双不及预期，云是唯一亮点', link: '/investment/us-stocks/alphabet-q3-earnings-miss' }] }
       ],
       '/thinking/': [
         { text: '思考', link: '/thinking/' },

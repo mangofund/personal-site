@@ -502,6 +502,12 @@
 /investment/us-stocks/ai-stage-invest-guide/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/us-stocks/alphabet-q3-earnings-miss
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/us-stocks/alphabet-q3-earnings-miss/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /privacy
   Cache-Control: public, max-age=0, must-revalidate
 
