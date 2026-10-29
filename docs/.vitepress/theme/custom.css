@@ -2202,12 +2202,13 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 14px 16px;
 }
 
 .skill-thumb.emcp-mark img {
-  width: 88px;
-  height: 88px;
-  aspect-ratio: 1;
+  width: 100%;
+  height: 64px;
+  aspect-ratio: auto;
   object-fit: contain;
 }
 

@@ -61,7 +61,11 @@ for (const entry of enterprises) {
   if (!knownCategoryIds.has(entry.category)) {
     throw new Error(`未知企业 MCP 分类: ${entry.id}`)
   }
-  if (!entry.logo.startsWith('/images/enterprise-mcp/') || !entry.logo.endsWith('.svg')) {
+  const LOGO_EXTENSIONS = ['.svg', '.png', '.jpg', '.jpeg', '.webp']
+  if (
+    !entry.logo.startsWith('/images/enterprise-mcp/') ||
+    !LOGO_EXTENSIONS.some((ext) => entry.logo.endsWith(ext))
+  ) {
     throw new Error(`企业 MCP logo 路径不符合约定: ${entry.id}`)
   }
 }

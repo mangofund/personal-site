@@ -124,7 +124,7 @@
       "articleUrl": null,
       "status": "available",
       "featured": false,
-      "logo": "/images/enterprise-mcp/tencent-lbs.svg"
+      "logo": "/images/enterprise-mcp/tencent-lbs.png"
     },
     {
       "id": "baidu-map",
@@ -141,7 +141,7 @@
       "articleUrl": null,
       "status": "available",
       "featured": false,
-      "logo": "/images/enterprise-mcp/baidu-map.svg"
+      "logo": "/images/enterprise-mcp/baidu-map.png"
     },
     {
       "id": "tuniu",
@@ -158,7 +158,7 @@
       "articleUrl": null,
       "status": "available",
       "featured": false,
-      "logo": "/images/enterprise-mcp/tuniu.svg"
+      "logo": "/images/enterprise-mcp/tuniu.png"
     },
     {
       "id": "variflight",
@@ -175,7 +175,7 @@
       "articleUrl": null,
       "status": "available",
       "featured": false,
-      "logo": "/images/enterprise-mcp/variflight.svg"
+      "logo": "/images/enterprise-mcp/variflight.png"
     },
     {
       "id": "baidu-ai",
@@ -277,7 +277,7 @@
       "articleUrl": null,
       "status": "limited",
       "featured": false,
-      "logo": "/images/enterprise-mcp/dingtalk.svg"
+      "logo": "/images/enterprise-mcp/dingtalk.png"
     },
     {
       "id": "alipay",
@@ -294,7 +294,7 @@
       "articleUrl": null,
       "status": "limited",
       "featured": false,
-      "logo": "/images/enterprise-mcp/alipay.svg"
+      "logo": "/images/enterprise-mcp/alipay.png"
     },
     {
       "id": "yuque",
@@ -328,7 +328,7 @@
       "articleUrl": null,
       "status": "coming",
       "featured": false,
-      "logo": "/images/enterprise-mcp/meituan.svg"
+      "logo": "/images/enterprise-mcp/meituan.png"
     },
     {
       "id": "jd",
@@ -345,7 +345,7 @@
       "articleUrl": null,
       "status": "coming",
       "featured": false,
-      "logo": "/images/enterprise-mcp/jd.svg"
+      "logo": "/images/enterprise-mcp/jd.png"
     },
     {
       "id": "pdd",
@@ -362,7 +362,7 @@
       "articleUrl": null,
       "status": "coming",
       "featured": false,
-      "logo": "/images/enterprise-mcp/pdd.svg"
+      "logo": "/images/enterprise-mcp/pdd.png"
     },
     {
       "id": "eleme",
@@ -396,7 +396,7 @@
       "articleUrl": null,
       "status": "coming",
       "featured": false,
-      "logo": "/images/enterprise-mcp/12306.svg"
+      "logo": "/images/enterprise-mcp/12306.png"
     }
   ]
 }
