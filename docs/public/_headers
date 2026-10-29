@@ -25,6 +25,12 @@
 /ai/agents/agent-os/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/agents/grok-bot-guide
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/agents/grok-bot-guide/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/multiagent-eng-problems
   Cache-Control: public, max-age=0, must-revalidate
 
