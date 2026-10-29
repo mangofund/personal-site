@@ -283,6 +283,12 @@
 /en/archive/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/enterprise-mcp
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/enterprise-mcp/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/friends
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -461,6 +467,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/thinking/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/enterprise-mcp
+  Cache-Control: public, max-age=0, must-revalidate
+
+/enterprise-mcp/
   Cache-Control: public, max-age=0, must-revalidate
 
 /friends

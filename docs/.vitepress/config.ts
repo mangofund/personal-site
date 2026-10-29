@@ -89,6 +89,7 @@ const SECTION_NAMES: Record<string, { zh: string; en: string }> = {
   investment: { zh: '投资', en: 'Investing' },
   thinking: { zh: '思考', en: 'Thinking' },
   skills: { zh: '技能', en: 'Skills' },
+  'enterprise-mcp': { zh: '企业MCP', en: 'Enterprise MCP' },
   projects: { zh: '项目', en: 'Projects' },
   about: { zh: '关于', en: 'About' }
 }
@@ -147,6 +148,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'AI', link: '/ai/', activeMatch: '^/ai/' },
       { text: '技能', link: '/skills/', activeMatch: '^/skills/' },
+      { text: '企业MCP', link: '/enterprise-mcp/', activeMatch: '^/enterprise-mcp/' },
       { text: '项目', link: '/projects/', activeMatch: '^/projects/' },
       {
         text: '关于',
@@ -225,6 +227,7 @@ export default defineConfig({
           { text: 'Home', link: '/en/', activeMatch: '^/en/?$' },
           { text: 'AI', link: '/en/ai/', activeMatch: '^/en/ai/' },
           { text: 'Skills', link: '/en/skills/', activeMatch: '^/en/skills/' },
+          { text: 'Enterprise MCP', link: '/en/enterprise-mcp/', activeMatch: '^/en/enterprise-mcp/' },
           { text: 'Projects', link: '/en/projects/', activeMatch: '^/en/projects/' },
           {
             text: 'About',

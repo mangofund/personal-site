@@ -2196,3 +2196,93 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .vp-doc .project-tile h2.skill-title a:hover {
   color: var(--vp-c-brand-1);
 }
+
+/* 企业 MCP 目录：复用技能卡网格，logo 放在同样的圆角缩略图框里 */
+.skill-thumb.emcp-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-thumb.emcp-mark img {
+  width: 88px;
+  height: 88px;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.emcp-soon {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  left: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.4;
+  box-shadow: var(--card-shadow-ring);
+}
+
+.vp-doc .skill-tile p.skill-pitch.emcp-pitch {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3em;
+}
+
+.emcp-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.emcp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-chip.emcp-status-live {
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
+.skill-tile.is-coming .emcp-mark img,
+.skill-tile.is-coming .skill-title,
+.skill-tile.is-coming .skill-pitch {
+  opacity: 0.62;
+}
+
+.skill-tile.is-limited .emcp-mark img,
+.skill-tile.is-limited .skill-title,
+.skill-tile.is-limited .skill-pitch {
+  opacity: 0.82;
+}
+
+.vp-doc input.emcp-search {
+  width: min(240px, 100%);
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: none;
+}
+
+.vp-doc input.emcp-search:focus-visible,
+.vp-doc .skill-tile a.skill-detail-link:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
