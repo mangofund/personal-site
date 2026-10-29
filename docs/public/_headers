@@ -31,6 +31,12 @@
 /ai/agents/grok-bot-guide/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/agents/luckin-coffee-mcp
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/agents/luckin-coffee-mcp/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/multiagent-eng-problems
   Cache-Control: public, max-age=0, must-revalidate
 
