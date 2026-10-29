@@ -1,8 +1,8 @@
 ---
 image: /images/luckin-coffee-mcp/cover.jpg
 title: 如何让Grokbot帮我点一杯瑞幸咖啡
-description: 瑞幸开放标准 MCP 与 Streamable HTTP 端点后，我用 Grok Bot 自定义连接器真实下单了一杯大杯冰美式。
-keywords: 瑞幸咖啡 MCP, Luckin MCP, Grok Bot, MCP 接入, Streamable HTTP, 自定义连接器, AI 点咖啡
+description: 瑞幸开放标准 MCP 后，我用 Grok Bot 自定义连接器真实下单了一杯大杯冰美式；文末附滴滴、高德、麦当劳等国内 MCP 入口。
+keywords: 瑞幸咖啡 MCP, Luckin MCP, Grok Bot, MCP 接入, 滴滴 MCP, 高德 MCP, 麦当劳 MCP, Streamable HTTP, 自定义连接器, AI 点咖啡
 date: 2026-10-29
 category: AI
 tags: [AI, MCP, 瑞幸, Grok Bot, Agent]
@@ -11,7 +11,7 @@ draft: false
 ---
 
 # 如何让Grokbot帮我点一杯瑞幸咖啡
-<div class="meta-line">2026.10.29 · AI · 阅读约 8 分钟</div>
+<div class="meta-line">2026.10.29 · AI · 阅读约 9 分钟</div>
 
 <div class="article-cover">
 
@@ -335,5 +335,31 @@ Token 怎么隔离。
 花钱动作有没有人确认。
 
 这三件事清楚了，接瑞幸和接别的品牌，方法是同一套。
+
+
+## 国内还有哪些能接的 MCP？
+
+瑞幸只是其中一家。
+
+国内已经有几家把核心能力做成标准 MCP，给 Agent 直接调用。
+
+下面这几家入口我都核对过，地址按官方页面来。
+
+| 服务 | 能做什么 | 官网 / 文档 | 接入地址 |
+|------|----------|-------------|----------|
+| 瑞幸咖啡 | 找店、选品、预览、下单、查单 | [open.luckincoffee.com/mcp](https://open.luckincoffee.com/mcp) | `https://gwmcp.lkcoffee.com/order/user/mcp`（Streamable HTTP，Bearer Token） |
+| 滴滴出行 | 打车预估、下单、查单、取消，以及地图搜点与路线 | [mcp.didichuxing.com](https://mcp.didichuxing.com/) · [开发者文档](https://mcp.didichuxing.com/api) | 生产 `https://mcp.didichuxing.com/mcp-servers?key=YOUR_MCP_KEY`；调试把路径改成 `mcp-servers-sandbox` |
+| 高德地图 | 地理编码、天气、周边搜、步行/驾车/公交/骑行规划等 | [lbs.amap.com/api/mcp-server](https://lbs.amap.com/api/mcp-server/) · [快速接入](https://developer.amap.com/api/mcp-server/gettingstarted) | 推荐 Streamable HTTP：`https://mcp.amap.com/mcp?key=你的Key` |
+| 麦当劳中国 | 门店、菜单、优惠券、计价、下单、查单、活动日历 | [open.mcd.cn/mcp](https://open.mcd.cn/mcp) · [接入说明](https://open.mcd.cn/mcp/doc) | `https://mcp.mcd.cn`（Streamable HTTP，`Authorization: Bearer YOUR_MCP_TOKEN`） |
+
+Key 和 Token 都要自己去对应控制台申请。
+
+文章里不要贴真实密钥。
+
+花钱、叫车、下单这类动作，仍然建议预览后等人确认，再真正提交。
+
+名单会变。
+
+以各家官网当前页面为准。
 
 欢迎来 X 上找我交流，我是 [@PRO_AI_99T](https://x.com/PRO_AI_99T)。

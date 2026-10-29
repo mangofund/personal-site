@@ -63,7 +63,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
       <div class="hc-panels">
         <a class="hc-panel is-active" href="/ai/agents/luckin-coffee-mcp">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-29">2026.10.29</time></span>
-          <strong>如何让Grokbot帮我点一杯瑞幸咖啡</strong><small>瑞幸开放标准 MCP 与 Streamable HTTP 端点后，我用 Grok Bot 自定义连接器真实下单了一杯大杯冰美式。</small>
+          <strong>如何让Grokbot帮我点一杯瑞幸咖啡</strong><small>瑞幸开放标准 MCP 后，我用 Grok Bot 自定义连接器真实下单了一杯大杯冰美式；文末附滴滴、高德、麦当劳等国内 MCP 入口。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/claude-prevent-ban-guide">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-29">2026.10.29</time></span>
