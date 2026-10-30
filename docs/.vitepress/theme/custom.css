@@ -71,18 +71,9 @@
   max-width: 1060px;
   margin: 0 auto;
   padding: 0 32px 24px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-areas:
-    "trends-left trends-right"
-    "main main";
-  column-gap: 12px;
-  align-items: start;
 }
 
-.home-trends.is-left { grid-area: trends-left; }
-.home-trends.is-right { grid-area: trends-right; }
-.home-main { grid-area: main; min-width: 0; }
+.home-main { min-width: 0; }
 
 .home-intro {
   max-width: 720px;
@@ -174,27 +165,34 @@
 }
 .home-trends {
   min-width: 0;
-  padding: 0 0 8px;
+  padding: 2px 0 16px;
 }
 .vp-doc .home-trends h2,
 .vp-doc .home-trends .td-side-title {
-  margin: 0 0 4px;
+  margin: 0 0 2px;
   padding: 0;
   border: 0;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .14em;
-  line-height: 1.4;
+  line-height: 1.6;
   text-transform: uppercase;
 }
 .vp-doc .home-trends p,
 .vp-doc .home-trends ul {
   max-width: none;
 }
+.vp-doc .home-trends p {
+  margin: 0;
+}
 .vp-doc .home-trends ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.vp-doc .home-trends li,
+.vp-doc .home-trends li + li {
+  margin: 0;
 }
 .home-main > .home-section:first-child {
   padding-top: 8px;
@@ -1163,22 +1161,42 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 @media (min-width: 1280px) {
-  .Layout:has(.home-page) .VPDoc:not(.has-sidebar) .container {
-    max-width: 1600px;
+  .Layout:has(.home-trends) .VPDoc:not(.has-sidebar) .container {
+    max-width: 1480px;
   }
 
-  .Layout:has(.home-page) .VPDoc:not(.has-sidebar) .content,
-  .Layout:has(.home-page) .VPDoc.has-aside .content-container {
-    max-width: 1560px;
+  .Layout:has(.home-trends) .VPDoc:not(.has-sidebar) .content,
+  .Layout:has(.home-trends) .VPDoc.has-aside .content-container {
+    max-width: 1440px;
   }
 
-  .home-page {
-    max-width: 1520px;
-    padding-left: 12px;
-    padding-right: 12px;
-    grid-template-columns: minmax(168px, 208px) minmax(0, 1fr) minmax(168px, 208px);
-    grid-template-areas: "trends-left main trends-right";
-    column-gap: 20px;
+  .home-page:has(.home-trends) {
+    max-width: 1360px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .home-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 292px;
+    grid-template-areas:
+      "latest trends"
+      "skills trends"
+      "projects trends";
+    column-gap: 36px;
+    align-items: start;
+  }
+
+  .home-latest { grid-area: latest; }
+  .home-skills { grid-area: skills; }
+  #projects { grid-area: projects; }
+
+  .home-trends {
+    grid-area: trends;
+    position: sticky;
+    top: calc(var(--vp-nav-height, 64px) + 14px);
+    align-self: start;
+    padding: 0;
   }
 
   .home-main > .home-section:first-child {
