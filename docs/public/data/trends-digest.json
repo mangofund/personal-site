@@ -1,0 +1,145 @@
+{
+  "updated": "2026-10-30T08:03:00+08:00",
+  "updatedLabel": "2026.10.30",
+  "title": "今日热搜速览",
+  "disclaimer": "精选非全量、不含政治话题",
+  "timezone": "Asia/Shanghai",
+  "items": [
+    {
+      "id": "googl-drop",
+      "category": "finance",
+      "categoryLabel": "财经",
+      "title": "谷歌股价单日跌超 12%",
+      "blurb": "市值蒸发约 5000 亿美元，美股科技股承压。",
+      "source": "market"
+    },
+    {
+      "id": "intel-ah",
+      "category": "finance",
+      "categoryLabel": "财经",
+      "title": "英特尔盘后跌超 20%",
+      "blurb": "芯片股集体下挫，INTC 相关搜索升温。",
+      "source": "market"
+    },
+    {
+      "id": "binance-hack",
+      "category": "security",
+      "categoryLabel": "科技安全",
+      "title": "币安疑似大规模被盗",
+      "blurb": "比特币跌破 8 万美元；稳定币侧约 23 亿资金被冻结。",
+      "source": "crypto"
+    },
+    {
+      "id": "iphone-duo",
+      "category": "tech",
+      "categoryLabel": "科技",
+      "title": "iPhone Duo 折痕与售价争议",
+      "blurb": "磨砂膜隐藏折痕引讨论；上市三天跌破官方售价。",
+      "source": "hot-search"
+    },
+    {
+      "id": "u17-women",
+      "category": "sports",
+      "categoryLabel": "体育",
+      "title": "中国队晋级 U17 女足世界杯 8 强",
+      "blurb": "历史首次闯入八强。",
+      "source": "hot-search"
+    },
+    {
+      "id": "ronaldo-985",
+      "category": "sports",
+      "categoryLabel": "体育",
+      "title": "C 罗戴帽，生涯 985 球",
+      "blurb": "赛事与个人里程碑登上热搜。",
+      "source": "hot-search"
+    },
+    {
+      "id": "mbappe-biz",
+      "category": "entertainment",
+      "categoryLabel": "娱乐",
+      "title": "姆巴佩相关代言与商业热搜",
+      "blurb": "代言产品销量话题升温。",
+      "source": "hot-search"
+    },
+    {
+      "id": "wedding-invite",
+      "category": "consumer",
+      "categoryLabel": "消费",
+      "title": "邀全网喝喜酒小伙攒近 17 万",
+      "blurb": "打工 3 年攒钱请客，消费向温情热搜。",
+      "source": "hot-search"
+    },
+    {
+      "id": "moutai-rumor",
+      "category": "consumer",
+      "categoryLabel": "消费",
+      "title": "茅台洗脚谣言澄清",
+      "blurb": "消费品牌辟谣登上热搜。",
+      "source": "hot-search"
+    },
+    {
+      "id": "hongguo-app",
+      "category": "tech",
+      "categoryLabel": "科技",
+      "title": "红果短剧成国内第四大 App",
+      "blurb": "短剧赛道继续吸量。",
+      "source": "hot-search"
+    },
+    {
+      "id": "mahjong-us",
+      "category": "entertainment",
+      "categoryLabel": "娱乐",
+      "title": "中国麻将在美国爆火",
+      "blurb": "文化消费向海外扩散。",
+      "source": "hot-search"
+    },
+    {
+      "id": "bank-typo",
+      "category": "consumer",
+      "categoryLabel": "消费",
+      "title": "存 2500 被误输成 25000，储户拒还",
+      "blurb": "银行操作失误轶事引发讨论。",
+      "source": "hot-search"
+    },
+    {
+      "id": "cappadocia",
+      "category": "world",
+      "categoryLabel": "国际",
+      "title": "卡帕多西亚岩体崩塌",
+      "blurb": "土耳其著名景区附近灾害，游客与行程受影响。",
+      "source": "intl"
+    },
+    {
+      "id": "synology-ransomware",
+      "category": "security",
+      "categoryLabel": "科技安全",
+      "title": "群晖 NAS 遭勒索相关讨论",
+      "blurb": "存储设备安全话题升温。",
+      "source": "tech-security"
+    },
+    {
+      "id": "ao3-down",
+      "category": "security",
+      "categoryLabel": "科技安全",
+      "title": "AO3 宕机",
+      "blurb": "Archive of Our Own 短暂不可用，全球搜索飙升。",
+      "source": "google-trends"
+    },
+    {
+      "id": "ice-leak",
+      "category": "security",
+      "categoryLabel": "科技安全",
+      "title": "ICE 资料泄露相关讨论",
+      "blurb": "数据安全与隐私话题（科技安全向）。",
+      "source": "tech-security"
+    },
+    {
+      "id": "gt-chips",
+      "category": "trends",
+      "categoryLabel": "谷歌趋势",
+      "title": "趋势关键词：nasdaq / btc / NFL / 幣安",
+      "blurb": "另有台指期夜盘、Marvell/Lumentum 传闻、友达 Q3 亏损等搜索升温。",
+      "source": "google-trends"
+    }
+  ]
+}
