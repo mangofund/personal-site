@@ -563,5 +563,73 @@ export const SKILL_EXAMPLES: Record<string, SkillExampleCopy> = {
     artifactsEn: ['A data-quality issue list with their effect on conclusions', 'Funnel and segment results with numerators, denominators and sample sizes', '1-3 recommended actions with thresholds'],
     checksZh: ['比较的是同口径、同时间窗的数据', '关键结果抽样复算过', '证据不足的原因写成待验证假设，不写成结论'],
     checksEn: ['Comparisons use the same definitions and time windows', 'Key results were spot-checked by recomputation', 'Causes without enough evidence are written as hypotheses to test, not conclusions']
+  },
+  'landing-page-design': {
+    exampleTitleZh: '给一个试用转化落地页定结构与首屏',
+    exampleTitleEn: 'Structure a trial-conversion landing and the above-the-fold',
+    exampleInputZh: 'AI 会议纪要产品，主行动是「开始 14 天试用」，受众是远程团队。',
+    exampleInputEn: 'AI meeting-notes product; primary action is "Start 14-day trial"; audience is remote teams.',
+    exampleOutputZh: [
+      '1. 先锁定：一个出价、一个受众、一个主行动（试用）',
+      '2. 首屏：结果型标题 + 澄清副标题 + 主 CTA + 一条信任证明 + 产品视觉',
+      '3. 下方按异议顺序：怎么做 → 社会证明 → 定价/风险逆转 → 最后再 CTA',
+      '4. 套视觉硬规则：字号阶梯、间距、圆角、背景与动效约束',
+      '5. 不写成多意图首页'
+    ].join('\n'),
+    exampleOutputEn: [
+      '1. Lock one offer, one audience, one primary action (trial)',
+      '2. Above the fold: outcome headline, clarifying subhead, primary CTA, one proof signal, hero visual',
+      '3. Below: how it works → social proof → pricing/risk reversal → CTA again',
+      '4. Apply hard visual rules for type, spacing, radius, backgrounds, motion',
+      '5. Do not turn it into a multi-intent homepage'
+    ].join('\n'),
+    artifactsZh: ['落地页区块大纲', '首屏文案与 CTA', '套用硬规则后的页面实现或高保真说明'],
+    artifactsEn: ['Section outline', 'Above-the-fold copy and CTA', 'Implementation or hi-fi notes under the hard rules'],
+    checksZh: ['只有一个主行动', '首屏五件套齐全', '没有做成多意图首页'],
+    checksEn: ['Exactly one primary action', 'Above-the-fold five-piece set present', 'Not a multi-intent homepage']
+  },
+  'grill-me': {
+    exampleTitleZh: '烤一轮功能方案，直到决策树前沿清空',
+    exampleTitleEn: 'Grill a feature plan until the design-tree frontier is empty',
+    exampleInputZh: '要给内部知识库加自动摘要，打算直接接托管大模型 API。',
+    exampleInputEn: 'Add auto-summaries to an internal knowledge base via a hosted LLM API.',
+    exampleOutputZh: [
+      '第 1 轮前沿问题（带推荐答案），例如：成功标准、摘要粒度、隐私边界、失败时 UX',
+      '根据你的回答重算前沿，再问下一轮',
+      '事实类问题由 Agent 自行查，不甩给你',
+      '前沿清空后总结共识，等你确认再动手'
+    ].join('\n'),
+    exampleOutputEn: [
+      'Round 1 frontier questions with recommended answers (success criteria, granularity, privacy, failure UX)',
+      'Recompute the frontier from your answers and ask the next round',
+      'Facts are looked up by the agent, not asked of you',
+      'When the frontier is empty, summarize shared understanding and wait for confirm before acting'
+    ].join('\n'),
+    artifactsZh: ['分轮问题与推荐答案', '设计树/决策记录', '确认后的共识摘要'],
+    artifactsEn: ['Per-round questions with recommendations', 'Design-tree / decision log', 'Shared-understanding summary after confirm'],
+    checksZh: ['每轮问的是当前可问前沿', '问题带推荐答案', '未确认共识前不直接改代码'],
+    checksEn: ['Each round asks only the current frontier', 'Questions include recommended answers', 'No code changes before shared understanding is confirmed']
+  },
+  'impeccable': {
+    exampleTitleZh: '对定价页跑 critique → audit → polish',
+    exampleTitleEn: 'Run critique → audit → polish on a pricing page',
+    exampleInputZh: '审阅并打磨 /pricing，移动端优先。',
+    exampleInputEn: 'Review and polish /pricing, mobile-first.',
+    exampleOutputZh: [
+      'critique：按启发式打分，列出层级、对比、文案与信任问题',
+      'audit：a11y / 响应式 / 性能问题清单',
+      'polish：按优先级改到可上线，并对照 craft-floor',
+      '不另起一套与现有品牌无关的视觉世界观（除非你要求 redesign）'
+    ].join('\n'),
+    exampleOutputEn: [
+      'critique: heuristic scores plus hierarchy, contrast, copy, and trust issues',
+      'audit: a11y / responsive / performance findings',
+      'polish: priority fixes to shippable, checked against the craft floor',
+      'No replacement visual world unless you asked for a redesign'
+    ].join('\n'),
+    artifactsZh: ['critique 报告', 'audit 清单', 'polish 后的改动说明'],
+    artifactsEn: ['Critique report', 'Audit checklist', 'Notes on polish changes'],
+    checksZh: ['三步都有输出', '改动保持原品牌', '移动端关键路径可完成主任务'],
+    checksEn: ['All three steps produce output', 'Brand identity preserved', 'Mobile critical path can complete the main task']
   }
 }

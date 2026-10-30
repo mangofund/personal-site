@@ -52,7 +52,10 @@ const MIN_ZIP_BYTES = {
   'content-repurpose.zip': 1000,
   'browser-automation.zip': 1000,
   'data-analysis.zip': 1000,
-  'desk_watercolor.zip': 1000
+  'desk_watercolor.zip': 1000,
+  'landing-page-design.zip': 8000,
+  'grill-me.zip': 3000,
+  'impeccable.zip': 20000
 }
 
 const MINIMUM_PACKAGE_COUNT = 6

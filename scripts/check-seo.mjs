@@ -483,7 +483,7 @@ if (existsSync(zhSkills)) {
   for (const sortLabel of ['推荐', '热门', '最新']) {
     if (!zhSkillsHtml.includes(`>${sortLabel}</button>`)) errors.push(`中文技能页排序缺少 ${sortLabel}`)
   }
-  const zhPriorityExpected = ['AI 项目交付', '网站上线验收', '出海新词上站', '前端设计', '内容一稿多用', '个人网站搭建', '浏览器自动化流程', '数据分析与决策']
+  const zhPriorityExpected = ['落地页设计', 'Grill Me 质询', 'Impeccable 设计审阅', 'AI 项目交付', '网站上线验收', '出海新词上站', '前端设计', '内容一稿多用']
   const zhPriorityActual = skillTileTitles(zhSkillsHtml).slice(0, zhPriorityExpected.length)
   if (zhPriorityActual.join('、') !== zhPriorityExpected.join('、')) {
     errors.push(`中文技能页八个优先方向顺序异常：${zhPriorityActual.join('、')}`)
@@ -518,7 +518,7 @@ if (existsSync(enSkills)) {
   for (const sortLabel of ['Recommended', 'Popular', 'Newest']) {
     if (!enSkillsHtml.includes(`>${sortLabel}</button>`)) errors.push(`英文技能页排序缺少 ${sortLabel}`)
   }
-  const enPriorityExpected = ['AI Project Delivery', 'Website Launch QA', 'Overseas New-Keyword Launch', 'Frontend Design', 'Content Repurposing', 'Personal Site Builder', 'Browser Automation Workflow', 'Data Analysis & Decisions']
+  const enPriorityExpected = ['Landing Page Design', 'Grill Me', 'Impeccable Design Review', 'AI Project Delivery', 'Website Launch QA', 'Overseas New-Keyword Launch', 'Frontend Design', 'Content Repurposing']
   const enPriorityActual = skillTileTitles(enSkillsHtml).slice(0, enPriorityExpected.length)
   if (enPriorityActual.join('、') !== enPriorityExpected.join('、')) {
     errors.push(`英文技能页八个优先方向顺序异常：${enPriorityActual.join('、')}`)
