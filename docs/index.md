@@ -44,7 +44,6 @@ onUnmounted(() => { if (hcStop) hcStop() })
 
 <!-- Latest 板块由构建脚本按当次部署目标自动生成。技能卡链到 /skills/，相对路径兼容 GitHub Pages 与 Cloudflare Pages。-->
 <div class="home-page">
-  <div class="home-main">
   <section class="home-section home-latest">
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
@@ -104,11 +103,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <!-- LATEST-END -->
   </section>
 
-  <aside class="home-trends" id="trends-digest">
-    <TrendsDigest />
-  </aside>
-
-  <section class="home-section home-skills">
+  <section class="home-section">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
       <h2>技能商店</h2>
       <a href="skills/" style="font-size:14px;color:#1d9bf0;white-space:nowrap;">进入技能商店 →</a>
@@ -137,6 +132,5 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </article>
     </div>
   </section>
-  </div>
 
 </div>
