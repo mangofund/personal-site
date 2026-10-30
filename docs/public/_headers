@@ -403,16 +403,34 @@
 /en/skills/frontend-design/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/skills/grill-me
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/grill-me/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/skills/haiwai-monetize-convert
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/skills/haiwai-monetize-convert/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/skills/impeccable
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/impeccable/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/skills
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/skills/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/landing-page-design
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/landing-page-design/
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/skills/overseas-new-keyword-launch
@@ -622,16 +640,34 @@
 /skills/frontend-design/
   Cache-Control: public, max-age=0, must-revalidate
 
+/skills/grill-me
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/grill-me/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /skills/haiwai-monetize-convert
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/haiwai-monetize-convert/
   Cache-Control: public, max-age=0, must-revalidate
 
+/skills/impeccable
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/impeccable/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /skills
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/landing-page-design
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/landing-page-design/
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/overseas-new-keyword-launch

@@ -196,5 +196,32 @@
     "zipFile": "desk_watercolor.zip",
     "promptPath": "/skills/sources/desk_watercolor/SKILL.md",
     "zipPath": "/skills/zips/desk_watercolor.zip"
+  },
+  {
+    "id": "landing-page-design",
+    "dir": "landing-page-design",
+    "promptName": "landing-page-design",
+    "zipSkillEntry": "landing-page-design/SKILL.md",
+    "zipFile": "landing-page-design.zip",
+    "promptPath": "/skills/sources/landing-page-design/SKILL.md",
+    "zipPath": "/skills/zips/landing-page-design.zip"
+  },
+  {
+    "id": "grill-me",
+    "dir": "grill-me",
+    "promptName": "grill-me",
+    "zipSkillEntry": "grill-me/SKILL.md",
+    "zipFile": "grill-me.zip",
+    "promptPath": "/skills/sources/grill-me/SKILL.md",
+    "zipPath": "/skills/zips/grill-me.zip"
+  },
+  {
+    "id": "impeccable",
+    "dir": "impeccable",
+    "promptName": "impeccable",
+    "zipSkillEntry": "impeccable/SKILL.md",
+    "zipFile": "impeccable.zip",
+    "promptPath": "/skills/sources/impeccable/SKILL.md",
+    "zipPath": "/skills/zips/impeccable.zip"
   }
 ]

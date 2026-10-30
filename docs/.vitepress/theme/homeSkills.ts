@@ -62,7 +62,7 @@ export interface SkillFilterOption {
 
 export const SKILL_TYPE_FILTERS: readonly SkillFilterOption[] = [
   { id: 'writing', labelZh: '写作', labelEn: 'Writing', skillIds: ['de-ai-writing', 'content-repurpose'] },
-  { id: 'ui', labelZh: 'UI', labelEn: 'UI', skillIds: ['ai-ui-design', 'frontend-design', 'ui-design-refs'] },
+  { id: 'ui', labelZh: 'UI', labelEn: 'UI', skillIds: ['ai-ui-design', 'frontend-design', 'ui-design-refs', 'landing-page-design', 'impeccable'] },
   { id: 'site-build', labelZh: '建站', labelEn: 'Site build', skillIds: ['personal-site-build', 'website-launch-check'] },
   { id: 'diagram', labelZh: '图解', labelEn: 'Diagram', skillIds: ['diagram-design'] },
   { id: 'anatomy', labelZh: '解剖', labelEn: 'Anatomy', skillIds: ['anatomy'] },
@@ -73,7 +73,7 @@ export const SKILL_TYPE_FILTERS: readonly SkillFilterOption[] = [
   { id: 'coding', labelZh: '开发', labelEn: 'Development', skillIds: ['ai-project-delivery'] },
   { id: 'automation', labelZh: '自动化', labelEn: 'Automation', skillIds: ['browser-automation'] },
   { id: 'analytics', labelZh: '数据分析', labelEn: 'Analytics', skillIds: ['data-analysis'] },
-  { id: 'method', labelZh: '方法', labelEn: 'Method', skillIds: ['writing-skills', 'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans'] }
+  { id: 'method', labelZh: '方法', labelEn: 'Method', skillIds: ['writing-skills', 'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans', 'grill-me'] }
 ]
 
 /** 只保留和类型筛选结果不同的场景。产品前端等于 UI，接入服务等于连接。 */
@@ -82,7 +82,7 @@ export const SKILL_SCENE_FILTERS: readonly SkillFilterOption[] = [
     id: 'site',
     labelZh: '官网内容',
     labelEn: 'Site content',
-    skillIds: ['de-ai-writing', 'content-repurpose', 'diagram-design', 'cover_image_gen', 'desk_watercolor', 'personal-site-build', 'website-launch-check', 'frontend-design', 'ui-design-refs']
+    skillIds: ['de-ai-writing', 'content-repurpose', 'diagram-design', 'cover_image_gen', 'desk_watercolor', 'personal-site-build', 'website-launch-check', 'frontend-design', 'ui-design-refs', 'landing-page-design', 'impeccable']
   },
   {
     id: 'figures',
@@ -1568,6 +1568,196 @@ export const homeSkills: HomeSkill[] = [
       ]
     }
   },
+  // === NEW 2026-10-30: append so 「最新」reverse() puts these first ===
+  {
+    id: 'landing-page-design',
+    nameZh: '落地页设计',
+    nameEn: 'Landing Page Design',
+    pitchZh: '高转化落地页体系：一页一事，结构、文案与视觉硬规则一次给齐。',
+    pitchEn: 'A high-converting landing system: one offer, one audience, one action — structure, copy, and hard visual rules.',
+    ...skillType('ui'),
+    image: '/images/skills/landing-page-design.jpg',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: '落地页设计封面：一屏英雄区与清晰主按钮的线框卡片',
+    imageAltEn: 'Cover for Landing Page Design: a hero wireframe card with one clear primary button',
+    ...skillFiles('landing-page-design'),
+    detailSlug: 'skills/landing-page-design',
+    detail: {
+      metaZh: 'landing-page-design · MIT · Elaya / taste-skill 致谢',
+      metaEn: 'landing-page-design · MIT · credit Elaya / taste-skill',
+      leadZh: '专做落地页，不做首页。围绕「一个出价 → 一个受众 → 一个主行动」走完整体系：先问清转化，再定结构与文案，最后套上不可妥协的视觉硬规则。',
+      leadEn: 'Built for landing pages, not homepages. One offer → one audience → one primary action: intake, structure and copy first, then non-negotiable visual rules.',
+      gainsZh: [
+        '转化导向的页面结构与区块清单',
+        '标题 / CTA / 异议处理的文案框架',
+        '字体、间距、圆角、背景与动效的硬规则'
+      ],
+      gainsEn: [
+        'A conversion-first page structure and section list',
+        'Copy frames for headlines, CTAs, and objections',
+        'Hard rules for type, spacing, radius, backgrounds, and motion'
+      ],
+      fitZh: [
+        '新产品或活动要单独落地页',
+        '现有落地页转化差，要重做结构与文案',
+        'Agent 做营销页时总偏成「多意图首页」'
+      ],
+      fitEn: [
+        'A new product or campaign needs a dedicated landing page',
+        'An existing landing converts poorly and needs structure/copy rebuilt',
+        'Agents keep turning marketing pages into multi-intent homepages'
+      ],
+      unfitZh: [
+        '从零定整站品牌视觉方向。用 frontend-design',
+        '审阅已有 UI 的 a11y / polish。用 impeccable',
+        '产品后台或工具型 Operate 界面。本技能偏 Persuade 落地页'
+      ],
+      unfitEn: [
+        'You need a whole-site visual direction from zero. Use frontend-design',
+        'You need a11y / polish review of existing UI. Use impeccable',
+        'Operate/tool UI. This skill is for Persuade landings'
+      ],
+      sampleZh: '给我的「AI 会议纪要」产品做一页落地：主行动是开始 14 天试用，受众是每周开 10+ 场会的远程团队。',
+      sampleEn: 'Build a landing page for my AI meeting-notes product: primary action is start a 14-day trial; audience is remote teams with 10+ meetings a week.',
+      stepsZh: [
+        '点「复制技能」或下载 ZIP，交给做页面的 Agent。',
+        '一次说清：出价、受众、主行动、证明材料与品牌约束。',
+        '先让它交结构与文案，再套视觉硬规则出页面。'
+      ],
+      stepsEn: [
+        'Copy the skill or download the ZIP into your page agent.',
+        'State offer, audience, primary action, proof, and brand constraints in one pass.',
+        'Have it lock structure and copy first, then apply the visual rules.'
+      ]
+    }
+  },
+  {
+    id: 'grill-me',
+    nameZh: 'Grill Me 质询',
+    nameEn: 'Grill Me',
+    pitchZh: '无情访谈：用设计树一轮轮追问，把计划里没说出口的假设烤出来。',
+    pitchEn: 'A relentless interview: work a design tree round by round until silent assumptions are gone.',
+    ...skillType('method'),
+    image: '/images/skills/grill-me.jpg',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: 'Grill Me 封面：问答气泡连成一棵决策树',
+    imageAltEn: 'Cover for Grill Me: question bubbles forming a decision tree',
+    ...skillFiles('grill-me'),
+    detailSlug: 'skills/grill-me',
+    detail: {
+      metaZh: 'grill-me + grilling · MIT · Matt Pocock',
+      metaEn: 'grill-me + grilling · MIT · Matt Pocock',
+      leadZh: 'Matt Pocock 的质询组合包：入口技能 grill-me 会唤起 grilling。按设计树工作，每轮问完当前可问的整条前沿，并给出推荐答案，直到没有隐含假设。',
+      leadEn: "Matt Pocock's grilling pair: grill-me hands off to grilling. Work a design tree, ask the whole frontier each round with recommended answers, until nothing is silently assumed.",
+      gainsZh: [
+        '一轮轮结构化追问，而不是东一榔头西一棒',
+        '每个问题附推荐答案，说「对」就能推进',
+        'ZIP 同时带上 grill-me 与 grilling 两个技能'
+      ],
+      gainsEn: [
+        'Structured rounds instead of scattered questions',
+        'Every question ships a recommended answer you can accept with yes',
+        'ZIP includes both grill-me and grilling'
+      ],
+      fitZh: [
+        '方案或架构还没写代码，想先压一遍假设',
+        '产品决策扯皮，需要把决策树摊开',
+        '想用「烤一烤我」的方式对齐共识'
+      ],
+      fitEn: [
+        'A plan or architecture is not coded yet and needs assumptions pressure-tested',
+        'A product decision is stuck and the tree needs to be laid out',
+        'You want a "grill me" session to reach shared understanding'
+      ],
+      unfitZh: [
+        '已经要动手实现。用 writing-plans 或直接编码',
+        '只是修一个已知 bug。用 systematic-debugging',
+        '需要落地页结构。用 landing-page-design'
+      ],
+      unfitEn: [
+        'You are ready to implement. Use writing-plans or start coding',
+        'You have a known bug to fix. Use systematic-debugging',
+        'You need landing-page structure. Use landing-page-design'
+      ],
+      sampleZh: '烤一下我的方案：给内部知识库加「自动摘要」功能，我打算直接接现成大模型 API。',
+      sampleEn: 'Grill this plan: add auto-summaries to our internal knowledge base by calling a hosted LLM API directly.',
+      stepsZh: [
+        '复制或安装 ZIP（含 grill-me 与 grilling）。',
+        '说「烤一下这个方案」并贴上你的计划。',
+        '按轮回答问题；前沿清空且你确认共识后再动手。'
+      ],
+      stepsEn: [
+        'Copy or install the ZIP (grill-me + grilling).',
+        'Say "grill this plan" and paste the plan.',
+        'Answer each round; act only after the frontier is empty and you confirm shared understanding.'
+      ]
+    }
+  },
+  {
+    id: 'impeccable',
+    nameZh: 'Impeccable 设计审阅',
+    nameEn: 'Impeccable Design Review',
+    pitchZh: '设计审阅工具链：critique / audit / polish，打磨已有界面。',
+    pitchEn: 'A design-review toolchain: critique, audit, and polish existing UI.',
+    ...skillType('ui'),
+    image: '/images/skills/impeccable.jpg',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: 'Impeccable 封面：放大镜与清单叠在网页线框上',
+    imageAltEn: 'Cover for Impeccable: a magnifier and checklist over a UI wireframe',
+    ...skillFiles('impeccable'),
+    detailSlug: 'skills/impeccable',
+    detail: {
+      metaZh: 'impeccable · Apache-2.0 · 精简审阅子集',
+      metaEn: 'impeccable · Apache-2.0 · review subset',
+      leadZh: '来自 pbakaus/impeccable 的商店精简包：保留 critique、audit、polish 与质量地板。定位是设计审阅工具链，用来挑毛病和打磨，而不是替代 frontend-design 从零定视觉方向。完整 CLI 见包内 INSTALL.md。',
+      leadEn: 'A store-friendly subset of pbakaus/impeccable: critique, audit, polish, and the craft floor. A design-review toolchain — not a frontend-design replacement. Full CLI notes in INSTALL.md.',
+      gainsZh: [
+        'UX 启发式 critique 清单与打分方式',
+        'a11y / 性能 / 响应式 audit 路径',
+        '上线前 polish 与 craft-floor 质量地板'
+      ],
+      gainsEn: [
+        'UX heuristic critique with a scoring path',
+        'a11y / performance / responsive audit path',
+        'Pre-ship polish plus the craft-floor quality bar'
+      ],
+      fitZh: [
+        '页面已经有了，要挑 UX 与实现问题',
+        '上线前要做一轮设计 / a11y 验收',
+        '想把「看起来还行」打磨到可发布'
+      ],
+      fitEn: [
+        'The UI exists and needs UX and implementation critique',
+        'Pre-launch design / a11y acceptance',
+        'You need to polish "looks fine" into shippable'
+      ],
+      unfitZh: [
+        '从零定有辨识度的视觉方向。用 frontend-design',
+        '专做高转化落地页结构与文案。用 landing-page-design',
+        '只要聊天产品交互规范。用 ai-ui-design'
+      ],
+      unfitEn: [
+        'You need a distinctive visual direction from zero. Use frontend-design',
+        'You need conversion landing structure and copy. Use landing-page-design',
+        'You only need AI-chat UI norms. Use ai-ui-design'
+      ],
+      sampleZh: '用 critique 审一下我的定价页，再 audit 一遍移动端 a11y，最后 polish 到可上线。',
+      sampleEn: 'Critique my pricing page, audit mobile a11y, then polish to shippable.',
+      stepsZh: [
+        '复制技能或下载 ZIP（含 reference/ 与 NOTICE）。',
+        '指定目标页面与命令：critique / audit / polish。',
+        '无 CLI 时按 reference 文档执行；要完整能力按 INSTALL.md 装上游。'
+      ],
+      stepsEn: [
+        'Copy the skill or download the ZIP (reference/ + NOTICE).',
+        'Name the target and command: critique / audit / polish.',
+        'Without the CLI, follow the reference docs; for the full toolkit see INSTALL.md.'
+      ]
+    }
+  },
 ]
 
 export function skillsForFilter(filterId: string): HomeSkill[] {
@@ -1594,6 +1784,9 @@ export type SkillSortId = (typeof SKILL_SORTS)[number]['id']
  * 编辑推荐的固定顺序，同时是热度数据不足（见 SKILL_HEAT_MIN_TOTAL）或接口不可用时的回退顺序。
  */
 const SKILL_POPULAR_IDS = [
+  'landing-page-design',
+  'grill-me',
+  'impeccable',
   'ai-project-delivery',
   'website-launch-check',
   'haiwai-new-keyword-launch',
