@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mangofund",
+  "pages_build_output_dir": "docs/.vitepress/dist",
+  "compatibility_date": "2026-10-30",
+  "d1_databases": [
+    {
+      "binding": "STAGEFLOW_DB",
+      "database_name": "stageflow-preview",
+      "database_id": "349a7ca3-d692-49b5-ae80-256b3e0e1667",
+      "migrations_dir": "migrations/stageflow"
+    }
+  ]
+}

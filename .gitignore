@@ -8,3 +8,12 @@ docs/public/robots.txt
 docs/public/feed.xml
 docs/public/llms.txt
 docs/.vitepress/latest-posts.json
+
+# Stageflow local runtime and secrets
+.wrangler/
+.dev.vars*
+.env*
+stageflow-env.d.ts
+
+# Only generated temporarily for an explicit Stageflow preview deployment
+/wrangler.jsonc
