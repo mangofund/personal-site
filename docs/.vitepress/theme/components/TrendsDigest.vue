@@ -53,7 +53,13 @@ const rowTitle = (item: DigestItem) => `${item.title} — ${item.blurb}`
 <style scoped>
 .trends-digest {
   margin: 0;
-  padding: 0;
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 12px 8px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-text-2) 48%, var(--vp-c-divider));
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  box-shadow: var(--card-shadow-ring);
 }
 
 .td-head {
@@ -90,23 +96,45 @@ const rowTitle = (item: DigestItem) => `${item.title} — ${item.blurb}`
   padding: 0;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .td-row {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 6px;
+  display: flex;
+  flex-wrap: nowrap;
   align-items: center;
+  column-gap: 6px;
   margin: 0;
   padding: 2px 0;
   min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  overscroll-behavior-x: contain;
   border: 0;
   border-radius: 0;
   background: none;
   box-shadow: none;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--vp-c-text-2) 55%, transparent) transparent;
+}
+
+.td-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.td-row::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--vp-c-text-2) 55%, transparent);
+  border-radius: 999px;
+}
+
+.td-row::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .td-cat {
+  flex: 0 0 auto;
   padding: 0 4px;
   border-radius: 3px;
   font-size: 10px;
@@ -117,14 +145,12 @@ const rowTitle = (item: DigestItem) => `${item.title} — ${item.blurb}`
 }
 
 .td-title {
-  min-width: 0;
+  flex: 0 0 auto;
   color: var(--vp-c-text-1);
   font-size: 12px;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: 0;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 </style>
