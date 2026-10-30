@@ -44,10 +44,11 @@ onUnmounted(() => { if (hcStop) hcStop() })
 
 <!-- Latest 板块由构建脚本按当次部署目标自动生成。技能卡链到 /skills/，相对路径兼容 GitHub Pages 与 Cloudflare Pages。-->
 <div class="home-page">
-  <section class="home-section home-trends" id="trends-digest">
-    <TrendsDigest />
-  </section>
+  <aside class="home-trends is-left" id="trends-digest">
+    <TrendsDigest column="left" />
+  </aside>
 
+  <div class="home-main">
   <section class="home-section home-latest">
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
@@ -136,5 +137,10 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </article>
     </div>
   </section>
+  </div>
+
+  <aside class="home-trends is-right" id="trends-digest-right">
+    <TrendsDigest column="right" />
+  </aside>
 
 </div>
