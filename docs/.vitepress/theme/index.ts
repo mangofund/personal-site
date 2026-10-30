@@ -18,7 +18,7 @@ const SkillShowcase = defineAsyncComponent(() => import('./components/SkillShowc
 const SkillDetail = defineAsyncComponent(() => import('./components/SkillDetail.vue'))
 const ArchiveSidebar = defineAsyncComponent(() => import('./components/ArchiveSidebar.vue'))
 const EnterpriseMcpShowcase = defineAsyncComponent(() => import('./components/EnterpriseMcpShowcase.vue'))
-// 首页热搜速览只在首页用到，异步拆包，不进全站公共 theme chunk
+// 首页最近热搜只在首页用到，异步拆包，不进全站公共 theme chunk
 const TrendsDigest = defineAsyncComponent(() => import('./components/TrendsDigest.vue'))
 
 // ---------- 哈苏式机械快门音效（Web Audio 合成）：反光板"咔" + 快门"嚓" ----------
