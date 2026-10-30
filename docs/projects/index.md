@@ -6,6 +6,7 @@ description: 我在做的产品，和朋友们做的开源项目。目前包括 
 <script setup>
 import { withBase } from 'vitepress'
 const xmadeImg = withBase('/images/projects/xmade.jpg')
+const liveUrl = withBase('/live/')
 const bingImg = withBase('/images/bing-wallpaper/cover.jpg')
 const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-downl/bgopfpaklpnjmjbngflljdnjnblhnbjm'
 </script>
@@ -13,6 +14,12 @@ const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-d
 # 项目
 
 <div class="project-list">
+  <article class="project-tile">
+    <a class="skill-thumb" :href="liveUrl" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:170px;background:linear-gradient(135deg,#101c25,#202438);color:#b6f36a;font-size:30px;font-weight:800;letter-spacing:4px">✳ STAGEFLOW</a>
+    <h2 class="skill-title"><a :href="liveUrl" target="_blank" rel="noopener">Stageflow · 星场</a></h2>
+    <p class="skill-pitch">网页版团播计票台：常规计票、双人 PK、云端同步与独立展示链接。当前为公开 Alpha，使用模拟礼物，尚未接入 TikTok 数据。</p>
+    <div class="skill-foot"><span class="skill-chip">Web app · Alpha</span><div class="skill-controls"><a class="skill-zip" :href="liveUrl" target="_blank" rel="noopener">体验 Alpha →</a></div></div>
+  </article>
   <article class="project-tile">
     <a class="skill-thumb" :href="storeUrl" target="_blank" rel="noopener">
       <img :src="xmadeImg" alt="XMade：一键下载 X 上的推文、视频和长文" width="800" height="450" loading="eager" decoding="async" />

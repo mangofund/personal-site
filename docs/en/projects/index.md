@@ -6,6 +6,7 @@ description: Products I build, and open-source projects by friends. Currently XM
 <script setup>
 import { withBase } from 'vitepress'
 const xmadeImg = withBase('/images/projects/xmade.jpg')
+const liveUrl = withBase('/live/')
 const bingImg = withBase('/images/bing-wallpaper/cover.jpg')
 const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-downl/bgopfpaklpnjmjbngflljdnjnblhnbjm'
 </script>
@@ -13,6 +14,12 @@ const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-d
 # Projects
 
 <div class="project-list">
+  <article class="project-tile">
+    <a class="skill-thumb" :href="liveUrl" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:170px;background:linear-gradient(135deg,#101c25,#202438);color:#b6f36a;font-size:30px;font-weight:800;letter-spacing:4px">✳ STAGEFLOW</a>
+    <h2 class="skill-title"><a :href="liveUrl" target="_blank" rel="noopener">Stageflow · 星场</a></h2>
+    <p class="skill-pitch">A browser-based live scoring workspace with group scoring, duo PK and shareable cloud display links. Public alpha uses simulated gifts; TikTok data is not connected yet.</p>
+    <div class="skill-foot"><span class="skill-chip">Web app · Alpha</span><div class="skill-controls"><a class="skill-zip" :href="liveUrl" target="_blank" rel="noopener">Try the alpha →</a></div></div>
+  </article>
   <article class="project-tile">
     <a class="skill-thumb" :href="storeUrl" target="_blank" rel="noopener">
       <img :src="xmadeImg" alt="XMade: one-click download of posts, videos, and long articles from X" width="800" height="450" loading="eager" decoding="async" />
