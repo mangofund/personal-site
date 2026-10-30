@@ -44,6 +44,10 @@ onUnmounted(() => { if (hcStop) hcStop() })
 
 <!-- Latest 板块由构建脚本按当次部署目标自动生成。技能卡链到 /skills/，相对路径兼容 GitHub Pages 与 Cloudflare Pages。-->
 <div class="home-page">
+  <section class="home-section home-trends" id="trends-digest">
+    <TrendsDigest />
+  </section>
+
   <section class="home-section home-latest">
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
@@ -101,10 +105,6 @@ onUnmounted(() => { if (hcStop) hcStop() })
       <li><a href="/ai/coding/muse-build-personal-site"><span class="latest-row-head"><span class="latest-row-title">从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程</span><span class="latest-row-date">· <time datetime="2026-10-25">2026.10.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/muse-site-home.png" alt="从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程" loading="lazy" decoding="async" /><span class="latest-row-desc">这个站从 10 月 5 日第一行配置，到今天每一次改版，都是我一句话、Muse 去干活。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
-  </section>
-
-  <section class="home-section home-trends" id="trends-digest">
-    <TrendsDigest />
   </section>
 
   <section class="home-section">
