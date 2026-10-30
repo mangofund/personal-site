@@ -103,6 +103,10 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <!-- LATEST-END -->
   </section>
 
+  <section class="home-section home-trends" id="trends-digest">
+    <TrendsDigest />
+  </section>
+
   <section class="home-section">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
       <h2>技能商店</h2>

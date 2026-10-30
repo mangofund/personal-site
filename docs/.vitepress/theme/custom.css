@@ -161,6 +161,9 @@
 .home-section {
   padding: 18px 0 28px;
 }
+.home-section.home-trends {
+  padding: 4px 0 8px;
+}
 .home-page > .home-section:first-child {
   padding-top: 0;
 }
