@@ -1,0 +1,202 @@
+[
+  {
+    "id": "de-ai-writing",
+    "nameZh": "去AI味写作",
+    "nameEn": "De-AI Writing",
+    "pitchZh": "按你的口吻写，或把成稿里的机器味清掉。",
+    "pitchEn": "Write in your voice, or strip the machine tone from a draft.",
+    "detailSlug": "skills/de-ai-writing"
+  },
+  {
+    "id": "ai-ui-design",
+    "nameZh": "AI界面设计规范",
+    "nameEn": "AI Interface Design Rules",
+    "pitchZh": "AI 聊天和 Agent 前端的界面与交互规范。",
+    "pitchEn": "Interface rules for AI chat and agent front ends.",
+    "detailSlug": "skills/ai-ui-design"
+  },
+  {
+    "id": "diagram-design",
+    "nameZh": "图解设计",
+    "nameEn": "Diagram Design",
+    "pitchZh": "45 种静态图解，输出一份自包含 HTML。",
+    "pitchEn": "Forty-five static diagrams, each a self-contained HTML file.",
+    "detailSlug": "skills/diagram-design"
+  },
+  {
+    "id": "anatomy",
+    "nameZh": "等轴测解剖图",
+    "nameEn": "Isometric Anatomy",
+    "pitchZh": "把技术概念画成可交互的等轴测小仪器。",
+    "pitchEn": "Draw a technical idea as an interactive isometric instrument.",
+    "detailSlug": "skills/anatomy"
+  },
+  {
+    "id": "cover_image_gen",
+    "nameZh": "封面图生成",
+    "nameEn": "Cover Image Generation",
+    "pitchZh": "3D 纸雕黏土风封面，同题三版，逐字验过再交付。",
+    "pitchEn": "Paper-craft clay covers, three versions, Chinese title checked.",
+    "detailSlug": "skills/cover-image-gen"
+  },
+  {
+    "id": "desk_watercolor",
+    "nameZh": "暖纸水彩插画",
+    "nameEn": "Warm Paper Watercolor",
+    "pitchZh": "暖纸水彩手绘插画：水彩墨线、琥珀色调、单一橙色点缀。",
+    "pitchEn": "Warm paper watercolor illustrations: ink and wash, amber tones, one orange accent.",
+    "detailSlug": "skills/desk-watercolor"
+  },
+  {
+    "id": "custom_connector_setup",
+    "nameZh": "自定义连接器 / MCP",
+    "nameEn": "Custom Connectors & MCPs",
+    "pitchZh": "把还没内置的第三方服务接到官网或助手。",
+    "pitchEn": "Connect a third-party service the site or assistant does not include yet.",
+    "detailSlug": "skills/custom-connectors-mcp"
+  },
+  {
+    "id": "personal-site-build",
+    "nameZh": "个人网站搭建",
+    "nameEn": "Personal Site Builder",
+    "pitchZh": "飞书底稿 + UI 参考站，从 0 搭个人/品牌站。",
+    "pitchEn": "Feishu brief plus UI refs to build a personal or brand site from scratch.",
+    "detailSlug": "skills/personal-site-build"
+  },
+  {
+    "id": "frontend-design",
+    "nameZh": "前端设计",
+    "nameEn": "Frontend Design",
+    "pitchZh": "Anthropic 官方前端设计 Skill，做出有辨识度、不像 AI 默认审美的页面。",
+    "pitchEn": "Anthropic’s frontend-design skill for distinctive UI that avoids generic AI looks.",
+    "detailSlug": "skills/frontend-design"
+  },
+  {
+    "id": "ui-design-refs",
+    "nameZh": "UI设计参考清单",
+    "nameEn": "UI Design Refs",
+    "pitchZh": "8 大类 60+ UI 参考站，按场景挑链接再交给 AI。",
+    "pitchEn": "Sixty-plus UI reference sites in eight buckets for agent-assisted builds.",
+    "detailSlug": "skills/ui-design-refs"
+  },
+  {
+    "id": "haiwai-new-keyword-launch",
+    "nameZh": "出海新词上站",
+    "nameEn": "Overseas New-Keyword Launch",
+    "pitchZh": "Trends 词根法 + D0–D5 当天上站，抢 SEO/GEO 红利。",
+    "pitchEn": "Trends root words plus a D0–D5 same-day launch for the SEO/GEO window.",
+    "detailSlug": "skills/overseas-new-keyword-launch"
+  },
+  {
+    "id": "haiwai-monetize-convert",
+    "nameZh": "出海变现转化",
+    "nameEn": "Overseas Monetize & Convert",
+    "pitchZh": "假生成、锚定定价、留存入口与 Stripe 埋点风控，提升付费转化。",
+    "pitchEn": "Fake generation, anchor pricing, retention hooks, and Stripe event risk controls to lift paid conversion.",
+    "detailSlug": "skills/haiwai-monetize-convert"
+  },
+  {
+    "id": "writing-skills",
+    "nameZh": "技能编写",
+    "nameEn": "Writing Skills",
+    "pitchZh": "把可复用的工作方法写成 Agent 能直接用的技能。",
+    "pitchEn": "Turn a repeatable workflow into a skill an agent can use.",
+    "detailSlug": "skills/writing-skills"
+  },
+  {
+    "id": "brainstorming",
+    "nameZh": "头脑风暴",
+    "nameEn": "Brainstorming",
+    "pitchZh": "动手之前，先问对问题，把真正想要的东西聊清楚。",
+    "pitchEn": "Before building, ask the right questions and pin down what you really want.",
+    "detailSlug": "skills/brainstorming"
+  },
+  {
+    "id": "systematic-debugging",
+    "nameZh": "系统化排查",
+    "nameEn": "Systematic Debugging",
+    "pitchZh": "按四阶段排查：先找根因，再动手修。",
+    "pitchEn": "Debug in four phases: find the root cause before you fix.",
+    "detailSlug": "skills/systematic-debugging"
+  },
+  {
+    "id": "verification-before-completion",
+    "nameZh": "交付前验证",
+    "nameEn": "Verification Before Completion",
+    "pitchZh": "宣称完成之前，先拿出证据。",
+    "pitchEn": "Evidence before claims: verify before you say done.",
+    "detailSlug": "skills/verification-before-completion"
+  },
+  {
+    "id": "writing-plans",
+    "nameZh": "写计划",
+    "nameEn": "Writing Plans",
+    "pitchZh": "多步骤任务先写成计划，再动手执行。",
+    "pitchEn": "Write the plan first, then execute multi-step tasks.",
+    "detailSlug": "skills/writing-plans"
+  },
+  {
+    "id": "ai-project-delivery",
+    "nameZh": "AI 项目交付",
+    "nameEn": "AI Project Delivery",
+    "pitchZh": "从需求澄清到测试验收，让 AI Coding 的交付过程可追踪、可验证。",
+    "pitchEn": "Make AI-assisted development traceable and verifiable, from requirements to testing.",
+    "detailSlug": "skills/ai-project-delivery"
+  },
+  {
+    "id": "website-launch-check",
+    "nameZh": "网站上线验收",
+    "nameEn": "Website Launch QA",
+    "pitchZh": "发布前逐项检查核心路径、移动端、SEO、分享卡与回滚方案。",
+    "pitchEn": "Verify core flows, mobile layout, SEO, share previews, and rollback before launch.",
+    "detailSlug": "skills/website-launch-check"
+  },
+  {
+    "id": "content-repurpose",
+    "nameZh": "内容一稿多用",
+    "nameEn": "Content Repurposing",
+    "pitchZh": "把一份原创素材改造成公众号、X、短帖和官网内容，保留事实与口吻。",
+    "pitchEn": "Adapt one source into posts, articles, and web copy without losing facts or voice.",
+    "detailSlug": "skills/content-repurpose"
+  },
+  {
+    "id": "browser-automation",
+    "nameZh": "浏览器自动化流程",
+    "nameEn": "Browser Automation Workflow",
+    "pitchZh": "把重复网页操作变成可验证、可恢复的流程，并为高风险动作保留确认。",
+    "pitchEn": "Turn repetitive web tasks into verifiable, recoverable workflows with safe checkpoints.",
+    "detailSlug": "skills/browser-automation"
+  },
+  {
+    "id": "data-analysis",
+    "nameZh": "数据分析与决策",
+    "nameEn": "Data Analysis & Decisions",
+    "pitchZh": "检查口径、拆解漏斗与分群，把数据结论转成下一步实验和动作。",
+    "pitchEn": "Validate definitions, analyze funnels and cohorts, and turn findings into next actions.",
+    "detailSlug": "skills/data-analysis"
+  },
+  {
+    "id": "landing-page-design",
+    "nameZh": "落地页设计",
+    "nameEn": "Landing Page Design",
+    "pitchZh": "高转化落地页体系：一页一事，结构、文案与视觉硬规则一次给齐。",
+    "pitchEn": "A high-converting landing system: one offer, one audience, one action — structure, copy, and hard visual rules.",
+    "detailSlug": "skills/landing-page-design"
+  },
+  {
+    "id": "grill-me",
+    "nameZh": "Grill Me 质询",
+    "nameEn": "Grill Me",
+    "pitchZh": "无情访谈：用设计树一轮轮追问，把计划里没说出口的假设烤出来。",
+    "pitchEn": "A relentless interview: work a design tree round by round until silent assumptions are gone.",
+    "detailSlug": "skills/grill-me"
+  },
+  {
+    "id": "impeccable",
+    "nameZh": "Impeccable 设计审阅",
+    "nameEn": "Impeccable Design Review",
+    "pitchZh": "设计审阅工具链：critique / audit / polish，打磨已有界面。",
+    "pitchEn": "A design-review toolchain: critique, audit, and polish existing UI.",
+    "detailSlug": "skills/impeccable"
+  }
+]

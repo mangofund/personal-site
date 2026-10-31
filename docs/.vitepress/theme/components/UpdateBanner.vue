@@ -73,7 +73,7 @@ function dismiss(): void {
 <style scoped>
 .update-banner {
   position: fixed;
-  top: 76px;
+  top: calc(var(--vp-nav-height, 72px) + 4px + var(--site-ticker-offset, 0px));
   left: 50%;
   transform: translateX(-50%);
   z-index: 60;

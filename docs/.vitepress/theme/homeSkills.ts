@@ -1,4 +1,5 @@
 import skillPackages from './data/skill-packages.json'
+import skillTickerRows from './data/skill-ticker.json'
 import { SKILL_EXAMPLES } from './skillExamples'
 import { SKILL_DEMOS } from './skillDemos'
 
@@ -1924,3 +1925,42 @@ export function skillPagePath(skill: HomeSkill, english: boolean, onCatalog: boo
   if (onCatalog) return null
   return skillCatalogHash(skill.id, english)
 }
+
+interface SkillTickerRow {
+  id: string
+  nameZh: string
+  nameEn: string
+  pitchZh: string
+  pitchEn: string
+  detailSlug: string
+}
+
+// 顶栏只用名称和一句话，避免把详情和示例打进全站包。
+// 改技能名称、简介或详情路径后，要同步 data/skill-ticker.json，否则这里会失败。
+function assertSkillTickerRows(): void {
+  const rows = skillTickerRows as SkillTickerRow[]
+  const byId = new Map(rows.map((row) => [row.id, row]))
+  if (byId.size !== rows.length) throw new Error('技能滚动条数据有重复 id')
+  const skillIds = new Set(homeSkills.map((skill) => skill.id))
+  if (rows.length !== homeSkills.length) {
+    throw new Error(`技能滚动条 ${rows.length} 条，目录 ${homeSkills.length} 条`)
+  }
+  for (const row of rows) {
+    if (!skillIds.has(row.id)) throw new Error(`技能滚动条有未知 id: ${row.id}`)
+  }
+  for (const skill of homeSkills) {
+    const row = byId.get(skill.id)
+    if (!row) throw new Error(`技能滚动条缺少 ${skill.id}`)
+    if (
+      row.nameZh !== skill.nameZh ||
+      row.nameEn !== skill.nameEn ||
+      row.pitchZh !== skill.pitchZh ||
+      row.pitchEn !== skill.pitchEn ||
+      row.detailSlug !== skill.detailSlug
+    ) {
+      throw new Error(`技能滚动条与目录不一致: ${skill.id}`)
+    }
+  }
+}
+
+assertSkillTickerRows()
