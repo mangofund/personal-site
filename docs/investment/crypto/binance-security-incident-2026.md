@@ -20,10 +20,6 @@ draft: false
 
 </div>
 
-作者：hello pro（[@PRO_AI_99T](https://x.com/PRO_AI_99T)） · 2026.10.31
-
-本文首发于 MangoFund 官网 promangofund.com。更多 AI 产品、副业和投资的长文与工具，都在那里更新。
-
 币安官方账号在 10 月 31 日凌晨（北京时间）发了一篇《Security Incident Update #2》。
 
 核心事实只有几句：
