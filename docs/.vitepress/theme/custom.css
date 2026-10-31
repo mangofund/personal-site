@@ -1,15 +1,14 @@
-/* Research Note tokens.
-   页面底是 backdrop，卡片 / 导航 / 代码块是 paper。
-   #a39d92 在米白底上对比约 2.1:1，正文次级色用同色相加深的暖灰，保证日期和摘要可读。
-   实心强调按钮上的字用 #222：白字压在 #d96c4a 上约 3.2:1。 */
+/* 象牙色纸面，对照 anthropic.com 的灰阶，不是 Research Note 的米色桌面。
+   页面与顶栏同色；药丸和卡片用略深的暖灰填充。强调色仍是芒果橙。
+   实心橙按钮上的字用近黑：白字压在 #d96c4a 上对比不够。 */
 :root {
-  --rn-backdrop: #e9e5dc;
-  --rn-paper: #faf7f1;
-  --rn-ink: #222;
+  --rn-backdrop: #faf9f5;
+  --rn-paper: #f5f4ed;
+  --rn-ink: #141413;
   --rn-accent: #d96c4a;
-  --rn-muted: #a39d92;
-  --rn-line: #e6e1d6;
-  --rn-on-accent: #222;
+  --rn-muted: #6f6b64;
+  --rn-line: #e8e6dc;
+  --rn-on-accent: #141413;
 
   --vp-c-brand-1: var(--rn-accent);
   --vp-c-brand-2: #c05638;
@@ -22,8 +21,8 @@
   --vp-c-tip-soft: rgba(217, 108, 74, 0.14);
 
   --vp-c-text-1: var(--rn-ink);
-  --vp-c-text-2: #5c574f;
-  --vp-c-text-3: #6b655c;
+  --vp-c-text-2: #3d3d3a;
+  --vp-c-text-3: var(--rn-muted);
 
   --vp-c-bg: var(--rn-backdrop);
   --vp-c-bg-alt: var(--rn-backdrop);
@@ -35,9 +34,9 @@
   --vp-c-gutter: var(--rn-line);
 
   --vp-c-default-1: var(--rn-line);
-  --vp-c-default-2: #ddd8cc;
+  --vp-c-default-2: #efece4;
   --vp-c-default-3: var(--rn-paper);
-  --vp-c-default-soft: rgba(34, 34, 34, 0.05);
+  --vp-c-default-soft: rgba(20, 20, 19, 0.05);
 
   --rn-nav-label: #3d3d3a;
   --vp-nav-height: 72px;
@@ -53,24 +52,32 @@
   --vp-code-copy-code-bg: var(--rn-paper);
   --vp-code-copy-code-hover-bg: var(--rn-backdrop);
 
+  --vp-shadow-1: 0 1px 2px rgba(20, 20, 19, .04);
+  --vp-shadow-2: 0 6px 16px rgba(20, 20, 19, .05);
+  --vp-shadow-3: 0 12px 28px rgba(20, 20, 19, .07);
+
   /* 缩略图卡片悬停：外圈柔和投影 + 内侧发丝描边（参考 Perplexity Discover） */
-  --card-shadow-ring: inset 0 0 0 .5px rgba(34, 34, 34, .12);
-  --card-shadow-hover: 0 1px 2px rgba(34, 34, 34, .08), 0 0 2px rgba(34, 34, 34, .06), 0 8px 24px -8px rgba(34, 34, 34, .14);
+  --card-shadow-ring: inset 0 0 0 .5px rgba(20, 20, 19, .08);
+  --card-shadow-hover: 0 1px 2px rgba(20, 20, 19, .04), 0 10px 24px -14px rgba(20, 20, 19, .14);
   --vp-font-family-base: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mf-font-serif: "Source Serif 4", "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
   --vp-font-family-mono: ui-monospace, Menlo, Consolas, monospace;
 }
 
 .dark {
-  --rn-backdrop: #1a1714;
-  --rn-paper: #26221e;
-  --rn-ink: #f4f0e8;
+  --rn-backdrop: #141413;
+  --rn-paper: #22211e;
+  --rn-ink: #faf9f5;
   --rn-accent: #d96c4a;
-  --rn-muted: #a39d92;
-  --rn-line: #3c362f;
-  --rn-on-accent: #222;
+  --rn-muted: #a39e94;
+  --rn-line: #3a3832;
+  --rn-on-accent: #141413;
 
-  --card-shadow-ring: inset 0 0 0 .5px rgba(255, 255, 255, .08), inset 0 .5px 0 0 rgba(255, 255, 255, .06);
-  --card-shadow-hover: 0 1px 2px rgba(0, 0, 0, .35), 0 0 2px rgba(0, 0, 0, .25), 0 8px 24px -8px rgba(0, 0, 0, .5);
+  --vp-shadow-1: 0 1px 2px rgba(0, 0, 0, .28);
+  --vp-shadow-2: 0 6px 16px rgba(0, 0, 0, .32);
+  --vp-shadow-3: 0 12px 28px rgba(0, 0, 0, .4);
+  --card-shadow-ring: inset 0 0 0 .5px rgba(250, 249, 245, .08);
+  --card-shadow-hover: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 24px -14px rgba(0, 0, 0, .45);
   --vp-c-brand-1: var(--rn-accent);
   --vp-c-brand-2: #e58b70;
   --vp-c-brand-3: #f0a890;
@@ -82,12 +89,12 @@
   --vp-c-tip-soft: rgba(217, 108, 74, 0.18);
 
   --vp-c-text-1: var(--rn-ink);
-  --vp-c-text-2: #c8c1b6;
+  --vp-c-text-2: #c8c4b8;
   --vp-c-text-3: var(--rn-muted);
 
   --vp-c-bg: var(--rn-backdrop);
   --vp-c-bg-alt: var(--rn-backdrop);
-  --vp-c-bg-elv: #2e2924;
+  --vp-c-bg-elv: #2a2926;
   --vp-c-bg-soft: var(--rn-paper);
 
   --vp-c-divider: var(--rn-line);
@@ -103,7 +110,7 @@
 
   --vp-code-color: var(--rn-accent);
   --vp-code-bg: rgba(217, 108, 74, 0.16);
-  --vp-code-block-bg: #221e1b;
+  --vp-code-block-bg: #1c1b19;
   --vp-code-block-color: var(--rn-ink);
   --vp-code-line-highlight-color: rgba(217, 108, 74, 0.16);
   --vp-code-copy-code-bg: var(--rn-paper);
@@ -152,8 +159,24 @@
 }
 
 .vp-doc {
+  font-family: var(--mf-font-serif);
   font-size: 16px;
-  line-height: 1.95;
+  line-height: 1.75;
+}
+
+.vp-doc:has(.home-page),
+.vp-doc:has(.skill-browse-layout),
+.vp-doc:has(.skill-detail),
+.vp-doc:has(.skill-catalog),
+.archive-page {
+  font-family: var(--vp-font-family-base);
+}
+
+.vp-doc button,
+.vp-doc input,
+.vp-doc textarea,
+.vp-doc select {
+  font-family: var(--vp-font-family-base);
 }
 
 .vp-doc p,
@@ -166,17 +189,22 @@
 .vp-doc h2,
 .vp-doc h3,
 .archive-header h1 {
-  font-family: var(--vp-font-family-base);
-}
-
-.vp-doc h1 {
-  font-weight: 700;
+  font-family: var(--mf-font-serif);
+  font-weight: 500;
   letter-spacing: -.02em;
 }
 
-.vp-doc h2,
-.vp-doc h3 {
-  font-weight: 700;
+.vp-doc:has(.home-page) :is(h1, h2, h3),
+.vp-doc:has(.skill-browse-layout) :is(h1, h2, h3),
+.vp-doc:has(.skill-detail) :is(h1, h2, h3),
+.vp-doc:has(.skill-catalog) :is(h1, h2, h3),
+.archive-header h1 {
+  font-family: var(--vp-font-family-base);
+  font-weight: 600;
+}
+
+.vp-doc h1 {
+  letter-spacing: -.02em;
 }
 
 .vp-doc h2 {
@@ -184,6 +212,11 @@
   letter-spacing: -.02em;
   border-top: none;
   padding-top: 0;
+}
+
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--rn-line);
+  border-radius: 12px;
 }
 
 .vp-doc a {
@@ -204,8 +237,9 @@
 .vp-doc .home-intro h1 {
   margin: 0;
   color: var(--vp-c-text-1);
+  font-family: var(--vp-font-family-base);
   font-size: clamp(26px, 3vw, 32px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -.02em;
   line-height: 1.3;
 }
