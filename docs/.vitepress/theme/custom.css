@@ -109,8 +109,13 @@
 
 .VPNav {
   background: color-mix(in srgb, var(--rn-paper) 92%, transparent);
-  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--rn-line);
+}
+
+/* blur 不能放在 .VPNav 上：它会变成 fixed 的包含块，
+   手机全屏菜单 .VPNavScreen 被压成高度 0。模糊只留在导航条本身。 */
+.VPNavBar {
+  backdrop-filter: blur(12px);
 }
 
 .VPNavBarTitle .title {
