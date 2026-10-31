@@ -41,6 +41,9 @@
 
   --rn-nav-label: #3d3d3a;
   --vp-nav-height: 72px;
+  --site-ticker-height: 36px;
+  /* 桌面导航是 fixed。这条跟着滚动条剩余高度走，滚走后导航回到顶。 */
+  --site-ticker-offset: var(--site-ticker-height);
   --vp-nav-bg-color: var(--rn-backdrop);
   --vp-nav-screen-bg-color: var(--rn-backdrop);
   --vp-sidebar-bg-color: var(--rn-backdrop);
@@ -119,6 +122,42 @@
   --vp-code-line-highlight-color: rgba(217, 108, 74, 0.16);
   --vp-code-copy-code-bg: var(--rn-paper);
   --vp-code-copy-code-hover-bg: var(--rn-backdrop);
+}
+
+html[data-ticker-dismissed='1'] {
+  --site-ticker-height: 0px;
+  --site-ticker-offset: 0px;
+}
+
+html[data-ticker-dismissed='1'] .site-ticker {
+  display: none;
+}
+
+.Layout .VPLocalNav.VPLocalNav {
+  top: var(--site-ticker-offset, 0px);
+}
+
+.Layout .VPSidebar.VPSidebar {
+  top: var(--site-ticker-offset, 0px);
+}
+
+.Layout .VPDoc .aside-container {
+  top: var(--site-ticker-offset, 0px);
+  height: calc(100vh - var(--site-ticker-offset, 0px));
+}
+
+.Layout .VPNavScreen.VPNavScreen {
+  top: calc(var(--vp-nav-height) + var(--site-ticker-offset, 0px));
+}
+
+@media (min-width: 960px) {
+  .Layout .VPNav.VPNav {
+    top: var(--site-ticker-offset, 0px);
+  }
+
+  .Layout .VPLocalNav.VPLocalNav {
+    top: calc(var(--vp-nav-height) + var(--site-ticker-offset, 0px));
+  }
 }
 
 .VPNav {

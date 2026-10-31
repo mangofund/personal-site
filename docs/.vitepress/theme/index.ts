@@ -9,6 +9,7 @@ import Twikoo from './components/Twikoo.vue'
 import UsefulButton from './components/UsefulButton.vue'
 import FollowButton from './components/FollowButton.vue'
 import UpdateBanner from './components/UpdateBanner.vue'
+import SiteTicker from './components/SiteTicker.vue'
 import LangSwitch from './components/LangSwitch.vue'
 import WechatNav from './components/WechatNav.vue'
 import './custom.css'
@@ -374,7 +375,7 @@ function setupVideoPlayButtons(router: Router): void {
 export default {
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
-    'layout-top': () => [h(UpdateBanner), h(ShareRail)],
+    'layout-top': () => [h(SiteTicker), h(UpdateBanner), h(ShareRail)],
     'doc-footer-before': () => [h(UsefulButton), h(ShareBar), h(Twikoo)],
     'nav-bar-content-after': () => h(WechatNav)
   }),

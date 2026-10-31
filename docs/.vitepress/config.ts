@@ -629,6 +629,9 @@ export default defineConfig({
   },
 
   head: [
+    // 会话内关掉顶栏滚动条后，首屏绘制前就藏起来，避免闪一下。
+    ['script', {}, `try{var r=document.documentElement;if(sessionStorage.getItem('mangofund:ticker-dismissed')==='1'){r.dataset.tickerDismissed='1'}else{r.style.setProperty('--site-ticker-offset',Math.max(0,36-(window.scrollY||0))+'px')}}catch(e){}`],
+
     // 界面用 Source Sans 3，文章用 Source Serif 4。不用 Anthropic 专有字体文件。
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' }],
