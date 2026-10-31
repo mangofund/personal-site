@@ -1,39 +1,121 @@
+/* Research Note tokens.
+   页面底是 backdrop，卡片 / 导航 / 代码块是 paper。
+   #a39d92 在米白底上对比约 2.1:1，正文次级色用同色相加深的暖灰，保证日期和摘要可读。
+   实心强调按钮上的字用 #222：白字压在 #d96c4a 上约 3.2:1。 */
 :root {
-  --vp-c-brand-1: #355c4b;
-  --vp-c-brand-2: #487560;
-  --vp-c-brand-3: #2f4d3f;
-  --vp-c-text-1: #26332d;
-  --vp-c-text-2: #68736d;
-  --vp-c-bg: #f8f8f5;
-  --vp-c-bg-soft: #f0f1ec;
-  --vp-c-divider: #dfe3dc;
+  --rn-backdrop: #e9e5dc;
+  --rn-paper: #faf7f1;
+  --rn-ink: #222;
+  --rn-accent: #d96c4a;
+  --rn-muted: #a39d92;
+  --rn-line: #e6e1d6;
+  --rn-on-accent: #222;
+
+  --vp-c-brand-1: var(--rn-accent);
+  --vp-c-brand-2: #c05638;
+  --vp-c-brand-3: #a84b30;
+  --vp-c-brand-soft: rgba(217, 108, 74, 0.14);
+
+  --vp-c-tip-1: var(--rn-accent);
+  --vp-c-tip-2: #c05638;
+  --vp-c-tip-3: #a84b30;
+  --vp-c-tip-soft: rgba(217, 108, 74, 0.14);
+
+  --vp-c-text-1: var(--rn-ink);
+  --vp-c-text-2: #5c574f;
+  --vp-c-text-3: #6b655c;
+
+  --vp-c-bg: var(--rn-backdrop);
+  --vp-c-bg-alt: var(--rn-backdrop);
+  --vp-c-bg-elv: var(--rn-paper);
+  --vp-c-bg-soft: var(--rn-paper);
+
+  --vp-c-divider: var(--rn-line);
+  --vp-c-border: var(--rn-line);
+  --vp-c-gutter: var(--rn-line);
+
+  --vp-c-default-1: var(--rn-line);
+  --vp-c-default-2: #ddd8cc;
+  --vp-c-default-3: var(--rn-paper);
+  --vp-c-default-soft: rgba(34, 34, 34, 0.05);
+
+  --vp-nav-bg-color: var(--rn-paper);
+  --vp-nav-screen-bg-color: var(--rn-paper);
+  --vp-sidebar-bg-color: var(--rn-backdrop);
+
+  --vp-code-color: var(--rn-accent);
+  --vp-code-bg: rgba(217, 108, 74, 0.1);
+  --vp-code-block-bg: var(--rn-paper);
+  --vp-code-block-color: var(--rn-ink);
+  --vp-code-line-highlight-color: rgba(217, 108, 74, 0.14);
+  --vp-code-copy-code-bg: var(--rn-paper);
+  --vp-code-copy-code-hover-bg: var(--rn-backdrop);
+
   /* 缩略图卡片悬停：外圈柔和投影 + 内侧发丝描边（参考 Perplexity Discover） */
-  --card-shadow-ring: inset 0 0 0 .5px rgba(0, 0, 0, .1);
-  --card-shadow-hover: 0 1px 2px rgba(38, 51, 45, .12), 0 0 2px rgba(38, 51, 45, .1), 0 2px 8px -1px rgba(38, 51, 45, .12);
-  --vp-font-family-base: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --vp-font-family-mono: "SFMono-Regular", Consolas, monospace;
+  --card-shadow-ring: inset 0 0 0 .5px rgba(34, 34, 34, .12);
+  --card-shadow-hover: 0 1px 2px rgba(34, 34, 34, .08), 0 0 2px rgba(34, 34, 34, .06), 0 8px 24px -8px rgba(34, 34, 34, .14);
+  --vp-font-family-base: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  --vp-font-family-mono: ui-monospace, Menlo, Consolas, monospace;
 }
 
 .dark {
+  --rn-backdrop: #1a1714;
+  --rn-paper: #26221e;
+  --rn-ink: #f4f0e8;
+  --rn-accent: #d96c4a;
+  --rn-muted: #a39d92;
+  --rn-line: #3c362f;
+  --rn-on-accent: #222;
+
   --card-shadow-ring: inset 0 0 0 .5px rgba(255, 255, 255, .08), inset 0 .5px 0 0 rgba(255, 255, 255, .06);
-  --card-shadow-hover: 0 1px 2px rgba(0, 0, 0, .25), 0 0 2px rgba(0, 0, 0, .2), 0 1px 6px -1px rgba(0, 0, 0, .15);
-  --vp-c-brand-1: #9ac7ad;
-  --vp-c-brand-2: #82b99a;
-  --vp-c-brand-3: #b2d7bf;
-  --vp-c-text-1: #e7ede8;
-  --vp-c-text-2: #a9b6ad;
-  --vp-c-bg: #18201c;
-  --vp-c-bg-soft: #202a24;
-  --vp-c-divider: #344038;
+  --card-shadow-hover: 0 1px 2px rgba(0, 0, 0, .35), 0 0 2px rgba(0, 0, 0, .25), 0 8px 24px -8px rgba(0, 0, 0, .5);
+  --vp-c-brand-1: var(--rn-accent);
+  --vp-c-brand-2: #e58b70;
+  --vp-c-brand-3: #f0a890;
+  --vp-c-brand-soft: rgba(217, 108, 74, 0.2);
+
+  --vp-c-tip-1: var(--rn-accent);
+  --vp-c-tip-2: #e58b70;
+  --vp-c-tip-3: #f0a890;
+  --vp-c-tip-soft: rgba(217, 108, 74, 0.18);
+
+  --vp-c-text-1: var(--rn-ink);
+  --vp-c-text-2: #c8c1b6;
+  --vp-c-text-3: var(--rn-muted);
+
+  --vp-c-bg: var(--rn-backdrop);
+  --vp-c-bg-alt: var(--rn-backdrop);
+  --vp-c-bg-elv: #2e2924;
+  --vp-c-bg-soft: var(--rn-paper);
+
+  --vp-c-divider: var(--rn-line);
+  --vp-c-border: var(--rn-line);
+  --vp-c-gutter: var(--rn-line);
+
+  --vp-c-default-soft: rgba(250, 247, 241, 0.08);
+
+  --vp-nav-bg-color: var(--rn-paper);
+  --vp-nav-screen-bg-color: var(--rn-paper);
+  --vp-sidebar-bg-color: var(--rn-backdrop);
+
+  --vp-code-color: var(--rn-accent);
+  --vp-code-bg: rgba(217, 108, 74, 0.16);
+  --vp-code-block-bg: #221e1b;
+  --vp-code-block-color: var(--rn-ink);
+  --vp-code-line-highlight-color: rgba(217, 108, 74, 0.16);
+  --vp-code-copy-code-bg: var(--rn-paper);
+  --vp-code-copy-code-hover-bg: var(--rn-backdrop);
 }
 
 .VPNav {
-  background: color-mix(in srgb, var(--vp-c-bg) 88%, transparent);
+  background: color-mix(in srgb, var(--rn-paper) 92%, transparent);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rn-line);
 }
 
 .VPNavBarTitle .title {
-  font-weight: 650;
+  font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
   letter-spacing: .04em;
 }
 
@@ -52,8 +134,21 @@
   max-width: 720px;
 }
 
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.archive-header h1 {
+  font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
 .vp-doc h1 {
-  letter-spacing: -.035em;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.vp-doc h2,
+.vp-doc h3 {
+  font-weight: 700;
 }
 
 .vp-doc h2 {
@@ -82,8 +177,8 @@
   margin: 0;
   color: var(--vp-c-text-1);
   font-size: clamp(26px, 3vw, 32px);
-  font-weight: 650;
-  letter-spacing: -.03em;
+  font-weight: 700;
+  letter-spacing: -.02em;
   line-height: 1.3;
 }
 
@@ -185,6 +280,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   margin: 0 0 18px;
   padding: 0;
   border: 0;
+  color: var(--vp-c-text-3);
   line-height: 1.4;
   font-weight: 600;
   font-size: 13px;
@@ -222,7 +318,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   overflow: hidden;
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
   text-decoration: none;
   color: inherit;
   font-weight: inherit;
@@ -239,7 +335,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   aspect-ratio: 2.35 / 1;
   object-fit: cover;
   object-position: center top;
-  background: var(--vp-c-bg-soft);
+  background: var(--rn-backdrop);
   transition: transform .35s ease;
 }
 
@@ -254,7 +350,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 .article-card-body {
   position: relative; /* 盖住 hover 放大后溢出图片区的部分 */
   padding: 15px 16px 18px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
 }
 
 .article-card time {
@@ -303,7 +399,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 
 .vp-doc .home-head h1 {
   margin: 0;
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-3);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .14em;
@@ -354,7 +450,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   overflow: hidden;
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
 }
 
 /* 轮播占的就是原头条的槽位:网格第一格;<960px 时和原头条一样占整行 */
@@ -365,7 +461,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 .hc-stage {
   position: relative;
   aspect-ratio: 2.35 / 1;
-  background: var(--vp-c-bg-soft);
+  background: var(--rn-backdrop);
 }
 
 .hc-slide {
@@ -822,7 +918,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
   overflow: hidden;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
 }
 
 .vp-doc button.skill-sort-option {
@@ -852,7 +948,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 }
 
 .vp-doc button.skill-sort-option:hover {
-  background: var(--vp-c-bg-soft);
+  background: var(--rn-backdrop);
   color: var(--vp-c-text-1);
 }
 
@@ -1265,13 +1361,13 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .vp-doc button.skill-copy.is-primary {
   background: var(--vp-c-brand-1);
   border-color: var(--vp-c-brand-1);
-  color: #fff;
+  color: var(--rn-on-accent);
 }
 
 .vp-doc button.skill-copy.is-primary:hover,
 .vp-doc button.skill-copy.is-primary.is-copied {
   background: var(--vp-c-brand-3);
-  color: #fff;
+  color: var(--rn-paper);
 }
 
 .vp-doc a.skill-back,
@@ -1290,7 +1386,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 28px;
-  background: color-mix(in srgb, var(--vp-c-bg) 55%, white);
+  background: var(--rn-paper);
   border: 1px solid var(--vp-c-divider);
   border-radius: 18px;
   overflow: hidden;
@@ -1324,7 +1420,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .skill-about {
   margin-top: 18px;
   padding: 20px 22px 22px;
-  background: color-mix(in srgb, var(--vp-c-bg) 55%, white);
+  background: var(--rn-paper);
   border: 1px solid var(--vp-c-divider);
   border-radius: 18px;
 }
@@ -1370,7 +1466,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   padding: 22px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 18px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
 }
 .vp-doc .skill-example h2 { margin-bottom: 8px; }
 .vp-doc .skill-example h3 { margin: 14px 0 8px; font-size: 15px; }
@@ -1387,7 +1483,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   padding: 14px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;
-  background: var(--vp-c-bg-soft);
+  background: var(--rn-backdrop);
 }
 .vp-doc .skill-example-label {
   margin: 0 0 8px;
@@ -1467,7 +1563,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   padding: 6px 14px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
   color: var(--vp-c-text-1);
   font-size: 14px;
   font-weight: 500;
@@ -1857,7 +1953,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .side-btn-primary {
   border-color: var(--vp-c-brand-1);
   background: var(--vp-c-brand-1);
-  color: var(--vp-c-bg);
+  color: var(--rn-on-accent);
 }
 
 .side-btn-primary:hover {
@@ -2112,7 +2208,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background: rgba(245, 158, 11, 0.93);
+  background: rgba(217, 108, 74, 0.93);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(255, 255, 255, 0.28);
   display: flex;
   align-items: center;
@@ -2122,7 +2218,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 .video-play-btn:hover {
   transform: scale(1.07);
-  background: rgba(245, 158, 11, 1);
+  background: #d96c4a;
 }
 .video-play-btn svg {
   width: 42px;
@@ -2163,7 +2259,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 .vp-doc a.skill-detail-link:hover {
   background: var(--vp-c-brand-1);
-  color: #fff;
+  color: var(--rn-on-accent);
 }
 
 /* 2026-10-23 redeploy trigger: 上批三提交部署未生效，重新触发 */
@@ -2224,7 +2320,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   left: 12px;
   padding: 3px 8px;
   border-radius: 999px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
   color: var(--vp-c-text-2);
   font-size: 12px;
   font-weight: 650;
@@ -2278,7 +2374,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   padding: 6px 12px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
-  background: var(--vp-c-bg);
+  background: var(--rn-paper);
   color: var(--vp-c-text-1);
   font-family: inherit;
   font-size: 13px;
