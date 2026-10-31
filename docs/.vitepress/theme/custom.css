@@ -233,6 +233,18 @@
   padding: 0 32px 24px;
 }
 
+.home-page a,
+.skill-browse .vp-doc a,
+.vp-doc:has(.project-list) a {
+  color: var(--rn-ink);
+}
+
+.home-page a:hover,
+.skill-browse .vp-doc a:hover,
+.vp-doc:has(.project-list) a:hover {
+  color: var(--rn-ink);
+}
+
 .home-intro {
   max-width: 720px;
   padding: 2px 0 4px;
@@ -364,7 +376,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 
 .now-list span::before {
   content: "·";
-  color: var(--vp-c-brand-1);
+  color: var(--rn-muted);
   margin-right: 9px;
 }
 
@@ -875,15 +887,16 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   display: inline-block;
   margin-top: 16px;
   padding: 9px 22px;
-  border: 1px solid var(--vp-c-brand-1);
+  border: 1px solid var(--rn-line);
   border-radius: 999px;
-  color: var(--vp-c-brand-1);
+  background: var(--rn-paper);
+  color: var(--rn-ink);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
 }
 .vp-doc .project-item a.cta:hover {
-  background: var(--vp-c-brand-soft);
+  background: var(--rn-line);
 }
 
 /* 技能目录：缩略图优先。列表页左侧筛选，首页不加侧栏。 */
@@ -1139,10 +1152,10 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   display: inline-block;
   margin: 0;
   padding: 5px 12px;
-  border: 1px solid var(--vp-c-brand-1);
+  border: 1px solid var(--rn-line);
   border-radius: 999px;
-  background: transparent;
-  color: var(--vp-c-brand-1);
+  background: var(--rn-paper);
+  color: var(--rn-ink);
   font-family: inherit;
   font-size: 12px;
   font-weight: 650;
@@ -1159,7 +1172,9 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 .vp-doc button.skill-copy:hover,
 .vp-doc button.skill-copy.is-copied,
 .vp-doc a.skill-zip:hover {
-  background: var(--vp-c-brand-soft);
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .vp-doc button.skill-copy:focus-visible,
@@ -1168,7 +1183,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 .vp-doc .skill-tile h3 a:focus-visible,
 .vp-doc .project-tile h3 a:focus-visible,
 .vp-doc a.skill-back:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
+  outline: 2px solid var(--rn-ink);
   outline-offset: 2px;
 }
 
@@ -1302,6 +1317,19 @@ html[lang="en"].dark button.VPSwitch.VPSwitchAppearance::after { content: "Light
 .VPNav .VPFlyout.active .text,
 .VPNav .VPFlyout.active:hover .text {
   color: var(--rn-ink);
+}
+
+/* 下拉跟药丸左缘对齐，紧贴触发器下方。默认 right:0 会把面板甩到标签左侧。 */
+.VPNav .VPFlyout > .menu {
+  top: calc(100% + 8px);
+  right: auto;
+  left: 0;
+}
+
+.VPNav .VPMenu .link:hover,
+.VPNav .VPMenu .link.active {
+  color: var(--rn-ink);
+  background-color: var(--rn-line);
 }
 
 @media (min-width: 768px) {
@@ -1548,15 +1576,15 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .vp-doc button.skill-copy.is-primary {
-  background: var(--vp-c-brand-1);
-  border-color: var(--vp-c-brand-1);
-  color: var(--rn-on-accent);
+  background: var(--rn-card);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .vp-doc button.skill-copy.is-primary:hover,
 .vp-doc button.skill-copy.is-primary.is-copied {
-  background: var(--vp-c-brand-3);
-  color: var(--rn-paper);
+  background: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .vp-doc a.skill-back,
@@ -1568,7 +1596,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .vp-doc a.skill-back:hover {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .skill-fit {
@@ -2450,10 +2478,10 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   display: inline-block;
   margin: 0;
   padding: 5px 12px;
-  border: 1px solid var(--vp-c-brand-1);
+  border: 1px solid var(--rn-line);
   border-radius: 999px;
-  background: transparent;
-  color: var(--vp-c-brand-1);
+  background: var(--rn-paper);
+  color: var(--rn-ink);
   font-size: 12px;
   font-weight: 650;
   line-height: 1.4;
@@ -2461,8 +2489,9 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   white-space: nowrap;
 }
 .vp-doc a.skill-detail-link:hover {
-  background: var(--vp-c-brand-1);
-  color: var(--rn-on-accent);
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 /* 2026-10-23 redeploy trigger: 上批三提交部署未生效，重新触发 */
@@ -2588,6 +2617,6 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 
 .vp-doc input.emcp-search:focus-visible,
 .vp-doc .skill-tile a.skill-detail-link:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
+  outline: 2px solid var(--rn-ink);
   outline-offset: 2px;
 }
