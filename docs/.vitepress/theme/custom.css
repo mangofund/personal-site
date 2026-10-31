@@ -4,6 +4,7 @@
 :root {
   --rn-backdrop: #faf9f5;
   --rn-paper: #f5f4ed;
+  --rn-card: #f0eee6;
   --rn-ink: #141413;
   --rn-accent: #d96c4a;
   --rn-muted: #6f6b64;
@@ -43,6 +44,8 @@
   --vp-nav-bg-color: var(--rn-backdrop);
   --vp-nav-screen-bg-color: var(--rn-backdrop);
   --vp-sidebar-bg-color: var(--rn-backdrop);
+  --vp-local-search-result-selected-border: var(--rn-ink);
+  --vp-local-search-highlight-bg: var(--rn-line);
 
   --vp-code-color: var(--rn-accent);
   --vp-code-bg: rgba(217, 108, 74, 0.1);
@@ -67,6 +70,7 @@
 .dark {
   --rn-backdrop: #141413;
   --rn-paper: #22211e;
+  --rn-card: #2a2926;
   --rn-ink: #faf9f5;
   --rn-accent: #d96c4a;
   --rn-muted: #a39e94;
@@ -311,8 +315,8 @@
 }
 
 .home-links a:hover {
-  color: var(--vp-c-brand-1);
-  border-color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
+  border-color: var(--rn-line);
 }
 
 .home-section {
@@ -446,7 +450,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 }
 
 .article-card:hover strong {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 /* ---- 首页最新文章：头条 + 2×2 小卡 + 三列标题列表，首屏尽量多露出文章 ---- */
@@ -495,14 +499,15 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 }
 
 .vp-doc a.home-topic:hover {
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
+  border-color: var(--rn-line);
+  background: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .vp-doc a.home-topic.is-all {
   padding-left: 4px;
   border-color: transparent;
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 /* ---- 首页头条轮播:3 篇横幅自动滚动,下方标题摘要同步切换 ---- */
@@ -623,7 +628,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   -webkit-line-clamp: 2;
 }
 
-.hc-panel:hover strong { color: var(--vp-c-brand-1); }
+.hc-panel:hover strong { color: var(--rn-ink); }
 
 .hc-panel small {
   display: -webkit-box;
@@ -687,7 +692,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 }
 
 .article-card-cat {
-  color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-2);
   font-weight: 600;
 }
 
@@ -782,7 +787,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 }
 
 .vp-doc .latest-rows a:hover .latest-row-title {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 @media (min-width: 960px) {
@@ -855,7 +860,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 
 .project-item small {
   display: block;
-  color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-2);
   margin-top: 12px;
 }
 
@@ -940,13 +945,13 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 
 .vp-doc button.skill-filter:hover,
 .vp-doc button.skill-filter.is-active {
-  border-color: var(--vp-c-brand-1);
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  border-color: var(--rn-line);
+  background: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .vp-doc button.skill-filter:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
+  outline: 2px solid var(--rn-ink);
   outline-offset: 2px;
 }
 
@@ -1016,14 +1021,14 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 
 .vp-doc button.skill-sort-option.is-active,
 .vp-doc button.skill-sort-option.is-active:hover {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  background: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .vp-doc button.skill-sort-option:focus-visible {
   position: relative;
   z-index: 1;
-  outline: 2px solid var(--vp-c-brand-1);
+  outline: 2px solid var(--rn-ink);
   outline-offset: -2px;
 }
 
@@ -1099,7 +1104,7 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
 
 .vp-doc .skill-tile h3 a:hover,
 .vp-doc .project-tile h3 a:hover {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .skill-foot {
@@ -1285,22 +1290,18 @@ html[lang="en"].dark button.VPSwitch.VPSwitchAppearance::after { content: "Light
 }
 
 .VPNav a.VPNavBarMenuLink.active,
-.VPNav .VPFlyout.active .button {
-  background: var(--rn-paper);
-  border-color: var(--rn-accent);
-  color: var(--rn-accent);
-  box-shadow: none;
+.VPNav .VPFlyout.active .button,
+.VPNav a.VPNavBarMenuLink.active:hover,
+.VPNav .VPFlyout.active:hover .button {
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
+  box-shadow: 0 0 0 1px var(--rn-line);
 }
 
 .VPNav .VPFlyout.active .text,
 .VPNav .VPFlyout.active:hover .text {
-  color: var(--rn-accent);
-}
-
-.VPNav a.VPNavBarMenuLink.active:hover {
-  background: var(--rn-line);
-  color: var(--rn-accent);
-  box-shadow: 0 0 0 1px var(--rn-line);
+  color: var(--rn-ink);
 }
 
 @media (min-width: 768px) {
@@ -1351,6 +1352,24 @@ html[lang="en"].dark button.VPSwitch.VPSwitchAppearance::after { content: "Light
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.01em;
+}
+
+.VPNav nav.lang-switch a.active,
+.VPNav nav.lang-switch a[aria-current="page"] {
+  color: var(--rn-ink);
+  font-weight: 600;
+}
+
+.VPSidebarItem.is-active > .item .link > .text {
+  color: var(--rn-ink) !important;
+}
+
+.VPSidebarItem.is-active > .item > .indicator {
+  background-color: var(--rn-ink) !important;
+}
+
+.VPDocAsideOutline .outline-marker {
+  background-color: var(--rn-ink);
 }
 .VPNavBarTranslations,
 .VPNavScreenTranslations {
@@ -1746,14 +1765,11 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   color: var(--vp-c-text-2);
 }
 
-.archive-tab:hover {
-  border-color: var(--vp-c-brand-1);
-}
-
+.archive-tab:hover,
 .archive-tab[aria-pressed="true"] {
-  background: var(--vp-c-text-1);
-  border-color: var(--vp-c-text-1);
-  color: var(--vp-c-bg);
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .archive-tab[aria-pressed="true"] span {
@@ -1762,7 +1778,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .archive-tab:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
+  outline: 2px solid var(--rn-ink);
   outline-offset: 2px;
 }
 
@@ -1838,7 +1854,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .archive-card:hover strong {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .archive-card-body p {
@@ -1859,8 +1875,8 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   display: inline-block;
   padding: 1px 8px;
   border-radius: 999px;
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  background: var(--rn-paper);
+  color: var(--vp-c-text-2);
   font-size: 12px;
   font-weight: 600;
   line-height: 1.6;
@@ -1944,7 +1960,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .feed-row:hover .feed-row-head strong {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .feed-row-date {
@@ -2024,7 +2040,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .side-head a:hover {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .side-skills {
@@ -2066,7 +2082,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .side-skill:hover strong {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .side-skill small {
@@ -2117,7 +2133,8 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .side-btn:hover {
-  border-color: var(--vp-c-brand-1);
+  border-color: var(--rn-line);
+  background: var(--rn-line);
 }
 
 .side-btn-primary {
@@ -2227,8 +2244,6 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   box-shadow: var(--card-shadow-ring);
 }
 
-.skill-tile:hover,
-.project-tile:hover,
 .archive-card:hover,
 .feed-row:hover,
 .vp-doc .latest-rows a:hover,
@@ -2237,10 +2252,27 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   box-shadow: var(--card-shadow-hover);
 }
 
-/* 给文字留出卡片内边距，阴影才能包住整块内容 */
+/* 技能 / 项目 / 企业 MCP：整张条目是略深的奶油底，悬停铺成描边色 */
 .skill-tile,
 .project-tile {
-  padding: 10px 10px 12px;
+  padding: 12px 12px 16px;
+  background: var(--rn-card);
+  border: 1px solid var(--rn-line);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.skill-tile:hover,
+.project-tile:hover {
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  box-shadow: 0 0 0 1px var(--rn-line);
+}
+
+.skill-tile .skill-thumb,
+.project-tile .skill-thumb {
+  border-radius: 12px;
+  border-color: transparent;
 }
 
 .archive-card {
@@ -2311,7 +2343,8 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .friend-card:hover {
-  border-color: var(--vp-c-brand-1);
+  border-color: var(--rn-line);
+  background: var(--rn-line);
 }
 
 .vp-doc .friend-card h3 {
@@ -2331,7 +2364,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .vp-doc .friend-card h3 a:hover {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 .vp-doc .friend-card h3 a:focus-visible {
@@ -2460,7 +2493,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 .vp-doc .skill-tile h2.skill-title a:hover,
 .vp-doc .project-tile h2.skill-title a:hover {
-  color: var(--vp-c-brand-1);
+  color: var(--rn-ink);
 }
 
 /* 企业 MCP：缩略区高度约为 16:9 封面的 56%，logo 在框内居中并留出约两成空隙 */
@@ -2522,8 +2555,8 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 .skill-chip.emcp-status-live {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  background: var(--rn-line);
+  color: var(--rn-ink);
 }
 
 .skill-tile.is-coming .emcp-mark img,
