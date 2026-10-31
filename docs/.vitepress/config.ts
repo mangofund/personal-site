@@ -629,6 +629,11 @@ export default defineConfig({
   },
 
   head: [
+    // 界面字体：Source Sans 3（接近 Anthropic Sans 的几何无衬线）。不用 Anthropic 专有字体文件。
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap' }],
+
     // RSS 订阅入口
     ['link', { rel: 'alternate', type: 'application/rss+xml', title: `${SITE_TITLE} RSS`, href: `${baseNoSlash}/feed.xml` }],
 

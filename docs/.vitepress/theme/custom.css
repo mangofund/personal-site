@@ -39,8 +39,10 @@
   --vp-c-default-3: var(--rn-paper);
   --vp-c-default-soft: rgba(34, 34, 34, 0.05);
 
-  --vp-nav-bg-color: var(--rn-paper);
-  --vp-nav-screen-bg-color: var(--rn-paper);
+  --rn-nav-label: #3d3d3a;
+  --vp-nav-height: 72px;
+  --vp-nav-bg-color: var(--rn-backdrop);
+  --vp-nav-screen-bg-color: var(--rn-backdrop);
   --vp-sidebar-bg-color: var(--rn-backdrop);
 
   --vp-code-color: var(--rn-accent);
@@ -54,7 +56,7 @@
   /* 缩略图卡片悬停：外圈柔和投影 + 内侧发丝描边（参考 Perplexity Discover） */
   --card-shadow-ring: inset 0 0 0 .5px rgba(34, 34, 34, .12);
   --card-shadow-hover: 0 1px 2px rgba(34, 34, 34, .08), 0 0 2px rgba(34, 34, 34, .06), 0 8px 24px -8px rgba(34, 34, 34, .14);
-  --vp-font-family-base: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  --vp-font-family-base: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
   --vp-font-family-mono: ui-monospace, Menlo, Consolas, monospace;
 }
 
@@ -94,8 +96,9 @@
 
   --vp-c-default-soft: rgba(250, 247, 241, 0.08);
 
-  --vp-nav-bg-color: var(--rn-paper);
-  --vp-nav-screen-bg-color: var(--rn-paper);
+  --rn-nav-label: var(--rn-ink);
+  --vp-nav-bg-color: var(--rn-backdrop);
+  --vp-nav-screen-bg-color: var(--rn-backdrop);
   --vp-sidebar-bg-color: var(--rn-backdrop);
 
   --vp-code-color: var(--rn-accent);
@@ -108,15 +111,40 @@
 }
 
 .VPNav {
-  background: color-mix(in srgb, var(--rn-paper) 92%, transparent);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--rn-line);
+  background: var(--rn-backdrop);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+}
+
+.VPNav:has(.VPNavBar:not(.top)) {
+  border-bottom-color: var(--rn-line);
+}
+
+.VPNavBar,
+.VPNavBar .content-body,
+.VPNavBar .title {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.VPNavBar .divider,
+.VPNavBar .divider-line {
+  background-color: transparent !important;
+}
+
+.VPNavBar .menu + .appearance::before,
+.VPNavBar .appearance + .social-links::before,
+.VPNavBar .menu + .social-links::before {
+  content: none;
 }
 
 .VPNavBarTitle .title {
-  font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  font-weight: 700;
-  letter-spacing: .04em;
+  font-family: var(--vp-font-family-base);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  color: var(--rn-ink);
 }
 
 .VPContent {
@@ -138,7 +166,7 @@
 .vp-doc h2,
 .vp-doc h3,
 .archive-header h1 {
-  font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--vp-font-family-base);
 }
 
 .vp-doc h1 {
@@ -1178,9 +1206,117 @@ html:not(.dark) button.VPSwitch.VPSwitchAppearance::after { content: "关灯"; }
 html.dark button.VPSwitch.VPSwitchAppearance::after { content: "开灯"; }
 html[lang="en"]:not(.dark) button.VPSwitch.VPSwitchAppearance::after { content: "Dark"; }
 html[lang="en"].dark button.VPSwitch.VPSwitchAppearance::after { content: "Light"; }
-html[lang="en"] .VPNavBarMenuLink {
-  padding-left: 8px;
-  padding-right: 8px;
+.VPNav .VPNavBarMenu {
+  align-items: center;
+  gap: 8px;
+}
+
+.VPNav a.VPNavBarMenuLink,
+.VPNav .VPFlyout .button {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid var(--rn-line);
+  border-radius: 999px;
+  background: var(--rn-paper);
+  color: var(--rn-nav-label);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.VPNav .VPFlyout .text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--rn-nav-label);
+}
+
+.VPNav a.VPNavBarMenuLink:hover,
+.VPNav .VPFlyout:hover .button {
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
+  box-shadow: 0 0 0 1px var(--rn-line);
+}
+
+.VPNav .VPFlyout:hover .text {
+  color: var(--rn-ink);
+}
+
+.VPNav a.VPNavBarMenuLink.active,
+.VPNav .VPFlyout.active .button {
+  background: var(--rn-paper);
+  border-color: var(--rn-accent);
+  color: var(--rn-accent);
+  box-shadow: none;
+}
+
+.VPNav .VPFlyout.active .text,
+.VPNav .VPFlyout.active:hover .text {
+  color: var(--rn-accent);
+}
+
+.VPNav a.VPNavBarMenuLink.active:hover {
+  background: var(--rn-line);
+  color: var(--rn-accent);
+  box-shadow: 0 0 0 1px var(--rn-line);
+}
+
+@media (min-width: 768px) {
+  .VPNav .DocSearch-Button {
+    height: 36px;
+    border: 1px solid var(--rn-line);
+    border-radius: 999px;
+    background: var(--rn-paper);
+  }
+
+  .VPNav .DocSearch-Button:hover {
+    border-color: var(--rn-line);
+    background: var(--rn-line);
+  }
+}
+
+.VPNavScreenMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.VPNavScreen a.VPNavScreenMenuLink {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: 32px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid var(--rn-line);
+  border-radius: 999px;
+  background: var(--rn-paper);
+  color: var(--rn-nav-label);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.VPNavScreen a.VPNavScreenMenuLink:hover {
+  background: var(--rn-line);
+  color: var(--rn-ink);
+}
+
+.VPNav nav.lang-switch {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 .VPNavBarTranslations,
 .VPNavScreenTranslations {
