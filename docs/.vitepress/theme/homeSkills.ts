@@ -62,7 +62,7 @@ export interface SkillFilterOption {
 }
 
 export const SKILL_TYPE_FILTERS: readonly SkillFilterOption[] = [
-  { id: 'writing', labelZh: '写作', labelEn: 'Writing', skillIds: ['de-ai-writing', 'content-repurpose'] },
+  { id: 'writing', labelZh: '写作', labelEn: 'Writing', skillIds: ['de-ai-writing', 'content-repurpose', 'koubo-storyboard'] },
   { id: 'ui', labelZh: 'UI', labelEn: 'UI', skillIds: ['ai-ui-design', 'frontend-design', 'ui-design-refs', 'landing-page-design', 'impeccable'] },
   { id: 'site-build', labelZh: '建站', labelEn: 'Site build', skillIds: ['personal-site-build', 'website-launch-check'] },
   { id: 'diagram', labelZh: '图解', labelEn: 'Diagram', skillIds: ['diagram-design'] },
@@ -83,7 +83,7 @@ export const SKILL_SCENE_FILTERS: readonly SkillFilterOption[] = [
     id: 'site',
     labelZh: '官网内容',
     labelEn: 'Site content',
-    skillIds: ['de-ai-writing', 'content-repurpose', 'diagram-design', 'cover_image_gen', 'desk_watercolor', 'personal-site-build', 'website-launch-check', 'frontend-design', 'ui-design-refs', 'landing-page-design', 'impeccable']
+    skillIds: ['de-ai-writing', 'content-repurpose', 'koubo-storyboard', 'diagram-design', 'cover_image_gen', 'desk_watercolor', 'personal-site-build', 'website-launch-check', 'frontend-design', 'ui-design-refs', 'landing-page-design', 'impeccable']
   },
   {
     id: 'figures',
@@ -1762,6 +1762,69 @@ export const homeSkills: HomeSkill[] = [
       ]
     }
   },
+  {
+    id: 'koubo-storyboard',
+    nameZh: '口播分镜',
+    nameEn: 'Spoken Storyboard',
+    pitchZh: '先写能念的口播稿，再按拐点出证据帧；视频与 X Article 同源。',
+    pitchEn: 'Write a speakable script first, then evidence frames at story turns — one pipeline for video and X Articles.',
+    ...skillType('writing'),
+    image: '/images/skills/koubo-storyboard.jpg',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: '口播分镜封面：黏土旁白撕开纸面，露出带黄标的故事板卡片',
+    imageAltEn: 'Cover for Spoken Storyboard: clay host tearing paper to reveal a highlighted storyboard card',
+    ...skillFiles('koubo-storyboard'),
+    detailSlug: 'skills/koubo-storyboard',
+    detail: {
+      metaZh: 'koubo-storyboard · 个人演示 · Muse 可用',
+      metaEn: 'koubo-storyboard · personal demo · Muse-ready',
+      leadZh: '把资料堆砌改成「有人在跟你讲一件事」：素材事实条 → 口播剧本 → 分镜表 → 证据帧（截图+黄标+字幕）→ 视频/X Article/短帖同源分发。',
+      leadEn: 'Turn research dumps into “someone telling you a story”: fact lines → spoken script → storyboard → evidence frames (screenshot + highlight + subtitle) → one script for video, X Article, and short posts.',
+      gainsZh: [
+        '可直接念的 8～15 分钟口播正文',
+        '按叙事拐点排好的分镜表（字幕句+证据类型）',
+        '证据帧模板：真实截图 + 黄高亮 + 底字幕 + 水印'
+      ],
+      gainsEn: [
+        'An 8–15 minute speakable script',
+        'A storyboard table at narrative turns (subtitle + evidence type)',
+        'Evidence-frame template: real screenshot + yellow highlight + subtitle + watermark'
+      ],
+      fitZh: [
+        '安全事件/链上追踪/产品故事要人性化长文',
+        '已有研报体官网稿，要改成故事帖或视频脚本',
+        '同一内容要同时出 YouTube 与 X Article'
+      ],
+      fitEn: [
+        'Incident / on-chain / product stories that need a human longform',
+        'A research-style draft to rewrite as a story post or video script',
+        'One piece that must ship as both YouTube and an X Article'
+      ],
+      unfitZh: [
+        '只要去机器词润色。用 de-ai-writing',
+        '只要一张封面大图。用 cover_image_gen',
+        '纯 API/教程步骤清单，不需要叙事'
+      ],
+      unfitEn: [
+        'You only need machine-tone cleanup. Use de-ai-writing',
+        'You only need a cover image. Use cover_image_gen',
+        'Pure API/tutorial steps with no narrative'
+      ],
+      sampleZh: '按口播分镜，把这篇币安安全事件官网稿改成口播正文 + 分镜表。',
+      sampleEn: 'Using Spoken Storyboard, rewrite this Binance incident article into a spoken script + storyboard table.',
+      stepsZh: [
+        '点「复制技能」或下载 ZIP，交给 Muse / Claude Code / Cursor 等能读 SKILL.md 的 Agent。',
+        '贴上事实素材或旧稿，说明要口播稿还是口播+分镜+出图。',
+        '验收：大声读不拗口；有第一人称/读者称呼；每帧有字幕句。'
+      ],
+      stepsEn: [
+        'Copy the skill or download the ZIP into Muse / Claude Code / Cursor (any agent that reads SKILL.md).',
+        'Paste facts or an old draft; say whether you want script only or script + storyboard + frames.',
+        'Accept when it reads aloud smoothly, has first-person/audience address, and every frame has a subtitle line.'
+      ]
+    }
+  },
 ]
 
 export function skillsForFilter(filterId: string): HomeSkill[] {
@@ -1788,6 +1851,7 @@ export type SkillSortId = (typeof SKILL_SORTS)[number]['id']
  * 编辑推荐的固定顺序，同时是热度数据不足（见 SKILL_HEAT_MIN_TOTAL）或接口不可用时的回退顺序。
  */
 const SKILL_POPULAR_IDS = [
+  'koubo-storyboard',
   'landing-page-design',
   'grill-me',
   'impeccable',

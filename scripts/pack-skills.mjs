@@ -27,7 +27,8 @@ const REQUIRED_PHRASES = {
   brainstorming: ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 头脑风暴'],
   'systematic-debugging': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 系统化排查'],
   'verification-before-completion': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 交付前验证'],
-  'writing-plans': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 写计划']
+  'writing-plans': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 写计划'],
+  'koubo-storyboard': ['name: koubo-storyboard', '口播分镜']
 }
 
 const MIN_ZIP_BYTES = {
@@ -55,7 +56,8 @@ const MIN_ZIP_BYTES = {
   'desk_watercolor.zip': 1000,
   'landing-page-design.zip': 8000,
   'grill-me.zip': 3000,
-  'impeccable.zip': 20000
+  'impeccable.zip': 20000,
+  'koubo-storyboard.zip': 3000
 }
 
 const MINIMUM_PACKAGE_COUNT = 6

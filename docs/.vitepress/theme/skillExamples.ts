@@ -631,5 +631,27 @@ export const SKILL_EXAMPLES: Record<string, SkillExampleCopy> = {
     artifactsEn: ['Critique report', 'Audit checklist', 'Notes on polish changes'],
     checksZh: ['三步都有输出', '改动保持原品牌', '移动端关键路径可完成主任务'],
     checksEn: ['All three steps produce output', 'Brand identity preserved', 'Mobile critical path can complete the main task']
+  },
+  'koubo-storyboard': {
+    exampleTitleZh: '把研报体安全复盘改成口播+分镜',
+    exampleTitleEn: 'Rewrite a research incident post into spoken script + storyboard',
+    exampleInputZh: '这是官网币安安全事件稿，按口播分镜改成可念正文和分镜表，先不出图。',
+    exampleInputEn: 'Here is our Binance incident site article. Rewrite with Spoken Storyboard into a speakable script and storyboard table; skip image generation for now.',
+    exampleOutputZh: [
+      '素材层：带时间戳的事实条',
+      '口播正文：钩子 → 时间轴 → 人声打断 → 枝节 → 收束',
+      '分镜表：拐点 | 字幕句 | 证据类型 | 画面备注',
+      '验收清单勾选结果'
+    ].join('\n'),
+    exampleOutputEn: [
+      'Fact lines with timestamps',
+      'Spoken script: hook → timeline → voice asides → personal beat → close',
+      'Storyboard table: turn | subtitle | evidence type | notes',
+      'Checklist results'
+    ].join('\n'),
+    artifactsZh: ['口播正文.md', '分镜表.md'],
+    artifactsEn: ['spoken-script.md', 'storyboard.md'],
+    checksZh: ['能大声读完不拗口', '至少 3 处第一人称或读者称呼', '每帧有≤18字字幕句'],
+    checksEn: ['Reads aloud smoothly', '≥3 first-person or audience addresses', 'Each frame has a ≤18-char subtitle']
   }
 }

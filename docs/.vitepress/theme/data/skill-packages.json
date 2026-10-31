@@ -223,5 +223,14 @@
     "zipFile": "impeccable.zip",
     "promptPath": "/skills/sources/impeccable/SKILL.md",
     "zipPath": "/skills/zips/impeccable.zip"
+  },
+  {
+    "id": "koubo-storyboard",
+    "dir": "koubo-storyboard",
+    "promptName": "口播分镜",
+    "zipSkillEntry": "koubo-storyboard/SKILL.md",
+    "zipFile": "koubo-storyboard.zip",
+    "promptPath": "/skills/sources/koubo-storyboard/SKILL.md",
+    "zipPath": "/skills/zips/koubo-storyboard.zip"
   }
 ]

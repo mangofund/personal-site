@@ -1,0 +1,11 @@
+name: koubo_storyboard
+title: 口播分镜
+description: "把复盘/研报写成口播体长文并配证据帧插图（X Article / YouTube 同源）：时间轴叙事、第一人称钩子、字幕+截图分镜。写长故事帖、人性化 AI 稿、视频脚本转 Article 时用。"
+category: "Writing and content"
+include_in_prompt: true
+availability:
+  confidential_vm: true
+  needs_speech: false
+skill_improvement:
+  managed: true
+  needs_review: false
