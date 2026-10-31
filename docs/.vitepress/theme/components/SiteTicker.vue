@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { withBase } from 'vitepress'
 import { useIsEnglish } from '../useLocale'
 import { TICKER_DISMISS_KEY, tickerItems } from '../siteTickerItems'
@@ -15,46 +15,19 @@ const duration = computed(() => {
   return `${seconds}s`
 })
 
-let scrollFrame = 0
-
-function syncTickerOffset(): void {
-  const root = document.documentElement
-  if (root.dataset.tickerDismissed === '1') {
-    root.style.setProperty('--site-ticker-offset', '0px')
-    return
-  }
-  const bar = document.querySelector('.site-ticker')
-  const height = bar instanceof HTMLElement ? bar.offsetHeight : 36
-  const remaining = Math.max(0, height - window.scrollY)
-  root.style.setProperty('--site-ticker-offset', `${remaining}px`)
-}
-
-function onScroll(): void {
-  if (scrollFrame) return
-  scrollFrame = window.requestAnimationFrame(() => {
-    scrollFrame = 0
-    syncTickerOffset()
-  })
-}
-
 function markDismissed(): void {
-  document.documentElement.dataset.tickerDismissed = '1'
-  syncTickerOffset()
+  const root = document.documentElement
+  root.dataset.tickerDismissed = '1'
+  root.style.removeProperty('--site-ticker-offset')
 }
 
 onMounted(() => {
+  document.documentElement.style.removeProperty('--site-ticker-offset')
   try {
     if (sessionStorage.getItem(TICKER_DISMISS_KEY) === '1') markDismissed()
   } catch {
     /* 忽略 */
   }
-  syncTickerOffset()
-  window.addEventListener('scroll', onScroll, { passive: true })
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-  if (scrollFrame) window.cancelAnimationFrame(scrollFrame)
 })
 
 function dismiss(): void {
@@ -119,6 +92,11 @@ function dismiss(): void {
 <style scoped>
 .site-ticker {
   --ticker-duration: 56s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: calc(var(--vp-z-index-nav, 30) + 1);
   display: flex;
   align-items: stretch;
   height: var(--site-ticker-height, 36px);
