@@ -427,6 +427,12 @@
 /en/skills/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/skills/koubo-storyboard
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/koubo-storyboard/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/skills/landing-page-design
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -674,6 +680,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/koubo-storyboard
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/koubo-storyboard/
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/landing-page-design

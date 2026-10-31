@@ -198,5 +198,13 @@
     "pitchZh": "设计审阅工具链：critique / audit / polish，打磨已有界面。",
     "pitchEn": "A design-review toolchain: critique, audit, and polish existing UI.",
     "detailSlug": "skills/impeccable"
+  },
+  {
+    "id": "koubo-storyboard",
+    "nameZh": "口播分镜",
+    "nameEn": "Spoken Storyboard",
+    "pitchZh": "先写能念的口播稿，再按拐点出证据帧；视频与 X Article 同源。",
+    "pitchEn": "Write a speakable script first, then evidence frames at story turns — one pipeline for video and X Articles.",
+    "detailSlug": "skills/koubo-storyboard"
   }
 ]
