@@ -42,7 +42,7 @@
   --rn-nav-label: #3d3d3a;
   --vp-nav-height: 72px;
   --site-ticker-height: 36px;
-  /* 桌面导航是 fixed。这条跟着滚动条剩余高度走，滚走后导航回到顶。 */
+  /* 滚动条和导航一起钉在视口顶。关掉滚动条后这条变成 0，导航回到顶。 */
   --site-ticker-offset: var(--site-ticker-height);
   --vp-nav-bg-color: var(--rn-backdrop);
   --vp-nav-screen-bg-color: var(--rn-backdrop);
@@ -133,8 +133,23 @@ html[data-ticker-dismissed='1'] .site-ticker {
   display: none;
 }
 
-.Layout .VPLocalNav.VPLocalNav {
+html {
+  scroll-padding-top: calc(var(--vp-nav-height, 72px) + var(--site-ticker-offset, 0px));
+}
+
+.Layout .VPNav.VPNav {
+  position: fixed;
   top: var(--site-ticker-offset, 0px);
+  left: 0;
+  width: 100%;
+}
+
+.Layout .VPContent {
+  padding-top: calc(var(--vp-nav-height, 72px) + var(--site-ticker-offset, 0px));
+}
+
+.Layout .VPLocalNav.VPLocalNav {
+  top: calc(var(--vp-nav-height, 72px) + var(--site-ticker-offset, 0px));
 }
 
 .Layout .VPSidebar.VPSidebar {
@@ -148,16 +163,6 @@ html[data-ticker-dismissed='1'] .site-ticker {
 
 .Layout .VPNavScreen.VPNavScreen {
   top: calc(var(--vp-nav-height) + var(--site-ticker-offset, 0px));
-}
-
-@media (min-width: 960px) {
-  .Layout .VPNav.VPNav {
-    top: var(--site-ticker-offset, 0px);
-  }
-
-  .Layout .VPLocalNav.VPLocalNav {
-    top: calc(var(--vp-nav-height) + var(--site-ticker-offset, 0px));
-  }
 }
 
 .VPNav {
@@ -1510,7 +1515,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 
   .skill-filters {
     position: sticky;
-    top: calc(var(--vp-nav-height, 64px) + 18px);
+    top: calc(var(--vp-nav-height, 72px) + var(--site-ticker-offset, 0px) + 18px);
     gap: 22px;
     margin: 4px 0 0;
   }
@@ -2218,7 +2223,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 @media (min-width: 960px) and (min-height: 840px) {
   .archive-side {
     position: sticky;
-    top: calc(var(--vp-nav-height) + 24px);
+    top: calc(var(--vp-nav-height) + var(--site-ticker-offset, 0px) + 24px);
   }
 }
 
