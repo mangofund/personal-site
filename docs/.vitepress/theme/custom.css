@@ -44,6 +44,15 @@
   --site-ticker-height: 36px;
   /* 滚动条和导航一起钉在视口顶。关掉滚动条后这条变成 0，导航回到顶。 */
   --site-ticker-offset: var(--site-ticker-height);
+  /* 白天：比象牙纸面 #faf9f5 深一档的暖灰，字用墨色。芒果橙只留在 logo 上。 */
+  --site-ticker-bg: #f0eee6;
+  --site-ticker-fg: var(--rn-ink);
+  --site-ticker-muted: #3d3d3a;
+  --site-ticker-logo-bg: var(--rn-backdrop);
+  --site-ticker-divider: rgba(20, 20, 19, 0.12);
+  --site-ticker-hover: rgba(20, 20, 19, 0.06);
+  --site-ticker-focus: var(--rn-ink);
+  --site-ticker-edge: var(--rn-line);
   --vp-nav-bg-color: var(--rn-backdrop);
   --vp-nav-screen-bg-color: var(--rn-backdrop);
   --vp-sidebar-bg-color: var(--rn-backdrop);
@@ -122,6 +131,15 @@
   --vp-code-line-highlight-color: rgba(217, 108, 74, 0.16);
   --vp-code-copy-code-bg: var(--rn-paper);
   --vp-code-copy-code-hover-bg: var(--rn-backdrop);
+
+  --site-ticker-bg: #111;
+  --site-ticker-fg: #f6f6f3;
+  --site-ticker-muted: #bdbdb6;
+  --site-ticker-logo-bg: #f6f6f3;
+  --site-ticker-divider: rgba(255, 255, 255, 0.15);
+  --site-ticker-hover: rgba(255, 255, 255, 0.08);
+  --site-ticker-focus: #f6f6f3;
+  --site-ticker-edge: transparent;
 }
 
 html[data-ticker-dismissed='1'] {
@@ -131,6 +149,14 @@ html[data-ticker-dismissed='1'] {
 
 html[data-ticker-dismissed='1'] .site-ticker {
   display: none;
+}
+
+.site-ticker {
+  color-scheme: light;
+}
+
+html.dark .site-ticker {
+  color-scheme: dark;
 }
 
 html {
