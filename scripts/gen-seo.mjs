@@ -749,7 +749,7 @@ function collectSectionItems(section, locale = 'zh') {
 writeFeedBlock(join(DOCS_DIR, 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai'), (it) => it.group, AI_TABS, 'list'))
 
 const THINKING_TABS = [['society', '社会'], ['first-principles', '第一性原理'], ['wealth', '财富'], ['technology', '技术'], ['life', '生活']]
-const INVESTMENT_TABS = [['tesla', 'Tesla'], ['us-stocks', '美股'], ['ai-infrastructure', 'AI 基础设施'], ['asset-allocation', '资产配置'], ['methodology', '方法论']]
+const INVESTMENT_TABS = [['tesla', 'Tesla'], ['us-stocks', '美股'], ['ai-infrastructure', 'AI 基础设施'], ['asset-allocation', '资产配置'], ['methodology', '方法论'], ['crypto', '加密货币']]
 writeFeedBlock(join(DOCS_DIR, 'thinking', 'index.md'), 'THINKING-FEED', renderFeed(collectSectionItems('thinking'), (it) => it.group, THINKING_TABS, 'list'))
 writeFeedBlock(join(DOCS_DIR, 'investment', 'index.md'), 'INVESTMENT-FEED', renderFeed(collectSectionItems('investment'), (it) => it.group, INVESTMENT_TABS, 'list'))
 
