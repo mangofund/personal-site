@@ -629,10 +629,10 @@ export default defineConfig({
   },
 
   head: [
-    // 界面字体：Source Sans 3（接近 Anthropic Sans 的几何无衬线）。不用 Anthropic 专有字体文件。
+    // 界面用 Source Sans 3，文章用 Source Serif 4。不用 Anthropic 专有字体文件。
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap' }],
 
     // RSS 订阅入口
     ['link', { rel: 'alternate', type: 'application/rss+xml', title: `${SITE_TITLE} RSS`, href: `${baseNoSlash}/feed.xml` }],
