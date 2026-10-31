@@ -520,6 +520,12 @@
 /investment/crypto/binance-security-incident-2026/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/crypto/crypto-decentralization-shoddy
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/crypto/crypto-decentralization-shoddy/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment
   Cache-Control: public, max-age=0, must-revalidate
 
