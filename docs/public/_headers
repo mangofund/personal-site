@@ -43,6 +43,12 @@
 /ai/agents/multiagent-eng-problems/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/agents/super-agent-design
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/agents/super-agent-design/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/x-auto-ops
   Cache-Control: public, max-age=0, must-revalidate
 
