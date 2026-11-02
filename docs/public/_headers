@@ -25,6 +25,12 @@
 /ai/agents/agent-os/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/agents/apple-qwen-agent
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/agents/apple-qwen-agent/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/grok-bot-guide
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -173,6 +179,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/trends/rea-software-replicability/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/reddit-ai-search-traffic
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/reddit-ai-search-traffic/
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/workflows/agent-skills-installation-guide
