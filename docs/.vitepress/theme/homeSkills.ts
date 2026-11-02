@@ -1770,6 +1770,7 @@ export const homeSkills: HomeSkill[] = [
     pitchEn: 'Write a speakable script first, then evidence frames at story turns — one pipeline for video and X Articles.',
     ...skillType('writing'),
     image: '/images/skills/koubo-storyboard.jpg',
+    video: '/videos/skills-series/24-koubo-storyboard.mp4',
     imageWidth: SKILL_IMAGE_WIDTH,
     imageHeight: SKILL_IMAGE_HEIGHT,
     imageAltZh: '口播分镜封面：黏土旁白撕开纸面，露出带黄标的故事板卡片',
