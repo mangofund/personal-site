@@ -929,6 +929,11 @@ footer.VPDocFooter:not(:has(.edit-info, .prev-next)) {
   gap: 32px 56px;
 }
 
+/* 首页项目区：一行 3 列（Projects 页仍用 2 列） */
+.project-list-home {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .project-item h3 {
   margin: 0 0 8px;
   font-size: 19px;

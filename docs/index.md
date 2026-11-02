@@ -13,6 +13,7 @@ const xmadeImg = withBase('/images/projects/xmade.jpg')
 const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-downl/bgopfpaklpnjmjbngflljdnjnblhnbjm'
 const streamlyricImg = withBase('/images/projects/streamlyric.jpg')
 const streamlyricStoreUrl = 'https://chromewebstore.google.com/detail/streamlyric-youtube-music/faagghkdpemmnbidgnooigolgkmbkkna'
+const bingImg = withBase('/images/bing-wallpaper/cover.jpg')
 
 // 首页头条轮播:每 5 秒切换,图与下方文字同步;悬停暂停,圆点和箭头可手动切
 let hcStop = null
@@ -118,7 +119,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
       <h2>项目</h2>
       <a href="projects/" style="font-size:14px;color:#1d9bf0;white-space:nowrap;">查看全部项目 →</a>
     </div>
-    <div class="project-list">
+    <div class="project-list project-list-home">
       <article class="project-tile">
         <a class="skill-thumb" :href="storeUrl" target="_blank" rel="noopener">
           <img :src="xmadeImg" alt="XMade：一键下载 X 上的推文、视频和长文" width="800" height="450" loading="lazy" decoding="async" />
@@ -142,6 +143,20 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="skill-chip">Chrome 扩展</span>
           <div class="skill-controls">
             <a class="skill-zip" :href="streamlyricStoreUrl" target="_blank" rel="noopener">去 Chrome 应用店安装 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-tile">
+        <a class="skill-thumb" href="https://fairzy.github.io/bingwallpaper-for-mac/" target="_blank" rel="noopener">
+          <img :src="bingImg" alt="必应每日壁纸 for Mac：每天自动把必应每日图片设成桌面" width="800" height="450" loading="lazy" decoding="async" />
+        </a>
+        <h3><a href="https://fairzy.github.io/bingwallpaper-for-mac/" target="_blank" rel="noopener">必应每日壁纸 for Mac</a></h3>
+        <p class="skill-pitch">开源应用：用 REA 逆向 Windows 官方必应壁纸的行为，在 macOS 上用 Swift 原生复刻。只占菜单栏，每天自动换上必应每日图片，MIT 开源，免费。</p>
+        <div class="skill-foot">
+          <span class="skill-chip">macOS 应用 · 开源</span>
+          <div class="skill-controls">
+            <a class="skill-zip" href="/ai/products/bing-wallpaper-for-mac">看介绍 →</a>
+            <a class="skill-zip" href="https://github.com/fairzy/bingwallpaper-for-mac" target="_blank" rel="noopener">GitHub →</a>
           </div>
         </div>
       </article>
