@@ -78,7 +78,7 @@ Reddit 第三季度营收 8.95 亿美元，同比增长 53%，高于市场预期
 | 第四季度营收指引 | 10 亿至 10.3 亿美元 | 低于预期的约 10.45 亿美元 |
 | 10 月 30 日股价 | 收盘 91.73 美元 | 前收 129.60 美元，单日跌 29.2% |
 
-所以第一步的结论很干净。
+所以这一节的结论很干净。
 
 财报的过去时很好，财报的未来时不好，而市场只为未来时付钱。
 
@@ -320,9 +320,9 @@ Amsive 的测量显示，品牌搜索是个例外，带有 AI Overviews 的品�
 
 用户本来就是冲着你来的，AI 摘要反而帮你确认了身份。
 
-这个例外会在第八步变成一条行动建议。
+这个例外会在最后一节变成一条行动建议。
 
-先把第四步收个尾。
+先把这一节收个尾。
 
 Reddit 的电话会之所以震动市场，是因为它把一堆行业报告里的趋势，变成了一家上市公司的财报数字。
 
@@ -362,7 +362,7 @@ Reddit 的电话会之所以震动市场，是因为它把一堆行业报告里�
 
 允许退出 AI Overviews 的命令还在执行期，效果要到 2027 年才能验证。
 
-所以第四步的完整结论是两句。
+所以这一节的完整结论是两句。
 
 第一句，截流是全行业现象，不是 Reddit 的个别遭遇。
 
@@ -527,7 +527,7 @@ Reddit 过去十年吃到的搜索红利，正式从增长引擎降级成了存�
 
 Reddit 的海外增长一度靠机器翻译内容撑着，这部分内容在搜索排名里往下走，说明它自己的内容策略也有短板。
 
-所以第六步的结论是双面的。
+所以这一节的结论是双面的。
 
 Reddit 的还手方向是对的，登录用户确实更值钱。
 
@@ -786,4 +786,4 @@ AI Overviews 和 AI Mode 的展示量爬升，往往走在引荐流量下滑的�
 11. for.you.com《AI Search in August: Google Expands AI Overviews as Clicks Fall》— https://for.you.com/posts/ai-search-in-august-google-expands-ai-overviews-as-clicks-4a451506 （随机实验、Brainlabs AI 引荐 +163% 与 1.5 倍转化、生成式 AI 报告开放日期）
 12. ppc.land《Publisher group says AI cut visitors 26%, quoting Microsoft's 'doom loop'》— https://ppc.land/publisher-group-says-ai-cut-visitors-26-quoting-microsofts-doom-loop/ （DCN 陈述文件：独立访客 -26%、引荐流量中位数 -22% 与 -10%、诉讼背景）
 13. PikaoSEO《Zero-Click Search 2026: AI Overviews Cut Clicks by 58%》— https://pikaseo.com/articles/zero-click-search-ai-overviews-2026 （SparkToro 零点击 68.01%、Seer 点击率走势、Ahrefs -58%、Chegg 49%、诉讼驳回日期）
-14. 每日热搜简报 2026-11-02（每日热搜简报旁聊）— 选题与“Reddit 暴跌约 29%”的初始线索；简报中 Roblox 与 AI 抢流量的归因已在本稿第五步纠正。
+14. 每日热搜简报 2026-11-02（每日热搜简报旁聊）— 选题与“Reddit 暴跌约 29%”的初始线索；简报中 Roblox 与 AI 抢流量的归因已在本稿“Roblox 同日大跌是另一回事”一节纠正。
