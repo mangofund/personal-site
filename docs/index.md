@@ -11,6 +11,8 @@ import { withBase } from 'vitepress'
 import { onMounted, onUnmounted } from 'vue'
 const xmadeImg = withBase('/images/projects/xmade.jpg')
 const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-downl/bgopfpaklpnjmjbngflljdnjnblhnbjm'
+const streamlyricImg = withBase('/images/projects/streamlyric.jpg')
+const streamlyricStoreUrl = 'https://chromewebstore.google.com/detail/streamlyric-youtube-music/faagghkdpemmnbidgnooigolgkmbkkna'
 
 // 首页头条轮播:每 5 秒切换,图与下方文字同步;悬停暂停,圆点和箭头可手动切
 let hcStop = null
@@ -53,25 +55,25 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/agents/super-agent-design"><img class="hc-img" src="/images/super-agent-cover.jpg" alt="DeepSeek 提出 Super-agent：AI Agent 为什么需要摆脱聊天窗口？" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/agents/apple-qwen-agent"><img class="hc-img" src="/images/apple-qwen-cover.jpg" alt="苹果等了两年半，千问 12 月住进国行 iPhone：Agent 大战为什么会在手机上见分晓？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/agents/apple-qwen-agent"><img class="hc-img" src="/images/apple-qwen-cover.jpg" alt="苹果等了两年半，千问 12 月住进国行 iPhone：Agent 大战为什么会在手机上见分晓？" loading="eager" fetchpriority="high" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/reddit-ai-search-traffic"><img class="hc-img" src="/images/reddit-cover.jpg" alt="营收涨 53%，股价跌 29%：谁偷走了 Reddit 的流量？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/agents/super-agent-design"><img class="hc-img" src="/images/super-agent-cover.jpg" alt="DeepSeek 提出 Super-agent：AI Agent 为什么需要摆脱聊天窗口？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/agents/super-agent-design">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-02">2026.11.02</time></span>
-          <strong>DeepSeek 提出 Super-agent：AI Agent 为什么需要摆脱聊天窗口？</strong><small>Super-agent 不是更大的模型，而是一套让 Agent 摆脱聊天窗口、长期持续工作的架构：两层调度、事件驱动、异步执行与独立看门狗。</small>
-        </a>
-        <a class="hc-panel" href="/ai/agents/apple-qwen-agent">
+        <a class="hc-panel is-active" href="/ai/agents/apple-qwen-agent">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-02">2026.11.02</time></span>
           <strong>苹果等了两年半，千问 12 月住进国行 iPhone：Agent 大战为什么会在手机上见分晓？</strong><small>千问 12 月住进国行 iPhone，苹果把中国版 Agent 的默认入口交给了阿里：Agent 大战的决战地不在云端架构，而在手机上。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/reddit-ai-search-traffic">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-02">2026.11.02</time></span>
           <strong>营收涨 53%，股价跌 29%：谁偷走了 Reddit 的流量？</strong><small>营收涨 53% 却暴跌 29%，Reddit 财报电话会上的一句警告揭开了 AI 搜索截流的真相：谷歌 AI 正在拿走全网流量，内容站长的流量经济学正在重构。</small>
+        </a>
+        <a class="hc-panel" href="/ai/agents/super-agent-design">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-02">2026.11.02</time></span>
+          <strong>DeepSeek 提出 Super-agent：AI Agent 为什么需要摆脱聊天窗口？</strong><small>Super-agent 不是更大的模型，而是一套让 Agent 摆脱聊天窗口、长期持续工作的架构：两层调度、事件驱动、异步执行与独立看门狗。</small>
         </a>
       </div>
     </div>
@@ -127,6 +129,19 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="skill-chip">Chrome 扩展</span>
           <div class="skill-controls">
             <a class="skill-zip" :href="storeUrl" target="_blank" rel="noopener">去 Chrome 应用店安装 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-tile">
+        <a class="skill-thumb" :href="streamlyricStoreUrl" target="_blank" rel="noopener">
+          <img :src="streamlyricImg" alt="StreamLyric：给 YouTube Music 加上同步歌词" width="800" height="450" loading="lazy" decoding="async" />
+        </a>
+        <h3><a :href="streamlyricStoreUrl" target="_blank" rel="noopener">StreamLyric</a></h3>
+        <p class="skill-pitch">Chrome 扩展：给 YouTube Music 加上同步歌词，字体、颜色、布局都能调，调好了一键推到 OBS，直播、录屏都能用。</p>
+        <div class="skill-foot">
+          <span class="skill-chip">Chrome 扩展</span>
+          <div class="skill-controls">
+            <a class="skill-zip" :href="streamlyricStoreUrl" target="_blank" rel="noopener">去 Chrome 应用店安装 →</a>
           </div>
         </div>
       </article>
