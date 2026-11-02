@@ -1,6 +1,6 @@
 ---
 title: 项目
-description: 我在做的产品，和朋友们做的开源项目。目前包括 Chrome 扩展 XMade、必应每日壁纸 for Mac。
+description: 我在做的产品，和朋友们做的开源项目。目前包括 Chrome 扩展 XMade、StreamLyric、必应每日壁纸 for Mac。
 ---
 
 <script setup>
@@ -8,6 +8,8 @@ import { withBase } from 'vitepress'
 const xmadeImg = withBase('/images/projects/xmade.jpg')
 const bingImg = withBase('/images/bing-wallpaper/cover.jpg')
 const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-downl/bgopfpaklpnjmjbngflljdnjnblhnbjm'
+const streamlyricImg = withBase('/images/projects/streamlyric.jpg')
+const streamlyricStoreUrl = 'https://chromewebstore.google.com/detail/streamlyric-youtube-music/faagghkdpemmnbidgnooigolgkmbkkna'
 </script>
 
 # 项目
@@ -23,6 +25,19 @@ const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-d
       <span class="skill-chip">Chrome 扩展</span>
       <div class="skill-controls">
         <a class="skill-zip" :href="storeUrl" target="_blank" rel="noopener">去 Chrome 应用店安装 →</a>
+      </div>
+    </div>
+  </article>
+  <article class="project-tile">
+    <a class="skill-thumb" :href="streamlyricStoreUrl" target="_blank" rel="noopener">
+      <img :src="streamlyricImg" alt="StreamLyric：给 YouTube Music 加上同步歌词" width="800" height="450" loading="lazy" decoding="async" />
+    </a>
+    <h2 class="skill-title"><a :href="streamlyricStoreUrl" target="_blank" rel="noopener">StreamLyric</a></h2>
+    <p class="skill-pitch">Chrome 扩展：给 YouTube Music 加上同步歌词，字体、颜色、布局都能调，调好了一键推到 OBS，直播、录屏都能用。</p>
+    <div class="skill-foot">
+      <span class="skill-chip">Chrome 扩展</span>
+      <div class="skill-controls">
+        <a class="skill-zip" :href="streamlyricStoreUrl" target="_blank" rel="noopener">去 Chrome 应用店安装 →</a>
       </div>
     </div>
   </article>
