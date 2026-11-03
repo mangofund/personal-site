@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>海外短剧付费应用前十，九席是中国厂商</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F0EFEB;--dark:#1C1C1A;--ink:#1C1C1A;--muted:#8F8E88;--faint:#C6C5BF;--grid:#DEDDD6}
+body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--ink);padding:40px;-webkit-font-smoothing:antialiased}
+.card{background:var(--bg);border-radius:24px;padding:28px 28px 20px;max-width:520px;margin:0 auto}
+h2{font-weight:700;font-size:16.5px;letter-spacing:-.02em;margin-bottom:3px}
+.sub{font-size:11.5px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.note{font-size:11px;color:#6A6963;line-height:1.65;margin-top:12px}
+.src{font-size:9.5px;color:var(--faint);margin-top:10px;letter-spacing:.08em;font-weight:500}
+svg text{font-family:'Inter',sans-serif}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.fade{animation:fade .5s ease both}
+.pop{animation:pop .4s ease both}
+@media (prefers-reduced-motion:reduce){.fade,.pop{animation:none}}
+</style>
+<meta name="description" content="海外短剧付费应用前十，九席是中国厂商" />
+<link rel="canonical" href="https://promangofund.com/charts/manhua-overseas-share.html" />
+</head>
+<body>
+<div class="card">
+  <h2>海外短剧付费应用前十，九席是中国厂商</h2>
+  <div class="sub">海外短剧付费应用前十中的中国厂商席位 · 1点 = 1% · 榜单机构与统计口径未在转引中披露</div>
+  <svg id="hundredfield" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet"></svg>
+  <div class="note"><b>1.5亿口径标注：</b>海外AI漫剧活跃用户超1.5亿——<b>据央视财经报道</b>（10月30日《第一时间》，表述为“据了解”，未具名统计机构，未披露月活/累计/去重口径与时间窗口）。该数字不得作为审计数据呈现；下载量与活跃用户不是同一口径，不可互证。见正文存疑清单第1、2条。</div>
+  <div class="src">L14 HUNDRED FIELD · MONO-SMALL · 央视财经报道经多家媒体转引</div>
+</div>
+<script>
+const INK='#1C1C1A',PAPER='#F0EFEB',MUTED='#8F8E88',GRID='#DEDDD6';
+const NS='http://www.w3.org/2000/svg';
+const el=(p,t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);p.appendChild(n);return n};
+const txt=(p,a,s)=>{const n=el(p,'text',a);n.textContent=s;return n};
+const tip=(n,s)=>{const t=document.createElementNS(NS,'title');t.textContent=s;n.appendChild(t)};
+const rnd=(i,k)=>Math.abs(((i*73856093)^(k*19349663))%1000)/1000;
+const D2R=Math.PI/180;
+const pol=(cx,cy,r,deg)=>[cx+r*Math.cos(deg*D2R),cy+r*Math.sin(deg*D2R)];
+const obsReveal=(id,fn)=>{
+  const n=document.getElementById(id);
+  const go=()=>{n.innerHTML='';fn(n)};
+  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){go();io.disconnect()}},{threshold:.3});
+  io.observe(n);
+  n.style.cursor='pointer';
+  n.addEventListener('click',go);
+};
+// ── 数据：草稿“图表数据点”·海外短剧付费应用前十中国厂商占九席（9/10 = 90%） ──
+const SEG=[['中国厂商',90,INK],['其他',10,'#B0AFA9']];
+const POS=[[135,155],[285,155]];
+obsReveal('hundredfield',s=>{
+  el(s,'line',{x1:POS[0][0],y1:POS[0][1],x2:POS[1][0],y2:POS[1][1],
+    stroke:GRID,'stroke-width':.7,'stroke-dasharray':'2 5',
+    class:'fade',style:'animation-delay:.9s'});
+  SEG.forEach(([name,v,shade],ci)=>{
+    const [cx,cy]=POS[ci];
+    let edge=0;
+    for(let k=0;k<v;k++){
+      const a=k*137.508+ci*55;
+      const rr=4+Math.sqrt(k)*5.9+rnd(k+1,ci+2)*3;
+      edge=Math.max(edge,rr);
+      const [x,y]=pol(cx,cy,rr,a);
+      if(k%5===0)el(s,'line',{x1:cx,y1:cy,x2:x,y2:y,stroke:'#CDCCC5','stroke-width':.6,
+        class:'fade',style:`animation-delay:${ci*.14+k*.012}s`});
+      const dot=el(s,'circle',{cx:x,cy:y,r:1.5+rnd(k+2,ci+3)*1.7,fill:shade,opacity:.9,
+        class:'pop',style:`animation-delay:${ci*.14+k*.012}s`});
+      tip(dot,`${name} — one of ${v} in 100`);
+    }
+    el(s,'circle',{cx,cy,r:2.4,fill:INK,class:'pop',style:`animation-delay:${ci*.14}s`});
+    txt(s,{x:cx,y:cy+edge+13,'font-size':8,'font-weight':800,fill:INK,'text-anchor':'middle',
+      'letter-spacing':'.1em',style:`paint-order:stroke;stroke:${PAPER};stroke-width:3px;animation-delay:${.5+ci*.12}s`,
+      class:'fade'},`${name} · ${v}`);
+  });
+  txt(s,{x:200,y:314,'font-size':7,'font-weight':600,fill:'#B0AFA9','text-anchor':'middle',
+    'letter-spacing':'.12em',class:'fade',style:'animation-delay:1.3s'},'ONE DOT = 1% · 90 + 10 = 100');
+});
+</script>
+</body>
+</html>

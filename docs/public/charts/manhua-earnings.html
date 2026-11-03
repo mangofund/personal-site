@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>营收最高93.51亿，利润却贴地甚至亏损</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F0EFEB;--dark:#1C1C1A;--ink:#1C1C1A;--muted:#8F8E88;--faint:#C6C5BF;--grid:#DEDDD6}
+body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--ink);padding:40px;-webkit-font-smoothing:antialiased}
+.card{background:var(--bg);border-radius:24px;padding:28px 28px 20px;max-width:520px;margin:0 auto}
+h2{font-weight:700;font-size:16.5px;letter-spacing:-.02em;margin-bottom:3px}
+.sub{font-size:11.5px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.note{font-size:11px;color:#6A6963;line-height:1.65;margin-top:12px}
+.src{font-size:9.5px;color:var(--faint);margin-top:10px;letter-spacing:.08em;font-weight:500}
+svg text{font-family:'Inter',sans-serif}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.fade{animation:fade .5s ease both}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}}
+</style>
+<meta name="description" content="营收最高93.51亿，利润却贴地甚至亏损" />
+<link rel="canonical" href="https://promangofund.com/charts/manhua-earnings.html" />
+</head>
+<body>
+<div class="card">
+  <h2>营收最高93.51亿，利润却贴地甚至亏损</h2>
+  <div class="sub">前三季度营收（实档，1档 = 5亿元）vs 归母净利润（方向点）· 实心点 = 净利润为正 · 空心点 = 亏损 · 同轴线性下净利润不足1档，故点位不按比例，精确值见标注</div>
+  <svg id="pairrungs" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet"></svg>
+  <div class="note">昆仑万维扣非后净亏损15.46亿元；掌阅上半年短剧等衍生业务收入11.85亿元口径含其他内容形态（见正文），不进图。</div>
+  <div class="src">F6 PAIRED RUNGS · MONO-BASIC · 经国际金融报等媒体转引的公司财报（非公告原文逐项核对）</div>
+</div>
+<script>
+const INK='#1C1C1A',PAPER='#F0EFEB',MUTED='#8F8E88',GRID='#DEDDD6';
+const NS='http://www.w3.org/2000/svg';
+const el=(p,t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);p.appendChild(n);return n};
+const txt=(p,a,s)=>{const n=el(p,'text',a);n.textContent=s;return n};
+const tip=(n,s)=>{const t=document.createElementNS(NS,'title');t.textContent=s;n.appendChild(t)};
+const rnd=(i,k)=>Math.abs(((i*73856093)^(k*19349663))%1000)/1000;
+const obsReveal=(id,fn)=>{
+  const n=document.getElementById(id);
+  const go=()=>{n.innerHTML='';fn(n)};
+  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){go();io.disconnect()}},{threshold:.3});
+  io.observe(n);
+  n.style.cursor='pointer';
+  n.addEventListener('click',go);
+};
+// ── 数据：草稿“图表数据点”·上市公司前三季度营收与归母净利润（亿元） ──
+// 营收档数按 5 亿元取整；净利润方向点只标正负，精确值见标注。
+const D=[
+  ['昆仑万维',89.37,18,'约261万元',true],
+  ['掌阅科技',27.75,6,'-6840.91万元',false],
+  ['中文在线',8.33,2,'-1.32亿元',false],
+  ['芒果超媒',93.51,19,'2.13亿元',true],
+];
+obsReveal('pairrungs',s=>{
+  const x0=i=>64+i*66,base=250,step=5.4,HW=10;
+  D.forEach(([name,rev,rungs,profit,positive],i)=>{
+    const xa=x0(i)-13,xb=x0(i)+13;
+    for(let k=0;k<rungs;k++){
+      const y=base-k*step,w=HW-1.2+rnd(k+1,i+2)*2.4;
+      el(s,'line',{x1:xa-w,y1:y,x2:xa+w,y2:y,stroke:INK,'stroke-width':1,
+        opacity:.6+rnd(k+2,i+8)*.4,class:'fade',style:`animation-delay:${.15+i*.08+k*.01}s`});
+    }
+    const topY=base-(rungs-1)*step;
+    const num=txt(s,{x:xa,y:topY-9,'font-size':10.5,'font-weight':800,fill:INK,'text-anchor':'middle',
+      class:'fade',style:`animation-delay:${.5+i*.08}s`},rev.toFixed(2)+'亿');
+    tip(num,`${name} — 营收 ${rev.toFixed(2)}亿元`);
+    // 净利润方向点：实心 = 为正，空心 = 亏损；点位不按比例
+    if(positive){
+      const dot=el(s,'circle',{cx:xb,cy:base,r:4.2,fill:INK,
+        class:'fade',style:`animation-delay:${.5+i*.08}s`});
+      tip(dot,`${name} — 归母净利润 ${profit}`);
+      txt(s,{x:xb,y:base-12,'font-size':8,'font-weight':700,fill:INK,'text-anchor':'middle',
+        class:'fade',style:`animation-delay:${.5+i*.08}s`},profit);
+    } else {
+      el(s,'circle',{cx:xb,cy:base,r:4.2,fill:PAPER,stroke:INK,'stroke-width':1.3,
+        class:'fade',style:`animation-delay:${.5+i*.08}s`});
+      txt(s,{x:xb,y:base+16,'font-size':8,'font-weight':700,fill:'#6A6963','text-anchor':'middle',
+        class:'fade',style:`animation-delay:${.5+i*.08}s`},profit);
+    }
+    txt(s,{x:x0(i),y:base+32,'font-size':8,'font-weight':700,fill:MUTED,'text-anchor':'middle',
+      class:'fade',style:`animation-delay:${i*.08}s`},name);
+  });
+  el(s,'line',{x1:30,y1:base+4,x2:370,y2:base+4,stroke:GRID,'stroke-width':.8,class:'fade'});
+  txt(s,{x:200,y:312,'font-size':7,'font-weight':600,fill:'#B0AFA9','text-anchor':'middle',
+    'letter-spacing':'.08em',class:'fade',style:'animation-delay:1s'},
+    'INK LADDER = 营收 · 1档 = 5亿元 · 方向点 = 归母净利润（精确值见标注）');
+});
+</script>
+</body>
+</html>

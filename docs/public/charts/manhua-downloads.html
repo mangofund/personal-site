@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>海外短剧下载量前三，全是中国厂商</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F0EFEB;--dark:#1C1C1A;--ink:#1C1C1A;--muted:#8F8E88;--faint:#C6C5BF;--grid:#DEDDD6}
+body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--ink);padding:40px;-webkit-font-smoothing:antialiased}
+.card{background:var(--bg);border-radius:24px;padding:28px 28px 20px;max-width:520px;margin:0 auto}
+.card.dark{background:var(--dark);color:#F0EFEB}
+.card.dark .sub{color:#8F8E88}
+.card.dark .src{color:#55554F}
+h2{font-weight:700;font-size:16.5px;letter-spacing:-.02em;margin-bottom:3px}
+.sub{font-size:11.5px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.note{font-size:11px;color:#8F8E88;line-height:1.65;margin-top:12px}
+.src{font-size:9.5px;color:var(--faint);margin-top:10px;letter-spacing:.08em;font-weight:500}
+svg text{font-family:'Inter',sans-serif}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.fade{animation:fade .5s ease both}
+.pop{animation:pop .4s ease both}
+@media (prefers-reduced-motion:reduce){.fade,.pop{animation:none}}
+</style>
+<meta name="description" content="海外短剧下载量前三，全是中国厂商" />
+<link rel="canonical" href="https://promangofund.com/charts/manhua-downloads.html" />
+</head>
+<body>
+<div class="card dark">
+  <h2>海外短剧下载量前三，全是中国厂商</h2>
+  <div class="sub">2026年1–9月海外微短剧App下载量 · 1点 = 0.1亿次 · 点数按0.1亿次取整，顶端数字为“超过”值</div>
+  <svg id="cascade" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet"></svg>
+  <div class="note">* PineDrama累计下载量超1亿次、日活跃用户约700万，为Sensor Tower口径（经转引），与前三家的DataEye口径不同；四组数字均为“超过”值。下载量是累计动作，与活跃用户不是同一口径，不可互证。</div>
+  <div class="src">L2 DOT CASCADE · MONO-EDITORIAL · DATAEYE经国际金融报转引 · SENSOR TOWER经转引</div>
+</div>
+<script>
+const INK='#1C1C1A',PAPER='#F0EFEB',MUTED='#8F8E88',GRID='#DEDDD6';
+const NS='http://www.w3.org/2000/svg';
+const el=(p,t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);p.appendChild(n);return n};
+const txt=(p,a,s)=>{const n=el(p,'text',a);n.textContent=s;return n};
+const tip=(n,s)=>{const t=document.createElementNS(NS,'title');t.textContent=s;n.appendChild(t)};
+const rnd=(i,k)=>Math.abs(((i*73856093)^(k*19349663))%1000)/1000;
+const obsReveal=(id,fn)=>{
+  const n=document.getElementById(id);
+  const go=()=>{n.innerHTML='';fn(n)};
+  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){go();io.disconnect()}},{threshold:.3});
+  io.observe(n);
+  n.style.cursor='pointer';
+  n.addEventListener('click',go);
+};
+// ── 数据：草稿“图表数据点”·DataEye下载量 + PineDrama ──
+const D=[['FreeReels','2.3亿+次',23],['ReelShort','1.9亿+次',19],['NetShort','1.8亿+次',18],['PineDrama*','1亿+次',10]];
+obsReveal('cascade',s=>{
+  const x=i=>80+i*80, base=272;
+  el(s,'line',{x1:x(0)-8,y1:base+4,x2:x(3)+8,y2:base+4,
+    stroke:'#4A4944','stroke-width':1,'stroke-dasharray':'2 4',class:'fade'});
+  D.forEach(([name,label,n],i)=>{
+    const bx=x(i),by=base;
+    for(let k=0;k<n-1;k++)
+      el(s,'circle',{cx:bx,cy:by-12-k*8.8,r:2.2,fill:'#B3B0A4',opacity:.9,
+        class:'pop',style:`animation-delay:${i*.05+k*.03}s`});
+    const topY=by-12-(n-1)*8.8;
+    const top=el(s,'circle',{cx:bx,cy:topY,r:4.6,fill:PAPER,
+      class:'pop',style:`animation-delay:${i*.05+n*.03}s`});
+    tip(top,`${name} — ${label}`);
+    txt(s,{x:bx,y:topY-10,'font-size':9,'font-weight':700,fill:PAPER,'text-anchor':'middle',
+      class:'fade',style:`animation-delay:${.2+i*.05}s`},label);
+    txt(s,{x:bx,y:by+12,'font-size':6.5,'font-weight':600,fill:'#6A6963','text-anchor':'end',
+      transform:`rotate(-90 ${bx} ${by+12})`,
+      class:'fade',style:`animation-delay:${.1+i*.05}s`},name);
+  });
+});
+</script>
+</body>
+</html>
