@@ -56,25 +56,25 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/anthropic-residency-500k"><img class="hc-img" src="/images/anthropic-residency-cover.jpg" alt="Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/ai-earnings-72h"><img class="hc-img" src="/images/ai-earnings-cover.jpg" alt="苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/ai-earnings-72h"><img class="hc-img" src="/images/ai-earnings-cover.jpg" alt="苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？" loading="eager" fetchpriority="high" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/ai-manhua-rally"><img class="hc-img" src="/images/ai-manhua-cover.jpg" alt="AI漫剧：1.5亿海外用户，多少是收入，多少只是题材？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/anthropic-residency-500k"><img class="hc-img" src="/images/anthropic-residency-cover.jpg" alt="Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/anthropic-residency-500k">
+        <a class="hc-panel is-active" href="/ai/trends/ai-earnings-72h">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-03">2026.11.03</time></span>
-          <strong>Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手</strong><small>Anthropic 开出 35–50 万美元年薪招募 Residency，不要求博士学位、机器学习经验和论文，却只要已经证明过自己的技术领袖。这篇文章拆解它为什么这么选，以及这对程序员意味着什么。</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/ai-earnings-72h">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-03">2026.11.03</time></span>
-          <strong>苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？</strong><small>苹果与 Palantir 双双超预期却同夜下跌，AMD 实绩未出：72 小时财报到底在验证 AI 交易的哪一环？变现环、成本环、供给环三环拆解。</small>
+          <strong>苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？</strong><small>苹果与 Palantir 双双超预期却同夜下跌，AMD 实绩大超预期：72 小时财报到底在验证 AI 交易的哪一环？变现环、成本环、供给环三环拆解。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/ai-manhua-rally">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-03">2026.11.03</time></span>
           <strong>AI漫剧：1.5亿海外用户，多少是收入，多少只是题材？</strong><small>11 月 2 日 AI 漫剧批量涨停，海外用户据报超 1.5 亿：哪些涨法背后有收入撑着，哪些只是题材？成本账、收入账、财报账一次算清。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/anthropic-residency-500k">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-03">2026.11.03</time></span>
+          <strong>Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手</strong><small>Anthropic 开出 35–50 万美元年薪招募 Residency，不要求博士学位、机器学习经验和论文，却只要已经证明过自己的技术领袖。这篇文章拆解它为什么这么选，以及这对程序员意味着什么。</small>
         </a>
       </div>
     </div>
