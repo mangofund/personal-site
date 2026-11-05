@@ -369,6 +369,22 @@ headerBlocks.push([
   '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
   ''
 ].join('\n'))
+// /admin 规则必须排在文件最前：Cloudflare Pages 的 _headers 最多只认前 100 条规则，
+// 本文件约 299 条（每页一条缓存规则），排在末尾的 /admin 块线上根本不生效
+// （2026-11-05 安全审计修复时实测：线上 /admin/ 响应无 Content-Security-Policy 头）。
+// meta CSP 仍在 index.html 里兜底，但响应头 CSP 也要真正发出来才算修完。
+const adminHeaderBody = [
+  '  Cache-Control: public, max-age=0, must-revalidate',
+  `  Content-Security-Policy: ${ADMIN_CSP}`,
+  '  X-Content-Type-Options: nosniff',
+  '  X-Frame-Options: SAMEORIGIN',
+  '  Referrer-Policy: strict-origin-when-cross-origin',
+  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  ''
+].join('\n')
+for (const pattern of ['/admin', '/admin/', '/admin/*']) {
+  headerBlocks.push(`${pattern}\n${adminHeaderBody}`)
+}
 const seenHeaderPaths = new Set()
 for (const file of files) {
   const path = toUrlPath(file)
@@ -390,18 +406,6 @@ pushCache('/skills/sources/*', htmlCache)
 pushCache('/skills/zips/*', htmlCache)
 for (const icon of ['/favicon.ico', '/favicon-32x32.png', '/favicon-16x16.png', '/apple-touch-icon.png']) {
   pushCache(icon, `public, max-age=${IMAGE_CACHE_SECONDS}`)
-}
-const adminHeaderBody = [
-  '  Cache-Control: public, max-age=0, must-revalidate',
-  `  Content-Security-Policy: ${ADMIN_CSP}`,
-  '  X-Content-Type-Options: nosniff',
-  '  X-Frame-Options: SAMEORIGIN',
-  '  Referrer-Policy: strict-origin-when-cross-origin',
-  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
-  ''
-].join('\n')
-for (const pattern of ['/admin', '/admin/', '/admin/*']) {
-  headerBlocks.push(`${pattern}\n${adminHeaderBody}`)
 }
 writeFileSync(join(PUBLIC_DIR, '_headers'), headerBlocks.join('\n'))
 writeFileSync(join(PUBLIC_DIR, 'robots.txt'),

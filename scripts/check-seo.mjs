@@ -228,6 +228,12 @@ if (!existsSync(headersFile)) {
   if (!headers.includes("script-src 'self' 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h'")) {
     errors.push('_headers 的管理页 CSP 未绑定 Sveltia bundle 的 SRI hash')
   }
+  // _headers 只有前 100 条规则生效（Cloudflare Pages 上限）：/admin 规则必须在前 100 条内
+  const headerRules = headers.split('\n\n').map((b) => b.trim()).filter(Boolean)
+  const adminRuleIdx = headerRules.findIndex((b) => b.startsWith('/admin'))
+  if (adminRuleIdx < 0 || adminRuleIdx >= 100) {
+    errors.push('_headers 的 /admin 规则排在 100 条上限之外，线上不生效')
+  }
 }
 
 // 4b2. /admin 的 script 标签必须加载钉死版本 + SRI，禁止未锁版 unpkg 地址
