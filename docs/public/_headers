@@ -211,6 +211,12 @@
 /ai/trends/reddit-ai-search-traffic/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/xi-yin-ai
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/xi-yin-ai/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/workflows/agent-skills-installation-guide
   Cache-Control: public, max-age=0, must-revalidate
 
