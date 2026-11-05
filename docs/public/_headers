@@ -838,6 +838,12 @@
 /thinking/
   Cache-Control: public, max-age=0, must-revalidate
 
+/thinking/life/fix-life-in-1-day
+  Cache-Control: public, max-age=0, must-revalidate
+
+/thinking/life/fix-life-in-1-day/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /thinking/life/global-living-system
   Cache-Control: public, max-age=0, must-revalidate
 
