@@ -187,6 +187,12 @@
 /ai/trends/hongguo-ai-attention/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/midterm-markets
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/midterm-markets/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/next-stage
   Cache-Control: public, max-age=0, must-revalidate
 
