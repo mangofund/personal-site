@@ -346,14 +346,19 @@ function pushCache(pattern, value) {
 // 安全响应头（参考 claude-seo 的技术审计清单）。与 Cache-Control 是不同的头，/* 不会和缓存规则叠加。
 // 全站不设 CSP：站内注入 GA4 / AdSense，贸然收紧会拦截脚本。
 // /admin 单独收紧。与 docs/public/admin/index.html 的 meta CSP 保持一致（Sveltia CSP builder：基础指令 + GitHub）。
+// Sveltia bundle 钉死 0.259.0 版 + SRI hash（2026-11-05 安全审计 medium 项修复）；CSP 只放行钉死版本的
+// unpkg 路径（主 bundle 的 lazy chunks、Shiki 引擎 @sveltia/ui@0.89.0、语言/主题 @shikijs/langs|themes@4.6.0、
+// locale @0.259.0/locales、版本检查 package.json），不放行裸 unpkg 主机。升级版本时与 index.html、check-seo.mjs 同步改。
+const SVELTIA_VERSION = '0.259.0'
+const SVELTIA_SRI_HASH = 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h'
 const ADMIN_CSP = [
   "style-src 'self' 'unsafe-inline'",
   'font-src \'self\' https://cdn.jsdelivr.net',
   "img-src 'self' blob: data: https://*.githubusercontent.com",
   'media-src blob:',
   'frame-src blob:',
-  "script-src 'self' https://unpkg.com",
-  "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com",
+  `script-src 'self' '${SVELTIA_SRI_HASH}' https://unpkg.com/@sveltia/cms@${SVELTIA_VERSION}/ https://unpkg.com/@sveltia/ui@0.89.0/ https://unpkg.com/@shikijs/langs@4.6.0/ https://unpkg.com/@shikijs/themes@4.6.0/`,
+  `connect-src 'self' blob: data: https://unpkg.com/@sveltia/cms@${SVELTIA_VERSION}/ https://unpkg.com/@sveltia/cms/package.json https://api.github.com https://www.githubstatus.com`,
   'manifest-src blob:'
 ].join('; ')
 headerBlocks.push([

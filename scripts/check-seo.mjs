@@ -217,11 +217,30 @@ if (!existsSync(headersFile)) {
   for (const h of ['X-Content-Type-Options: nosniff', 'Referrer-Policy:', 'X-Frame-Options:']) {
     if (!headers.includes(h)) errors.push(`_headers 缺少安全头 ${h}`)
   }
-  if (!headers.includes('/admin/') || !headers.includes('https://unpkg.com') || !headers.includes('https://api.github.com')) {
-    errors.push('_headers 未给 /admin 放行 Sveltia CMS 与 GitHub API')
+  // 管理页 CSP 只放行钉死版本的 Sveltia bundle（2026-11-05 安全审计 medium 项修复）：
+  // script-src 必须含 SRI hash 与钉死版本路径，裸 unpkg 主机一律不许出现。
+  if (!headers.includes('/admin/') || !headers.includes('https://unpkg.com/@sveltia/cms@0.259.0/') || !headers.includes('https://api.github.com')) {
+    errors.push('_headers 未给 /admin 放行已钉版本的 Sveltia CMS 与 GitHub API')
   }
-  if (!headers.includes("script-src 'self' https://unpkg.com")) {
-    errors.push('_headers 的管理页 CSP 未限制 script-src')
+  if (/https:\/\/unpkg\.com(\s|;|"|$)/.test(headers)) {
+    errors.push('_headers 的管理页 CSP 仍放行裸 unpkg 主机（只允许钉死版本的路径）')
+  }
+  if (!headers.includes("script-src 'self' 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h'")) {
+    errors.push('_headers 的管理页 CSP 未绑定 Sveltia bundle 的 SRI hash')
+  }
+}
+
+// 4b2. /admin 的 script 标签必须加载钉死版本 + SRI，禁止未锁版 unpkg 地址
+const adminHtmlPath = join(DIST, 'admin', 'index.html')
+if (!existsSync(adminHtmlPath)) {
+  errors.push('缺少管理页 admin/index.html')
+} else {
+  const adminHtml = readFileSync(adminHtmlPath, 'utf8')
+  if (!adminHtml.includes('https://unpkg.com/@sveltia/cms@0.259.0/dist/sveltia-cms.js') || !adminHtml.includes('integrity="sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h"')) {
+    errors.push('管理页未加载钉死版本 + SRI 的 Sveltia bundle')
+  }
+  if (adminHtml.includes('https://unpkg.com/@sveltia/cms/dist/')) {
+    errors.push('管理页仍引用未锁版本的 Sveltia bundle')
   }
 }
 

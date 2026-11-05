@@ -894,7 +894,7 @@
 
 /admin
   Cache-Control: public, max-age=0, must-revalidate
-  Content-Security-Policy: style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' https://unpkg.com; connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com; manifest-src blob:
+  Content-Security-Policy: style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h' https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/ui@0.89.0/ https://unpkg.com/@shikijs/langs@4.6.0/ https://unpkg.com/@shikijs/themes@4.6.0/; connect-src 'self' blob: data: https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/cms/package.json https://api.github.com https://www.githubstatus.com; manifest-src blob:
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
@@ -902,7 +902,7 @@
 
 /admin/
   Cache-Control: public, max-age=0, must-revalidate
-  Content-Security-Policy: style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' https://unpkg.com; connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com; manifest-src blob:
+  Content-Security-Policy: style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h' https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/ui@0.89.0/ https://unpkg.com/@shikijs/langs@4.6.0/ https://unpkg.com/@shikijs/themes@4.6.0/; connect-src 'self' blob: data: https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/cms/package.json https://api.github.com https://www.githubstatus.com; manifest-src blob:
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
@@ -910,7 +910,7 @@
 
 /admin/*
   Cache-Control: public, max-age=0, must-revalidate
-  Content-Security-Policy: style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' https://unpkg.com; connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com; manifest-src blob:
+  Content-Security-Policy: style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h' https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/ui@0.89.0/ https://unpkg.com/@shikijs/langs@4.6.0/ https://unpkg.com/@shikijs/themes@4.6.0/; connect-src 'self' blob: data: https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/cms/package.json https://api.github.com https://www.githubstatus.com; manifest-src blob:
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin

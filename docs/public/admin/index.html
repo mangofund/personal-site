@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <!-- 与 scripts/gen-seo.mjs 里 /admin 的 Content-Security-Policy 保持一致。
-         全站不设 CSP（GA4 / AdSense）；只收紧管理页。取值来自 Sveltia CSP builder：基础指令 + GitHub。 -->
+         全站不设 CSP（GA4 / AdSense）；只收紧管理页。取值来自 Sveltia CSP builder：基础指令 + GitHub。
+         Sveltia bundle 钉死 0.259.0 版 + SRI hash（2026-11-05 安全审计 medium 项修复）；
+         主 bundle 之外 CMS 运行时还会从 unpkg 动态加载：自身 lazy chunks（@0.259.0）、
+         Shiki 高亮引擎（@sveltia/ui@0.89.0）与语言/主题（@shikijs/langs|themes@4.6.0）、
+         locale 文件（@0.259.0/locales），因此 CSP 按钉死版本路径放行，不放行裸 unpkg 主机。
+         升级 CMS 版本时三处同步改：此处 script 标签、此处 meta CSP、gen-seo.mjs 的 ADMIN_CSP、
+         check-seo.mjs 的对应断言。 -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' https://unpkg.com; connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com; manifest-src blob:"
+      content="style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' blob: data: https://*.githubusercontent.com; media-src blob:; frame-src blob:; script-src 'self' 'sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h' https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/ui@0.89.0/ https://unpkg.com/@shikijs/langs@4.6.0/ https://unpkg.com/@shikijs/themes@4.6.0/; connect-src 'self' blob: data: https://unpkg.com/@sveltia/cms@0.259.0/ https://unpkg.com/@sveltia/cms/package.json https://api.github.com https://www.githubstatus.com; manifest-src blob:"
     />
     <title>Sveltia CMS</title>
   </head>
   <body>
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script src="https://unpkg.com/@sveltia/cms@0.259.0/dist/sveltia-cms.js" integrity="sha384-cwh6NV6WNFXT5pPeyg2w/wR/7KLsmLAXD4pyq9Dr1qHn0wI5hffjaa0RiG92TF8h" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,8 +1,17 @@
-// 统计查询:GET /api/stats?from=YYYY-MM-DD&to=YYYY-MM-DD&token=xxx
-// token 在 Cloudflare Pages 环境变量 STATS_TOKEN 里配置,每日 cron 用它拉数
+// 统计查询:GET /api/stats?from=YYYY-MM-DD&to=YYYY-MM-DD
+// token 走 Authorization: Bearer 头（2026-11-05 安全审计 low 项修复，query 不再接受，
+// 避免凭据进 URL 日志）；token 在 Cloudflare Pages 环境变量 STATS_TOKEN 里配置，
+// 每日 cron（~/workspace/site-stats/daily-stats.mjs）用 Bearer 头拉数。
 interface Env {
   STATS_KV?: KVNamespace
   STATS_TOKEN?: string
+}
+
+function constantTimeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false
+  let diff = 0
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i)
+  return diff === 0
 }
 
 function parseDay(s: string): Date | null {
@@ -19,8 +28,9 @@ function fmtDay(d: Date): string {
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const url = new URL(context.request.url)
   const expected = context.env.STATS_TOKEN || ''
-  const token = url.searchParams.get('token') || ''
-  if (!expected || token !== expected) {
+  const auth = context.request.headers.get('authorization') || ''
+  const token = auth.startsWith('Bearer ') ? auth.slice(7) : ''
+  if (!expected || !constantTimeEqual(token, expected)) {
     return new Response(JSON.stringify({ error: 'unauthorized' }), {
       status: 401,
       headers: { 'content-type': 'application/json' }

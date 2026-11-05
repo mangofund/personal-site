@@ -56,21 +56,21 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/midterm-markets"><img class="hc-img" src="/images/midterm-markets-cover.jpg" alt="民主党赢下国会，特朗普失去控制权：2026 美国中期选举后，美股会怎么走？" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/xi-yin-ai"><img class="hc-img" src="/images/xi-yin-cover.jpg" alt="尹希说：“我不认为存在任何一种人类智力能力，是 AI 无法复制的”" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/xi-yin-ai"><img class="hc-img" src="/images/xi-yin-cover.jpg" alt="尹希说：“我不认为存在任何一种人类智力能力，是 AI 无法复制的”" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/midterm-markets"><img class="hc-img" src="/images/midterm-markets-cover.jpg" alt="民主党赢下国会，特朗普失去控制权：2026 美国中期选举后，美股会怎么走？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/ai-earnings-72h"><img class="hc-img" src="/images/ai-earnings-cover.jpg" alt="苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/midterm-markets">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-05">2026.11.05</time></span>
-          <strong>民主党赢下国会，特朗普失去控制权：2026 美国中期选举后，美股会怎么走？</strong><small>民主党夺回国会两院，11 月 4 日美股却全面上涨：财政、利率、能源与 AI 数据中心的分化逻辑，以及未来 12 个月的三条情景推演。</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/xi-yin-ai">
+        <a class="hc-panel is-active" href="/ai/trends/xi-yin-ai">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-05">2026.11.05</time></span>
           <strong>尹希说：“我不认为存在任何一种人类智力能力，是 AI 无法复制的”</strong><small>哈佛物理学家尹希离开 OpenAI：AI 让他的科研编码提效至少 100 倍，也让他相信人类智力皆可复制；陶哲轩的担忧、年轻人就业缺口与智力不再稀缺后的定价转移。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/midterm-markets">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-05">2026.11.05</time></span>
+          <strong>民主党赢下国会，特朗普失去控制权：2026 美国中期选举后，美股会怎么走？</strong><small>民主党夺回国会两院，11 月 4 日美股却全面上涨：财政、利率、能源与 AI 数据中心的分化逻辑，以及未来 12 个月的三条情景推演。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/ai-earnings-72h">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-03">2026.11.03</time></span>

@@ -18,6 +18,20 @@ interface Env {
 
 const TYPES = new Set(['pv', 'ev', 'bookmark', 'unbookmark', 'useful', 'follow', 'unfollow', 'skill'])
 const SKILL_ACTIONS = new Set(['view', 'copy', 'download', 'like'])
+// 技能白名单（2026-11-05 安全审计 low 项修复）：只接受站内技能清单里的 id，
+// 虚构 id 不得进入公开 skill-rank。清单来源 docs/.vitepress/theme/homeSkills.ts 的
+// homeSkills 数组；增删技能时同步改这里，否则新技能的计数会被静默丢弃。
+const KNOWN_SKILL_IDS = new Set([
+  'de-ai-writing', 'ai-ui-design', 'diagram-design', 'anatomy', 'cover_image_gen',
+  'desk_watercolor', 'custom_connector_setup', 'personal-site-build', 'frontend-design',
+  'ui-design-refs', 'haiwai-new-keyword-launch', 'haiwai-monetize-convert', 'writing-skills',
+  'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans',
+  'ai-project-delivery', 'website-launch-check', 'content-repurpose', 'browser-automation',
+  'data-analysis', 'landing-page-design', 'grill-me', 'impeccable', 'koubo-storyboard'
+])
+// 每日 paths 键数上限（同上）：防无界增长把当日统计对象撑到 KV 单值上限；
+// 触顶后新路径不再入 paths，只影响路径明细，不影响 pv 等计数。
+const MAX_PATHS_PER_DAY = 500
 const ACT_TYPES = new Set(['bookmark', 'useful', 'follow'])
 
 function beijingDate(d: Date = new Date()): string {
@@ -46,7 +60,7 @@ function sanitizeVid(raw: unknown): string {
 
 async function countSkill(kv: KVNamespace, p: string, vid: string): Promise<void> {
   const [action, id] = p.split(':')
-  if (!SKILL_ACTIONS.has(action) || !/^[A-Za-z0-9_-]{1,60}$/.test(id || '')) return
+  if (!SKILL_ACTIONS.has(action) || !KNOWN_SKILL_IDS.has(id || '')) return
   if (vid) {
     const dkey = `sd:${beijingDate()}:${vid}:${action}:${id}`
     if (await kv.get(dkey)) return
@@ -98,7 +112,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     cur[t] = (cur[t] || 0) + 1
     if (t === 'pv' && p) {
       cur.paths = cur.paths || {}
-      cur.paths[p] = (cur.paths[p] || 0) + 1
+      if (cur.paths[p] !== undefined || Object.keys(cur.paths).length < MAX_PATHS_PER_DAY) {
+        cur.paths[p] = (cur.paths[p] || 0) + 1
+      }
     }
     cur.channels = cur.channels || {}
     const cc = (cur.channels[ch] =
