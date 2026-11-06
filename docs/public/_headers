@@ -157,6 +157,12 @@
 /ai/products/codex-usage-desktop-guide/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/ai-datacenter-moratorium
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/ai-datacenter-moratorium/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/ai-earnings-72h
   Cache-Control: public, max-age=0, must-revalidate
 
