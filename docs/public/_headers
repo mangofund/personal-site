@@ -55,6 +55,12 @@
 /ai/agents/apple-qwen-agent/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/agents/claude-agent-memory
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/agents/claude-agent-memory/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/grok-bot-guide
   Cache-Control: public, max-age=0, must-revalidate
 
