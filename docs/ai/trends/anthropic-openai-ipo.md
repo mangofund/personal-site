@@ -19,7 +19,7 @@ draft: false
 
 </div>
 
-2001年，一个即将搅动全球人工智能的天才领航人，Dario Amodei 带着一批研究人员离开 OpenAI，创办了 Anthropic。
+2021年，一个即将搅动全球人工智能的天才领航人，Dario Amodei 带着一批研究人员离开 OpenAI，创办了 Anthropic。
 
 当时，外界普遍认为，这次分裂与 AI 安全、商业化节奏和公司治理上的分歧有关。
 
