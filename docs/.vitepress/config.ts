@@ -50,6 +50,29 @@ const latestPosts = () => readJson<LatestPost[]>(join(DOCS_DIR, '.vitepress', 'l
 // gen-seo.mjs 维护的内容更新时间快照(key: docs/<relativePath>)，用作 dateModified
 const contentDates = readJson<Record<string, string>>(fileURLToPath(new URL('../../scripts/content-dates.json', import.meta.url)), {})
 
+interface ArticleMeta {
+  key: string
+  title: string
+  date: string
+}
+
+/** 侧栏文章列表改由 articles.json 自动生成：新文章发布后，下次构建自动进侧栏（按日期倒序），不用再手动改配置 */
+const sidebarGroups = (
+  prefix: string,
+  groups: { dirs: string[]; label: string }[]
+) => {
+  const all = readJson<ArticleMeta[]>(join(DOCS_DIR, 'public', 'articles.json'), [])
+  return groups
+    .map(({ dirs, label }) => ({
+      text: label,
+      items: all
+        .filter((a) => dirs.some((d) => a.key.startsWith(`${prefix}${d}/`)))
+        .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+        .map((a) => ({ text: a.title, link: `/${a.key.replace(/\.md$/, '')}` }))
+    }))
+    .filter((g) => g.items.length > 0)
+}
+
 interface PageVideo {
   name: string
   description: string
@@ -166,23 +189,31 @@ export default defineConfig({
     sidebar: {
       '/ai/': [
         { text: 'AI', link: '/ai/' },
-        { text: '设计', items: [{ text: '我如何用 AI 做设计（其一）', link: '/ai/design/how-i-design-with-ai-pt1' }, { text: '我如何用 AI 做设计（其二）', link: '/ai/design/how-i-design-with-ai-pt2' }] },
-        { text: '趋势', items: [{ text: '红果日活1.68亿，人均每天看两小时：真正可怕的，是AI开始批量生产你的注意力', link: '/ai/trends/hongguo-ai-attention' }, { text: 'Claude预防封号保姆级教程', link: '/ai/trends/claude-prevent-ban-guide' }, { text: '用 Claude 加速药物研发：早期进展', link: '/ai/trends/claude-drug-development' }, { text: 'Claude 为什么动不动封号？官方条款 vs X 上的防封玄学', link: '/ai/trends/claude-ban-reasons' }, { text: 'Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude', link: '/ai/trends/claude-search-surge' }, { text: 'Anthropic 点名智谱和月之暗面，AI 蒸馏之争升级了', link: '/ai/trends/anthropic-distillation-dispute' }, { text: 'REA 逆向一切 App：互联网即将进入「软件可复制性」的新阶段', link: '/ai/trends/rea-software-replicability' }, { text: 'AI 产业的下一阶段', link: '/ai/trends/next-stage' }, { text: '营收涨 53%，股价跌 29%：谁偷走了 Reddit 的流量？', link: '/ai/trends/reddit-ai-search-traffic' }, { text: 'Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手', link: '/ai/trends/anthropic-residency-500k' }, { text: '苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？', link: '/ai/trends/ai-earnings-72h' }, { text: 'AI漫剧：1.5亿海外用户，多少是收入，多少只是题材？', link: '/ai/trends/ai-manhua-rally' }, { text: 'Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？', link: '/ai/trends/anthropic-openai-ipo' }] },
-        { text: 'Agent', items: [{ text: 'Claude 靠做梦整理记忆', link: '/ai/agents/claude-agent-memory' }, { text: '如何让Grokbot帮我点一杯瑞幸咖啡', link: '/ai/agents/luckin-coffee-mcp' }, { text: 'Grok Bot 是什么，以及怎么真正用起来', link: '/ai/agents/grok-bot-guide' }, { text: '工程师觉得自己要失业？多 Agent 真正卡在软件工程', link: '/ai/agents/multiagent-eng-problems' }, { text: '我用 Muse 搭建了一套 X 账号自动化运营系统', link: '/ai/agents/x-auto-ops' }, { text: 'AI Agent 会成为下一代操作系统吗？', link: '/ai/agents/agent-os' }, { text: 'DeepSeek 提出 Super-agent：AI Agent 为什么需要摆脱聊天窗口？', link: '/ai/agents/super-agent-design' }, { text: '苹果等了两年半，千问 12 月住进国行 iPhone：Agent 大战为什么会在手机上见分晓？', link: '/ai/agents/apple-qwen-agent' }] },
-        { text: '产品', items: [{ text: 'Codex Usage Desktop 使用指南：看清 Token 去向与剩余额度', link: '/ai/products/codex-usage-desktop-guide' }] },
-        { text: 'Coding', items: [{ text: 'AI 编程的真正杠杆', link: '/ai/coding/ai-coding-leverage' }, { text: '我是如何用 Muse 自动化部署个人网站的', link: '/ai/coding/muse-auto-deploy' }, { text: '从装一个 App 到上线一个站：我用 Muse 搭 promangofund.com 的全过程', link: '/ai/coding/muse-build-personal-site' }, { text: 'Claude Code 团队如何做代码审查', link: '/ai/coding/claude-code-team-review' }] }
+        ...sidebarGroups('ai/', [
+          { dirs: ['design'], label: '设计' },
+          { dirs: ['trends'], label: '趋势' },
+          { dirs: ['agents'], label: 'Agent' },
+          { dirs: ['products'], label: '产品' },
+          { dirs: ['coding'], label: 'Coding' },
+          { dirs: ['workflows'], label: '工作流' }
+        ])
       ],
       '/investment/': [
         { text: '投资', link: '/investment/' },
-        { text: '加密货币', items: [{ text: '加密货币的“去中心化”，到底是不是草台班子？', link: '/investment/crypto/crypto-decentralization-shoddy' }, { text: '币安热钱包被盗约63亿美元：公司说用户不用赔，我们该看哪几条', link: '/investment/crypto/binance-security-incident-2026' }] },
-        { text: '美股与长期主义', items: [{ text: '特斯拉 Q3 财报前瞻：会飞的 Roadster 之后，真正决定股价的是什么', link: '/investment/tesla/q3-earnings-preview' }, { text: 'Tesla 的长期价值究竟来自汽车吗？', link: '/investment/tesla/long-term-value' }] },
-        { text: '美股策略', items: [{ text: 'AI 进行到哪一步了？普通人如何投资美股', link: '/investment/us-stocks/ai-stage-invest-guide' }, { text: 'Alphabet Q3：销售额和利润双双不及预期，云是唯一亮点', link: '/investment/us-stocks/alphabet-q3-earnings-miss' }] }
+        ...sidebarGroups('investment/', [
+          { dirs: ['crypto'], label: '加密货币' },
+          { dirs: ['tesla'], label: '美股与长期主义' },
+          { dirs: ['us-stocks'], label: '美股策略' },
+          { dirs: ['methodology'], label: '方法论' }
+        ])
       ],
       '/thinking/': [
         { text: '思考', link: '/thinking/' },
-        { text: '长期思考', items: [{ text: '财富的第一性原理是什么？', link: '/thinking/wealth/first-principles' }, { text: '当智能可以无限复制，什么才是真正稀缺？', link: '/thinking/first-principles/scarcity' }, { text: '当 AI 能帮你做任何事，你最重要的能力是什么？', link: '/thinking/technology/ai-most-important-ability' }] },
-        { text: 'AI 与社会', items: [{ text: 'AI 技术终将造福每个人吗？', link: '/thinking/society/ai-labor-capital' }] },
-        { text: '人生与选择', items: [{ text: '如何用一天重启你的人生', link: '/thinking/life/fix-life-in-1-day' }, { text: '别急着移民：未来十年，如何设计自己的全球生活系统', link: '/thinking/life/global-living-system' }] }
+        ...sidebarGroups('thinking/', [
+          { dirs: ['wealth', 'first-principles', 'technology'], label: '长期思考' },
+          { dirs: ['society'], label: 'AI 与社会' },
+          { dirs: ['life'], label: '人生与选择' }
+        ])
       ],
       '/about/': [
         { text: '关于', link: '/about/' },
