@@ -184,6 +184,28 @@ html {
   border-right: 1px solid var(--vp-c-border);
 }
 
+/* 侧栏文章条目：缩略图卡片（缩略图由 index.ts 的 setupSidebarThumbs 挂上） */
+.Layout .VPSidebar .VPSidebarItem.is-link .item.has-thumb {
+  background: var(--vp-c-bg-elv);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  padding: 6px 8px 6px 6px;
+  margin: 3px 0;
+}
+
+.Layout .VPSidebar .VPSidebarItem.is-link .item.has-thumb .link {
+  gap: 10px;
+}
+
+.Layout .VPSidebar .sidebar-thumb {
+  width: 52px;
+  height: 34px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--vp-c-bg-soft);
+}
+
 .Layout .VPDoc .aside-container {
   top: var(--site-ticker-offset, 0px);
   height: calc(100vh - var(--site-ticker-offset, 0px));

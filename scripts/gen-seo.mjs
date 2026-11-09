@@ -831,6 +831,7 @@ for (const file of files) {
     date: fm.date,
     updated,
     tags,
+    image: fm.image || '',
     order: articleOrder(fm),
     publishedAt: publishedAtOf(file, fm.date)
   })
@@ -844,7 +845,7 @@ articleList.sort((a, b) => {
 })
 writeFileSync(
   join(PUBLIC_DIR, 'articles.json'),
-  JSON.stringify(articleList.map(({ key, title, date, updated, tags }) => ({ key, title, date, updated, tags })))
+  JSON.stringify(articleList.map(({ key, title, date, updated, tags, image }) => ({ key, title, date, updated, tags, image })))
 )
 
 const zhSlugs = new Set()

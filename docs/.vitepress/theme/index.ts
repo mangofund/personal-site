@@ -13,6 +13,7 @@ import UpdateBanner from './components/UpdateBanner.vue'
 import SiteTicker from './components/SiteTicker.vue'
 import LangSwitch from './components/LangSwitch.vue'
 import WechatNav from './components/WechatNav.vue'
+import sidebarArticles from '../../public/articles.json'
 import './custom.css'
 
 // 技能卡片、详情和归档侧栏依赖 homeSkills 大数据表，只在技能相关页面用到，异步拆包，不进全站公共 theme chunk
@@ -373,6 +374,67 @@ function setupVideoPlayButtons(router: Router): void {
   else document.addEventListener('DOMContentLoaded', startObserver)
 }
 
+// ---------- 侧栏文章条目挂封面缩略图 ----------
+// VitePress 侧栏只暴露 sidebar-nav-before/after 两个插槽，换不掉条目本身的渲染，
+// 所以用客户端装饰：按 articles.json（gen-seo 写出，带 frontmatter image）给每条文章链接
+// 前面插一张缩略图，.item 上打 has-thumb 标记，卡片样式见 custom.css。
+// 装饰是幂等的（已有 .sidebar-thumb 的跳过），路由切换和水合后重渲染靠观察器兜底。
+const sidebarCovers = new Map<string, string>(
+  (sidebarArticles as { key: string; image?: string }[])
+    .filter((a) => a.image)
+    .map((a) => [`/${a.key.replace(/\.md$/, '')}`, a.image as string])
+)
+
+function decorateSidebarItems(): void {
+  document
+    .querySelectorAll('.VPSidebar .VPSidebarItem.is-link .item > a.VPLink')
+    .forEach((a) => {
+      const link = a as HTMLAnchorElement
+      const img = sidebarCovers.get(link.getAttribute('href') || '')
+      if (!img || link.querySelector('.sidebar-thumb')) return
+      const thumb = document.createElement('img')
+      thumb.className = 'sidebar-thumb'
+      thumb.src = img
+      thumb.alt = ''
+      thumb.loading = 'lazy'
+      link.prepend(thumb)
+      link.closest('.item')?.classList.add('has-thumb')
+    })
+}
+
+function setupSidebarThumbs(router: Router): void {
+  if (!inBrowser) return
+  let queued = false
+  const schedule = () => {
+    if (queued) return
+    queued = true
+    requestAnimationFrame(() => {
+      queued = false
+      try {
+        decorateSidebarItems()
+      } catch {
+        /* 忽略 */
+      }
+    })
+  }
+  schedule()
+  // 路由切换后侧栏重渲染，跟着重挂缩略图；包裹已有回调，不覆盖它
+  const prev = router.onAfterRouteChanged
+  router.onAfterRouteChanged = (to?: string) => {
+    prev?.(to)
+    window.setTimeout(schedule, 60)
+  }
+  const startObserver = () => {
+    const mo = new MutationObserver(schedule)
+    mo.observe(document.querySelector('.VPSidebar') || document.body, {
+      childList: true,
+      subtree: true
+    })
+  }
+  if (document.body) startObserver()
+  else document.addEventListener('DOMContentLoaded', startObserver)
+}
+
 export default {
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
@@ -394,5 +456,6 @@ export default {
     app.provide('toggle-appearance', (event: MouseEvent) => toggleAppearance(event, app))
     setupStatsBeacon(router)
     setupVideoPlayButtons(router)
+    setupSidebarThumbs(router)
   }
 }
