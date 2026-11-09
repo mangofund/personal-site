@@ -1,9 +1,39 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-09T13:53:06.428995Z",
+  "generatedAt": "2026-11-09T15:04:10.522451Z",
   "source": "mei-ri-tui-song",
-  "count": 21,
+  "count": 23,
   "items": [
+    {
+      "key": "alerts|AVGO|2026-11-09",
+      "id": 23,
+      "category": "alerts",
+      "slot": "AVGO",
+      "pushDate": "2026-11-09",
+      "title": "异动提醒 · 博通（AVGO）",
+      "summary": "AVGO +6.06%",
+      "body": "博通（AVGO）开盘涨破异动线。\n现价 $311.49，较上周五收盘 $293.69 涨 6.06%。\n今天没看到博通自己的新消息。\n这波更像是轮动：英伟达受黄仁勋调查消息拖累大跌，资金转进芯片同行，AMD、美光、英特尔隔夜都在涨，博通开盘跳涨后继续走高。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-09T14:41:30.936Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NVDA|2026-11-09",
+      "id": 22,
+      "category": "alerts",
+      "slot": "NVDA",
+      "pushDate": "2026-11-09",
+      "title": "异动提醒 · 英伟达（NVDA）",
+      "summary": "NVDA -6.40%",
+      "body": "英伟达（NVDA）开盘跌破异动线。\n现价 $174.70，较上周五收盘 $186.64 跌 6.40%（美东 9:18 盘前价）。\n跌因在周末：董事会就 CEO 黄仁勋被外国情报机构盯上一事启动独立调查，黄仁勋已承认与一名疑似中国间谍的女性有染。\nAletheia 今天把评级从买入下调至持有，理由是公司可能动荡。\n三季报 11 月 17 日出。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-09T14:41:30.874Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-09",
       "id": 21,
