@@ -180,6 +180,8 @@ html {
 
 .Layout .VPSidebar.VPSidebar {
   top: var(--site-ticker-offset, 0px);
+  background: var(--vp-c-bg-soft);
+  border-right: 1px solid var(--vp-c-border);
 }
 
 .Layout .VPDoc .aside-container {

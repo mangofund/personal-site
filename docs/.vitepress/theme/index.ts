@@ -7,6 +7,7 @@ import ShareBar from './components/ShareBar.vue'
 import ShareRail from './components/ShareRail.vue'
 import Twikoo from './components/Twikoo.vue'
 import UsefulButton from './components/UsefulButton.vue'
+import RelatedArticles from './components/RelatedArticles.vue'
 import FollowButton from './components/FollowButton.vue'
 import UpdateBanner from './components/UpdateBanner.vue'
 import SiteTicker from './components/SiteTicker.vue'
@@ -376,7 +377,7 @@ export default {
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
     'layout-top': () => [h(SiteTicker), h(UpdateBanner), h(ShareRail)],
-    'doc-footer-before': () => [h(UsefulButton), h(ShareBar), h(Twikoo)],
+    'doc-footer-before': () => [h(RelatedArticles), h(UsefulButton), h(ShareBar), h(Twikoo)],
     'nav-bar-content-after': () => h(WechatNav)
   }),
   enhanceApp({ app, router }: EnhanceAppContext) {
