@@ -253,6 +253,12 @@
 /ai/trends/reddit-ai-search-traffic/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/spacex-orbital-supercomputer
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/spacex-orbital-supercomputer/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/tesla-cybertruck-winddown
   Cache-Control: public, max-age=0, must-revalidate
 
