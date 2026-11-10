@@ -47,11 +47,11 @@ const copy = computed(() =>
   isEnglish.value
     ? {
         heading: 'Unnoticed',
-        intro: 'Leave a link and one sentence about who it is for. The blurb comes from the page, and it stays off the list until you confirm it and it is reviewed.',
+        intro: 'Leave a link and one sentence about who it is for. The blurb comes from the page, and it appears on the list after you confirm it.',
         sortLabel: 'Order',
         latest: 'Latest',
         chance: 'By chance',
-        chanceNote: 'A random sample of reviewed works. Likes do not decide the order.',
+        chanceNote: 'A random sample of public works. Likes do not decide the order.',
         loading: 'Loading',
         empty: 'Nothing public yet.',
         unavailable: 'The gallery database is not connected yet. This page is up, but submissions are paused.',
@@ -63,10 +63,10 @@ const copy = computed(() =>
         drafting: 'Reading the page',
         title: 'Name',
         summary: 'Blurb',
-        confirm: 'Submit for review',
+        confirm: 'Confirm',
         submitting: 'Submitting',
         back: 'Edit the link',
-        sent: 'Submitted. It stays off this page until it is reviewed.',
+        sent: 'Submitted. It is on the list.',
         noteReady: 'The blurb uses the page description and your sentence. Edit it before submitting.',
         noteNoDesc: 'The page had no description, so the draft is only your sentence.',
         noteClosed: 'The page did not open. The name is the domain for now, and the blurb is only your sentence.',
@@ -84,11 +84,11 @@ const copy = computed(() =>
       }
     : {
         heading: '无人问津',
-        intro: '把作品链接和一句话留下。简介按页面上能读到的信息生成，确认后才进入审核。',
+        intro: '把作品链接和一句话留下。简介按页面上能读到的信息生成，确认后出现在列表里。',
         sortLabel: '排序',
         latest: '最新',
         chance: '缘分作品',
-        chanceNote: '从已通过审核的作品里随机抽出，不按点赞排序。',
+        chanceNote: '从已公开的作品里随机抽出，不按点赞排序。',
         loading: '正在读取',
         empty: '还没有公开的作品。',
         unavailable: '作品库还没接上，页面可以看，提交暂时不可用。',
@@ -103,7 +103,7 @@ const copy = computed(() =>
         confirm: '确认提交',
         submitting: '正在提交',
         back: '返回修改',
-        sent: '已提交。审核通过后才会出现在这里。',
+        sent: '已提交，已经出现在列表里。',
         noteReady: '简介来自页面上的说明和你写的那一句。提交前可以改。',
         noteNoDesc: '页面没有可读的简介，草稿只有你写的那一句。',
         noteClosed: '没有打开这个页面。标题暂用域名，简介只有你写的那一句。',
@@ -269,6 +269,7 @@ async function confirmDraft() {
   summary.value = ''
   draft.value = null
   say(copy.value.sent)
+  void loadWorks()
 }
 
 async function toggleLike(work: Work) {

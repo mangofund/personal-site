@@ -176,14 +176,17 @@ export default defineConfig({
       { text: '无人问津', link: '/unnoticed/', activeMatch: '^/unnoticed/' },
       {
         text: '关于',
-        activeMatch: '^/(thinking|investment|enterprise-mcp|friends|subscribe|guestbook)(/|$)',
+        activeMatch: '^/(enterprise-mcp|friends|subscribe|guestbook)(/|$)',
         items: [
-          { text: '思考', link: '/thinking/' },
-          { text: '投资', link: '/investment/' },
           { text: '企业MCP', link: '/enterprise-mcp/', activeMatch: '^/enterprise-mcp/' },
           { text: '友链', link: '/friends' },
-          { text: '订阅', link: '/subscribe' },
-          { text: '留言板', link: '/guestbook' }
+          {
+            text: '留言板',
+            items: [
+              { text: '留言板', link: '/guestbook' },
+              { text: '订阅', link: '/subscribe' }
+            ]
+          }
         ]
       },
       { component: 'LangSwitch' }
@@ -265,18 +268,17 @@ export default defineConfig({
           { text: 'Unnoticed', link: '/en/unnoticed/', activeMatch: '^/en/unnoticed/' },
           {
             text: 'About',
-            activeMatch: '^(/en/thinking|/en/investment|/en/enterprise-mcp|/en/friends|/subscribe|/guestbook)',
+            activeMatch: '^(/en/enterprise-mcp|/en/friends|/subscribe|/guestbook)',
             items: [
-              { text: 'Thinking', link: '/en/thinking/' },
-              {
-                text: 'Investing',
-                link: '/en/investment/',
-                activeMatch: '^/en/investment/'
-              },
               { text: 'Enterprise MCP', link: '/en/enterprise-mcp/', activeMatch: '^/en/enterprise-mcp/' },
               { text: 'Friends', link: '/en/friends' },
-              { text: 'Subscribe', link: '/subscribe' },
-              { text: 'Guestbook', link: '/guestbook' }
+              {
+                text: 'Guestbook',
+                items: [
+                  { text: 'Guestbook', link: '/guestbook' },
+                  { text: 'Subscribe', link: '/subscribe' }
+                ]
+              }
             ]
           },
           { component: 'LangSwitch' }
