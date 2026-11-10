@@ -2855,6 +2855,12 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   min-width: 0;
 }
 
+/* 列表卡片纵向 flex，底部整行钉在卡片底边，卡片内容再短也不上浮 */
+.unnoticed-grid .unnoticed-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .unnoticed-cover {
   display: block;
   border: 1px solid var(--rn-line);
@@ -2945,7 +2951,8 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 
 .unnoticed-foot {
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 .unnoticed-page .vp-doc a.unnoticed-visit,
