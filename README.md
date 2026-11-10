@@ -109,7 +109,7 @@ Fine-grained token：仓库选 `mangofund/personal-site`，权限：
 
 Pages 项目接在 Cloudflare 控制台。依据在仓库里：`functions/`（Pages Functions）、`docs/public/_redirects`、构建时生成的 `_headers`，以及 `scripts/check-seo.mjs` 允许的域名 `promangofund.com`、`mangofund.github.io`、`mangofund.pages.dev`。
 
-仓库里有一份只给本地用的 `wrangler.jsonc`（「无人问津」的 D1）。它没有 `pages_build_output_dir`，Git 部署不会把它当成线上绑定的唯一来源。已有的 `STATS_KV` 继续在控制台维护。不要对本文件执行 `wrangler pages deploy`。
+仓库根目录没有 `wrangler.jsonc`、`wrangler.json` 或 `wrangler.toml`。Pages 的 Git 构建只会把这三个文件名当成绑定配置。真实库记在 `local/unnoticed-d1.jsonc`：`database_name` 是 `mangofund-unnoticed`，`database_id` 是 `402f3166-420e-492c-9344-8d4c8ad508c1`。这份文件不会被自动读取，顶层 `name` 也不是 `mangofund`，没有 `pages_build_output_dir`，所以不会覆盖控制台里的 `STATS_KV`。不要对它执行 `wrangler pages deploy`。`npm run unnoticed:d1:local` 只跑本地 `--local`，拒绝 `--remote`。
 
 - 主域名：<https://promangofund.com>
 - `mangofund.pages.dev` 同时保留，不做 301（见 `docs/public/_redirects`）

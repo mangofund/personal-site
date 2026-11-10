@@ -2735,7 +2735,12 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   outline-offset: 2px;
 }
 
-/* 无人问津：链接和按钮沿用暖灰，不用品牌橙。 */
+/* 无人问津：链接和按钮沿用暖灰，不用品牌橙。
+   这一页是表单和卡片，左侧分享轨的提示会压住标题，这里不显示。 */
+.unnoticed-page .share-rail {
+  display: none;
+}
+
 .unnoticed-page .vp-doc a,
 .unnoticed-page .vp-doc a:hover {
   color: var(--rn-ink);
@@ -2984,6 +2989,7 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 
 .unnoticed-page .vp-doc .unnoticed-field input,
 .unnoticed-page .vp-doc .unnoticed-field textarea {
+  box-sizing: border-box;
   width: 100%;
   margin: 0;
   padding: 10px 12px;

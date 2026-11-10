@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { withBase } from 'vitepress'
 
 interface PendingWork {
@@ -12,7 +12,6 @@ interface PendingWork {
   createdAt: number
 }
 
-const STORAGE = 'mf-unnoticed-review'
 const token = ref('')
 const works = ref<PendingWork[]>([])
 const loading = ref(false)
@@ -65,21 +64,9 @@ async function load() {
   const data = await call('/api/unnoticed/review')
   loading.value = false
   if (data.ok !== true) {
-    if (data.error === 'unauthorized') {
-      try {
-        sessionStorage.removeItem(STORAGE)
-      } catch {
-        /* 忽略 */
-      }
-    }
     works.value = []
     message.value = explain(String(data.error || ''))
     return
-  }
-  try {
-    sessionStorage.setItem(STORAGE, token.value.trim())
-  } catch {
-    /* 忽略 */
   }
   works.value = Array.isArray(data.works) ? (data.works as PendingWork[]) : []
   if (!works.value.length) message.value = '没有待审核的作品。'
@@ -101,14 +88,6 @@ async function decide(work: PendingWork, action: 'approve' | 'reject') {
   message.value = action === 'approve' ? '已通过，公开列表里能看到。' : '已拒绝，不会公开。'
 }
 
-onMounted(() => {
-  try {
-    token.value = sessionStorage.getItem(STORAGE) || ''
-  } catch {
-    token.value = ''
-  }
-  if (token.value) void load()
-})
 </script>
 
 <template>
@@ -116,7 +95,7 @@ onMounted(() => {
     <form class="unnoticed-form" @submit.prevent="load">
       <label class="unnoticed-field">
         <span>审核令牌</span>
-        <input v-model="token" type="password" autocomplete="current-password" />
+        <input v-model="token" type="password" autocomplete="off" spellcheck="false" />
       </label>
       <button type="submit" class="unnoticed-btn is-solid" :disabled="loading">
         {{ loading ? '正在读取' : '查看待审核' }}
@@ -130,7 +109,7 @@ onMounted(() => {
         <p class="unnoticed-summary"><strong>提交者的话</strong> {{ work.pitch }}</p>
         <p class="unnoticed-summary"><strong>将公开的简介</strong> {{ work.summary }}</p>
         <p class="unnoticed-actions">
-          <a class="unnoticed-visit" :href="work.url" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">打开链接</a>
+          <a v-if="work.url" class="unnoticed-visit" :href="work.url" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">打开链接</a>
           <button type="button" class="unnoticed-btn is-solid" :disabled="acting === work.id" @click="decide(work, 'approve')">通过</button>
           <button type="button" class="unnoticed-btn" :disabled="acting === work.id" @click="decide(work, 'reject')">拒绝</button>
         </p>

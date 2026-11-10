@@ -1,6 +1,6 @@
--- 无人问津：待审核作品、点赞、限流。
--- 远程 D1 不会由仓库自动创建。部署步骤见 wrangler.jsonc 顶部注释。
--- 本地：npx wrangler d1 migrations apply unnoticed --local
+-- 无人问津：待审核作品、点赞、限流。没有示例数据。
+-- 远程 D1 不会由仓库自动创建。本地迁移：npm run unnoticed:d1:local
+-- 配置在 local/unnoticed-d1.jsonc，不是仓库根目录的 wrangler 文件。
 
 CREATE TABLE IF NOT EXISTS works (
   id TEXT PRIMARY KEY,

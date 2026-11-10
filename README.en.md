@@ -92,7 +92,7 @@ Production is **Cloudflare Pages**, not GitHub Pages.
 
 The Pages project is connected in the Cloudflare dashboard. What is in the repo: `functions/` (Pages Functions), `docs/public/_redirects`, the generated `_headers`, and the hosts allowed by `scripts/check-seo.mjs` (`promangofund.com`, `mangofund.github.io`, `mangofund.pages.dev`).
 
-`wrangler.jsonc` is only for local D1 work on the Unnoticed gallery. It omits `pages_build_output_dir`, so a Git deploy does not treat the file as the only source of production bindings. Keep the existing `STATS_KV` binding in the dashboard. Do not run `wrangler pages deploy` against this file.
+There is no root `wrangler.jsonc`, `wrangler.json`, or `wrangler.toml`. Pages Git builds treat only those filenames as binding configuration. The real database is recorded in `local/unnoticed-d1.jsonc`: `database_name` `mangofund-unnoticed`, `database_id` `402f3166-420e-492c-9344-8d4c8ad508c1`. That file is not auto-read, its top-level `name` is not `mangofund`, and it has no `pages_build_output_dir`, so it cannot replace the dashboard `STATS_KV` binding. Do not run `wrangler pages deploy` against it. `npm run unnoticed:d1:local` runs local `--local` only and exits on `--remote`.
 
 - Primary host: <https://promangofund.com>
 - <https://mangofund.pages.dev> stays up. No 301 between them (`docs/public/_redirects`)
