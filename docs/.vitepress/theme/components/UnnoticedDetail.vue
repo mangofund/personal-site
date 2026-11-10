@@ -117,10 +117,17 @@ const copy = computed(() =>
 )
 
 const backHref = computed(() => withBase(isEnglish.value ? '/en/unnoticed/' : '/unnoticed/'))
-const workId = computed(() => {
-  const raw = route.query.id
-  return typeof raw === 'string' ? raw : ''
-})
+// VitePress 1.6 的 useRoute() 只有 path/component/data，没有 query 字段，
+// 读 ?id= 只能走 window.location.search（之前用 route.query.id 会抛错，
+// load() 又是 void 调用，错误被静默吞掉，页面就一直卡在“正在读取”）。
+function readId(): string {
+  if (typeof window === 'undefined') return ''
+  try {
+    return new URLSearchParams(window.location.search).get('id') || ''
+  } catch {
+    return ''
+  }
+}
 const fillPct = computed(() => Math.max(0, Math.min(100, (rating.value.avg / 5) * 100)))
 const maxDist = computed(() => Math.max(1, ...[1, 2, 3, 4, 5].map((n) => rating.value.dist[String(n)] || 0)))
 const canComment = computed(() => {
@@ -172,7 +179,7 @@ async function readJson(path: string, init?: RequestInit): Promise<Record<string
 }
 
 async function load() {
-  const id = workId.value
+  const id = readId()
   work.value = null
   error.value = ''
   message.value = ''
@@ -182,7 +189,14 @@ async function load() {
     return
   }
   loading.value = true
-  const data = await readJson(`/api/unnoticed/work?id=${encodeURIComponent(id)}`)
+  let data: Record<string, unknown>
+  try {
+    data = await readJson(`/api/unnoticed/work?id=${encodeURIComponent(id)}`)
+  } catch {
+    loading.value = false
+    error.value = copy.value.unavailable
+    return
+  }
   loading.value = false
   if (data.ok !== true) {
     error.value = data.error === 'not_found' ? copy.value.notFound : copy.value.unavailable
@@ -269,7 +283,7 @@ onMounted(() => {
 })
 
 watch(
-  () => route.query.id,
+  () => route.path,
   () => {
     void load()
   }
