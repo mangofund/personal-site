@@ -426,6 +426,7 @@ writeFileSync(join(PUBLIC_DIR, 'robots.txt'),
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /unnoticed/review
 
 # --- AI 搜索爬虫：明确允许 ---
 # 用于 ChatGPT / Claude / Perplexity 的搜索结果展示，不用于模型训练
@@ -532,6 +533,7 @@ const llms = `# ${SITE_TITLE}
 - [AI](${CANONICAL_URL}/ai)：AI 趋势、Agent、AI 编程
 - [投资](${CANONICAL_URL}/investment)：美股与长期主义
 - [思考](${CANONICAL_URL}/thinking)：财富、技术与社会
+- [无人问津](${CANONICAL_URL}/unnoticed/)：网友提交的独立作品，审核通过后才公开展示
 - [关于](${CANONICAL_URL}/about)
 
 ${llmsSections}

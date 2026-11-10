@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "node scripts/patch-vitepress-locale.mjs && node scripts/pack-skills.mjs && vitepress dev docs",
     "docs:build": "node scripts/patch-vitepress-locale.mjs && node scripts/pack-skills.mjs && node scripts/gen-seo.mjs && vitepress build docs && node scripts/fix-logo-alt.mjs && node scripts/fix-img-dims.mjs && node scripts/check-seo.mjs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "test:unnoticed": "node --disable-warning=ExperimentalWarning --test lib/unnoticed.test.mjs"
   },
   "devDependencies": {
     "@types/qrcode": "^1.5.6",

@@ -70,6 +70,7 @@ Everything published is under `docs/`. An English page belongs at the same relat
 | `docs/thinking/` | Thinking |
 | `docs/skills/` | Skill pages. Entries live in `docs/.vitepress/theme/homeSkills.ts`. Sources live in `docs/public/skills/sources/` and are zipped at build time |
 | `docs/projects/` | Projects |
+| `docs/unnoticed/` | Unnoticed gallery. Public page `/unnoticed/`, English `/en/unnoticed/`, review page `/unnoticed/review` |
 | `docs/about/` | About |
 | `docs/archive.md`, `docs/en/archive.md` | Chinese archive and English archive |
 | `docs/friends.md`, `subscribe.md`, `guestbook.md`, `sponsor.md`, `privacy.md`, `utm.md` | Friends, subscribe, guestbook, sponsor, privacy, UTM link builder. English copies today: `docs/en/friends.md`, `docs/en/sponsor.md` |
@@ -89,13 +90,16 @@ Everything published is under `docs/`. An English page belongs at the same relat
 
 Production is **Cloudflare Pages**, not GitHub Pages.
 
-There is no Wrangler config in the repo. The Pages project is connected in the Cloudflare dashboard. What is in the repo: `functions/` (Pages Functions), `docs/public/_redirects`, the generated `_headers`, and the hosts allowed by `scripts/check-seo.mjs` (`promangofund.com`, `mangofund.github.io`, `mangofund.pages.dev`).
+The Pages project is connected in the Cloudflare dashboard. What is in the repo: `functions/` (Pages Functions), `docs/public/_redirects`, the generated `_headers`, and the hosts allowed by `scripts/check-seo.mjs` (`promangofund.com`, `mangofund.github.io`, `mangofund.pages.dev`).
+
+`wrangler.jsonc` is only for local D1 work on the Unnoticed gallery. It omits `pages_build_output_dir`, so a Git deploy does not treat the file as the only source of production bindings. Keep the existing `STATS_KV` binding in the dashboard. Do not run `wrangler pages deploy` against this file.
 
 - Primary host: <https://promangofund.com>
 - <https://mangofund.pages.dev> stays up. No 301 between them (`docs/public/_redirects`)
 - A push to `main` is built and published by Pages. Branch previews: `https://<branch-name-with-slashes-replaced-by-dashes>.mangofund.pages.dev`
 - Production `base` is `/`. Pages clones shallow; `gen-seo.mjs` tries to deepen git history and otherwise falls back to frontmatter and `scripts/content-dates.json` for lastmod
 - `functions/api/hit.ts`, `stats.ts`, and `skill-rank.ts` run only on Pages. Without a KV binding the stats endpoints return quietly and pages still render
+- `functions/api/unnoticed/` serves the Unnoticed gallery (`/unnoticed/`, English `/en/unnoticed/`). It needs a D1 binding named `UNNOTICED_DB` and a secret named `UNNOTICED_REVIEW_TOKEN`. The table is `migrations/0001_unnoticed.sql`. Without them the API returns an error and the page still opens. The review page is `/unnoticed/review` and is not in the nav
 
 ### GitHub Pages mirror
 
