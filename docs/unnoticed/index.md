@@ -7,8 +7,4 @@ pageClass: unnoticed-page
 updated: '2026-11-10'
 ---
 
-# 无人问津
-
-把作品链接和一句话留下。简介按页面上能读到的信息生成，确认后才进入审核。
-
 <UnnoticedBoard />

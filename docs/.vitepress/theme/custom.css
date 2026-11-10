@@ -3053,3 +3053,169 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
     padding: 18px 16px 16px;
   }
 }
+
+/* 公开栏目：简介和提交区留在视口里，作品列表单独滚动。
+   只作用于带 .unnoticed-stage 的公开页，审核页仍是普通文档流。 */
+.Layout.unnoticed-page:has(.unnoticed-stage) {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.Layout.unnoticed-page:has(.unnoticed-stage) .VPContent {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding: 16px 16px 8px;
+}
+
+.Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc .container,
+.Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc .content,
+.Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc .content-container,
+.Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc .main,
+.Layout.unnoticed-page:has(.unnoticed-stage) .vp-doc,
+.Layout.unnoticed-page:has(.unnoticed-stage) .vp-doc > * {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.unnoticed-stage {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.unnoticed-rail {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100% - 168px);
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.unnoticed-intro {
+  flex: 0 0 auto;
+}
+
+.unnoticed-page .vp-doc .unnoticed-intro h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--mf-font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.unnoticed-page .vp-doc .unnoticed-intro p {
+  margin: 8px 0 0;
+  max-width: none;
+  color: var(--vp-c-text-2);
+  font-family: var(--mf-font-serif);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.unnoticed-rail-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rn-line) transparent;
+}
+
+.unnoticed-rail .unnoticed-form {
+  margin-top: 0;
+}
+
+.unnoticed-stream {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.unnoticed-stage .unnoticed-toolbar {
+  flex: 0 0 auto;
+  margin: 0 0 12px;
+}
+
+.unnoticed-stream-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rn-line) transparent;
+}
+
+.unnoticed-stage .unnoticed-grid {
+  margin: 0;
+}
+
+@media (min-width: 960px) {
+  .Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc {
+    padding: 22px 32px 12px;
+  }
+
+  .Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc:not(.has-sidebar) .container {
+    max-width: 1180px;
+  }
+
+  .unnoticed-page .vp-doc .unnoticed-intro h1 {
+    font-size: 32px;
+  }
+
+  .unnoticed-stage {
+    display: grid;
+    grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+    column-gap: 28px;
+    align-items: stretch;
+  }
+
+  .unnoticed-rail {
+    max-height: none;
+    height: 100%;
+    padding-right: 4px;
+  }
+
+  .unnoticed-stream {
+    height: 100%;
+    min-height: 0;
+    border-left: 1px solid var(--rn-line);
+    padding-left: 28px;
+  }
+
+  .unnoticed-stage .unnoticed-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
