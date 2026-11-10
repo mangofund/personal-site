@@ -1,0 +1,29 @@
+{
+  // 只部署这个子目录里的 Worker。不要把本文件移到仓库根目录。
+  // Pages 的 Git 构建只读取根目录的 wrangler.json / wrangler.jsonc / wrangler.toml，
+  // 根目录继续不放这些文件，控制台里的 Pages 绑定保持原样。
+  // 没有 routes，workers_dev 为 false：没有 workers.dev，也没有公开域名入口。
+  // Pages 生产环境通过服务绑定 UNNOTICED_MAILER 调用 name 为 unnoticed-mailer 的这个 Worker。
+  // send_email 同时钉死唯一收件人与唯一发件人。代码里的收件人和发件人也是这两个地址，请求体不能改。
+  "name": "unnoticed-mailer",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-10",
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "jeffreylsp@gmail.com",
+      "allowed_sender_addresses": ["unnoticed@promangofund.com"]
+    }
+  ]
+}

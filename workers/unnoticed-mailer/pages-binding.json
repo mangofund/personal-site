@@ -1,0 +1,26 @@
+{
+  "worker": {
+    "name": "unnoticed-mailer",
+    "directory": "workers/unnoticed-mailer",
+    "main": "workers/unnoticed-mailer/src/index.js",
+    "config": "workers/unnoticed-mailer/wrangler.jsonc",
+    "account_id": "d1c418c21b04d222fa07d6a67d9850cc",
+    "workers_dev": false,
+    "preview_urls": false,
+    "routes": [],
+    "send_email": {
+      "binding": "EMAIL",
+      "destination_address": "jeffreylsp@gmail.com",
+      "allowed_sender_addresses": ["unnoticed@promangofund.com"]
+    }
+  },
+  "pages": {
+    "project": "mangofund",
+    "environment": "production",
+    "service_binding": {
+      "name": "UNNOTICED_MAILER",
+      "service": "unnoticed-mailer"
+    }
+  },
+  "do_not_create": ["CLOUDFLARE_EMAIL_API_TOKEN"]
+}

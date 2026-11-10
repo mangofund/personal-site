@@ -7,7 +7,7 @@
     "docs:dev": "node scripts/patch-vitepress-locale.mjs && node scripts/pack-skills.mjs && vitepress dev docs",
     "docs:build": "node scripts/patch-vitepress-locale.mjs && node scripts/pack-skills.mjs && node scripts/gen-seo.mjs && vitepress build docs && node scripts/fix-logo-alt.mjs && node scripts/fix-img-dims.mjs && node scripts/check-seo.mjs",
     "docs:preview": "vitepress preview docs",
-    "test:unnoticed": "node --disable-warning=ExperimentalWarning --test lib/unnoticed.test.mjs",
+    "test:unnoticed": "node --disable-warning=ExperimentalWarning --test lib/unnoticed.test.mjs workers/unnoticed-mailer/mailer.test.mjs",
     "unnoticed:d1:local": "node scripts/unnoticed-d1.mjs --local"
   },
   "devDependencies": {
