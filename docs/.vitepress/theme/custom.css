@@ -153,6 +153,9 @@ html[data-ticker-dismissed='1'] .site-ticker {
 
 .site-ticker {
   color-scheme: light;
+  width: 100%;
+  max-width: 100%;
+  overflow: clip;
 }
 
 html.dark .site-ticker {
@@ -219,6 +222,18 @@ html {
   background: var(--rn-backdrop);
   border-bottom: 1px solid transparent;
   box-shadow: none;
+  max-width: 100%;
+}
+
+/* 药丸导航在中等宽度放不下，会把顶栏撑出视口。放不下时改用菜单按钮，不裁切标题。 */
+@media (max-width: 1199px) {
+  .Layout .VPNav .VPNavBarMenu {
+    display: none;
+  }
+
+  .Layout .VPNav .VPNavBarHamburger {
+    display: flex;
+  }
 }
 
 .VPNav:has(.VPNavBar:not(.top)) {
@@ -2836,10 +2851,20 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 16px 18px;
   color: var(--rn-ink);
   font-family: var(--mf-font-serif);
-  font-size: 40px;
+  font-size: 22px;
   font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  text-align: center;
+  overflow-wrap: anywhere;
+  overflow: hidden;
 }
 
 .unnoticed-page .vp-doc .unnoticed-card h2 {
@@ -3045,6 +3070,11 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 }
 
 @media (max-width: 640px) {
+  .unnoticed-placeholder {
+    padding: 12px 14px;
+    font-size: 18px;
+  }
+
   .unnoticed-grid {
     grid-template-columns: 1fr;
   }

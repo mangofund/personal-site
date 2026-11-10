@@ -205,7 +205,7 @@ function dismiss(): void {
 
 @media (prefers-reduced-motion: reduce) {
   .site-ticker-viewport {
-    overflow-x: auto;
+    overflow: hidden;
   }
 
   .site-ticker-track {
