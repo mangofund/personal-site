@@ -70,6 +70,7 @@ git checkout -- scripts/content-dates.json docs/public/articles.json
 | `docs/thinking/` | 思考 |
 | `docs/skills/` | 技能页。条目数据在 `docs/.vitepress/theme/homeSkills.ts`；源文件在 `docs/public/skills/sources/`，构建时打成 ZIP |
 | `docs/projects/` | 项目 |
+| `docs/unnoticed/` | 无人问津。公开页 `/unnoticed/`，英文 `/en/unnoticed/`，审核页 `/unnoticed/review` |
 | `docs/about/` | 关于 |
 | `docs/archive.md`、`docs/en/archive.md` | 中文归档、英文归档 |
 | `docs/friends.md`、`subscribe.md`、`guestbook.md`、`sponsor.md`、`privacy.md`、`utm.md` | 友链、订阅、留言、赞助、隐私、UTM 生成页。英文稿目前有 `docs/en/friends.md`、`docs/en/sponsor.md` |
@@ -106,13 +107,16 @@ Fine-grained token：仓库选 `mangofund/personal-site`，权限：
 
 主站是 **Cloudflare Pages**，不是 GitHub Pages。
 
-仓库里没有 Wrangler 配置，Pages 项目接在 Cloudflare 控制台。依据在仓库里：`functions/`（Pages Functions）、`docs/public/_redirects`、构建时生成的 `_headers`，以及 `scripts/check-seo.mjs` 允许的域名 `promangofund.com`、`mangofund.github.io`、`mangofund.pages.dev`。
+Pages 项目接在 Cloudflare 控制台。依据在仓库里：`functions/`（Pages Functions）、`docs/public/_redirects`、构建时生成的 `_headers`，以及 `scripts/check-seo.mjs` 允许的域名 `promangofund.com`、`mangofund.github.io`、`mangofund.pages.dev`。
+
+仓库根目录没有 `wrangler.jsonc`、`wrangler.json` 或 `wrangler.toml`。Pages 的 Git 构建只会把这三个文件名当成绑定配置。真实库记在 `local/unnoticed-d1.jsonc`：`database_name` 是 `mangofund-unnoticed`，`database_id` 是 `402f3166-420e-492c-9344-8d4c8ad508c1`。这份文件不会被自动读取，顶层 `name` 也不是 `mangofund`，没有 `pages_build_output_dir`，所以不会覆盖控制台里的 `STATS_KV`。不要对它执行 `wrangler pages deploy`。`npm run unnoticed:d1:local` 只跑本地 `--local`，拒绝 `--remote`。
 
 - 主域名：<https://promangofund.com>
 - `mangofund.pages.dev` 同时保留，不做 301（见 `docs/public/_redirects`）
 - 推到 `main` 后由 Pages 自动构建上线。分支预览：`https://<分支名，/ 换成 ->.mangofund.pages.dev`
 - 主站 `base` 为 `/`。Pages 默认浅克隆；`gen-seo.mjs` 会尝试加深 git 历史，失败则用 frontmatter 和 `scripts/content-dates.json` 写 lastmod
 - `functions/api/hit.ts`、`stats.ts`、`skill-rank.ts` 只在 Pages 上生效。未绑定 KV 时统计接口静默返回，不影响页面
+- `functions/api/unnoticed/` 是栏目「无人问津」（`/unnoticed/`）。需要 D1 绑定 `UNNOTICED_DB` 和密钥 `UNNOTICED_REVIEW_TOKEN`。表在 `migrations/0001_unnoticed.sql`。未配置时接口返回错误，页面仍可打开。审核页是 `/unnoticed/review`，不进导航
 
 ### GitHub Pages 镜像
 

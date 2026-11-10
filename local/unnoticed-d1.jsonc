@@ -1,0 +1,19 @@
+{
+  // 文件名故意不是 wrangler.jsonc / wrangler.json / wrangler.toml。
+  // Pages 的 Git 构建只会把仓库根目录的这三个文件名当成绑定配置。
+  // 这份文件不会被自动读取，因此不会覆盖控制台里的 STATS_KV。
+  // 顶层 name 也故意不是 mangofund，避免有人拿这份配置去 pages deploy 时打到线上项目。
+  // 没有 pages_build_output_dir。不要对它执行 wrangler pages deploy。
+  // preview_database_id 只用于本地 sqlite，不是远程库。
+  "name": "unnoticed-local",
+  "compatibility_date": "2026-11-10",
+  "d1_databases": [
+    {
+      "binding": "UNNOTICED_DB",
+      "database_name": "mangofund-unnoticed",
+      "database_id": "402f3166-420e-492c-9344-8d4c8ad508c1",
+      "preview_database_id": "local-unnoticed",
+      "migrations_dir": "../migrations"
+    }
+  ]
+}

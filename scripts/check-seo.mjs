@@ -1057,7 +1057,7 @@ if (!existsSync(robots)) warnings.push('缺少 robots.txt')
 
 // 6. 意外 noindex（timeline 和草稿是预期的）
 // 草稿页通过 gen-seo.mjs 已从 sitemap 排除，但 HTML 仍会生成，noindex 是正确的
-const expectedNoindex = ['timeline', 'muse-seo-automation', 'guestbook', 'sponsor', 'subscribe']  // timeline/guestbook/sponsor/subscribe: 主动 noindex；muse-seo-automation: 正文里出现该词
+const expectedNoindex = ['timeline', 'muse-seo-automation', 'guestbook', 'sponsor', 'subscribe', 'unnoticed/review']  // timeline/guestbook/sponsor/subscribe/unnoticed review: 主动 noindex；muse-seo-automation: 正文里出现该词
 for (const p of pages) {
   const html = readFileSync(p, 'utf8')
   if (html.includes('noindex') && !expectedNoindex.some(s => p.includes(s)) && !isCmsAdmin(p)) {

@@ -615,6 +615,12 @@
 /en/thinking/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/unnoticed
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/unnoticed/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /enterprise-mcp
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -910,6 +916,18 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /thinking/wealth/first-principles/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed/review
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed/review/
   Cache-Control: public, max-age=0, must-revalidate
 
 /utm

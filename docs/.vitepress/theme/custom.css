@@ -2734,3 +2734,322 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   outline: 2px solid var(--rn-ink);
   outline-offset: 2px;
 }
+
+/* 无人问津：链接和按钮沿用暖灰，不用品牌橙。
+   这一页是表单和卡片，左侧分享轨的提示会压住标题，这里不显示。 */
+.unnoticed-page .share-rail {
+  display: none;
+}
+
+.unnoticed-page .vp-doc a,
+.unnoticed-page .vp-doc a:hover {
+  color: var(--rn-ink);
+  text-decoration-color: transparent;
+}
+
+.unnoticed-board {
+  font-family: var(--vp-font-family-base);
+}
+
+.unnoticed-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 8px 0 18px;
+}
+
+.unnoticed-page .vp-doc p.unnoticed-note,
+.unnoticed-page .vp-doc p.unnoticed-status,
+.unnoticed-page .vp-doc p.unnoticed-host,
+.unnoticed-page .vp-doc p.unnoticed-summary,
+.unnoticed-page .vp-doc p.unnoticed-final {
+  margin: 0;
+  max-width: none;
+}
+
+.unnoticed-page .vp-doc p.unnoticed-final {
+  margin: 8px 0 14px;
+  color: var(--vp-c-text-2);
+  font-family: var(--vp-font-family-base);
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.unnoticed-final span {
+  font-weight: 650;
+}
+
+.unnoticed-note,
+.unnoticed-host,
+.unnoticed-status {
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.unnoticed-status.is-bad {
+  color: var(--rn-ink);
+}
+
+.unnoticed-grid,
+.unnoticed-queue {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 20px;
+  margin: 8px 0 36px;
+}
+
+.unnoticed-queue {
+  grid-template-columns: 1fr;
+  margin-top: 22px;
+}
+
+.unnoticed-card {
+  min-width: 0;
+}
+
+.unnoticed-cover {
+  display: block;
+  border: 1px solid var(--rn-line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--rn-card);
+  aspect-ratio: 16 / 9;
+}
+
+.unnoticed-cover.is-draft {
+  max-width: 420px;
+  margin-bottom: 14px;
+}
+
+.unnoticed-cover img,
+.unnoticed-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.unnoticed-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rn-ink);
+  font-family: var(--mf-font-serif);
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.unnoticed-page .vp-doc .unnoticed-card h2 {
+  margin: 12px 0 6px;
+  padding: 0;
+  border: 0;
+  font-family: var(--mf-font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.unnoticed-page .vp-doc a.unnoticed-title,
+.unnoticed-page .vp-doc a.unnoticed-title:hover,
+.unnoticed-page .vp-doc a.unnoticed-visit,
+.unnoticed-page .vp-doc a.unnoticed-visit:hover {
+  color: var(--rn-ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.unnoticed-summary {
+  color: var(--vp-c-text-2);
+  font-family: var(--mf-font-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.unnoticed-review .unnoticed-summary {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  margin-top: 8px;
+}
+
+.unnoticed-foot,
+.unnoticed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.unnoticed-foot {
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.unnoticed-page .vp-doc a.unnoticed-visit,
+.unnoticed-page .vp-doc button.unnoticed-like,
+.unnoticed-page .vp-doc button.unnoticed-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  margin: 0;
+  padding: 5px 12px;
+  border: 1px solid var(--rn-line);
+  border-radius: 999px;
+  background: var(--rn-paper);
+  color: var(--rn-ink);
+  font-family: var(--vp-font-family-base);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-decoration: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.unnoticed-page .vp-doc button.unnoticed-like {
+  min-width: 52px;
+  color: var(--vp-c-text-2);
+}
+
+.unnoticed-page .vp-doc button.unnoticed-like svg {
+  width: 14px;
+  height: 14px;
+}
+
+.unnoticed-page .vp-doc a.unnoticed-visit:hover,
+.unnoticed-page .vp-doc button.unnoticed-like:hover,
+.unnoticed-page .vp-doc button.unnoticed-like.is-on,
+.unnoticed-page .vp-doc button.unnoticed-btn:hover,
+.unnoticed-page .vp-doc button.unnoticed-btn.is-solid {
+  background: var(--rn-line);
+  border-color: var(--rn-line);
+  color: var(--rn-ink);
+}
+
+.unnoticed-page .vp-doc button.unnoticed-btn:disabled,
+.unnoticed-page .vp-doc button.unnoticed-like:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.unnoticed-page .vp-doc a.unnoticed-cover:focus-visible,
+.unnoticed-page .vp-doc a.unnoticed-title:focus-visible,
+.unnoticed-page .vp-doc a.unnoticed-visit:focus-visible,
+.unnoticed-page .vp-doc button.unnoticed-like:focus-visible,
+.unnoticed-page .vp-doc button.unnoticed-btn:focus-visible,
+.unnoticed-page .vp-doc .unnoticed-field input:focus-visible,
+.unnoticed-page .vp-doc .unnoticed-field textarea:focus-visible {
+  outline: 2px solid var(--rn-ink);
+  outline-offset: 2px;
+}
+
+.unnoticed-form {
+  margin-top: 12px;
+  padding: 22px 22px 18px;
+  border: 1px solid var(--rn-line);
+  border-radius: 16px;
+  background: var(--rn-paper);
+}
+
+.unnoticed-page .vp-doc .unnoticed-form h2 {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  font-family: var(--mf-font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.unnoticed-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 14px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.unnoticed-field em {
+  color: var(--rn-muted);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.unnoticed-page .vp-doc .unnoticed-field input,
+.unnoticed-page .vp-doc .unnoticed-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--rn-line);
+  border-radius: 12px;
+  background: var(--rn-backdrop);
+  color: var(--rn-ink);
+  font-family: var(--vp-font-family-base);
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.5;
+  box-shadow: none;
+}
+
+.unnoticed-field textarea {
+  resize: vertical;
+}
+
+.unnoticed-preview {
+  margin-top: 18px;
+}
+
+.unnoticed-preview .unnoticed-actions,
+.unnoticed-form > .unnoticed-btn,
+.unnoticed-queue .unnoticed-actions {
+  margin-top: 8px;
+}
+
+.unnoticed-status {
+  margin-top: 14px !important;
+}
+
+.unnoticed-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 960px) {
+  .Layout.unnoticed-page .VPDoc:not(.has-sidebar) .container {
+    max-width: 1080px;
+  }
+
+  .Layout.unnoticed-page .VPDoc:not(.has-sidebar) .content {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 640px) {
+  .unnoticed-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unnoticed-form {
+    padding: 18px 16px 16px;
+  }
+}

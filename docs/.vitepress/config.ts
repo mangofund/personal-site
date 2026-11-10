@@ -114,6 +114,7 @@ const SECTION_NAMES: Record<string, { zh: string; en: string }> = {
   skills: { zh: '技能', en: 'Skills' },
   'enterprise-mcp': { zh: '企业MCP', en: 'Enterprise MCP' },
   projects: { zh: '项目', en: 'Projects' },
+  unnoticed: { zh: '无人问津', en: 'Unnoticed' },
   about: { zh: '关于', en: 'About' }
 }
 
@@ -175,10 +176,11 @@ export default defineConfig({
       { text: '项目', link: '/projects/', activeMatch: '^/projects/' },
       {
         text: '关于',
-        activeMatch: '^/(thinking|investment|friends|subscribe|guestbook)(/|$)',
+        activeMatch: '^/(thinking|investment|unnoticed|friends|subscribe|guestbook)(/|$)',
         items: [
           { text: '思考', link: '/thinking/' },
           { text: '投资', link: '/investment/' },
+          { text: '无人问津', link: '/unnoticed/' },
           { text: '友链', link: '/friends' },
           { text: '订阅', link: '/subscribe' },
           { text: '留言板', link: '/guestbook' }
@@ -263,7 +265,7 @@ export default defineConfig({
           { text: 'Projects', link: '/en/projects/', activeMatch: '^/en/projects/' },
           {
             text: 'About',
-            activeMatch: '^(/en/thinking|/en/investment|/en/friends|/subscribe|/guestbook)',
+            activeMatch: '^(/en/thinking|/en/investment|/en/unnoticed|/en/friends|/subscribe|/guestbook)',
             items: [
               { text: 'Thinking', link: '/en/thinking/' },
               {
@@ -271,6 +273,7 @@ export default defineConfig({
                 link: '/en/investment/',
                 activeMatch: '^/en/investment/'
               },
+              { text: 'Unnoticed', link: '/en/unnoticed/' },
               { text: 'Friends', link: '/en/friends' },
               { text: 'Subscribe', link: '/subscribe' },
               { text: 'Guestbook', link: '/guestbook' }
