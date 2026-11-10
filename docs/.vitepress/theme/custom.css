@@ -2961,6 +2961,12 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
   padding-top: 12px;
 }
 
+/* 底部行换行后，访问+点赞这一组撑满整行、靠右贴边，点赞按钮落在卡片右缘 */
+.unnoticed-foot .unnoticed-actions {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
 .unnoticed-page .vp-doc a.unnoticed-visit,
 .unnoticed-page .vp-doc button.unnoticed-like,
 .unnoticed-page .vp-doc button.unnoticed-btn {
@@ -2993,6 +2999,12 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .unnoticed-page .vp-doc a.unnoticed-visit {
   padding: 10px 22px;
   font-size: 16px;
+}
+
+/* 列表卡片里的访问按钮比详情页的大按钮小一号 */
+.unnoticed-page .vp-doc .unnoticed-card a.unnoticed-visit {
+  padding: 8px 18px;
+  font-size: 15px;
 }
 
 .unnoticed-page .vp-doc button.unnoticed-like svg {
