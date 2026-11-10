@@ -46,6 +46,8 @@ let loadSeq = 0
 const copy = computed(() =>
   isEnglish.value
     ? {
+        heading: 'Unnoticed',
+        intro: 'Leave a link and one sentence about who it is for. The blurb comes from the page, and it stays off the list until you confirm it and it is reviewed.',
         sortLabel: 'Order',
         latest: 'Latest',
         chance: 'By chance',
@@ -81,6 +83,8 @@ const copy = computed(() =>
         not_found: 'That work is not on the page.'
       }
     : {
+        heading: '无人问津',
+        intro: '把作品链接和一句话留下。简介按页面上能读到的信息生成，确认后才进入审核。',
         sortLabel: '排序',
         latest: '最新',
         chance: '缘分作品',
@@ -297,36 +301,89 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="unnoticed-board">
-    <div class="unnoticed-toolbar">
-      <div class="skill-sort" role="group" :aria-label="copy.sortLabel">
-        <button
-          type="button"
-          class="skill-sort-option"
-          :class="{ 'is-active': sort === 'latest' }"
-          :aria-pressed="sort === 'latest'"
-          @click="choose('latest')"
-        >
-          {{ copy.latest }}
-        </button>
-        <button
-          type="button"
-          class="skill-sort-option"
-          :class="{ 'is-active': sort === 'chance' }"
-          :aria-pressed="sort === 'chance'"
-          @click="choose('chance')"
-        >
-          {{ copy.chance }}
-        </button>
+  <div class="unnoticed-board unnoticed-stage">
+    <div class="unnoticed-rail">
+      <header class="unnoticed-intro">
+        <h1>{{ copy.heading }}</h1>
+        <p>{{ copy.intro }}</p>
+      </header>
+      <div class="unnoticed-rail-body">
+        <section class="unnoticed-form" :aria-label="copy.formTitle">
+          <h2>{{ copy.formTitle }}</h2>
+          <form @submit.prevent="makeDraft">
+            <div class="unnoticed-hp" aria-hidden="true">
+              <label>Company <input v-model="honeypot" tabindex="-1" autocomplete="off" name="mf_company" /></label>
+            </div>
+            <label class="unnoticed-field">
+              <span>{{ copy.url }}</span>
+              <input v-model="url" type="text" inputmode="url" autocomplete="url" placeholder="https://" :disabled="unavailable" required />
+            </label>
+            <label class="unnoticed-field">
+              <span>{{ copy.pitch }} <em>{{ pitchCount }}/80</em></span>
+              <input v-model="pitch" type="text" maxlength="80" :disabled="unavailable" required />
+            </label>
+            <button type="submit" class="unnoticed-btn" :disabled="!canDraft">
+              {{ drafting ? copy.drafting : copy.draft }}
+            </button>
+          </form>
+
+          <div v-if="draft && draft.key === draftKey" class="unnoticed-preview">
+            <p class="unnoticed-note">{{ draftNote(draft) }}</p>
+            <p class="unnoticed-final"><span>{{ copy.finalUrl }}</span> {{ draft.url }}</p>
+            <div v-if="draft.image && !broken.has('draft')" class="unnoticed-cover is-draft">
+              <img :src="draft.image" alt="" referrerpolicy="no-referrer" @error="markBroken('draft')" />
+            </div>
+            <label class="unnoticed-field">
+              <span>{{ copy.title }}</span>
+              <input v-model="title" type="text" maxlength="80" required />
+            </label>
+            <label class="unnoticed-field">
+              <span>{{ copy.summary }} <em>{{ [...summary.trim()].length }}/280</em></span>
+              <textarea v-model="summary" rows="4" maxlength="280" required />
+            </label>
+            <div class="unnoticed-actions">
+              <button type="button" class="unnoticed-btn is-solid" :disabled="!canConfirm" @click="confirmDraft">
+                {{ submitting ? copy.submitting : copy.confirm }}
+              </button>
+              <button type="button" class="unnoticed-btn" @click="draft = null">{{ copy.back }}</button>
+            </div>
+          </div>
+          <p v-if="message" class="unnoticed-status" :class="{ 'is-bad': messageTone === 'bad' }" role="status">{{ message }}</p>
+        </section>
       </div>
-      <p v-if="sort === 'chance'" class="unnoticed-note">{{ copy.chanceNote }}</p>
     </div>
 
-    <p v-if="loading" class="unnoticed-note">{{ copy.loading }}</p>
-    <p v-else-if="unavailable" class="unnoticed-note">{{ copy.unavailable }}</p>
-    <p v-else-if="works.length === 0" class="unnoticed-note">{{ copy.empty }}</p>
+    <div class="unnoticed-stream">
+      <div class="unnoticed-toolbar">
+        <div class="skill-sort" role="group" :aria-label="copy.sortLabel">
+          <button
+            type="button"
+            class="skill-sort-option"
+            :class="{ 'is-active': sort === 'latest' }"
+            :aria-pressed="sort === 'latest'"
+            @click="choose('latest')"
+          >
+            {{ copy.latest }}
+          </button>
+          <button
+            type="button"
+            class="skill-sort-option"
+            :class="{ 'is-active': sort === 'chance' }"
+            :aria-pressed="sort === 'chance'"
+            @click="choose('chance')"
+          >
+            {{ copy.chance }}
+          </button>
+        </div>
+        <p v-if="sort === 'chance'" class="unnoticed-note">{{ copy.chanceNote }}</p>
+      </div>
 
-    <div v-if="works.length" class="unnoticed-grid">
+      <div class="unnoticed-stream-body">
+        <p v-if="loading" class="unnoticed-note">{{ copy.loading }}</p>
+        <p v-else-if="unavailable" class="unnoticed-note">{{ copy.unavailable }}</p>
+        <p v-else-if="works.length === 0" class="unnoticed-note">{{ copy.empty }}</p>
+
+        <div v-if="works.length" class="unnoticed-grid">
       <article v-for="work in works" :key="work.id" class="unnoticed-card">
         <a class="unnoticed-cover" :href="work.url" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
           <img
@@ -368,50 +425,9 @@ onMounted(() => {
             </button>
           </span>
         </div>
-      </article>
-    </div>
-
-    <section class="unnoticed-form" :aria-label="copy.formTitle">
-      <h2>{{ copy.formTitle }}</h2>
-      <form @submit.prevent="makeDraft">
-        <div class="unnoticed-hp" aria-hidden="true">
-          <label>Company <input v-model="honeypot" tabindex="-1" autocomplete="off" name="mf_company" /></label>
-        </div>
-        <label class="unnoticed-field">
-          <span>{{ copy.url }}</span>
-          <input v-model="url" type="text" inputmode="url" autocomplete="url" placeholder="https://" :disabled="unavailable" required />
-        </label>
-        <label class="unnoticed-field">
-          <span>{{ copy.pitch }} <em>{{ pitchCount }}/80</em></span>
-          <input v-model="pitch" type="text" maxlength="80" :disabled="unavailable" required />
-        </label>
-        <button type="submit" class="unnoticed-btn" :disabled="!canDraft">
-          {{ drafting ? copy.drafting : copy.draft }}
-        </button>
-      </form>
-
-      <div v-if="draft && draft.key === draftKey" class="unnoticed-preview">
-        <p class="unnoticed-note">{{ draftNote(draft) }}</p>
-        <p class="unnoticed-final"><span>{{ copy.finalUrl }}</span> {{ draft.url }}</p>
-        <div v-if="draft.image && !broken.has('draft')" class="unnoticed-cover is-draft">
-          <img :src="draft.image" alt="" referrerpolicy="no-referrer" @error="markBroken('draft')" />
-        </div>
-        <label class="unnoticed-field">
-          <span>{{ copy.title }}</span>
-          <input v-model="title" type="text" maxlength="80" required />
-        </label>
-        <label class="unnoticed-field">
-          <span>{{ copy.summary }} <em>{{ [...summary.trim()].length }}/280</em></span>
-          <textarea v-model="summary" rows="4" maxlength="280" required />
-        </label>
-        <div class="unnoticed-actions">
-          <button type="button" class="unnoticed-btn is-solid" :disabled="!canConfirm" @click="confirmDraft">
-            {{ submitting ? copy.submitting : copy.confirm }}
-          </button>
-          <button type="button" class="unnoticed-btn" @click="draft = null">{{ copy.back }}</button>
+        </article>
         </div>
       </div>
-      <p v-if="message" class="unnoticed-status" :class="{ 'is-bad': messageTone === 'bad' }" role="status">{{ message }}</p>
-    </section>
+    </div>
   </div>
 </template>
