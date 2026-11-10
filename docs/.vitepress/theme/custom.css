@@ -3027,10 +3027,18 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 /* 全站按钮悬停描边：之前悬停只把底色换成线色、描边也同色，等于没有反馈；
    在悬停的卡片里（卡面本身就是线色）按钮甚至完全看不见。
    统一在悬停时加一圈墨色轮廓，盖过所有按钮和仿按钮的链接；
-   :focus-visible 的 2px 实色描边不变，比悬停更强。 */
+   :focus-visible 的 2px 实色描边不变，比悬停更强。
+   注意：点赞/提交/导航胶囊的基础样式里写了 box-shadow: none，
+   权重比通用选择器高，必须用同等权重的 :hover 选择器逐个点名，
+   否则描边会被基础样式盖掉（点赞按钮漏网就是这么来的）。 */
 button:not(:disabled):hover,
 .vp-doc a.skill-zip:hover,
-.unnoticed-page .vp-doc a.unnoticed-visit:hover {
+.unnoticed-page .vp-doc a.unnoticed-visit:hover,
+.unnoticed-page .vp-doc button.unnoticed-like:hover,
+.unnoticed-page .vp-doc button.unnoticed-btn:hover,
+.vp-doc button.skill-sort-option:hover,
+.VPNav .VPFlyout .button:hover,
+.VPNav a.VPNavBarMenuLink:hover {
   box-shadow: var(--btn-hover-ring);
 }
 
