@@ -76,6 +76,8 @@
   --card-shadow-hover: 0 1px 2px rgba(20, 20, 19, .04), 0 10px 24px -14px rgba(20, 20, 19, .14);
   /* 全站按钮悬停描边：悬停时在按钮外圈加一圈墨色轮廓 */
   --btn-hover-ring: 0 0 0 1.5px rgba(20, 20, 19, .45);
+  /* 分段控件内圈描边（见下方注释） */
+  --btn-hover-ring-inset: inset 0 0 0 1.5px rgba(20, 20, 19, .45);
   --vp-font-family-base: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
   --mf-font-serif: "Source Serif 4", "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
   --vp-font-family-mono: ui-monospace, Menlo, Consolas, monospace;
@@ -97,6 +99,7 @@
   --card-shadow-ring: inset 0 0 0 .5px rgba(250, 249, 245, .08);
   --card-shadow-hover: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 24px -14px rgba(0, 0, 0, .45);
   --btn-hover-ring: 0 0 0 1.5px rgba(250, 249, 245, .45);
+  --btn-hover-ring-inset: inset 0 0 0 1.5px rgba(250, 249, 245, .45);
   --vp-c-brand-1: var(--rn-accent);
   --vp-c-brand-2: #e58b70;
   --vp-c-brand-3: #f0a890;
@@ -3036,10 +3039,15 @@ button:not(:disabled):hover,
 .unnoticed-page .vp-doc a.unnoticed-visit:hover,
 .unnoticed-page .vp-doc button.unnoticed-like:hover,
 .unnoticed-page .vp-doc button.unnoticed-btn:hover,
-.vp-doc button.skill-sort-option:hover,
 .VPNav .VPFlyout .button:hover,
 .VPNav a.VPNavBarMenuLink:hover {
   box-shadow: var(--btn-hover-ring);
+}
+
+/* 分段控件（.skill-sort）带 overflow: hidden 裁剪，外圈描边会被容器吃掉，
+   这里改用内圈描边——和该控件 :focus-visible 的 outline-offset: -2px 同一路数。 */
+.vp-doc button.skill-sort-option:hover {
+  box-shadow: var(--btn-hover-ring-inset);
 }
 
 /* ---- 无人问津详情页 ---- */
