@@ -19,6 +19,10 @@ const loading = ref(false)
 const message = ref('')
 const acting = ref('')
 
+function detailHref(id: string): string {
+  return withBase(`/unnoticed/detail?id=${id}`)
+}
+
 function stamp(value: number): string {
   if (!value) return ''
   return new Intl.DateTimeFormat('zh-CN', {
@@ -117,7 +121,9 @@ async function decide(work: PendingWork, action: 'approve' | 'reject' | 'downlis
     <p v-if="message" class="unnoticed-status" role="status">{{ message }}</p>
     <div v-if="publicWorks.length" class="unnoticed-queue">
       <article v-for="work in publicWorks" :key="work.id" class="unnoticed-card">
-        <h2>{{ work.title }}</h2>
+        <h2>
+          <a class="unnoticed-title" :href="detailHref(work.id)" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
+        </h2>
         <p class="unnoticed-host">{{ stamp(work.createdAt) }}</p>
         <p class="unnoticed-summary"><strong>提交者的话</strong> {{ work.pitch }}</p>
         <label class="unnoticed-field">
@@ -133,7 +139,9 @@ async function decide(work: PendingWork, action: 'approve' | 'reject' | 'downlis
     </div>
     <div v-if="works.length" class="unnoticed-queue">
       <article v-for="work in works" :key="work.id" class="unnoticed-card">
-        <h2>{{ work.title }}</h2>
+        <h2>
+          <a class="unnoticed-title" :href="detailHref(work.id)" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
+        </h2>
         <p class="unnoticed-host">{{ stamp(work.createdAt) }}</p>
         <p class="unnoticed-summary"><strong>提交者的话</strong> {{ work.pitch }}</p>
         <p class="unnoticed-summary"><strong>将公开的简介</strong> {{ work.summary }}</p>

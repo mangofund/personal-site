@@ -189,6 +189,10 @@ function choose(next: 'latest' | 'chance') {
   void loadWorks()
 }
 
+function detailHref(id: string): string {
+  return withBase(isEnglish.value ? `/en/unnoticed/detail?id=${id}` : `/unnoticed/detail?id=${id}`)
+}
+
 function hostOf(value: string): string {
   try {
     return new URL(value).hostname.replace(/^www\./, '')
@@ -403,7 +407,7 @@ onMounted(() => {
 
         <div v-if="works.length" class="unnoticed-grid">
       <article v-for="work in works" :key="work.id" class="unnoticed-card">
-        <a class="unnoticed-cover" :href="work.url" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
+        <a class="unnoticed-cover" :href="detailHref(work.id)">
           <img
             v-if="work.image && !broken.has(work.id)"
             :src="work.image"
@@ -414,7 +418,7 @@ onMounted(() => {
           <span v-else class="unnoticed-placeholder">{{ work.title }}</span>
         </a>
         <h2>
-          <a class="unnoticed-title" :href="work.url" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">{{ work.title }}</a>
+          <a class="unnoticed-title" :href="detailHref(work.id)">{{ work.title }}</a>
         </h2>
         <p class="unnoticed-summary">{{ work.summary }}</p>
         <div class="unnoticed-foot">
