@@ -181,7 +181,6 @@ export default defineConfig({
           { text: '企业MCP', link: '/enterprise-mcp/', activeMatch: '^/enterprise-mcp/' },
           { text: '友链', link: '/friends' },
           {
-            text: '留言板',
             items: [
               { text: '留言板', link: '/guestbook' },
               { text: '订阅', link: '/subscribe' }
@@ -273,7 +272,6 @@ export default defineConfig({
               { text: 'Enterprise MCP', link: '/en/enterprise-mcp/', activeMatch: '^/en/enterprise-mcp/' },
               { text: 'Friends', link: '/en/friends' },
               {
-                text: 'Guestbook',
                 items: [
                   { text: 'Guestbook', link: '/guestbook' },
                   { text: 'Subscribe', link: '/subscribe' }
