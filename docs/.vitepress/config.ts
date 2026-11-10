@@ -172,15 +172,15 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'AI', link: '/ai/', activeMatch: '^/ai/' },
       { text: '技能', link: '/skills/', activeMatch: '^/skills/' },
-      { text: '企业MCP', link: '/enterprise-mcp/', activeMatch: '^/enterprise-mcp/' },
       { text: '项目', link: '/projects/', activeMatch: '^/projects/' },
+      { text: '无人问津', link: '/unnoticed/', activeMatch: '^/unnoticed/' },
       {
         text: '关于',
-        activeMatch: '^/(thinking|investment|unnoticed|friends|subscribe|guestbook)(/|$)',
+        activeMatch: '^/(thinking|investment|enterprise-mcp|friends|subscribe|guestbook)(/|$)',
         items: [
           { text: '思考', link: '/thinking/' },
           { text: '投资', link: '/investment/' },
-          { text: '无人问津', link: '/unnoticed/' },
+          { text: '企业MCP', link: '/enterprise-mcp/', activeMatch: '^/enterprise-mcp/' },
           { text: '友链', link: '/friends' },
           { text: '订阅', link: '/subscribe' },
           { text: '留言板', link: '/guestbook' }
@@ -261,11 +261,11 @@ export default defineConfig({
           { text: 'Home', link: '/en/', activeMatch: '^/en/?$' },
           { text: 'AI', link: '/en/ai/', activeMatch: '^/en/ai/' },
           { text: 'Skills', link: '/en/skills/', activeMatch: '^/en/skills/' },
-          { text: 'Enterprise MCP', link: '/en/enterprise-mcp/', activeMatch: '^/en/enterprise-mcp/' },
           { text: 'Projects', link: '/en/projects/', activeMatch: '^/en/projects/' },
+          { text: 'Unnoticed', link: '/en/unnoticed/', activeMatch: '^/en/unnoticed/' },
           {
             text: 'About',
-            activeMatch: '^(/en/thinking|/en/investment|/en/unnoticed|/en/friends|/subscribe|/guestbook)',
+            activeMatch: '^(/en/thinking|/en/investment|/en/enterprise-mcp|/en/friends|/subscribe|/guestbook)',
             items: [
               { text: 'Thinking', link: '/en/thinking/' },
               {
@@ -273,7 +273,7 @@ export default defineConfig({
                 link: '/en/investment/',
                 activeMatch: '^/en/investment/'
               },
-              { text: 'Unnoticed', link: '/en/unnoticed/' },
+              { text: 'Enterprise MCP', link: '/en/enterprise-mcp/', activeMatch: '^/en/enterprise-mcp/' },
               { text: 'Friends', link: '/en/friends' },
               { text: 'Subscribe', link: '/subscribe' },
               { text: 'Guestbook', link: '/guestbook' }
