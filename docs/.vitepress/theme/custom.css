@@ -74,6 +74,8 @@
   /* 缩略图卡片悬停：外圈柔和投影 + 内侧发丝描边（参考 Perplexity Discover） */
   --card-shadow-ring: inset 0 0 0 .5px rgba(20, 20, 19, .08);
   --card-shadow-hover: 0 1px 2px rgba(20, 20, 19, .04), 0 10px 24px -14px rgba(20, 20, 19, .14);
+  /* 全站按钮悬停描边：悬停时在按钮外圈加一圈墨色轮廓 */
+  --btn-hover-ring: 0 0 0 1.5px rgba(20, 20, 19, .45);
   --vp-font-family-base: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
   --mf-font-serif: "Source Serif 4", "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
   --vp-font-family-mono: ui-monospace, Menlo, Consolas, monospace;
@@ -94,6 +96,7 @@
   --vp-shadow-3: 0 12px 28px rgba(0, 0, 0, .4);
   --card-shadow-ring: inset 0 0 0 .5px rgba(250, 249, 245, .08);
   --card-shadow-hover: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 24px -14px rgba(0, 0, 0, .45);
+  --btn-hover-ring: 0 0 0 1.5px rgba(250, 249, 245, .45);
   --vp-c-brand-1: var(--rn-accent);
   --vp-c-brand-2: #e58b70;
   --vp-c-brand-3: #f0a890;
@@ -3019,6 +3022,16 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .unnoticed-page .vp-doc .unnoticed-field textarea:focus-visible {
   outline: 2px solid var(--rn-ink);
   outline-offset: 2px;
+}
+
+/* 全站按钮悬停描边：之前悬停只把底色换成线色、描边也同色，等于没有反馈；
+   在悬停的卡片里（卡面本身就是线色）按钮甚至完全看不见。
+   统一在悬停时加一圈墨色轮廓，盖过所有按钮和仿按钮的链接；
+   :focus-visible 的 2px 实色描边不变，比悬停更强。 */
+button:not(:disabled):hover,
+.vp-doc a.skill-zip:hover,
+.unnoticed-page .vp-doc a.unnoticed-visit:hover {
+  box-shadow: var(--btn-hover-ring);
 }
 
 /* ---- 无人问津详情页 ---- */
