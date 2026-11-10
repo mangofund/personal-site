@@ -2434,7 +2434,21 @@ html.dark button.VPSwitch.VPSwitchAppearance .check { transform: none; }
 .unnoticed-card:hover {
   background: var(--rn-line);
   border-color: var(--rn-line);
-  box-shadow: 0 0 0 1px var(--rn-line);
+  /* 外圈柔和投影：原来只有 1px 同色描边，与悬停底色同色所以看不见 */
+  box-shadow: 0 0 0 1px var(--rn-line), var(--card-shadow-hover);
+}
+
+/* 悬停内描边加深：共用的发丝描边只有 0.5px / 8%，在铺满描边色的卡面上看不见 */
+.skill-tile:hover::after,
+.project-tile:hover::after,
+.unnoticed-card:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(20, 20, 19, .18);
+}
+
+.dark .skill-tile:hover::after,
+.dark .project-tile:hover::after,
+.dark .unnoticed-card:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(250, 249, 245, .18);
 }
 
 .skill-tile .skill-thumb,
