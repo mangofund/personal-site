@@ -31,6 +31,14 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+/feed.xml
+  Cache-Control: public, max-age=0, must-revalidate
+  Link: <https://promangofund.com/feed.xml>; rel="canonical"
+
+/sitemap.xml
+  Cache-Control: public, max-age=0, must-revalidate
+  Link: <https://promangofund.com/sitemap.xml>; rel="canonical"
+
 /about
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -914,12 +922,6 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /xmade-privacy/
-  Cache-Control: public, max-age=0, must-revalidate
-
-/feed.xml
-  Cache-Control: public, max-age=0, must-revalidate
-
-/sitemap.xml
   Cache-Control: public, max-age=0, must-revalidate
 
 /robots.txt

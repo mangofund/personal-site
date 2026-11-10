@@ -385,6 +385,14 @@ const adminHeaderBody = [
 for (const pattern of ['/admin', '/admin/', '/admin/*']) {
   headerBlocks.push(`${pattern}\n${adminHeaderBody}`)
 }
+// feed / sitemap 是裸 XML，没有 HTML canonical 标签可写：Google 会把 www 与主域
+// 当成两个重复版本（2026-11-10 GSC：www.promangofund.com/feed.xml 被报
+// “重复网页，用户未选定规范网页”）。用 HTTP Link 头指明规范地址。
+// 必须排在前 100 条规则内才在线上生效（Cloudflare Pages 上限），不能放在
+// 后面 assets 循环里（/feed.xml 原先排在约第 300 条，线上根本不生效）。
+for (const xml of ['/feed.xml', '/sitemap.xml']) {
+  headerBlocks.push(`${xml}\n  Cache-Control: ${htmlCache}\n  Link: <${CANONICAL_URL}${xml}>; rel="canonical"\n`)
+}
 const seenHeaderPaths = new Set()
 for (const file of files) {
   const path = toUrlPath(file)
@@ -397,7 +405,7 @@ for (const file of files) {
     pushCache(variant, htmlCache)
   }
 }
-for (const asset of ['/feed.xml', '/sitemap.xml', '/robots.txt', '/llms.txt', '/articles.json', '/404.html']) {
+for (const asset of ['/robots.txt', '/llms.txt', '/articles.json', '/404.html']) {
   pushCache(asset, htmlCache)
 }
 pushCache('/assets/*', `public, max-age=${HASHED_ASSET_CACHE_SECONDS}, immutable`)

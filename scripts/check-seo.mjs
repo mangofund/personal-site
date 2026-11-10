@@ -234,6 +234,16 @@ if (!existsSync(headersFile)) {
   if (adminRuleIdx < 0 || adminRuleIdx >= 100) {
     errors.push('_headers 的 /admin 规则排在 100 条上限之外，线上不生效')
   }
+  // feed / sitemap 是裸 XML，没有 HTML canonical 标签：必须用 Link 头指明规范地址，
+  // 且规则必须在前 100 条内才在线上生效（2026-11-10 GSC 重复问题修复）。
+  for (const xml of ['/feed.xml', '/sitemap.xml']) {
+    const xmlRuleIdx = headerRules.findIndex((b) => b.startsWith(xml))
+    if (xmlRuleIdx < 0 || !headerRules[xmlRuleIdx].includes('rel="canonical"')) {
+      errors.push(`_headers 未给 ${xml} 加 Link canonical 头`)
+    } else if (xmlRuleIdx >= 100) {
+      errors.push(`_headers 的 ${xml} 规则排在 100 条上限之外，线上不生效`)
+    }
+  }
 }
 
 // 4b2. /admin 的 script 标签必须加载钉死版本 + SRI，禁止未锁版 unpkg 地址
