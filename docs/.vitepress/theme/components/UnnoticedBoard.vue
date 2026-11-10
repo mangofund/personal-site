@@ -75,7 +75,10 @@ const copy = computed(() =>
         invalid_pitch: 'One sentence, 4–80 characters.',
         invalid_title: 'Keep the name within 80 characters.',
         invalid_summary: 'Keep the blurb within 4–280 characters.',
+        duplicate_public: 'This link is already on the list.',
+        duplicate_pending: 'This link was submitted earlier and is not public yet. It was not saved again.',
         duplicate_url: 'This link is already in review or on the page.',
+        not_listed: 'That saved, but it is not on the list yet. The form is still here.',
         rate_limited: 'Too many submissions just now. Try again later.',
         storage_error: 'That did not save. Try again.',
         invalid_request: 'This submission was blocked.',
@@ -112,7 +115,10 @@ const copy = computed(() =>
         invalid_pitch: '用一句话写做给谁、解决什么问题（4–80 字）。',
         invalid_title: '作品名请写在 80 字以内。',
         invalid_summary: '简介请写在 4–280 字以内。',
+        duplicate_public: '这个链接已经在列表里。',
+        duplicate_pending: '这个链接早先提交过，还没公开。这次没有再写入。',
         duplicate_url: '这个链接已经在审核或展示中。',
+        not_listed: '已经记下，但列表里还没有它。刚才填的还在。',
         rate_limited: '刚刚提交太多了，请稍后再试。',
         storage_error: '刚才没保存成功，请再试一次。',
         invalid_request: '这次提交被拦下了。',
@@ -160,21 +166,22 @@ async function readJson(path: string, init?: RequestInit): Promise<Record<string
   }
 }
 
-async function loadWorks() {
+async function loadWorks(keepMessage = false) {
   const seq = ++loadSeq
   loading.value = true
   const data = await readJson(`/api/unnoticed/works?sort=${sort.value}`)
-  if (seq !== loadSeq) return
+  if (seq !== loadSeq) return false
   loading.value = false
   if (data.ok !== true) {
     unavailable.value = data.error === 'storage_unconfigured'
     works.value = []
-    if (!unavailable.value) say(explain(String(data.error || '')), 'bad')
-    return
+    if (!keepMessage && !unavailable.value) say(explain(String(data.error || '')), 'bad')
+    return false
   }
   unavailable.value = false
   works.value = Array.isArray(data.works) ? (data.works as Work[]) : []
   liked.value = Array.isArray(data.liked) ? (data.liked as string[]) : []
+  return true
 }
 
 function choose(next: 'latest' | 'chance') {
@@ -188,10 +195,6 @@ function hostOf(value: string): string {
   } catch {
     return ''
   }
-}
-
-function initial(value: string): string {
-  return [...value][0] || '·'
 }
 
 function markBroken(id: string) {
@@ -259,8 +262,16 @@ async function confirmDraft() {
     })
   })
   submitting.value = false
-  if (data.ok !== true) {
+  if (data.ok !== true || data.status !== 'approved' || typeof data.id !== 'string') {
     say(explain(String(data.error || '')), 'bad')
+    if (data.error === 'duplicate_public') void loadWorks(true)
+    return
+  }
+  const savedId = data.id
+  sort.value = 'latest'
+  const listed = await loadWorks(true)
+  if (!listed || !works.value.some((work) => work.id === savedId)) {
+    say(copy.value.not_listed, 'bad')
     return
   }
   url.value = ''
@@ -269,7 +280,6 @@ async function confirmDraft() {
   summary.value = ''
   draft.value = null
   say(copy.value.sent)
-  void loadWorks()
 }
 
 async function toggleLike(work: Work) {
@@ -331,8 +341,15 @@ onMounted(() => {
           <div v-if="draft && draft.key === draftKey" class="unnoticed-preview">
             <p class="unnoticed-note">{{ draftNote(draft) }}</p>
             <p class="unnoticed-final"><span>{{ copy.finalUrl }}</span> {{ draft.url }}</p>
-            <div v-if="draft.image && !broken.has('draft')" class="unnoticed-cover is-draft">
-              <img :src="draft.image" alt="" referrerpolicy="no-referrer" @error="markBroken('draft')" />
+            <div class="unnoticed-cover is-draft">
+              <img
+                v-if="draft.image && !broken.has('draft')"
+                :src="draft.image"
+                alt=""
+                referrerpolicy="no-referrer"
+                @error="markBroken('draft')"
+              />
+              <span v-else class="unnoticed-placeholder">{{ title || draft.title }}</span>
             </div>
             <label class="unnoticed-field">
               <span>{{ copy.title }}</span>
@@ -394,7 +411,7 @@ onMounted(() => {
             referrerpolicy="no-referrer"
             @error="markBroken(work.id)"
           />
-          <span v-else class="unnoticed-placeholder" aria-hidden="true">{{ initial(work.title) }}</span>
+          <span v-else class="unnoticed-placeholder">{{ work.title }}</span>
         </a>
         <h2>
           <a class="unnoticed-title" :href="work.url" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">{{ work.title }}</a>
