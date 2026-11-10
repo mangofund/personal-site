@@ -1455,6 +1455,12 @@ html[lang="en"].dark button.VPSwitch.VPSwitchAppearance::after { content: "Light
   left: 0;
 }
 
+/* 右侧「…」里的语言和外观贴着按钮右缘展开，避免中等宽度画出屏幕。 */
+.VPNav .VPNavBarExtra.VPFlyout > .menu {
+  left: auto;
+  right: 0;
+}
+
 .VPNav .VPMenu .link:hover,
 .VPNav .VPMenu .link.active {
   color: var(--rn-ink);
