@@ -51,44 +51,44 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>40</span></a><a class="home-topic" href="/investment/">投资<span>7</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 53 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>43</span></a><a class="home-topic" href="/investment/">投资<span>7</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 56 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/claude-fable-5-2-seo"><img class="hc-img" src="/images/claude-fable-5-2-seo-1.jpg" alt="如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/spacex-orbital-supercomputer"><img class="hc-img" src="/images/spacex-orbital-supercomputer-cover.jpg" alt="马斯克预告SpaceX轨道超级计算机：算力为什么要上天" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/anthropic-openai-ipo"><img class="hc-img" src="/images/anthropic-openai-ipo/cover.jpg" alt="Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/anthropic-ipo-valuation"><img class="hc-img" src="/images/anthropic-ipo-valuation-cover.jpg" alt="Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/nvidia-founder-risk-pricing"><img class="hc-img" src="/images/nvidia-founder-risk-cover.jpg" alt="英伟达两日跌 4300 亿美元：市场到底在怕什么？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/october-cpi-rate-hike-covered-calls"><img class="hc-img" src="/images/october-cpi-rate-hike-covered-calls-cover.jpg" alt="美国 10 月 CPI 超预期，12 月加息几成定局：科技股和备兑仓位怎么办" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/claude-fable-5-2-seo">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-10">2026.11.10</time></span>
-          <strong>如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法</strong><small>Nicholas Dulait 的 X 长文译文：用 Claude Fable 5.2 搭配 ChatSEO 做 SEO 的全套打法——从 Search Console 里挑关键词，到写出值得谷歌排名的页面，每一步都有提示词。</small>
+        <a class="hc-panel is-active" href="/ai/trends/anthropic-ipo-valuation">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-11">2026.11.11</time></span>
+          <strong>Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵</strong><small>发行价 70 到 78 美元，8.25 亿股，最高募资 644 亿美元。1.4 万亿这个数字没错，但它算的是全稀释口径；按招股书自己印的股数算，市值约 1.02 万亿。只拆估值账，不复述 IPO 新闻。</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/spacex-orbital-supercomputer">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-09">2026.11.09</time></span>
-          <strong>马斯克预告SpaceX轨道超级计算机：算力为什么要上天</strong><small>Musk 预告 SpaceX 轨道超级计算机 Starmind：100 万颗卫星的申请、AI1 的 250 千瓦算力载荷、2027 年原型、2028 年商业规模。拆三道坎（电、热、延迟）加一笔成本账，算力上天是噱头还是下一条路。</small>
+        <a class="hc-panel" href="/ai/trends/nvidia-founder-risk-pricing">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-11">2026.11.11</time></span>
+          <strong>英伟达两日跌 4300 亿美元：市场到底在怕什么？</strong><small>从10月初高点回落30.6%，两天蒸发约4300亿美元（11月9–10日，收盘口径）。市场怕的不是调查本身，是黄仁勋能不能继续掌舵。拆三成跌幅的构成、估值压缩的账，和11月17日财报夜的看点。</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/anthropic-openai-ipo">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-08">2026.11.08</time></span>
-          <strong>Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？</strong><small>Anthropic 递交 S-1 冲击万亿美元 IPO，OpenAI 暂缓上市。从 Dario Amodei 与 Sam Altman 的成长、分裂与治理结构，看安全、资本与控制权如何塑造两家 AI 公司。</small>
+        <a class="hc-panel" href="/ai/trends/october-cpi-rate-hike-covered-calls">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-11">2026.11.11</time></span>
+          <strong>美国 10 月 CPI 超预期，12 月加息几成定局：科技股和备兑仓位怎么办</strong><small>10 月 CPI 环比涨 0.4%，核心 CPI 连续第三个月涨 0.3%，12 月加 50 个基点的概率一天之内从 1.1% 涨到 15.3%。拆传导链：通胀数据怎么改写加息预期，美债收益率怎么动，科技股估值怎么被重算，备兑仓位上卖 call 和买 put 各自意味着什么。</small>
         </a>
       </div>
     </div>
-      <a class="article-card" href="/ai/agents/claude-agent-memory">
-        <img class="article-card-thumb" src="/images/claude-agent-memory/cover.jpg" alt="Claude 靠做梦整理记忆" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-08">2026.11.08</time></span><strong>Claude 靠做梦整理记忆</strong></div>
+      <a class="article-card" href="/ai/trends/claude-fable-5-2-seo">
+        <img class="article-card-thumb" src="/images/claude-fable-5-2-seo-1.jpg" alt="如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-10">2026.11.10</time></span><strong>如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法</strong></div>
       </a>
-      <a class="article-card" href="/ai/trends/tesla-cybertruck-winddown">
-        <img class="article-card-thumb" src="/images/tesla-cybertruck-winddown-cover.jpg" alt="特斯拉逐步停产Cybertruck：是在止血，还是在认输" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-07">2026.11.07</time></span><strong>特斯拉逐步停产Cybertruck：是在止血，还是在认输</strong></div>
+      <a class="article-card" href="/ai/trends/spacex-orbital-supercomputer">
+        <img class="article-card-thumb" src="/images/spacex-orbital-supercomputer-cover.jpg" alt="马斯克预告SpaceX轨道超级计算机：算力为什么要上天" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-09">2026.11.09</time></span><strong>马斯克预告SpaceX轨道超级计算机：算力为什么要上天</strong></div>
       </a>
-      <a class="article-card" href="/ai/trends/us-market-crash-retail">
-        <img class="article-card-thumb" src="/images/us-market-crash-cover.jpg" alt="美股暴跌一天蒸发约1万亿，散户现在该干什么" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-07">2026.11.07</time></span><strong>美股暴跌一天蒸发约1万亿，散户现在该干什么</strong></div>
+      <a class="article-card" href="/ai/trends/anthropic-openai-ipo">
+        <img class="article-card-thumb" src="/images/anthropic-openai-ipo/cover.jpg" alt="Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-08">2026.11.08</time></span><strong>Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,12 +96,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/ai/trends/tesla-cybertruck-winddown"><span class="latest-row-head"><span class="latest-row-title">特斯拉逐步停产Cybertruck：是在止血，还是在认输</span><span class="latest-row-date">· <time datetime="2026-11-07">2026.11.07</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/tesla-cybertruck-winddown-cover.jpg" alt="特斯拉逐步停产Cybertruck：是在止血，还是在认输" loading="lazy" decoding="async" /><span class="latest-row-desc">11月6日，Musk 宣布特斯拉逐步停产 Cybertruck，2027 年年中德州工厂停产、给 Cybercab 让产能。拆一笔产品账：三年销量、价格锚、皮卡市场水土不服，停产省的是什么、认的是什么。</span></span></a></li>
+      <li><a href="/ai/trends/us-market-crash-retail"><span class="latest-row-head"><span class="latest-row-title">美股暴跌一天蒸发约1万亿，散户现在该干什么</span><span class="latest-row-date">· <time datetime="2026-11-07">2026.11.07</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/us-market-crash-cover.jpg" alt="美股暴跌一天蒸发约1万亿，散户现在该干什么" loading="lazy" decoding="async" /><span class="latest-row-desc">11月5日纳指跌5.52%、费半跌12.25%，七大科技股单日蒸发超1万亿美元。拆传导链：高通指引、监管担忧、半导体领跌、VIX与比特币联动，再给暴跌后的仓位检查清单。</span></span></a></li>
+      <li><a href="/ai/trends/ai-datacenter-moratorium"><span class="latest-row-head"><span class="latest-row-title">AI数据中心突然被叫停：算力基建的监管拐点到了</span><span class="latest-row-date">· <time datetime="2026-11-07">2026.11.07</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-datacenter-moratorium-cover.jpg" alt="AI数据中心突然被叫停：算力基建的监管拐点到了" loading="lazy" decoding="async" /><span class="latest-row-desc">得州选出承诺叫停数据中心审批的州长，40比1的地方公投，474吉瓦并网排队。暂停早就存在，选举改写的是解除暂停的预期——地方政府为什么从抢项目转向踩刹车，三条链会怎么传导。</span></span></a></li>
       <li><a href="/thinking/life/fix-life-in-1-day"><span class="latest-row-head"><span class="latest-row-title">如何用一天重启你的人生</span><span class="latest-row-date">· <time datetime="2026-11-05">2026.11.05</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/fix-life-in-1-day/cover.jpg" alt="如何用一天重启你的人生" loading="lazy" decoding="async" /><span class="latest-row-desc">Dan Koe 这篇在 X 上约 2 亿阅读，相关中文图解本据拼多多商品页约卖 265 万。全文整理其七大观点与一日重启协议，帮你挖清真正想要的人生。</span></span></a></li>
       <li><a href="/ai/trends/xi-yin-ai"><span class="latest-row-head"><span class="latest-row-title">尹希说：“我不认为存在任何一种人类智力能力，是 AI 无法复制的”</span><span class="latest-row-date">· <time datetime="2026-11-05">2026.11.05</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/xi-yin-cover.jpg" alt="尹希说：“我不认为存在任何一种人类智力能力，是 AI 无法复制的”" loading="lazy" decoding="async" /><span class="latest-row-desc">哈佛物理学家尹希离开 OpenAI：AI 让他的科研编码提效至少 100 倍，也让他相信人类智力皆可复制；陶哲轩的担忧、年轻人就业缺口与智力不再稀缺后的定价转移。</span></span></a></li>
       <li><a href="/ai/trends/midterm-markets"><span class="latest-row-head"><span class="latest-row-title">民主党赢下国会，特朗普失去控制权：2026 美国中期选举后，美股会怎么走？</span><span class="latest-row-date">· <time datetime="2026-11-05">2026.11.05</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/midterm-markets-cover.jpg" alt="民主党赢下国会，特朗普失去控制权：2026 美国中期选举后，美股会怎么走？" loading="lazy" decoding="async" /><span class="latest-row-desc">民主党夺回国会两院，11 月 4 日美股却全面上涨：财政、利率、能源与 AI 数据中心的分化逻辑，以及未来 12 个月的三条情景推演。</span></span></a></li>
-      <li><a href="/ai/trends/ai-earnings-72h"><span class="latest-row-head"><span class="latest-row-title">苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？</span><span class="latest-row-date">· <time datetime="2026-11-03">2026.11.03</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-earnings-cover.jpg" alt="苹果超预期跌 4%，Palantir 翻倍也跌：72 小时财报到底在验证 AI 交易的哪一环？" loading="lazy" decoding="async" /><span class="latest-row-desc">苹果与 Palantir 双双超预期却同夜下跌，AMD 实绩大超预期：72 小时财报到底在验证 AI 交易的哪一环？变现环、成本环、供给环三环拆解。</span></span></a></li>
-      <li><a href="/ai/trends/ai-manhua-rally"><span class="latest-row-head"><span class="latest-row-title">AI漫剧：1.5亿海外用户，多少是收入，多少只是题材？</span><span class="latest-row-date">· <time datetime="2026-11-03">2026.11.03</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-manhua-cover.jpg" alt="AI漫剧：1.5亿海外用户，多少是收入，多少只是题材？" loading="lazy" decoding="async" /><span class="latest-row-desc">11 月 2 日 AI 漫剧批量涨停，海外用户据报超 1.5 亿：哪些涨法背后有收入撑着，哪些只是题材？成本账、收入账、财报账一次算清。</span></span></a></li>
-      <li><a href="/ai/trends/anthropic-residency-500k"><span class="latest-row-head"><span class="latest-row-title">Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手</span><span class="latest-row-date">· <time datetime="2026-11-03">2026.11.03</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-residency-cover.jpg" alt="Anthropic 开出 50 万美元年薪，招一批不懂 AI 的技术高手" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 开出 35–50 万美元年薪招募 Residency，不要求博士学位、机器学习经验和论文，却只要已经证明过自己的技术领袖。这篇文章拆解它为什么这么选，以及这对程序员意味着什么。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
