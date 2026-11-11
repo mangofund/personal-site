@@ -195,6 +195,12 @@
 /ai/trends/anthropic-distillation-dispute/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/anthropic-ipo-valuation
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/anthropic-ipo-valuation/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/anthropic-openai-ipo
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -217,6 +223,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/trends/claude-drug-development/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/claude-fable-5-2-seo
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/claude-fable-5-2-seo/
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/trends/claude-prevent-ban-guide
@@ -247,6 +259,24 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/trends/next-stage/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/nvidia-founder-risk-pricing
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/nvidia-founder-risk-pricing/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/nvidia-huang-second-affair
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/nvidia-huang-second-affair/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/october-cpi-rate-hike-covered-calls
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/october-cpi-rate-hike-covered-calls/
   Cache-Control: public, max-age=0, must-revalidate
 
 /ai/trends/rea-software-replicability
@@ -615,6 +645,12 @@
 /en/thinking/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/unnoticed/detail
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/unnoticed/detail/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/unnoticed
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -916,6 +952,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /thinking/wealth/first-principles/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed/detail
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed/detail/
   Cache-Control: public, max-age=0, must-revalidate
 
 /unnoticed
