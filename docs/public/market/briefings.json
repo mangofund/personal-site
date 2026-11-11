@@ -1,9 +1,54 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-11T08:00:11.072851Z",
+  "generatedAt": "2026-11-11T15:00:47.733570Z",
   "source": "mei-ri-tui-song",
-  "count": 41,
+  "count": 43,
   "items": [
+    {
+      "key": "alerts|AVGO|2026-11-11",
+      "id": 43,
+      "category": "alerts",
+      "slot": "AVGO",
+      "pushDate": "2026-11-11",
+      "title": "异动提醒 · 博通（AVGO）",
+      "summary": "AVGO +5.96%",
+      "body": "博通（AVGO）盘中涨 5.96%，现价 351.77 美元，前收 331.98 美元。\n\n昨天它逆势涨了 3.91%，今天继续往上走。\n\n还是同一件事：CoreWeave 三季报打消了市场对 AI 投入的疑虑，芯片板块普涨，纳指期货一度涨近 2%。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-11T14:39:15.142Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|MU|2026-11-11",
+      "id": 42,
+      "category": "alerts",
+      "slot": "MU",
+      "pushDate": "2026-11-11",
+      "title": "异动提醒 · 美光（MU）",
+      "summary": "MU +6.04%",
+      "body": "美光（MU）盘中涨 6.04%，现价 768.93 美元，前收 725.11 美元。\n\n昨天它刚跌 1.10%，今天跟着芯片板块一起翻回来。\n\n导火索是 CoreWeave：三季度收入同比涨 168%，还上调了全年指引，计划发几十亿美元 GPU 抵押债。AI 支出焦虑松了一口气，存储、光通信、芯片全线反弹。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-11T14:39:15.096Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NBIS|2026-11-11",
+      "id": 36,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-11",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS +10.60%",
+      "body": "Nebius（NBIS）盘中涨 10.60%，现价 148.21 美元，前收 134.00 美元。\n\n昨天它跌了 5.27%，今天一把涨回来还多。\n\n同行 CoreWeave 三季报收入同比涨 168%，盘前涨超 12%，整个 Neocloud 板块都被带起来。\n\n它自己明天盘前出三季报，电话会当晚 21:00。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-11T14:39:15.026Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-11",
       "id": 41,
@@ -77,21 +122,6 @@
       "status": "ok",
       "statusNote": null,
       "fetchedAt": "2026-11-11T00:06:20.023Z",
-      "isPinned": false
-    },
-    {
-      "key": "alerts|NBIS|2026-11-11",
-      "id": 36,
-      "category": "alerts",
-      "slot": "NBIS",
-      "pushDate": "2026-11-11",
-      "title": "异动提醒 · Nebius（NBIS）",
-      "summary": "NBIS -5.86%",
-      "body": "Nebius（NBIS）盘中跌破 5% 线。\n\n现价 $133.16，前收 $141.45，单日 -5.86%。\n\n盘中最低 $132.57，跌幅一度逼近 6.3%。\n\n没有公司自己的新消息，跌法跟板块走：英伟达的调查风波还在压 AI 链，中期选举后资金继续从 AI 基建名字里往外撤。\n\n后天开盘前出 Q3 财报。11 月 4 日花旗刚把目标价从 $324 砍到 $265，评级还是买入。\n\n一个月跌了快四成，离 6 月 $299.86 的高点已经腰斩过半。",
-      "metrics": null,
-      "status": "ok",
-      "statusNote": null,
-      "fetchedAt": "2026-11-10T17:39:05.485Z",
       "isPinned": false
     },
     {
