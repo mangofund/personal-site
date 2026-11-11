@@ -3397,6 +3397,86 @@ button:not(:disabled):hover,
   margin-top: 8px;
 }
 
+/* 缩略图输入：点选文件或粘贴图片，预览即时显示，可移除。 */
+.unnoticed-thumb {
+  margin: 0 0 14px;
+}
+
+.unnoticed-thumb-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.unnoticed-thumb-zone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 84px;
+  padding: 10px 12px;
+  border: 1px dashed var(--rn-line);
+  border-radius: 12px;
+  background: var(--rn-backdrop);
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+}
+
+.unnoticed-thumb-zone:hover {
+  border-color: var(--rn-ink);
+}
+
+.unnoticed-thumb-zone img {
+  display: block;
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.unnoticed-thumb-input {
+  display: none;
+}
+
+.unnoticed-thumb-remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  border: 1px solid var(--rn-line);
+  border-radius: 999px;
+  background: var(--rn-paper);
+  color: var(--rn-ink);
+  font-family: var(--vp-font-family-base);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.unnoticed-thumb-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.unnoticed-thumb-hint {
+  color: var(--rn-muted);
+  font-size: 13px;
+}
+
+.unnoticed-page .vp-doc .unnoticed-thumb-zone:focus-visible,
+.unnoticed-page .vp-doc .unnoticed-thumb-remove:focus-visible {
+  outline: 2px solid var(--rn-ink);
+  outline-offset: 2px;
+}
+
 .unnoticed-status {
   margin-top: 14px !important;
 }
@@ -3601,5 +3681,16 @@ button:not(:disabled):hover,
 
   .unnoticed-stage .unnoticed-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+/* 宽屏：作品流加宽，一行 4 张卡片；960–1440 仍是 3 列，窄屏回落不变。 */
+@media (min-width: 1440px) {
+  .Layout.unnoticed-page:has(.unnoticed-stage) .VPDoc:not(.has-sidebar) .container {
+    max-width: 1440px;
+  }
+
+  .unnoticed-stage .unnoticed-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

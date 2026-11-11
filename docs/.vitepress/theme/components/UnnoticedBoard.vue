@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { withBase } from 'vitepress'
 import { useIsEnglish } from '../useLocale'
 
@@ -41,7 +41,19 @@ const drafting = ref(false)
 const submitting = ref(false)
 const message = ref('')
 const messageTone = ref<'muted' | 'bad'>('muted')
+const thumb = ref<string | null>(null)
+const thumbBusy = ref(false)
+const thumbInput = ref<HTMLInputElement | null>(null)
+const draftThumbInput = ref<HTMLInputElement | null>(null)
 let loadSeq = 0
+
+const THUMB_MAX_EDGE = 1200
+const THUMB_MAX_BYTES = 262144
+const THUMB_ATTEMPTS = [
+  { edge: 1200, quality: 0.82 },
+  { edge: 900, quality: 0.72 },
+  { edge: 640, quality: 0.62 }
+]
 
 const copy = computed(() =>
   isEnglish.value
@@ -83,6 +95,18 @@ const copy = computed(() =>
         storage_error: 'That did not save. Try again.',
         invalid_request: 'This submission was blocked.',
         payload_too_large: 'That is too long.',
+        invalid_image: 'That thumbnail is not valid. Use a JPG, PNG or WebP image.',
+        image_too_large: 'The thumbnail is over 256 KB. Try a smaller image.',
+        thumbLabel: 'Thumbnail (optional)',
+        thumbHint: 'Click to choose an image, or paste one here',
+        thumbAdd: 'Upload thumbnail',
+        thumbChange: 'Replace thumbnail',
+        thumbRemove: 'Remove',
+        thumbPasteHint: 'You can also paste an image.',
+        thumbProcessing: 'Processing image…',
+        invalid_thumb_type: 'Use a JPG, PNG or WebP image. SVG is not supported.',
+        invalid_thumb: 'This image could not be read. Try another one.',
+        thumb_too_large: 'Still over 256 KB after compression. Try a smaller image.',
         not_found: 'That work is not on the page.'
       }
     : {
@@ -123,6 +147,18 @@ const copy = computed(() =>
         storage_error: '刚才没保存成功，请再试一次。',
         invalid_request: '这次提交被拦下了。',
         payload_too_large: '内容太长了。',
+        invalid_image: '这张缩略图不对，请换一张 JPG、PNG 或 WebP 图片。',
+        image_too_large: '缩略图超过 256 KB，换张小一点的图再试。',
+        thumbLabel: '缩略图（可选）',
+        thumbHint: '点这里选择图片，或直接粘贴图片',
+        thumbAdd: '上传缩略图',
+        thumbChange: '更换缩略图',
+        thumbRemove: '移除',
+        thumbPasteHint: '也可以直接粘贴图片。',
+        thumbProcessing: '正在处理图片…',
+        invalid_thumb_type: '请传 JPG、PNG 或 WebP 图片，SVG 不支持。',
+        invalid_thumb: '这张图读不出来，换一张试试。',
+        thumb_too_large: '压完还是超过 256 KB，换张小一点的图再试。',
         not_found: '没有找到这个作品。'
       }
 )
@@ -149,6 +185,73 @@ function explain(error: string): string {
 function say(text: string, tone: 'muted' | 'bad' = 'muted') {
   message.value = text
   messageTone.value = tone
+}
+
+async function compressThumb(
+  file: File
+): Promise<{ ok: true; dataUrl: string } | { ok: false; reason: 'invalid' | 'too_large' }> {
+  let bitmap: ImageBitmap
+  try {
+    bitmap = await createImageBitmap(file)
+  } catch {
+    return { ok: false, reason: 'invalid' }
+  }
+  try {
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return { ok: false, reason: 'invalid' }
+    for (const attempt of THUMB_ATTEMPTS) {
+      const scale = Math.min(1, attempt.edge / Math.max(bitmap.width, bitmap.height))
+      canvas.width = Math.max(1, Math.round(bitmap.width * scale))
+      canvas.height = Math.max(1, Math.round(bitmap.height * scale))
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+      const dataUrl = canvas.toDataURL('image/jpeg', attempt.quality)
+      if (dataUrl.length <= THUMB_MAX_BYTES) return { ok: true, dataUrl }
+    }
+    return { ok: false, reason: 'too_large' }
+  } finally {
+    bitmap.close()
+  }
+}
+
+async function handleThumbFile(file: File | undefined | null) {
+  if (!file || thumbBusy.value) return
+  if (file.type === 'image/svg+xml' || !file.type.startsWith('image/')) {
+    say(copy.value.invalid_thumb_type, 'bad')
+    return
+  }
+  thumbBusy.value = true
+  try {
+    const result = await compressThumb(file)
+    if (!result.ok) {
+      say(result.reason === 'too_large' ? copy.value.thumb_too_large : copy.value.invalid_thumb, 'bad')
+      return
+    }
+    thumb.value = result.dataUrl
+    message.value = ''
+  } finally {
+    thumbBusy.value = false
+  }
+}
+
+function onThumbFile(event: Event) {
+  const input = event.target as HTMLInputElement | null
+  const file = input?.files?.[0]
+  if (input) input.value = ''
+  void handleThumbFile(file)
+}
+
+function onPaste(event: ClipboardEvent) {
+  const files = event.clipboardData?.files
+  if (!files || files.length === 0) return
+  const target = event.target as HTMLElement | null
+  if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return
+  const file = Array.from(files).find((item) => item.type.startsWith('image/'))
+  if (!file) return
+  event.preventDefault()
+  void handleThumbFile(file)
 }
 
 async function readJson(path: string, init?: RequestInit): Promise<Record<string, unknown>> {
@@ -227,7 +330,8 @@ async function makeDraft() {
       url: url.value.trim(),
       pitch: pitch.value.trim(),
       lang: isEnglish.value ? 'en' : 'zh',
-      mf_company: honeypot.value
+      mf_company: honeypot.value,
+      ...(thumb.value ? { image: thumb.value } : {})
     })
   })
   drafting.value = false
@@ -262,7 +366,8 @@ async function confirmDraft() {
       title: title.value.trim(),
       summary: summary.value.trim(),
       lang: isEnglish.value ? 'en' : 'zh',
-      mf_company: honeypot.value
+      mf_company: honeypot.value,
+      ...(thumb.value ? { image: thumb.value } : {})
     })
   })
   submitting.value = false
@@ -282,6 +387,7 @@ async function confirmDraft() {
   pitch.value = ''
   title.value = ''
   summary.value = ''
+  thumb.value = null
   draft.value = null
   say(copy.value.sent)
 }
@@ -312,6 +418,11 @@ function likeLabel(work: Work): string {
 
 onMounted(() => {
   void loadWorks()
+  document.addEventListener('paste', onPaste)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('paste', onPaste)
 })
 </script>
 
@@ -337,6 +448,25 @@ onMounted(() => {
               <span>{{ copy.pitch }} <em>{{ pitchCount }}/80</em></span>
               <input v-model="pitch" type="text" maxlength="80" :disabled="unavailable" required />
             </label>
+            <div class="unnoticed-thumb">
+              <span class="unnoticed-thumb-label">{{ copy.thumbLabel }}</span>
+              <div
+                class="unnoticed-thumb-zone"
+                tabindex="0"
+                role="button"
+                :aria-label="copy.thumbHint"
+                @click="thumbInput?.click()"
+                @keydown.enter.prevent="thumbInput?.click()"
+                @keydown.space.prevent="thumbInput?.click()"
+              >
+                <img v-if="thumb" :src="thumb" alt="" />
+                <span v-else>{{ thumbBusy ? copy.thumbProcessing : copy.thumbHint }}</span>
+                <button v-if="thumb" type="button" class="unnoticed-thumb-remove" @click.stop="thumb = null">
+                  {{ copy.thumbRemove }}
+                </button>
+              </div>
+              <input ref="thumbInput" type="file" accept="image/*" class="unnoticed-thumb-input" @change="onThumbFile" />
+            </div>
             <button type="submit" class="unnoticed-btn" :disabled="!canDraft">
               {{ drafting ? copy.drafting : copy.draft }}
             </button>
@@ -346,8 +476,9 @@ onMounted(() => {
             <p class="unnoticed-note">{{ draftNote(draft) }}</p>
             <p class="unnoticed-final"><span>{{ copy.finalUrl }}</span> {{ draft.url }}</p>
             <div class="unnoticed-cover is-draft">
+              <img v-if="thumb" :src="thumb" alt="" />
               <img
-                v-if="draft.image && !broken.has('draft')"
+                v-else-if="draft.image && !broken.has('draft')"
                 :src="draft.image"
                 alt=""
                 referrerpolicy="no-referrer"
@@ -355,6 +486,14 @@ onMounted(() => {
               />
               <span v-else class="unnoticed-placeholder">{{ title || draft.title }}</span>
             </div>
+            <div class="unnoticed-thumb-row">
+              <button type="button" class="unnoticed-btn" :disabled="thumbBusy" @click="draftThumbInput?.click()">
+                {{ thumbBusy ? copy.thumbProcessing : thumb ? copy.thumbChange : copy.thumbAdd }}
+              </button>
+              <button v-if="thumb" type="button" class="unnoticed-btn" @click="thumb = null">{{ copy.thumbRemove }}</button>
+              <span class="unnoticed-thumb-hint">{{ copy.thumbPasteHint }}</span>
+            </div>
+            <input ref="draftThumbInput" type="file" accept="image/*" class="unnoticed-thumb-input" @change="onThumbFile" />
             <label class="unnoticed-field">
               <span>{{ copy.title }}</span>
               <input v-model="title" type="text" maxlength="80" required />
