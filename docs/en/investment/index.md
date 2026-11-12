@@ -18,6 +18,11 @@ const filter = ref('all')
 <h1>Investing</h1>
 <p>Long-term judgments about future cash flow, competitive structure, and human behavior. These notes are not investment advice.</p>
 </header>
+<section class="archive-intro">
+<p>These are long-term notes on investing — judgments about future cash flow, competitive structure, and human behavior, written down so they can be checked later. The coverage concentrates on US stocks, Tesla, AI infrastructure, and asset allocation: the places where a single quarter can change the story, and where the story is worth following across quarters.</p>
+<p>Each note starts from a question rather than a conclusion. What actually moves the stock this quarter? Which assumption would have to break for the thesis to fail? The aim is a record of reasoning, not a feed of predictions — something to revisit when the market proves a note right or wrong.</p>
+<p>None of this is investment advice. The notes describe how one person thinks about risk and return; they are not recommendations to buy or sell anything.</p>
+</section>
 <div class="archive-layout is-single">
 <div class="archive-main">
 

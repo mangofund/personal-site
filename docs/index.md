@@ -56,25 +56,25 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/anthropic-amd-cuda-moat"><img class="hc-img" src="/images/anthropic-amd-cuda-moat-cover.jpg" alt="Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/anthropic-ipo-wealth"><img class="hc-img" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/anthropic-amd-cuda-moat"><img class="hc-img" src="/images/anthropic-amd-cuda-moat-cover.jpg" alt="Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/nvidia-huang-second-affair"><img class="hc-img" src="/images/nvidia-huang-second-affair-cover.jpg" alt="黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/anthropic-ipo-wealth"><img class="hc-img" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/anthropic-amd-cuda-moat">
+        <a class="hc-panel is-active" href="/ai/trends/anthropic-ipo-wealth">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
+          <strong>Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元</strong><small>Anthropic IPO 财富分配：七位联合创始人每人持股约 176 亿～178 亿美元，亚马逊与谷歌持股合计约 2746 亿美元。拆创始人、员工、巨头、风投、投行的分账。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/anthropic-amd-cuda-moat">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
           <strong>Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？</strong><small>Claude Mythos 只用约 3 天就让一个模型在 AMD MI355X 上跑起提示词处理，传统方式要 6–12 个月。CUDA 的软件锁定开始松动，但英伟达的系统级优势还在。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/nvidia-huang-second-affair">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
           <strong>黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚</strong><small>《纽约时报》曝出黄仁勋第二段婚外情，对象是直接下属、医疗业务副总裁 Kimberly Powell；《华尔街日报》称董事会正在考虑罢免他。NVDA 11 月 11 日收 173.73 美元，盘后一度跌 8%。拆治理折价、估值情景和离婚分割账。</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/anthropic-ipo-wealth">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
-          <strong>Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元</strong><small>Anthropic IPO 财富分配：七位联合创始人每人持股约 176 亿～178 亿美元，亚马逊与谷歌持股合计约 2746 亿美元。拆创始人、员工、巨头、风投、投行的分账。</small>
         </a>
       </div>
     </div>
