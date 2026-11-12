@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-12T15:01:18.400072Z",
+  "generatedAt": "2026-11-12T17:00:19.067257Z",
   "source": "mei-ri-tui-song",
-  "count": 50,
+  "count": 51,
   "items": [
+    {
+      "key": "alerts|AVGO|2026-11-13",
+      "id": 51,
+      "category": "alerts",
+      "slot": "AVGO",
+      "pushDate": "2026-11-13",
+      "title": "异动提醒 · 博通（AVGO）",
+      "summary": "AVGO +6.08%",
+      "body": "博通（AVGO）盘中涨 6.08%，报 366.22 美元，前收 345.22 美元。\n\n英伟达董事会风波还没落定，资金在找替代的 AI 芯片商，博通是第一个被想到的。\n\n高盛 11 月 10 日的报告也点了博通的名，说 AI 股超卖，博通是首选芯片股之一。\n\nAnthropic 的 IPO 文件里还写着，博通要掏 10 亿美元参与配售。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-12T16:40:26.197Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|NVDA|2026-11-12",
       "id": 50,
