@@ -79,15 +79,20 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       let cursor: string | undefined
       for (let page = 0; page < 5 && visitors.length < 1000; page++) {
         const listed = await kv.list({ prefix: 'v:', cursor, limit: 200 })
-        for (const k of listed.keys) {
-          if (visitors.length >= 1000) break
-          const raw = await kv.get(k.name)
-          if (!raw) continue
-          try {
-            const rec = JSON.parse(raw)
-            if (rec && rec.f && rec.l) visitors.push({ f: rec.f, c: rec.c || 'direct', l: rec.l })
-          } catch {
-            /* 跳过坏记录 */
+        // 原先逐条 await kv.get：访客上千时串行耗时约 2 分钟，常撞 Cloudflare 524
+        // （2026-11-12 早上日报轮即如此）。改为每批 25 个并发取，同一批结果
+        // 仍按原顺序处理；总量上限 1000 条不变。
+        const names = listed.keys.map((k) => k.name).slice(0, 1000 - visitors.length)
+        for (let i = 0; i < names.length; i += 25) {
+          const raws = await Promise.all(names.slice(i, i + 25).map((n) => kv.get(n)))
+          for (const raw of raws) {
+            if (!raw) continue
+            try {
+              const rec = JSON.parse(raw)
+              if (rec && rec.f && rec.l) visitors.push({ f: rec.f, c: rec.c || 'direct', l: rec.l })
+            } catch {
+              /* 跳过坏记录 */
+            }
           }
         }
         if (listed.list_complete) break
