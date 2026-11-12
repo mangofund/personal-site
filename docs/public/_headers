@@ -189,6 +189,12 @@
 /ai/trends/ai-manhua-rally/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/anthropic-amd-cuda-moat
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/anthropic-amd-cuda-moat/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/anthropic-distillation-dispute
   Cache-Control: public, max-age=0, must-revalidate
 
