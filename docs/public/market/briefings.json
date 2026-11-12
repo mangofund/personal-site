@@ -1,9 +1,39 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-12T08:59:52.149100Z",
+  "generatedAt": "2026-11-12T15:01:18.400072Z",
   "source": "mei-ri-tui-song",
-  "count": 48,
+  "count": 50,
   "items": [
+    {
+      "key": "alerts|NVDA|2026-11-12",
+      "id": 50,
+      "category": "alerts",
+      "slot": "NVDA",
+      "pushDate": "2026-11-12",
+      "title": "异动提醒 · 英伟达（NVDA）",
+      "summary": "NVDA -11.71%",
+      "body": "英伟达（NVDA）$153.38，单日 -11.71%，前收 $173.73。\n导火索是董事会风波：WSJ 昨夜称董事会准备撤换黄仁勋，今晨多家媒体报道他已辞职、CFO Colette Kress 暂代 CEO。\nBernstein 同日把评级从跑赢大盘下调至与大盘一致，目标价从 400 美元砍半到 200 美元。\n从 11 月 3 日收盘 200.13 美元算起，七个交易日已跌超两成。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-12T14:40:22.356Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NBIS|2026-11-12",
+      "id": 49,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-12",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS -18.63%",
+      "body": "Nebius（NBIS）$125.88，单日 -18.63%，前收 $154.69。\n三季报其实超了预期：营收 9.81 亿美元，同比 +571%，高于市场预期的 9.07 亿美元。\n跌的是指引：全年收入落到 30–34 亿美元区间下沿，部分 12 月收入推迟到明年 2 月；2026 年资本开支上调到 270 亿美元，2027 年还要 400–450 亿美元。\n昨天刚涨 15.44%，今天全吐回去还多。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-12T14:40:22.290Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-12",
       "id": 48,
