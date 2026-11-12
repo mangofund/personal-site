@@ -207,6 +207,12 @@
 /ai/trends/anthropic-ipo-valuation/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/anthropic-ipo-wealth
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/anthropic-ipo-wealth/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/anthropic-openai-ipo
   Cache-Control: public, max-age=0, must-revalidate
 
