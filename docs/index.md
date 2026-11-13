@@ -51,20 +51,24 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>46</span></a><a class="home-topic" href="/investment/">投资<span>7</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 59 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>47</span></a><a class="home-topic" href="/investment/">投资<span>7</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 60 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/anthropic-ipo-wealth"><img class="hc-img" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/tencent-ai-native-reorg"><img class="hc-img" src="/images/tencent-ai-native-cover.jpg" alt="腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/anthropic-ipo-wealth"><img class="hc-img" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/anthropic-amd-cuda-moat"><img class="hc-img" src="/images/anthropic-amd-cuda-moat-cover.jpg" alt="Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/nvidia-huang-second-affair"><img class="hc-img" src="/images/nvidia-huang-second-affair-cover.jpg" alt="黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/anthropic-ipo-wealth">
+        <a class="hc-panel is-active" href="/ai/trends/tencent-ai-native-reorg">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-13">2026.11.13</time></span>
+          <strong>腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？</strong><small>腾讯 28 周年会上马化腾提出一半人守现有业务、一半探索 AI Native：重资产的 AI 账怎么算，组织怎么改，中间管理层为什么最难动。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/anthropic-ipo-wealth">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
           <strong>Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元</strong><small>Anthropic IPO 财富分配：七位联合创始人每人持股约 176 亿～178 亿美元，亚马逊与谷歌持股合计约 2746 亿美元。拆创始人、员工、巨头、风投、投行的分账。</small>
         </a>
@@ -72,12 +76,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
           <strong>Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？</strong><small>Claude Mythos 只用约 3 天就让一个模型在 AMD MI355X 上跑起提示词处理，传统方式要 6–12 个月。CUDA 的软件锁定开始松动，但英伟达的系统级优势还在。</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/nvidia-huang-second-affair">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
-          <strong>黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚</strong><small>《纽约时报》曝出黄仁勋第二段婚外情，对象是直接下属、医疗业务副总裁 Kimberly Powell；《华尔街日报》称董事会正在考虑罢免他。NVDA 11 月 11 日收 173.73 美元，盘后一度跌 8%。拆治理折价、估值情景和离婚分割账。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/nvidia-huang-second-affair">
+        <img class="article-card-thumb" src="/images/nvidia-huang-second-affair-cover.jpg" alt="黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span><strong>黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/anthropic-ipo-valuation">
         <img class="article-card-thumb" src="/images/anthropic-ipo-valuation-cover.jpg" alt="Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-11">2026.11.11</time></span><strong>Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵</strong></div>
@@ -86,22 +90,18 @@ onUnmounted(() => { if (hcStop) hcStop() })
         <img class="article-card-thumb" src="/images/nvidia-founder-risk-cover.jpg" alt="英伟达两日跌 4300 亿美元：市场到底在怕什么？" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-11">2026.11.11</time></span><strong>英伟达两日跌 4300 亿美元：市场到底在怕什么？</strong></div>
       </a>
-      <a class="article-card" href="/ai/trends/october-cpi-rate-hike-covered-calls">
-        <img class="article-card-thumb" src="/images/october-cpi-rate-hike-covered-calls-cover.jpg" alt="美国 10 月 CPI 超预期，12 月加息几成定局：科技股和备兑仓位怎么办" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-11">2026.11.11</time></span><strong>美国 10 月 CPI 超预期，12 月加息几成定局：科技股和备兑仓位怎么办</strong></div>
-      </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-16">2026.10.16</time></span><strong>Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude</strong></div>
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/ai/trends/claude-fable-5-2-seo"><span class="latest-row-head"><span class="latest-row-title">如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法</span><span class="latest-row-date">· <time datetime="2026-11-10">2026.11.10</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/claude-fable-5-2-seo-1.jpg" alt="如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法" loading="lazy" decoding="async" /><span class="latest-row-desc">Nicholas Dulait 的 X 长文译文：用 Claude Fable 5.2 搭配 ChatSEO 做 SEO 的全套打法——从 Search Console 里挑关键词，到写出值得谷歌排名的页面，每一步都有提示词。</span></span></a></li>
       <li><a href="/ai/trends/spacex-orbital-supercomputer"><span class="latest-row-head"><span class="latest-row-title">马斯克预告SpaceX轨道超级计算机：算力为什么要上天</span><span class="latest-row-date">· <time datetime="2026-11-09">2026.11.09</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/spacex-orbital-supercomputer-cover.jpg" alt="马斯克预告SpaceX轨道超级计算机：算力为什么要上天" loading="lazy" decoding="async" /><span class="latest-row-desc">Musk 预告 SpaceX 轨道超级计算机 Starmind：100 万颗卫星的申请、AI1 的 250 千瓦算力载荷、2027 年原型、2028 年商业规模。拆三道坎（电、热、延迟）加一笔成本账，算力上天是噱头还是下一条路。</span></span></a></li>
       <li><a href="/ai/trends/anthropic-openai-ipo"><span class="latest-row-head"><span class="latest-row-title">Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？</span><span class="latest-row-date">· <time datetime="2026-11-08">2026.11.08</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-openai-ipo/cover.jpg" alt="Anthropic 与 OpenAI 即将上市：两个创始人，如何走出不同的 AI 道路？" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 递交 S-1 冲击万亿美元 IPO，OpenAI 暂缓上市。从 Dario Amodei 与 Sam Altman 的成长、分裂与治理结构，看安全、资本与控制权如何塑造两家 AI 公司。</span></span></a></li>
       <li><a href="/ai/agents/claude-agent-memory"><span class="latest-row-head"><span class="latest-row-title">Claude 靠做梦整理记忆</span><span class="latest-row-date">· <time datetime="2026-11-08">2026.11.08</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/claude-agent-memory/cover.jpg" alt="Claude 靠做梦整理记忆" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 工程博客拆解：Claude 如何把经验写成记忆，再用「做梦」纠错、建 wiki、提升层级、按目标塑形。含 CL-Bench、宝可梦与 Stainless 实测数字。</span></span></a></li>
       <li><a href="/ai/trends/tesla-cybertruck-winddown"><span class="latest-row-head"><span class="latest-row-title">特斯拉逐步停产Cybertruck：是在止血，还是在认输</span><span class="latest-row-date">· <time datetime="2026-11-07">2026.11.07</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/tesla-cybertruck-winddown-cover.jpg" alt="特斯拉逐步停产Cybertruck：是在止血，还是在认输" loading="lazy" decoding="async" /><span class="latest-row-desc">11月6日，Musk 宣布特斯拉逐步停产 Cybertruck，2027 年年中德州工厂停产、给 Cybercab 让产能。拆一笔产品账：三年销量、价格锚、皮卡市场水土不服，停产省的是什么、认的是什么。</span></span></a></li>
       <li><a href="/ai/trends/us-market-crash-retail"><span class="latest-row-head"><span class="latest-row-title">美股暴跌一天蒸发约1万亿，散户现在该干什么</span><span class="latest-row-date">· <time datetime="2026-11-07">2026.11.07</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/us-market-crash-cover.jpg" alt="美股暴跌一天蒸发约1万亿，散户现在该干什么" loading="lazy" decoding="async" /><span class="latest-row-desc">11月5日纳指跌5.52%、费半跌12.25%，七大科技股单日蒸发超1万亿美元。拆传导链：高通指引、监管担忧、半导体领跌、VIX与比特币联动，再给暴跌后的仓位检查清单。</span></span></a></li>
-      <li><a href="/ai/trends/ai-datacenter-moratorium"><span class="latest-row-head"><span class="latest-row-title">AI数据中心突然被叫停：算力基建的监管拐点到了</span><span class="latest-row-date">· <time datetime="2026-11-07">2026.11.07</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-datacenter-moratorium-cover.jpg" alt="AI数据中心突然被叫停：算力基建的监管拐点到了" loading="lazy" decoding="async" /><span class="latest-row-desc">得州选出承诺叫停数据中心审批的州长，40比1的地方公投，474吉瓦并网排队。暂停早就存在，选举改写的是解除暂停的预期——地方政府为什么从抢项目转向踩刹车，三条链会怎么传导。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
