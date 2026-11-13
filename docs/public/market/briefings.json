@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-13T14:01:06.911887Z",
+  "generatedAt": "2026-11-13T15:02:48.174807Z",
   "source": "mei-ri-tui-song",
-  "count": 58,
+  "count": 59,
   "items": [
+    {
+      "key": "alerts|NBIS|2026-11-13",
+      "id": 59,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-13",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS -7.18%",
+      "body": "NBIS 今早继续跌，$119.40，跌 7.18%。\n\n昨天 Q3 财报营收 9.81 亿美元、同比涨 571%，超了预期，但指引被下调：2026 年营收压到指引下限，资本开支提到约 270 亿美元，2027 年还要花 400–450 亿。新泽西 Vineland 数据中心因电力问题延期，微软那部分产能推到 2027 年二季度。\n\n昨天已经跌了 16.84%，两天加起来跌了约 23%。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-13T14:40:01.158Z",
+      "isPinned": false
+    },
     {
       "key": "alerts||2026-11-13",
       "id": 57,
