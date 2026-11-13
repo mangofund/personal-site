@@ -56,21 +56,21 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/tencent-ai-native-reorg"><img class="hc-img" src="/images/tencent-ai-native-cover.jpg" alt="腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/nvidia-huang-resignation"><img class="hc-img" src="/images/nvidia-huang-resignation-cover.jpg" alt="黄仁勋真辞职了，英伟达之后怎么办？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/nvidia-huang-resignation"><img class="hc-img" src="/images/nvidia-huang-resignation-cover.jpg" alt="黄仁勋真辞职了，英伟达之后怎么办？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/tencent-ai-native-reorg"><img class="hc-img" src="/images/tencent-ai-native-cover.jpg" alt="腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/anthropic-ipo-wealth"><img class="hc-img" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/tencent-ai-native-reorg">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-13">2026.11.13</time></span>
-          <strong>腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？</strong><small>腾讯 28 周年会上马化腾提出一半人守现有业务、一半探索 AI Native：重资产的 AI 账怎么算，组织怎么改，中间管理层为什么最难动。</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/nvidia-huang-resignation">
+        <a class="hc-panel is-active" href="/ai/trends/nvidia-huang-resignation">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-13">2026.11.13</time></span>
           <strong>黄仁勋真辞职了，英伟达之后怎么办？</strong><small>黄仁勋辞去英伟达总裁、CEO 及董事职务，Kress 临时接任：创始人为什么走到这一步，没有他的英伟达护城河还在吗，市场该为离职折价多少。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/tencent-ai-native-reorg">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-13">2026.11.13</time></span>
+          <strong>腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？</strong><small>腾讯 28 周年会上马化腾提出一半人守现有业务、一半探索 AI Native：重资产的 AI 账怎么算，组织怎么改，中间管理层为什么最难动。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/anthropic-ipo-wealth">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span>
