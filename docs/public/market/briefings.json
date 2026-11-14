@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-13T16:00:38.016812Z",
+  "generatedAt": "2026-11-14T00:00:14.698944Z",
   "source": "mei-ri-tui-song",
-  "count": 59,
+  "count": 60,
   "items": [
+    {
+      "key": "wechat||2026-11-14",
+      "id": 60,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-14",
+      "title": "公众号数据 11月14日",
+      "summary": "需扫码登录，未读到数据",
+      "body": "公众号数据 11月14日\n\n今天是 2026 年 11 月 14 日。微信公众号后台登录会话已失效，打开 mp.weixin.qq.com 停在扫码登录页，需扫码登录 PRO的茶里芒果 后才能读取数据。\n\n本期未能读取任何数据：昨日（11月13日）及近 7 天的阅读、分享、推荐、点赞、留言、收藏、粉丝净增，以及最近 5 篇群发文数据均未出数。未编造数字、未用旧数顶替。\n\n请扫码登录公众号后台后重新出日报。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-13T23:56:53.539Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|AVGO|2026-11-13",
       "id": 51,
