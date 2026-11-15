@@ -315,6 +315,12 @@
 /ai/trends/spacex-orbital-supercomputer/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/spacex-starship-chopstick-catch
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/spacex-starship-chopstick-catch/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/tencent-ai-native-reorg
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -706,6 +712,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /investment/crypto/binance-security-incident-2026/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/crypto/bitcoin-below-68000
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/crypto/bitcoin-below-68000/
   Cache-Control: public, max-age=0, must-revalidate
 
 /investment/crypto/crypto-decentralization-shoddy
