@@ -255,6 +255,12 @@
 /ai/trends/claude-search-surge/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/deepseek-search-half-cent
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/deepseek-search-half-cent/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/hongguo-ai-attention
   Cache-Control: public, max-age=0, must-revalidate
 
