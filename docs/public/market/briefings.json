@@ -1,9 +1,39 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T08:59:58.692394Z",
+  "generatedAt": "2026-11-16T15:00:23.833612Z",
   "source": "mei-ri-tui-song",
-  "count": 74,
+  "count": 76,
   "items": [
+    {
+      "key": "alerts|MU|2026-11-16",
+      "id": 76,
+      "category": "alerts",
+      "slot": "MU",
+      "pushDate": "2026-11-16",
+      "title": "异动提醒 · 美光（MU）",
+      "summary": "MU -7.16%",
+      "body": "美光（MU）开盘跌 7.16%。现价 722.59 美元，前收 778.31 美元。美光自己没有新消息。半导体板块盘前一起跌，Marvell 跌 4.6%，AMD 跌 4%。博通跌 2.9%，英伟达跌 1.8%。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-16T14:41:22.023Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NBIS|2026-11-16",
+      "id": 75,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-16",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS -7.44%",
+      "body": "Nebius（NBIS）开盘再跌 7.44%。现价 107.26 美元，前收 115.88 美元。财报后的抛售没停，周四周五两天已经跌了 25%。三季度收入 9.81 亿美元，同比涨 571%，但全年指引下调到 30–32 亿美元。至少 7 家券商砍了目标价，DA Davidson 直接腰斩到 125 美元。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-16T14:41:21.952Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-16",
       "id": 74,
