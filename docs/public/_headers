@@ -273,6 +273,12 @@
 /ai/trends/hongguo-ai-attention/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/microsoft-outage-cascade
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/microsoft-outage-cascade/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/midterm-markets
   Cache-Control: public, max-age=0, must-revalidate
 
