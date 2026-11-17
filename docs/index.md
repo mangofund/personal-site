@@ -56,21 +56,21 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/ai-datacenter-diesel-generator"><img class="hc-img" src="/images/ai-datacenter-diesel-generator-cover-scrapbook.jpg" alt="AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/microsoft-outage-cascade"><img class="hc-img" src="/images/2026-11-17-microsoft-outage-cascade-cover-paper-cut.jpg" alt="微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/microsoft-outage-cascade"><img class="hc-img" src="/images/2026-11-17-microsoft-outage-cascade-cover-paper-cut.jpg" alt="微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/ai-datacenter-diesel-generator"><img class="hc-img" src="/images/ai-datacenter-diesel-generator-cover-scrapbook.jpg" alt="AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/deepseek-search-half-cent"><img class="hc-img" src="/images/deepseek-search-half-cent-cover.jpg" alt="DeepSeek 搜索一次只要半分钱，推理成本战打到什么程度了" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/ai-datacenter-diesel-generator">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span>
-          <strong>AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？</strong><small>AI 带火了柴油发电机：玉柴订单排到 2027 年 10 月，2026 年国内需求预计突破 6000 台。数据中心用电翻倍在即，电网为什么跟不上？</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/microsoft-outage-cascade">
+        <a class="hc-panel is-active" href="/ai/trends/microsoft-outage-cascade">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span>
           <strong>微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？</strong><small>五天之内，微软 365 全球中断近 24 小时、FAA 全国停飞、Chase 转账变慢、美联航航班延误。四场事故没有同一个原因，但都指向同一个问题。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/ai-datacenter-diesel-generator">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span>
+          <strong>AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？</strong><small>AI 带火了柴油发电机：玉柴订单排到 2027 年 10 月，2026 年国内需求预计突破 6000 台。数据中心用电翻倍在即，电网为什么跟不上？</small>
         </a>
         <a class="hc-panel" href="/ai/trends/deepseek-search-half-cent">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-16">2026.11.16</time></span>
