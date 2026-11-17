@@ -171,6 +171,12 @@
 /ai/products/codex-usage-desktop-guide/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/ai-datacenter-diesel-generator
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/ai-datacenter-diesel-generator/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/ai-datacenter-moratorium
   Cache-Control: public, max-age=0, must-revalidate
 

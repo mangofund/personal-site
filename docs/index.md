@@ -51,20 +51,24 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>50</span></a><a class="home-topic" href="/investment/">投资<span>8</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 64 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>51</span></a><a class="home-topic" href="/investment/">投资<span>8</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 65 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/deepseek-search-half-cent"><img class="hc-img" src="/images/deepseek-search-half-cent-cover.jpg" alt="DeepSeek 搜索一次只要半分钱，推理成本战打到什么程度了" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/ai-datacenter-diesel-generator"><img class="hc-img" src="/images/ai-datacenter-diesel-generator-cover-scrapbook.jpg" alt="AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/deepseek-search-half-cent"><img class="hc-img" src="/images/deepseek-search-half-cent-cover.jpg" alt="DeepSeek 搜索一次只要半分钱，推理成本战打到什么程度了" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/investment/crypto/bitcoin-below-68000"><img class="hc-img" src="/images/bitcoin-below-68000-cover.jpg" alt="比特币跌破 6.8 万美元，牛市结束了吗" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/spacex-starship-chopstick-catch"><img class="hc-img" src="/images/spacex-starship-chopstick-catch-cover.jpg" alt="星舰飞船第一次被&quot;筷子&quot;夹回，可复用火箭的账怎么算" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/deepseek-search-half-cent">
+        <a class="hc-panel is-active" href="/ai/trends/ai-datacenter-diesel-generator">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span>
+          <strong>AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？</strong><small>AI 带火了柴油发电机：玉柴订单排到 2027 年 10 月，2026 年国内需求预计突破 6000 台。数据中心用电翻倍在即，电网为什么跟不上？</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/deepseek-search-half-cent">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-16">2026.11.16</time></span>
           <strong>DeepSeek 搜索一次只要半分钱，推理成本战打到什么程度了</strong><small>DeepSeek 搜索每 1000 次 5 元，一次只要半分钱，11 月 13 日全家桶 API 开放后登上头条热榜。半分钱是真的，但它不是一次联网问答的全部成本。我们拆三笔账：半分钱在为什么付钱、一次问答到底花多少、这个价对做 AI 产品的人意味着什么。</small>
         </a>
@@ -72,12 +76,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-15">2026.11.15</time></span>
           <strong>比特币跌破 6.8 万美元，牛市结束了吗</strong><small>比特币 11 月 13 日跌破 68000 美元，24 小时 14.7 亿美元爆仓，同日金价午后回落、再度跌破 3900 美元。爆仓潮是怎么发生的，比特币还是&quot;数字黄金&quot;吗，牛市到底结束没有。</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/spacex-starship-chopstick-catch">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-15">2026.11.15</time></span>
-          <strong>星舰飞船第一次被&quot;筷子&quot;夹回，可复用火箭的账怎么算</strong><small>星舰 Ship 42 从轨道飞回发射台，被发射塔的机械臂接住，史上第一次。助推器没回来，双回收只成了一半。我们拆回收机制、算复用这笔账：回收一次省多少，复用率怎么决定发射成本。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/spacex-starship-chopstick-catch">
+        <img class="article-card-thumb" src="/images/spacex-starship-chopstick-catch-cover.jpg" alt="星舰飞船第一次被&quot;筷子&quot;夹回，可复用火箭的账怎么算" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-15">2026.11.15</time></span><strong>星舰飞船第一次被&quot;筷子&quot;夹回，可复用火箭的账怎么算</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/nvidia-huang-resignation">
         <img class="article-card-thumb" src="/images/nvidia-huang-resignation-cover.jpg" alt="黄仁勋辞职，是美国社会对亚裔的围剿吗？英伟达之后怎么办？" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-13">2026.11.13</time></span><strong>黄仁勋辞职，是美国社会对亚裔的围剿吗？英伟达之后怎么办？</strong></div>
@@ -86,22 +90,18 @@ onUnmounted(() => { if (hcStop) hcStop() })
         <img class="article-card-thumb" src="/images/tencent-ai-native-cover.jpg" alt="腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-13">2026.11.13</time></span><strong>腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？</strong></div>
       </a>
-      <a class="article-card" href="/ai/trends/anthropic-ipo-wealth">
-        <img class="article-card-thumb" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-12">2026.11.12</time></span><strong>Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元</strong></div>
-      </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-16">2026.10.16</time></span><strong>Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude</strong></div>
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/ai/trends/anthropic-amd-cuda-moat"><span class="latest-row-head"><span class="latest-row-title">Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？</span><span class="latest-row-date">· <time datetime="2026-11-12">2026.11.12</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-amd-cuda-moat-cover.jpg" alt="Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？" loading="lazy" decoding="async" /><span class="latest-row-desc">Claude Mythos 只用约 3 天就让一个模型在 AMD MI355X 上跑起提示词处理，传统方式要 6–12 个月。CUDA 的软件锁定开始松动，但英伟达的系统级优势还在。</span></span></a></li>
       <li><a href="/ai/trends/nvidia-huang-second-affair"><span class="latest-row-head"><span class="latest-row-title">黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚</span><span class="latest-row-date">· <time datetime="2026-11-12">2026.11.12</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-huang-second-affair-cover.jpg" alt="黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚" loading="lazy" decoding="async" /><span class="latest-row-desc">《纽约时报》曝出黄仁勋第二段婚外情，对象是直接下属、医疗业务副总裁 Kimberly Powell；《华尔街日报》称董事会正在考虑罢免他。NVDA 11 月 11 日收 173.73 美元，盘后一度跌 8%。拆治理折价、估值情景和离婚分割账。</span></span></a></li>
       <li><a href="/ai/trends/anthropic-ipo-valuation"><span class="latest-row-head"><span class="latest-row-title">Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵</span><span class="latest-row-date">· <time datetime="2026-11-11">2026.11.11</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-ipo-valuation-cover.jpg" alt="Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵" loading="lazy" decoding="async" /><span class="latest-row-desc">发行价 70 到 78 美元，8.25 亿股，最高募资 644 亿美元。1.4 万亿这个数字没错，但它算的是全稀释口径；按招股书自己印的股数算，市值约 1.02 万亿。只拆估值账，不复述 IPO 新闻。</span></span></a></li>
       <li><a href="/ai/trends/nvidia-founder-risk-pricing"><span class="latest-row-head"><span class="latest-row-title">英伟达两日跌 4300 亿美元：市场到底在怕什么？</span><span class="latest-row-date">· <time datetime="2026-11-11">2026.11.11</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-founder-risk-cover.jpg" alt="英伟达两日跌 4300 亿美元：市场到底在怕什么？" loading="lazy" decoding="async" /><span class="latest-row-desc">从10月初高点回落30.6%，两天蒸发约4300亿美元（11月9–10日，收盘口径）。市场怕的不是调查本身，是黄仁勋能不能继续掌舵。拆三成跌幅的构成、估值压缩的账，和11月17日财报夜的看点。</span></span></a></li>
       <li><a href="/ai/trends/october-cpi-rate-hike-covered-calls"><span class="latest-row-head"><span class="latest-row-title">美国 10 月 CPI 超预期，12 月加息几成定局：科技股和备兑仓位怎么办</span><span class="latest-row-date">· <time datetime="2026-11-11">2026.11.11</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/october-cpi-rate-hike-covered-calls-cover.jpg" alt="美国 10 月 CPI 超预期，12 月加息几成定局：科技股和备兑仓位怎么办" loading="lazy" decoding="async" /><span class="latest-row-desc">10 月 CPI 环比涨 0.4%，核心 CPI 连续第三个月涨 0.3%，12 月加 50 个基点的概率一天之内从 1.1% 涨到 15.3%。拆传导链：通胀数据怎么改写加息预期，美债收益率怎么动，科技股估值怎么被重算，备兑仓位上卖 call 和买 put 各自意味着什么。</span></span></a></li>
       <li><a href="/ai/trends/claude-fable-5-2-seo"><span class="latest-row-head"><span class="latest-row-title">如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法</span><span class="latest-row-date">· <time datetime="2026-11-10">2026.11.10</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/claude-fable-5-2-seo-1.jpg" alt="如何用 Claude Fable 5.2 做 SEO，好到感觉像犯法" loading="lazy" decoding="async" /><span class="latest-row-desc">Nicholas Dulait 的 X 长文译文：用 Claude Fable 5.2 搭配 ChatSEO 做 SEO 的全套打法——从 Search Console 里挑关键词，到写出值得谷歌排名的页面，每一步都有提示词。</span></span></a></li>
-      <li><a href="/ai/trends/spacex-orbital-supercomputer"><span class="latest-row-head"><span class="latest-row-title">马斯克预告SpaceX轨道超级计算机：算力为什么要上天</span><span class="latest-row-date">· <time datetime="2026-11-09">2026.11.09</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/spacex-orbital-supercomputer-cover.jpg" alt="马斯克预告SpaceX轨道超级计算机：算力为什么要上天" loading="lazy" decoding="async" /><span class="latest-row-desc">Musk 预告 SpaceX 轨道超级计算机 Starmind：100 万颗卫星的申请、AI1 的 250 千瓦算力载荷、2027 年原型、2028 年商业规模。拆三道坎（电、热、延迟）加一笔成本账，算力上天是噱头还是下一条路。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
