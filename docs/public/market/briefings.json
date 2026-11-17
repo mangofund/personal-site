@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T15:00:23.833612Z",
+  "generatedAt": "2026-11-17T00:00:45.922947Z",
   "source": "mei-ri-tui-song",
-  "count": 76,
+  "count": 77,
   "items": [
+    {
+      "key": "wechat||2026-11-17",
+      "id": 77,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-17",
+      "title": "公众号数据 11月17日",
+      "summary": "需扫码登录，未读到数据",
+      "body": "公众号数据 11月17日\n\n今天是 2026年11月17日。早上打开微信公众号后台 mp.weixin.qq.com，页面停在扫码登录页，已保存的 PRO的茶里芒果 登录会话已过期，未进入后台。刷新后仍为同一扫码登录页。\n\n因此本期无法读取任何后台数据：昨日阅读、分享、推荐、点赞、留言、粉丝净增、近 7 天数据、累计关注及最近 5 篇群发文数据均未读到，也未用旧数顶替。\n\n请用户扫码登录 PRO的茶里芒果 公众号后台后，再重新读取数据。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-16T23:56:58.922Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|MU|2026-11-16",
       "id": 76,
