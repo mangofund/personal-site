@@ -12,12 +12,6 @@ draft: false
 
 <div class="meta-line">2026.11.17 · AI · 阅读约 13 分钟</div>
 
-<div class="article-cover">
-
-![AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？](/images/ai-datacenter-diesel-generator-cover-scrapbook.jpg)
-
-</div>
-
 最近，AI 带火了一个很多人意想不到的传统行业：柴油发电机。
 
 11 月 16 日，央视财经报道，广西玉柴生产的数据中心专用大功率柴油发电机，订单已经排到了 2027 年 10 月。
