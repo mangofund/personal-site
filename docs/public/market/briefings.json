@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-17T08:59:53.870866Z",
+  "generatedAt": "2026-11-18T00:01:18.945668Z",
   "source": "mei-ri-tui-song",
-  "count": 81,
+  "count": 82,
   "items": [
+    {
+      "key": "wechat||2026-11-18",
+      "id": 82,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-18",
+      "title": "公众号数据 11月18日",
+      "summary": "需扫码登录，未读取数据",
+      "body": "公众号数据 11月18日\n\n今天是 2026-11-18（周三）。后台登录已失效，打开 mp.weixin.qq.com 停在扫码登录页，需扫码登录。昨日（2026-11-17）、近 7 天及最近 5 篇群发文的数据均未读取，未编造任何数字。\n\n请在微信上扫码登录公众号后台后，再重新出数。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-17T23:56:22.442Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-17",
       "id": 81,
