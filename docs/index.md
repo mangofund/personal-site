@@ -51,14 +51,14 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>53</span></a><a class="home-topic" href="/investment/">投资<span>8</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 67 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>54</span></a><a class="home-topic" href="/investment/">投资<span>8</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 68 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
         <a class="hc-slide is-active" href="/ai/trends/doubao-wechat-challenge"><img class="hc-img" src="/images/doubao-wechat-challenge-cover-scrapbook.jpg" alt="豆包新增聊天功能，国内互联网进入“字节时间”？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/nvidia-q3-earnings-followup"><img class="hc-img" src="/images/nvidia-q3-earnings-followup-cover.jpg" alt="没有黄仁勋的第一份财报，英伟达还转得动吗？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/ai-datacenter-diesel-generator"><img class="hc-img" src="/images/ai-datacenter-diesel-generator-cover-scrapbook.jpg" alt="AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/microsoft-outage-cascade"><img class="hc-img" src="/images/2026-11-17-microsoft-outage-cascade-cover-paper-cut.jpg" alt="微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
@@ -68,16 +68,20 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-18">2026.11.18</time></span>
           <strong>豆包新增聊天功能，国内互联网进入“字节时间”？</strong><small>豆包加聊天功能，字节能做出下一个微信吗？从使用时长、网络效应、AI 入口三个层面，拆字节与微信的较量。</small>
         </a>
+        <a class="hc-panel" href="/ai/trends/nvidia-q3-earnings-followup">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-18">2026.11.18</time></span>
+          <strong>没有黄仁勋的第一份财报，英伟达还转得动吗？</strong><small>黄仁勋辞职六天后，英伟达交出 Q3 财报：营收 1158 亿美元，Q4 指引 1300 亿美元，Kress 把 FY2028 增速抬到 75%，董事会当场关上黄仁勋回归的大门。</small>
+        </a>
         <a class="hc-panel" href="/ai/trends/ai-datacenter-diesel-generator">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span>
           <strong>AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？</strong><small>AI 带火了柴油发电机：玉柴订单排到 2027 年 10 月，2026 年国内需求预计突破 6000 台。数据中心用电翻倍在即，电网为什么跟不上？</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/microsoft-outage-cascade">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span>
-          <strong>微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？</strong><small>五天之内，微软 365 全球中断近 24 小时、FAA 全国停飞、Chase 转账变慢、美联航航班延误。四场事故没有同一个原因，但都指向同一个问题。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/microsoft-outage-cascade">
+        <img class="article-card-thumb" src="/images/2026-11-17-microsoft-outage-cascade-cover-paper-cut.jpg" alt="微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-17">2026.11.17</time></span><strong>微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/deepseek-search-half-cent">
         <img class="article-card-thumb" src="/images/deepseek-search-half-cent-cover.jpg" alt="DeepSeek 搜索一次只要半分钱，推理成本战打到什么程度了" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-16">2026.11.16</time></span><strong>DeepSeek 搜索一次只要半分钱，推理成本战打到什么程度了</strong></div>
@@ -86,22 +90,18 @@ onUnmounted(() => { if (hcStop) hcStop() })
         <img class="article-card-thumb" src="/images/bitcoin-below-68000-cover.jpg" alt="比特币跌破 6.8 万美元，牛市结束了吗" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-15">2026.11.15</time></span><strong>比特币跌破 6.8 万美元，牛市结束了吗</strong></div>
       </a>
-      <a class="article-card" href="/ai/trends/spacex-starship-chopstick-catch">
-        <img class="article-card-thumb" src="/images/spacex-starship-chopstick-catch-cover.jpg" alt="星舰飞船第一次被&quot;筷子&quot;夹回，可复用火箭的账怎么算" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-15">2026.11.15</time></span><strong>星舰飞船第一次被&quot;筷子&quot;夹回，可复用火箭的账怎么算</strong></div>
-      </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-10-16">2026.10.16</time></span><strong>Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude</strong></div>
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/ai/trends/nvidia-huang-resignation"><span class="latest-row-head"><span class="latest-row-title">黄仁勋辞职，是美国社会对亚裔的围剿吗？英伟达之后怎么办？</span><span class="latest-row-date">· <time datetime="2026-11-13">2026.11.13</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-huang-resignation-cover.jpg" alt="黄仁勋辞职，是美国社会对亚裔的围剿吗？英伟达之后怎么办？" loading="lazy" decoding="async" /><span class="latest-row-desc">黄仁勋辞去英伟达总裁、CEO 及董事职务，Kress 临时接任：创始人为什么走到这一步，没有他的英伟达护城河还在吗，市场该为离职折价多少。</span></span></a></li>
       <li><a href="/ai/trends/tencent-ai-native-reorg"><span class="latest-row-head"><span class="latest-row-title">腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？</span><span class="latest-row-date">· <time datetime="2026-11-13">2026.11.13</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/tencent-ai-native-cover.jpg" alt="腾讯一半人去搞 AI Native，大厂转型这步棋怎么下？" loading="lazy" decoding="async" /><span class="latest-row-desc">腾讯 28 周年会上马化腾提出一半人守现有业务、一半探索 AI Native：重资产的 AI 账怎么算，组织怎么改，中间管理层为什么最难动。</span></span></a></li>
       <li><a href="/ai/trends/anthropic-ipo-wealth"><span class="latest-row-head"><span class="latest-row-title">Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元</span><span class="latest-row-date">· <time datetime="2026-11-12">2026.11.12</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-ipo-wealth-cover.jpg" alt="Anthropic 七子上市后，人均身价近 180 亿美元，亚马逊谷歌瓜分 2746 亿美元" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic IPO 财富分配：七位联合创始人每人持股约 176 亿～178 亿美元，亚马逊与谷歌持股合计约 2746 亿美元。拆创始人、员工、巨头、风投、投行的分账。</span></span></a></li>
       <li><a href="/ai/trends/anthropic-amd-cuda-moat"><span class="latest-row-head"><span class="latest-row-title">Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？</span><span class="latest-row-date">· <time datetime="2026-11-12">2026.11.12</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-amd-cuda-moat-cover.jpg" alt="Claude 只用 3 天跑上 AMD，英伟达的 CUDA 护城河还剩多少？" loading="lazy" decoding="async" /><span class="latest-row-desc">Claude Mythos 只用约 3 天就让一个模型在 AMD MI355X 上跑起提示词处理，传统方式要 6–12 个月。CUDA 的软件锁定开始松动，但英伟达的系统级优势还在。</span></span></a></li>
       <li><a href="/ai/trends/nvidia-huang-second-affair"><span class="latest-row-head"><span class="latest-row-title">黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚</span><span class="latest-row-date">· <time datetime="2026-11-12">2026.11.12</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-huang-second-affair-cover.jpg" alt="黄仁勋第二段婚外情曝光，英伟达一夜蒸发数千亿美元：最贵的可能不是离婚" loading="lazy" decoding="async" /><span class="latest-row-desc">《纽约时报》曝出黄仁勋第二段婚外情，对象是直接下属、医疗业务副总裁 Kimberly Powell；《华尔街日报》称董事会正在考虑罢免他。NVDA 11 月 11 日收 173.73 美元，盘后一度跌 8%。拆治理折价、估值情景和离婚分割账。</span></span></a></li>
       <li><a href="/ai/trends/anthropic-ipo-valuation"><span class="latest-row-head"><span class="latest-row-title">Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵</span><span class="latest-row-date">· <time datetime="2026-11-11">2026.11.11</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/anthropic-ipo-valuation-cover.jpg" alt="Anthropic IPO 定价 70–78 美元：1.4 万亿估值到底贵不贵" loading="lazy" decoding="async" /><span class="latest-row-desc">发行价 70 到 78 美元，8.25 亿股，最高募资 644 亿美元。1.4 万亿这个数字没错，但它算的是全稀释口径；按招股书自己印的股数算，市值约 1.02 万亿。只拆估值账，不复述 IPO 新闻。</span></span></a></li>
-      <li><a href="/ai/trends/nvidia-founder-risk-pricing"><span class="latest-row-head"><span class="latest-row-title">英伟达两日跌 4300 亿美元：市场到底在怕什么？</span><span class="latest-row-date">· <time datetime="2026-11-11">2026.11.11</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-founder-risk-cover.jpg" alt="英伟达两日跌 4300 亿美元：市场到底在怕什么？" loading="lazy" decoding="async" /><span class="latest-row-desc">从10月初高点回落30.6%，两天蒸发约4300亿美元（11月9–10日，收盘口径）。市场怕的不是调查本身，是黄仁勋能不能继续掌舵。拆三成跌幅的构成、估值压缩的账，和11月17日财报夜的看点。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>

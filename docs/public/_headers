@@ -315,6 +315,12 @@
 /ai/trends/nvidia-huang-second-affair/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/nvidia-q3-earnings-followup
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/nvidia-q3-earnings-followup/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/october-cpi-rate-hike-covered-calls
   Cache-Control: public, max-age=0, must-revalidate
 
