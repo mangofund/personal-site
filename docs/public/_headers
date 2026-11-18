@@ -267,6 +267,12 @@
 /ai/trends/deepseek-search-half-cent/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/doubao-wechat-challenge
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/doubao-wechat-challenge/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/hongguo-ai-attention
   Cache-Control: public, max-age=0, must-revalidate
 
