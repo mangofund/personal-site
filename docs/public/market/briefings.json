@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-19T15:00:07.388270Z",
+  "generatedAt": "2026-11-19T18:59:40.231392Z",
   "source": "mei-ri-tui-song",
-  "count": 93,
+  "count": 94,
   "items": [
+    {
+      "key": "alerts|NBIS|2026-11-20",
+      "id": 94,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-20",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS -5.91%",
+      "body": "Nebius（NBIS）现价 100.64 美元，较前收 106.96 美元跌 5.91%，触发 ±5% 异动线。\n\n早上它还涨 6.16%，盘中一路掉头，单日振幅超过 12 个点。\n\n跌势从 11 月 12 日三季报后就没停过：营收 9.81 亿美元，同比涨 571%，但 2026 年收入指引下调到 30–32 亿美元，第三方数据中心产能延期到明年二季度；2027 年资本开支指引 400–450 亿美元，市场担心举债烧钱。\n\n今天 AI 链整体走弱，跌幅跟着放大。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-19T18:39:35.281Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|MU|2026-11-19",
       "id": 93,
