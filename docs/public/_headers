@@ -207,6 +207,12 @@
 /ai/trends/anthropic-distillation-dispute/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/anthropic-ipo-83
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/anthropic-ipo-83/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/anthropic-ipo-valuation
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -736,6 +742,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/asset-allocation/gold-below-3800
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/asset-allocation/gold-below-3800/
   Cache-Control: public, max-age=0, must-revalidate
 
 /investment/crypto/binance-security-incident-2026
