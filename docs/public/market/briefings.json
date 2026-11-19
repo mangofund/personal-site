@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-18T09:00:39.422435Z",
+  "generatedAt": "2026-11-19T00:01:00.295894Z",
   "source": "mei-ri-tui-song",
-  "count": 86,
+  "count": 87,
   "items": [
+    {
+      "key": "wechat||2026-11-19",
+      "id": 87,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-19",
+      "title": "公众号数据 11月19日",
+      "summary": "需扫码登录，未读取到数据",
+      "body": "公众号数据 11月19日\n\n今天是 11月19日。公众号后台登录已过期，打开 mp.weixin.qq.com 停在扫码登录页，未能进入后台，未读取到任何数据。\n\n本期日报无法出数：昨日阅读、分享、推荐、点赞、留言、粉丝净增、近 7 天数据、累计关注、最近 5 篇群发文数据均未读取；草稿箱核对也未进行。\n\n请用微信扫码登录公众号后台后，再重新读取数据。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-18T23:55:56.196Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-18",
       "id": 86,
