@@ -206,5 +206,21 @@
     "pitchZh": "先写能念的口播稿，再按拐点出证据帧；视频与 X Article 同源。",
     "pitchEn": "Write a speakable script first, then evidence frames at story turns — one pipeline for video and X Articles.",
     "detailSlug": "skills/koubo-storyboard"
+  },
+  {
+    "id": "zhishuo",
+    "nameZh": "直说",
+    "nameEn": "Speak Directly",
+    "pitchZh": "先给结论，再给理由：一句一件事，数字代替形容词。",
+    "pitchEn": "Conclusion first, reasons after: one thing per sentence, numbers instead of adjectives.",
+    "detailSlug": "skills/zhishuo"
+  },
+  {
+    "id": "xu-qiu-fang-tan",
+    "nameZh": "需求访谈",
+    "nameEn": "Requirements Interview",
+    "pitchZh": "动手前先把需求问清楚：三轮访谈挖出隐含需求，产出一份九字段结构化 brief。",
+    "pitchEn": "Interview before you build: three rounds to surface hidden requirements, ending in a nine-field brief.",
+    "detailSlug": "skills/xu-qiu-fang-tan"
   }
 ]

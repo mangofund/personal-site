@@ -1,0 +1,5 @@
+name: "xu-qiu-fang-tan"
+title: "需求访谈：动手前先把需求问清楚"
+description: "做产品、写代码、做项目之前，先把需求问清楚再动手：三轮访谈（目标与价值、范围与验收、约束与执行）挖出隐含需求，产出一份九字段结构化 brief（GOAL/SCOPE/CONTEXT/ACCEPTANCE/VERIFY/TIMEBOX/FORBIDDEN/REPORT/STANDING）。需求不清、只给一句话、用户自己也没想清楚、动手前要先对齐时用；小事直接做，不访谈。"
+category: "Work and knowledge"
+include_in_prompt: true

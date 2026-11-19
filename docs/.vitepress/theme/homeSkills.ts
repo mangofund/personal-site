@@ -74,7 +74,7 @@ export const SKILL_TYPE_FILTERS: readonly SkillFilterOption[] = [
   { id: 'coding', labelZh: '开发', labelEn: 'Development', skillIds: ['ai-project-delivery'] },
   { id: 'automation', labelZh: '自动化', labelEn: 'Automation', skillIds: ['browser-automation'] },
   { id: 'analytics', labelZh: '数据分析', labelEn: 'Analytics', skillIds: ['data-analysis'] },
-  { id: 'method', labelZh: '方法', labelEn: 'Method', skillIds: ['writing-skills', 'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans', 'grill-me'] }
+  { id: 'method', labelZh: '方法', labelEn: 'Method', skillIds: ['writing-skills', 'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans', 'grill-me', 'zhishuo', 'xu-qiu-fang-tan'] }
 ]
 
 /** 只保留和类型筛选结果不同的场景。产品前端等于 UI，接入服务等于连接。 */
@@ -1699,6 +1699,132 @@ export const homeSkills: HomeSkill[] = [
     }
   },
   {
+    id: 'zhishuo',
+    nameZh: '直说',
+    nameEn: 'Speak Directly',
+    pitchZh: '先给结论，再给理由：一句一件事，数字代替形容词。',
+    pitchEn: 'Conclusion first, reasons after: one thing per sentence, numbers instead of adjectives.',
+    ...skillType('method'),
+    image: '/images/skills/zhishuo.jpg',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: '直说封面：纸雕风格的对话框，第一行就是结论',
+    imageAltEn: 'Cover for Speak Directly: paper-craft speech bubble, conclusion on the first line',
+    ...skillFiles('zhishuo'),
+    detailSlug: 'skills/zhishuo',
+    detail: {
+      metaZh: '直说 · 原创中文技能 · 灵感来自 i-have-adhd (MIT)',
+      metaEn: 'Speak Directly · original Chinese skill · inspired by i-have-adhd (MIT)',
+      leadZh: 'AI 有个毛病：先铺垫半天，再绕到答案。直说把这个毛病治掉：回答先给结论，再给理由，用户读完第一行就知道下一步干什么。',
+      leadEn: 'AI has a habit: half a page of preamble before the answer. Speak Directly fixes it: conclusion first, reasons after, so the reader knows the next step after the first line.',
+      gainsZh: [
+        '第一行就是结论，结论后面跟下一步',
+        '一句只说一件事，数字代替形容词',
+        '列表最多五条，开头结尾不许废话'
+      ],
+      gainsEn: [
+        'Conclusion on the first line, next step right after',
+        'One thing per sentence, numbers instead of adjectives',
+        'Lists capped at five, no filler at the start or end'
+      ],
+      fitZh: [
+        '回答铺垫太多，答案埋在第三段以后',
+        '要的是一个决定、一个数字、一个动作',
+        '聊天、汇报、报错、复盘，任何要快速对齐的场合'
+      ],
+      fitEn: [
+        'Answers buried under preamble',
+        'You need a decision, a number, or an action',
+        'Chats, reports, bug reports, reviews — any moment that needs fast alignment'
+      ],
+      unfitZh: [
+        '用户明确说“详细讲讲”“展开说说”，那就展开说',
+        '讲道理、讲判断、讲背景的时候，长句可以留着',
+        '涉及钱、人、安全的大事：多说一句确认'
+      ],
+      unfitEn: [
+        'The user asked for detail — expand, rules still apply',
+        'Explaining reasons, judgment, or background',
+        'Money, people, or safety: add a confirmation line'
+      ],
+      sampleZh: '问这个方案能不能上线：第一行写“能上线”，再写改两处。',
+      sampleEn: 'Ask whether a plan can ship: first line says "Yes, it can ship", then the two changes.',
+      stepsZh: [
+        '复制或安装 ZIP。',
+        '说“直说”或“别绕弯子”，规则对整个会话生效。',
+        '写完回答先念一遍第一行：说不清结论或下一步就重写。'
+      ],
+      stepsEn: [
+        'Copy or install the ZIP.',
+        'Say "speak directly" and the rules apply to the whole session.',
+        'Read the first line back: if it does not state the conclusion or next step, rewrite.'
+      ]
+    }
+  },
+  {
+    id: 'xu-qiu-fang-tan',
+    nameZh: '需求访谈',
+    nameEn: 'Requirements Interview',
+    pitchZh: '动手前先把需求问清楚：三轮访谈挖出隐含需求，产出一份九字段结构化 brief。',
+    pitchEn: 'Interview before you build: three rounds to surface hidden requirements, ending in a nine-field brief.',
+    ...skillType('method'),
+    image: '/images/skills/xu-qiu-fang-tan.jpg',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: '需求访谈封面：纸雕风格的访谈问答，产出一份结构化 brief',
+    imageAltEn: 'Cover for Requirements Interview: paper-craft interview, ending in a structured brief',
+    ...skillFiles('xu-qiu-fang-tan'),
+    detailSlug: 'skills/xu-qiu-fang-tan',
+    detail: {
+      metaZh: '需求访谈 · 原创中文技能 · 灵感来自 grill-me (MIT)',
+      metaEn: 'Requirements Interview · original Chinese skill · inspired by grill-me (MIT)',
+      leadZh: '用户只给一句话是常态，把隐含需求挖出来正是访谈的价值。三轮访谈（目标与价值、范围与验收、约束与执行）之后，产出一份九字段结构化 brief，哪个字段写不出来就是那块没想清楚。',
+      leadEn: 'A one-line request is normal; surfacing hidden requirements is the interview’s job. Three rounds (goals and value, scope and acceptance, constraints and execution) end in a nine-field brief — any field you cannot fill is a gap to close.',
+      gainsZh: [
+        '三轮访谈挖出隐含需求，不再凭猜测动手',
+        '产出九字段结构化 brief，验收有一条可检查的硬标准',
+        '已确认与待确认分开标注，不把假设写成事实'
+      ],
+      gainsEn: [
+        'Three rounds surface hidden requirements instead of guessing',
+        'A nine-field brief with one checkable acceptance standard',
+        'Confirmed and unconfirmed kept apart — assumptions are never written as facts'
+      ],
+      fitZh: [
+        '用户只给一句话或一个模糊目标',
+        '做产品、写代码、做项目、写长文、搭系统',
+        '用户自己也没想清楚，“你看着办”之前先问'
+      ],
+      fitEn: [
+        'A one-line or fuzzy request',
+        'Building a product, writing code, a project, a long article, a system',
+        'The user has not thought it through — ask before "you decide"'
+      ],
+      unfitZh: [
+        '小事直接做：改一行字、查一个数、发一句话',
+        '用户已经给了完整 brief，九个字段齐全',
+        '用户明确说“别问，直接做”'
+      ],
+      unfitEn: [
+        'Small tasks: one line, one number, one sentence',
+        'A complete nine-field brief already exists',
+        'The user said "do not ask, just do it"'
+      ],
+      sampleZh: '用户说“做个记账小程序”：先问给谁记、现在用什么记、做完什么变了才算有意义。',
+      sampleEn: 'User says "build an expense tracker": first ask who it is for, what they use now, and what would count as meaningful.',
+      stepsZh: [
+        '复制或安装 ZIP。',
+        '说要做什么，回答三轮访谈的问题。',
+        '拿到九字段 brief，确认无误后再交给执行方。'
+      ],
+      stepsEn: [
+        'Copy or install the ZIP.',
+        'State the task and answer three rounds of questions.',
+        'Take the nine-field brief, confirm it, then hand it to execution.'
+      ]
+    }
+  },
+  {
     id: 'impeccable',
     nameZh: 'Impeccable 设计审阅',
     nameEn: 'Impeccable Design Review',
@@ -1877,7 +2003,9 @@ const SKILL_POPULAR_IDS = [
   'systematic-debugging',
   'verification-before-completion',
   'writing-plans',
-  'desk_watercolor'
+  'desk_watercolor',
+  'zhishuo',
+  'xu-qiu-fang-tan'
 ] as const
 
 function assertPopularOrder(): void {

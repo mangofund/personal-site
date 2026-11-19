@@ -699,6 +699,18 @@
 /en/skills/writing-skills/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/skills/xu-qiu-fang-tan
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/xu-qiu-fang-tan/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/zhishuo
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/zhishuo/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/sponsor
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -976,6 +988,18 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/writing-skills/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/xu-qiu-fang-tan
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/xu-qiu-fang-tan/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/zhishuo
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/zhishuo/
   Cache-Control: public, max-age=0, must-revalidate
 
 /sponsor

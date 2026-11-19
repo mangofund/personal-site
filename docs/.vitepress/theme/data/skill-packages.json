@@ -216,6 +216,24 @@
     "zipPath": "/skills/zips/grill-me.zip"
   },
   {
+    "id": "zhishuo",
+    "dir": "zhishuo",
+    "promptName": "直说",
+    "zipSkillEntry": "zhishuo/SKILL.md",
+    "zipFile": "zhishuo.zip",
+    "promptPath": "/skills/sources/zhishuo/SKILL.md",
+    "zipPath": "/skills/zips/zhishuo.zip"
+  },
+  {
+    "id": "xu-qiu-fang-tan",
+    "dir": "xu-qiu-fang-tan",
+    "promptName": "需求访谈",
+    "zipSkillEntry": "xu-qiu-fang-tan/SKILL.md",
+    "zipFile": "xu-qiu-fang-tan.zip",
+    "promptPath": "/skills/sources/xu-qiu-fang-tan/SKILL.md",
+    "zipPath": "/skills/zips/xu-qiu-fang-tan.zip"
+  },
+  {
     "id": "impeccable",
     "dir": "impeccable",
     "promptName": "impeccable",

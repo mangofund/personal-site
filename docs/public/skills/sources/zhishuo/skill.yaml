@@ -1,0 +1,5 @@
+name: "zhishuo"
+title: "直说"
+description: "让 AI 回答先给结论、一步一件事、给数字不给形容词：回答啰嗦、铺垫太多、答案埋太深时用。直接说，别绕弯子。"
+category: "Work and knowledge"
+include_in_prompt: true

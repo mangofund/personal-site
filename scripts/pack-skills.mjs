@@ -28,7 +28,9 @@ const REQUIRED_PHRASES = {
   'systematic-debugging': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 系统化排查'],
   'verification-before-completion': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 交付前验证'],
   'writing-plans': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 写计划'],
-  'koubo-storyboard': ['name: koubo-storyboard', '口播分镜']
+  'koubo-storyboard': ['name: koubo-storyboard', '口播分镜'],
+  zhishuo: ['第一行就是结论', 'name: 直说'],
+  'xu-qiu-fang-tan': ['九个字段缺一不可', 'name: 需求访谈']
 }
 
 const MIN_ZIP_BYTES = {
@@ -56,6 +58,8 @@ const MIN_ZIP_BYTES = {
   'desk_watercolor.zip': 1000,
   'landing-page-design.zip': 8000,
   'grill-me.zip': 3000,
+  'zhishuo.zip': 2000,
+  'xu-qiu-fang-tan.zip': 2000,
   'impeccable.zip': 20000,
   'koubo-storyboard.zip': 3000
 }
