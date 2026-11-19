@@ -1,9 +1,39 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-19T08:59:36.918353Z",
+  "generatedAt": "2026-11-19T15:00:07.388270Z",
   "source": "mei-ri-tui-song",
-  "count": 91,
+  "count": 93,
   "items": [
+    {
+      "key": "alerts|MU|2026-11-19",
+      "id": 93,
+      "category": "alerts",
+      "slot": "MU",
+      "pushDate": "2026-11-19",
+      "title": "异动提醒 · 美光（MU）",
+      "summary": "MU +5.98%",
+      "body": "美光（MU）盘中涨 5.98%，现价 747.41 美元，上一收 705.27 美元。\nAnthropic 以 83 美元定价上市，募资 813 亿美元，估值约 1.5 万亿美元，AI 支出信心回来了，芯片股全线反弹。\n美光自己也掏了 10 亿美元认购 Anthropic 配售，七家战略伙伴合计 260 亿美元。\n公司昨天披露，2027 年产能 75% 已售罄，签下 320 亿美元多年供货协议。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-19T14:39:42.046Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NBIS|2026-11-19",
+      "id": 92,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-19",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS +6.16%",
+      "body": "Nebius（NBIS）盘中涨 6.16%，现价 113.55 美元，上一收 106.96 美元。\n英伟达周二财报超预期、上调指引，AI 云厂商跟着反弹。\nNBIS 过去一个月跌了 37.6%，今天这波是超跌后的板块反弹。\n公司上周三季报收入 9.81 亿美元，同比增 571%，但数据中心延期把部分收入推到 2027 年上半年。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-19T14:39:41.948Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-19",
       "id": 91,
