@@ -1,9 +1,39 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-20T15:00:07.012505Z",
+  "generatedAt": "2026-11-20T16:00:12.146483Z",
   "source": "mei-ri-tui-song",
-  "count": 101,
+  "count": 103,
   "items": [
+    {
+      "key": "alerts|AVGO|2026-11-20",
+      "id": 103,
+      "category": "alerts",
+      "slot": "AVGO",
+      "pushDate": "2026-11-20",
+      "title": "异动提醒 · 博通（AVGO）",
+      "summary": "AVGO -8.28%",
+      "body": "博通（AVGO）现报 317.94 美元，单日跌 8.28%，前收 346.65 美元。\n\n跟英伟达同一波。Anthropic 上市后回落，AI 估值和巨额基建投入的回报被重新质疑，芯片股今天集体下挫。\n\n美联储偏鹰、十年期美债收益率站上 5.09%，高估值成长股承压更重。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-20T15:40:44.177Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NVDA|2026-11-20",
+      "id": 102,
+      "category": "alerts",
+      "slot": "NVDA",
+      "pushDate": "2026-11-20",
+      "title": "异动提醒 · 英伟达（NVDA）",
+      "summary": "NVDA -5.71%",
+      "body": "英伟达（NVDA）现报 137.65 美元，单日跌 5.71%，前收 145.98 美元。\n\nAI 抛售没停。Anthropic 上市第二天回吐涨幅，市场重新算 AI 投入的回报账，芯片股全线走弱，英伟达连跌第六天。\n\n美联储也偏鹰，12 月加息概率已计到 98% 以上，十年期美债收益率站上 5.09%。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-20T15:40:44.102Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|MU|2026-11-20",
       "id": 101,
