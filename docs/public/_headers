@@ -663,6 +663,12 @@
 /en/skills/personal-site-build/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/skills/shi-tu-pei-wen
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/shi-tu-pei-wen/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/skills/systematic-debugging
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -976,6 +982,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/personal-site-build/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/shi-tu-pei-wen
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/shi-tu-pei-wen/
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/systematic-debugging

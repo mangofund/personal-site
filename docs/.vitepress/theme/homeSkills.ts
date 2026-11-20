@@ -74,7 +74,7 @@ export const SKILL_TYPE_FILTERS: readonly SkillFilterOption[] = [
   { id: 'coding', labelZh: '开发', labelEn: 'Development', skillIds: ['ai-project-delivery'] },
   { id: 'automation', labelZh: '自动化', labelEn: 'Automation', skillIds: ['browser-automation'] },
   { id: 'analytics', labelZh: '数据分析', labelEn: 'Analytics', skillIds: ['data-analysis'] },
-  { id: 'method', labelZh: '方法', labelEn: 'Method', skillIds: ['writing-skills', 'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans', 'grill-me', 'zhishuo', 'xu-qiu-fang-tan'] }
+  { id: 'method', labelZh: '方法', labelEn: 'Method', skillIds: ['writing-skills', 'brainstorming', 'systematic-debugging', 'verification-before-completion', 'writing-plans', 'grill-me', 'zhishuo', 'xu-qiu-fang-tan', 'shi-tu-pei-wen'] }
 ]
 
 /** 只保留和类型筛选结果不同的场景。产品前端等于 UI，接入服务等于连接。 */
@@ -1827,6 +1827,70 @@ export const homeSkills: HomeSkill[] = [
     }
   },
   {
+    id: 'shi-tu-pei-wen',
+    nameZh: '实图配文',
+    nameEn: 'Real Photo Captions',
+    pitchZh: '给内容配一张真实照片，再把文字用代码排上去：图是真的，字是渲的，一个字都不会错。',
+    pitchEn: 'Pair content with a real photo, then render the words in code: the photo is real, the text is rendered, not a single character wrong.',
+    ...skillType('method'),
+    image: '/images/skills/shi-tu-pei-wen.jpg',
+    video: '/videos/skills-series/27-shi-tu-pei-wen.mp4',
+    imageWidth: SKILL_IMAGE_WIDTH,
+    imageHeight: SKILL_IMAGE_HEIGHT,
+    imageAltZh: '实图配文封面：纸雕风格的照片卡，标题压在真实照片上',
+    imageAltEn: 'Cover for Real Photo Captions: a paper-craft photo card, title over a real photo',
+    ...skillFiles('shi-tu-pei-wen'),
+    detailSlug: 'skills/shi-tu-pei-wen',
+    detail: {
+      metaZh: '实图配文 · 原创中文技能 · 灵感来自 guizang-social-card-skill (AGPL-3.0)',
+      metaEn: 'Real Photo Captions · original Chinese skill · inspired by guizang-social-card-skill (AGPL-3.0)',
+      leadZh: 'AI 生图画字会错，画图会假。实图配文反过来：图片是下载到的真实照片，文字是 HTML 渲出来的，一个字都不会错。五步出一张卡，睁眼验过才交付。',
+      leadEn: 'AI images get words wrong and look fake. Real Photo Captions flips it: the photo is a real downloaded photo, the text is rendered in HTML, not a single character wrong. Five steps to a card, verified by eye before delivery.',
+      gainsZh: [
+        '主图是真实照片或用户截图，AI 生图不能当主图',
+        '文字代码渲染，标题逐字抄原文，一个字不错',
+        '三种画板：公众号 21:9 与 1:1，X 16:9；还能出无文字纯图版'
+      ],
+      gainsEn: [
+        'Main image is a real photo or the user’s screenshot — AI images never stand in',
+        'Text rendered in code, titles copied verbatim, not a character wrong',
+        'Three boards: 21:9 and 1:1 for WeChat, 16:9 for X — plus a wordless photo-only version'
+      ],
+      fitZh: [
+        '文章、帖子要一张配图卡片',
+        '封面要配真图，不想用 AI 画',
+        '只要纯图不要字'
+      ],
+      fitEn: [
+        'An article or post needs an image card',
+        'A cover needs a real photo, not an AI drawing',
+        'Just the photo, no words'
+      ],
+      unfitZh: [
+        '只要纯文字，不要图',
+        '要 AI 生图风格封面，用纸雕封面',
+        '要数据图表，用 lieflat-charts'
+      ],
+      unfitEn: [
+        'Text only, no image',
+        'An AI-style cover — use the paper-craft cover instead',
+        'A data chart — use lieflat-charts'
+      ],
+      sampleZh: '宁德时代催款那篇：标题一字未改，图是 Flickr CC 的特斯拉工厂实拍，来源写进 SOURCES.md。',
+      sampleEn: 'The CATL payment article: title copied verbatim, photo a Flickr CC shot of a Tesla factory floor, source recorded in SOURCES.md.',
+      stepsZh: [
+        '复制或安装 ZIP。',
+        '定内容、找真图、选画板，五步出一张卡。',
+        '打开 PNG 逐字核文字、核图片和内容对得上、核 SOURCES.md 有来源，三样都过才交付。'
+      ],
+      stepsEn: [
+        'Copy or install the ZIP.',
+        'Set the content, find a real photo, pick a board — five steps to a card.',
+        'Open the PNG and check the words verbatim, the photo against the content, and the source in SOURCES.md — deliver only when all three pass.'
+      ]
+    }
+  },
+  {
     id: 'impeccable',
     nameZh: 'Impeccable 设计审阅',
     nameEn: 'Impeccable Design Review',
@@ -2007,7 +2071,8 @@ const SKILL_POPULAR_IDS = [
   'writing-plans',
   'desk_watercolor',
   'zhishuo',
-  'xu-qiu-fang-tan'
+  'xu-qiu-fang-tan',
+  'shi-tu-pei-wen'
 ] as const
 
 function assertPopularOrder(): void {

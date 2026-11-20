@@ -222,5 +222,13 @@
     "pitchZh": "动手前先把需求问清楚：三轮访谈挖出隐含需求，产出一份九字段结构化 brief。",
     "pitchEn": "Interview before you build: three rounds to surface hidden requirements, ending in a nine-field brief.",
     "detailSlug": "skills/xu-qiu-fang-tan"
+  },
+  {
+    "id": "shi-tu-pei-wen",
+    "nameZh": "实图配文",
+    "nameEn": "Real Photo Captions",
+    "pitchZh": "给内容配一张真实照片，再把文字用代码排上去：图是真的，字是渲的，一个字都不会错。",
+    "pitchEn": "Pair content with a real photo, then render the words in code: the photo is real, the text is rendered, not a single character wrong.",
+    "detailSlug": "skills/shi-tu-pei-wen"
   }
 ]

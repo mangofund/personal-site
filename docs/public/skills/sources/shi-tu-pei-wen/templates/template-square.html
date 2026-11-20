@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>实图配文 · 上图下文</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #e8e2d4; }
+  .card {
+    width: 1080px; height: 1080px;
+    display: flex;
+    flex-direction: column;
+    background: #f5efe3;
+    font-family: "Noto Sans CJK SC", "PingFang SC", sans-serif;
+    overflow: hidden;
+  }
+  .photo { height: 560px; position: relative; overflow: hidden; }
+  .photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .text {
+    flex: 1;
+    padding: 56px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .rule { width: 100px; height: 9px; background: #b23a2a; }
+  h1 {
+    font-family: "Noto Serif CJK SC", "Songti SC", serif;
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 1.3;
+    color: #1c1a17;
+    margin-top: 32px;
+    letter-spacing: 1px;
+  }
+  .credit {
+    margin-top: 36px;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #6b655a;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="photo"><img src="<!-- PHOTO -->" alt=""></div>
+  <div class="text">
+    <div class="rule"></div>
+    <h1><!-- TITLE --></h1>
+    <div class="credit"><!-- CREDIT --></div>
+  </div>
+</div>
+</body>
+</html>

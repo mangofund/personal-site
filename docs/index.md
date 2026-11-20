@@ -56,15 +56,19 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/hk-stocks/tencent-qq-wechat-gap"><img class="hc-img" src="/images/2026-11-20-tencent-qq-wechat-gap-cover-scrapbook.jpg" alt="微信QQ月活差9亿，腾讯为什么还留着QQ？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/investment/tesla/musk-china-shanghai-factory-role"><img class="hc-img" src="/images/2026-11-20-musk-china-shanghai-factory-role-cover-shi-tu-pei-wen.jpg" alt="马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/hk-stocks/tencent-qq-wechat-gap"><img class="hc-img" src="/images/2026-11-20-tencent-qq-wechat-gap-cover-scrapbook.jpg" alt="微信QQ月活差9亿，腾讯为什么还留着QQ？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/investment/us-stocks/catl-li-auto-payment-terms"><img class="hc-img" src="/images/2026-11-20-catl-li-auto-payment-terms-cover-shi-tu-pei-wen.jpg" alt="宁德时代一天三封催款邮件？车企的钱到底卡在哪？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/investment/us-stocks/pinduoduo-q3-2026-earnings"><img class="hc-img" src="/images/2026-11-20-pinduoduo-q3-earnings-cover-paper-cut.jpg" alt="拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/hk-stocks/tencent-qq-wechat-gap">
+        <a class="hc-panel is-active" href="/investment/tesla/musk-china-shanghai-factory-role">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span>
+          <strong>马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？</strong><small>马斯克 11 月 19 日访华说要继续提高中国产量，但前 10 个月特斯拉中国零售跌了 15%，上海工厂出口 42.1 万辆、占比 51.9%，首次超过国内零售。增产的钱，到底从哪赚回来？</small>
+        </a>
+        <a class="hc-panel" href="/investment/hk-stocks/tencent-qq-wechat-gap">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span>
           <strong>微信QQ月活差9亿，腾讯为什么还留着QQ？</strong><small>微信及WeChat合并月活14.49亿，QQ移动终端月活5.33亿，相差9.16亿。但QQ连续三个季度环比增长，18至35岁用户占比超一半。腾讯留着QQ，留的不是情怀，是另一张关系网。</small>
         </a>
@@ -72,15 +76,11 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span>
           <strong>宁德时代一天三封催款邮件？车企的钱到底卡在哪？</strong><small>理想供应部门员工称，自研电池官宣后每天收到宁德时代至少三封催款邮件。理想账上有 875 亿元现金，14 家车企应付账款合计 7825 亿元、平均周转 187 天，60 天承诺与财报数字之间差了三倍。</small>
         </a>
-        <a class="hc-panel" href="/investment/us-stocks/pinduoduo-q3-2026-earnings">
-          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span>
-          <strong>拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？</strong><small>拼多多三季度营收 1083.41 亿元基本持平、低于华尔街预期 6.6%，但营销费用减少 50 亿元推动营业利润增长 24.5%，Non-GAAP 净利润超预期 10.7%；11 月 19 日股价收涨 11.04%，同一天纳指跌 2.3%。</small>
-        </a>
       </div>
     </div>
-      <a class="article-card" href="/investment/tesla/musk-china-shanghai-factory-role">
-        <img class="article-card-thumb" src="/images/2026-11-20-musk-china-shanghai-factory-role-cover-shi-tu-pei-wen.jpg" alt="马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span><strong>马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？</strong></div>
+      <a class="article-card" href="/investment/us-stocks/pinduoduo-q3-2026-earnings">
+        <img class="article-card-thumb" src="/images/2026-11-20-pinduoduo-q3-earnings-cover-paper-cut.jpg" alt="拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span><strong>拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/anthropic-ipo-83">
         <img class="article-card-thumb" src="/images/2026-11-19-anthropic-ipo-83-cover-scrapbook.jpg" alt="Anthropic IPO：83美元定价，凭什么值1.5万亿美元？" loading="lazy" decoding="async" />

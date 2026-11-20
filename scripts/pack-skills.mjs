@@ -30,7 +30,8 @@ const REQUIRED_PHRASES = {
   'writing-plans': ['改编自 obra/superpowers（MIT License），原作者 Jesse Vincent', 'name: 写计划'],
   'koubo-storyboard': ['name: koubo-storyboard', '口播分镜'],
   zhishuo: ['第一行就是结论', 'name: 直说'],
-  'xu-qiu-fang-tan': ['九个字段缺一不可', 'name: 需求访谈']
+  'xu-qiu-fang-tan': ['九个字段缺一不可', 'name: 需求访谈'],
+  'shi-tu-pei-wen': ['不做小红书', 'name: 实图配文']
 }
 
 const MIN_ZIP_BYTES = {
@@ -60,6 +61,7 @@ const MIN_ZIP_BYTES = {
   'grill-me.zip': 3000,
   'zhishuo.zip': 2000,
   'xu-qiu-fang-tan.zip': 2000,
+  'shi-tu-pei-wen.zip': 2000,
   'impeccable.zip': 20000,
   'koubo-storyboard.zip': 3000
 }

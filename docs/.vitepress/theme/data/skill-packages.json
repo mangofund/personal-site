@@ -234,6 +234,15 @@
     "zipPath": "/skills/zips/xu-qiu-fang-tan.zip"
   },
   {
+    "id": "shi-tu-pei-wen",
+    "dir": "shi-tu-pei-wen",
+    "promptName": "实图配文",
+    "zipSkillEntry": "shi-tu-pei-wen/SKILL.md",
+    "zipFile": "shi-tu-pei-wen.zip",
+    "promptPath": "/skills/sources/shi-tu-pei-wen/SKILL.md",
+    "zipPath": "/skills/zips/shi-tu-pei-wen.zip"
+  },
+  {
     "id": "impeccable",
     "dir": "impeccable",
     "promptName": "impeccable",

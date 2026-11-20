@@ -1,0 +1,5 @@
+name: "shi-tu-pei-wen"
+title: "实图配文"
+description: "给内容配一张与内容对应的真实照片，再用代码把文字排上去出 PNG 卡片：图片是下载到的真实照片，文字是 HTML 渲染、永不错字。也可出无文字纯图版。做图文卡片、文章配图、封面配文时用。"
+category: "Work and knowledge"
+include_in_prompt: true

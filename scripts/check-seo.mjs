@@ -109,12 +109,16 @@ console.log(`[check-seo] 检查 ${pages.length} 个页面...`)
 
 // 1. 每个页面有唯一的 title（跳过 GSC 验证文件等特殊页面）
 const skipFiles = ['google', '404.html']
+// 技能源码里的模板 HTML 是生图资产，不是页面，不参与 SEO 检查
+function isSkillTemplate(filePath) {
+  return filePath.includes('/skills/sources/') && filePath.includes('/templates/')
+}
 function isCmsAdmin(filePath) {
   return filePath.includes('/admin/')
 }
 const titles = new Map()
 for (const p of pages) {
-  if (skipFiles.some(s => p.includes(s))) continue
+  if (skipFiles.some(s => p.includes(s)) || isSkillTemplate(p)) continue
   const html = readFileSync(p, 'utf8')
   const m = html.match(/<title>([^<]+)<\/title>/)
   const title = m ? m[1].trim() : null
@@ -133,7 +137,7 @@ for (const [t, ps] of titles) {
 
 // 2. 每个页面有 description（跳过特殊页面，允许首页等用默认）
 for (const p of pages) {
-  if (p.endsWith('404.html') || p.includes('google') || isCmsAdmin(p)) continue
+  if (p.endsWith('404.html') || p.includes('google') || isCmsAdmin(p) || isSkillTemplate(p)) continue
   const html = readFileSync(p, 'utf8')
   const desc = getMeta(html, 'description')
   if (!desc) errors.push(`${p}: 缺少 meta description`)
@@ -143,7 +147,7 @@ for (const p of pages) {
 // 允许的域名：环境变量 CANONICAL_URL 或默认的 github.io（本地构建）
 const allowedDomains = ['https://promangofund.com', 'https://mangofund.github.io', 'https://mangofund.pages.dev']
 for (const p of pages) {
-  if (p.includes('google') || isCmsAdmin(p)) continue
+  if (p.includes('google') || isCmsAdmin(p) || isSkillTemplate(p)) continue
   const html = readFileSync(p, 'utf8')
   const m = html.match(/<link rel="canonical" href="([^"]+)"/)
   if (!m) {
