@@ -581,11 +581,11 @@ const carouselPanel = (it, i) => {
     '\n          <strong>' + esc(it.title) + '</strong>' + desc +
     '\n        </a>'
 }
-// 置顶必读:check-seo 要求这些文章常驻首页图文卡区(小卡,轮播区不算);
-// 不在卡区时与卡区最后一张交换位置;完全不在最新列表时顶替卡区最后一张。
+// 置顶必读:check-seo 要求这些文章常驻首页图文卡区(小卡,轮播区不算)。
+// 置顶文章排在卡区末尾,先列出的占更靠后的卡位;其余文章按时间顺序补齐轮播、卡片与列表,总数不变。
 // PINNED_LATEST 写站内路径,不含 BASE_PATH。镜像站构建时 urlPath 带前缀,比较前先剥掉,
 // 否则 GitHub Pages(BASE_PATH=/personal-site/)匹配失败,文章掉进文字列表,check-seo 报「中文首页丢失了 Claude 搜索热度」。
-const PINNED_LATEST = ['/ai/trends/claude-search-surge']
+const PINNED_LATEST = ['/ai/trends/claude-search-surge', '/ai/trends/claude-prevent-ban-guide']
 const sitePath = (urlPath) => {
   if (!baseNoSlash) return urlPath
   const prefix = baseNoSlash.endsWith('/') ? baseNoSlash : baseNoSlash + '/'
@@ -593,20 +593,19 @@ const sitePath = (urlPath) => {
   if (urlPath.startsWith(prefix)) return '/' + urlPath.slice(prefix.length)
   return urlPath
 }
-const latestItems = items.slice(0, LATEST_CAROUSEL + LATEST_CARDS + LATEST_ROWS)
-const CARD_ZONE_END = LATEST_CAROUSEL + LATEST_CARDS - 1
-for (const path of PINNED_LATEST) {
-  const idx = latestItems.findIndex((it) => sitePath(it.urlPath) === path)
-  if (idx === CARD_ZONE_END) continue
-  if (idx >= 0) {
-    const tmp = latestItems[CARD_ZONE_END]
-    latestItems[CARD_ZONE_END] = latestItems[idx]
-    latestItems[idx] = tmp
-  } else {
-    const pinned = items.find((it) => sitePath(it.urlPath) === path)
-    if (pinned) latestItems[CARD_ZONE_END] = pinned
-  }
-}
+const latestItemsRaw = items.slice(0, LATEST_CAROUSEL + LATEST_CARDS + LATEST_ROWS)
+const pinnedItems = PINNED_LATEST
+  .map((path) => items.find((it) => sitePath(it.urlPath) === path))
+  .filter(Boolean)
+  .slice(-LATEST_CARDS)
+const latestRest = latestItemsRaw.filter((it) => !pinnedItems.includes(it))
+const cardFillCount = LATEST_CARDS - pinnedItems.length
+const latestItems = [
+  ...latestRest.slice(0, LATEST_CAROUSEL),
+  ...latestRest.slice(LATEST_CAROUSEL, LATEST_CAROUSEL + cardFillCount),
+  ...pinnedItems,
+  ...latestRest.slice(LATEST_CAROUSEL + cardFillCount, LATEST_CAROUSEL + cardFillCount + LATEST_ROWS),
+]
 const carouselItems = latestItems.slice(0, LATEST_CAROUSEL)
 const carouselSlides = carouselItems.map(carouselSlide).join('\n')
 const carouselPanels = carouselItems.map(carouselPanel).join('\n')
