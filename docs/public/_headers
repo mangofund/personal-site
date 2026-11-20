@@ -816,6 +816,12 @@
 /investment/us-stocks/alphabet-q3-earnings-miss/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/us-stocks/catl-li-auto-payment-terms
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/us-stocks/catl-li-auto-payment-terms/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/us-stocks/pinduoduo-q3-2026-earnings
   Cache-Control: public, max-age=0, must-revalidate
 
