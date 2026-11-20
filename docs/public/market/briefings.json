@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-19T18:59:40.231392Z",
+  "generatedAt": "2026-11-20T00:00:03.927656Z",
   "source": "mei-ri-tui-song",
-  "count": 94,
+  "count": 95,
   "items": [
+    {
+      "key": "wechat||2026-11-20",
+      "id": 95,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-20",
+      "title": "公众号数据 11月20日",
+      "summary": "需扫码登录，本期数据未出",
+      "body": "公众号数据 11月20日\n\n今天是 2026 年 11 月 20 日。打开微信公众号后台 mp.weixin.qq.com 时，页面停留在登录页，需扫码登录，未能进入后台。\n\n本期数据尚未出数：昨日、近 7 天及最近群发文的阅读、分享、推荐、点赞、留言、粉丝等数据均未读取到。本期不编造数字、不使用旧数顶替。\n\n请用户扫码登录公众号后台后，再重新读取数据。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-19T23:56:38.239Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|NBIS|2026-11-20",
       "id": 94,
