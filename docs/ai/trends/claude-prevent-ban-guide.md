@@ -13,7 +13,7 @@ draft: false
 
 # Claude预防封号保姆级教程
 
-<div class="meta-line">2026.10.29 · 更新于 2026.11.21 · AI · 阅读约 16 分钟</div>
+<div class="meta-line">2026.10.29 · AI · 阅读约 16 分钟</div>
 
 <div class="article-cover">
 
