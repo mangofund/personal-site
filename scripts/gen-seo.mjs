@@ -746,6 +746,7 @@ function collectSectionItems(section, locale = 'zh') {
   for (const file of files) {
     const rel = relative(DOCS_DIR, file).split(sep).join('/')
     if (!rel.startsWith(prefix) || rel === `${prefix}index.md`) continue
+    if (rel.endsWith('/index.md')) continue  // 子栏目 index.md 是栏目页,不是文章,不进父栏目 feed
     const fm = parseFrontmatter(file)
     if (!fm || !fm.title || fm.draft === 'true' || fm.noindex === 'true') continue
     const dateRaw = fm.date || String(contentLastmod(file, fm, gitDates, snapshotDates) || '').slice(0, 10)

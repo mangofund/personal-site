@@ -371,3 +371,10 @@ CLI 和 Desktop 都可以用，社区认为 Desktop 略优，会少量加分。
 我的体会是，网络决定账号能活多久，付款渠道决定被封之后你亏多少。
 
 这些做法只能降低封号的概率，没有哪一条能保证不封。如果你发现了新的情况，欢迎来 X 上找我交流，我是 @PRO_AI_99T。
+
+## 最近更新
+
+- [马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？](/investment/tesla/musk-china-shanghai-factory-role) · 2026.11.20
+- [微信QQ月活差9亿，腾讯为什么还留着QQ？](/investment/hk-stocks/tencent-qq-wechat-gap) · 2026.11.20
+- [宁德时代一天三封催款邮件？车企的钱到底卡在哪？](/investment/us-stocks/catl-li-auto-payment-terms) · 2026.11.20
+- [拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？](/investment/us-stocks/pinduoduo-q3-2026-earnings) · 2026.11.20
