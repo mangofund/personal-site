@@ -804,6 +804,12 @@
 /investment/tesla/long-term-value/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/tesla/musk-china-shanghai-factory-role
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/tesla/musk-china-shanghai-factory-role/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/tesla/q3-earnings-preview
   Cache-Control: public, max-age=0, must-revalidate
 
