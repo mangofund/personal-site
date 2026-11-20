@@ -1,5 +1,6 @@
 ---
 title: "Claude Skills 安装指南：SKILL.md 放哪里、怎么验证（Claude Code / Codex）"
+date: 2026-10-19
 description: Claude Skills 安装全流程：SKILL.md 下载后放哪里、怎么验证 Claude Code 已识别、常见问题与安全检查，新手一次装对。
 keywords: Agent Skills 安装, SKILL.md, Codex Skills, Claude Code Skills, AI Agent 技能
 aside: false
@@ -7,6 +8,8 @@ image: /images/workflows/agent-skills-install.jpg
 ---
 
 # Claude Skills 安装指南：SKILL.md 放哪里、怎么验证（Claude Code / Codex）
+
+<div class="meta-line">2026.10.19 · AI · 阅读约 6 分钟</div>
 
 如果你刚接触 Agent Skills，最容易卡住的不是怎么写技能，而是下载后放在哪里、工具能不能识别，以及为什么它有时没有自动触发。
 

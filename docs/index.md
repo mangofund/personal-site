@@ -51,7 +51,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>55</span></a><a class="home-topic" href="/investment/">投资<span>13</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 74 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>55</span></a><a class="home-topic" href="/investment/">投资<span>13</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 75 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>

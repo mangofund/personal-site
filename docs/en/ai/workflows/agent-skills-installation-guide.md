@@ -1,11 +1,14 @@
 ---
 title: "How to Install Claude Skills: SKILL.md Setup Guide for Claude Code, Codex & More"
+date: 2026-10-19
 description: "How to install Claude Skills step by step: where to put SKILL.md, how to verify Claude Code discovers it, and fixes for common install problems — also works for Codex and other agents."
 keywords: Agent Skills installation, SKILL.md, Codex Skills, Claude Code Skills, AI agent workflows
 aside: false
 ---
 
 # How to Install Claude Skills: SKILL.md Setup Guide for Claude Code, Codex & More
+
+<div class="meta-line">2026.10.19 · AI · 5 min read</div>
 
 When getting started with Agent Skills, the confusing part is often not writing a skill. It is knowing where to put it, whether the tool can discover it, and why it sometimes fails to activate automatically.
 
