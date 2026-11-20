@@ -768,14 +768,14 @@ function collectSectionItems(section, locale = 'zh') {
 writeFeedBlock(join(DOCS_DIR, 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai'), (it) => it.group, AI_TABS, 'list'))
 
 const THINKING_TABS = [['society', '社会'], ['first-principles', '第一性原理'], ['wealth', '财富'], ['technology', '技术'], ['life', '生活']]
-const INVESTMENT_TABS = [['tesla', 'Tesla'], ['us-stocks', '美股'], ['ai-infrastructure', 'AI 基础设施'], ['asset-allocation', '资产配置'], ['methodology', '方法论'], ['crypto', '加密货币']]
+const INVESTMENT_TABS = [['tesla', 'Tesla'], ['us-stocks', '美股'], ['hk-stocks', '港股'], ['ai-infrastructure', 'AI 基础设施'], ['asset-allocation', '资产配置'], ['methodology', '方法论'], ['crypto', '加密货币']]
 writeFeedBlock(join(DOCS_DIR, 'thinking', 'index.md'), 'THINKING-FEED', renderFeed(collectSectionItems('thinking'), (it) => it.group, THINKING_TABS, 'list'))
 writeFeedBlock(join(DOCS_DIR, 'investment', 'index.md'), 'INVESTMENT-FEED', renderFeed(collectSectionItems('investment'), (it) => it.group, INVESTMENT_TABS, 'list'))
 
 // 英文栏目页只收 docs/en/ 下已有文章,不把中文稿写进英文列表
 const EN_FEED_LABELS = { all: 'All', aria: 'Filter by category', empty: 'No English notes in this section yet.' }
 const THINKING_TABS_EN = [['society', 'Society'], ['first-principles', 'First principles'], ['wealth', 'Wealth'], ['technology', 'Technology'], ['life', 'Life']]
-const INVESTMENT_TABS_EN = [['tesla', 'Tesla'], ['us-stocks', 'US stocks'], ['ai-infrastructure', 'AI infrastructure'], ['asset-allocation', 'Asset allocation'], ['methodology', 'Methodology']]
+const INVESTMENT_TABS_EN = [['tesla', 'Tesla'], ['us-stocks', 'US stocks'], ['hk-stocks', 'Hong Kong stocks'], ['ai-infrastructure', 'AI infrastructure'], ['asset-allocation', 'Asset allocation'], ['methodology', 'Methodology']]
 writeFeedBlock(join(DOCS_DIR, 'en', 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai', 'en'), (it) => it.group, AI_TABS_EN, 'list', EN_FEED_LABELS))
 writeFeedBlock(join(DOCS_DIR, 'en', 'thinking', 'index.md'), 'THINKING-FEED', renderFeed(collectSectionItems('thinking', 'en'), (it) => it.group, THINKING_TABS_EN, 'list', EN_FEED_LABELS))
 writeFeedBlock(join(DOCS_DIR, 'en', 'investment', 'index.md'), 'INVESTMENT-FEED', renderFeed(collectSectionItems('investment', 'en'), (it) => it.group, INVESTMENT_TABS_EN, 'list', EN_FEED_LABELS))

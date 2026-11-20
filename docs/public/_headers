@@ -780,6 +780,12 @@
 /investment/crypto/crypto-decentralization-shoddy/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/hk-stocks/tencent-qq-wechat-gap
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/hk-stocks/tencent-qq-wechat-gap/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment
   Cache-Control: public, max-age=0, must-revalidate
 

@@ -208,6 +208,7 @@ export default defineConfig({
           { dirs: ['crypto'], label: '加密货币' },
           { dirs: ['tesla'], label: '美股与长期主义' },
           { dirs: ['us-stocks'], label: '美股策略' },
+          { dirs: ['hk-stocks'], label: '港股策略' },
           { dirs: ['methodology'], label: '方法论' }
         ])
       ],
