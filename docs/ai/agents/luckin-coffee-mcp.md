@@ -1,7 +1,7 @@
 ---
 image: /images/luckin-coffee-mcp/cover.jpg
-title: 如何让Grokbot帮我点一杯瑞幸咖啡
-description: 瑞幸开放标准 MCP 后，我用 Grok Bot 自定义连接器真实下单了一杯大杯冰美式；文末附滴滴、高德、麦当劳等国内 MCP 入口。
+title: 瑞幸咖啡 MCP 实测：用 Grok Bot 下单了一杯冰美式
+description: 瑞幸咖啡 MCP 怎么接：Grok Bot 自定义连接器真实下单一杯大杯冰美式全过程，附滴滴、高德、麦当劳国内 MCP 入口。
 keywords: 瑞幸咖啡 MCP, Luckin MCP, Grok Bot, MCP 接入, 滴滴 MCP, 高德 MCP, 麦当劳 MCP, Streamable HTTP, 自定义连接器, AI 点咖啡
 date: 2026-10-29
 category: AI
@@ -10,12 +10,12 @@ order: 20
 draft: false
 ---
 
-# 如何让Grokbot帮我点一杯瑞幸咖啡
+# 瑞幸咖啡 MCP 实测：用 Grok Bot 下单了一杯冰美式
 <div class="meta-line">2026.10.29 · AI · 阅读约 9 分钟</div>
 
 <div class="article-cover">
 
-![如何让Grokbot帮我点一杯瑞幸咖啡](/images/luckin-coffee-mcp/cover.jpg)
+![瑞幸咖啡 MCP 实测：用 Grok Bot 下单了一杯冰美式](/images/luckin-coffee-mcp/cover.jpg)
 
 </div>
 

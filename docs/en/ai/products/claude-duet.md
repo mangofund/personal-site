@@ -1,7 +1,7 @@
 ---
 image: /images/claude-duet/cover.jpg
-title: "Anthropic's Claude Duet Is an Official AI Butler App — Isn't That the Muse and GrokBot I've Been Using All Along?"
-description: "Anthropic's proactive AI assistant Claude Duet: morning brief, scheduled check-ins, approval before acting. Compared with Meta Muse, OpenAI Dots and my own setup."
+title: "Claude Duet: Anthropic's Official AI Assistant App — What It Is and Launch Details"
+description: "Claude Duet is Anthropic's official proactive AI assistant: morning brief, scheduled check-ins, approval before acting. Launch details, availability, and how it compares with Meta Muse and OpenAI Dots."
 keywords: "Claude Duet, AI assistant, AI butler, Anthropic, proactive AI, Claude, OpenAI Dots, Meta Muse"
 date: 2026-10-22
 category: AI
@@ -20,7 +20,7 @@ faq:
     a: There is no announced timeline for mainland China. In the meantime, it is worth organizing your recurring tasks, the triggers worth a notification, and your approval rules, so you know what you would hand to an AI and what you would always decide yourself.
 ---
 
-# Anthropic's Claude Duet Is an Official AI Butler App — Isn't That the Muse and GrokBot I've Been Using All Along?
+# Claude Duet: Anthropic's Official AI Assistant App — What It Is and Launch Details
 
 <div class="meta-line">2026.10.22 · AI · 15 min read</div>
 
