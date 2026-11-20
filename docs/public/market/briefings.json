@@ -1,9 +1,54 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-20T09:00:06.851168Z",
+  "generatedAt": "2026-11-20T15:00:07.012505Z",
   "source": "mei-ri-tui-song",
-  "count": 99,
+  "count": 101,
   "items": [
+    {
+      "key": "alerts|MU|2026-11-20",
+      "id": 101,
+      "category": "alerts",
+      "slot": "MU",
+      "pushDate": "2026-11-20",
+      "title": "异动提醒 · 美光（MU）",
+      "summary": "MU -6.64%",
+      "body": "美光（MU）现价 644.57 美元，单日跌 6.64%，前收 690.44 美元。AI 抛售还在继续，芯片和 AI 基建一起往下走，美光盘前就跌了 3% 多，开盘后跌幅扩大。英伟达 -3.55%、博通 -2.64%，整个板块都在跌，没什么单独的消息，就是 AI 这波行情在退潮。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-20T14:39:37.148Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|NBIS|2026-11-20",
+      "id": 94,
+      "category": "alerts",
+      "slot": "NBIS",
+      "pushDate": "2026-11-20",
+      "title": "异动提醒 · Nebius（NBIS）",
+      "summary": "NBIS -7.55%",
+      "body": "Nebius（NBIS）现价 89.60 美元，单日跌 7.55%，前收 96.92 美元。Neocloud 这波跌了好几天，本周三只龙头已经跌了 12% 到 24%。Nebius 三季报后下调了 2026 年收入指引，第三方产能延期到明年二季度，市场对这种靠借债扩产能的模式越来越没耐心。Anthropic 上市后回落，也带了它一把。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-20T14:39:37.112Z",
+      "isPinned": false
+    },
+    {
+      "key": "alerts|SPCX|2026-11-20",
+      "id": 100,
+      "category": "alerts",
+      "slot": "SPCX",
+      "pushDate": "2026-11-20",
+      "title": "异动提醒 · SpaceX（SPCX）",
+      "summary": "SPCX -6.34%",
+      "body": "SpaceX（SPCX）现价 129.66 美元，单日跌 6.34%，前收 138.43 美元。周四刚发了 320 亿美元债券，利率 8% 以上，拿去买 AI 芯片，债主们不太乐意。加上整个 AI 板块都在跌，SpaceX 跟着往下走。华尔街对它的平均目标价还在 260 美元上下，评级没变，跌的是情绪不是基本面消息。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-20T14:39:36.995Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-20",
       "id": 99,
@@ -216,21 +261,6 @@
       "status": "ok",
       "statusNote": null,
       "fetchedAt": "2026-11-20T01:32:51.413Z",
-      "isPinned": false
-    },
-    {
-      "key": "alerts|NBIS|2026-11-20",
-      "id": 94,
-      "category": "alerts",
-      "slot": "NBIS",
-      "pushDate": "2026-11-20",
-      "title": "异动提醒 · Nebius（NBIS）",
-      "summary": "NBIS -5.91%",
-      "body": "Nebius（NBIS）现价 100.64 美元，较前收 106.96 美元跌 5.91%，触发 ±5% 异动线。\n\n早上它还涨 6.16%，盘中一路掉头，单日振幅超过 12 个点。\n\n跌势从 11 月 12 日三季报后就没停过：营收 9.81 亿美元，同比涨 571%，但 2026 年收入指引下调到 30–32 亿美元，第三方数据中心产能延期到明年二季度；2027 年资本开支指引 400–450 亿美元，市场担心举债烧钱。\n\n今天 AI 链整体走弱，跌幅跟着放大。",
-      "metrics": null,
-      "status": "ok",
-      "statusNote": null,
-      "fetchedAt": "2026-11-19T18:39:35.281Z",
       "isPinned": false
     },
     {
