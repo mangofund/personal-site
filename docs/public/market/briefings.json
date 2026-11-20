@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-20T16:00:12.146483Z",
+  "generatedAt": "2026-11-20T19:00:19.832052Z",
   "source": "mei-ri-tui-song",
-  "count": 103,
+  "count": 104,
   "items": [
+    {
+      "key": "alerts|TSLA|2026-11-21",
+      "id": 104,
+      "category": "alerts",
+      "slot": "TSLA",
+      "pushDate": "2026-11-21",
+      "title": "异动提醒 · 特斯拉（TSLA）",
+      "summary": "TSLA -5.93%",
+      "body": "特斯拉（TSLA）今天跌破 5% 的线了。\n美东 13:36 盘中报 352.22 美元，单日 -5.93%，前收 374.41 美元。\n跌的原因有两个，凑一块了。\n一个是盘面：纳斯达克今天跌 3.7%，AI 股全线回调，标普连跌第七天。\n另一个是特斯拉自己的事：ISS 和 Glass Lewis 两家代理顾问机构反对董事长 Robyn Denholm 连任，董事会治理的老问题又被翻出来了。\n汇丰今天刚把特斯拉从减持上调到持有，目标价从 157 美元提到 359 美元，理由是和 SpaceX 合并的传闻。但汇丰自己也说，合并的协同效应有限。\n盘中价格还在走，收盘再看。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-20T18:39:13.064Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|AVGO|2026-11-20",
       "id": 103,
