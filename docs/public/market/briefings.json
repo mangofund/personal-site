@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-21T01:59:46.103667Z",
+  "generatedAt": "2026-11-21T05:00:09.897486Z",
   "source": "mei-ri-tui-song",
-  "count": 111,
+  "count": 112,
   "items": [
+    {
+      "key": "alerts|CLOSE|2026-11-21",
+      "id": 112,
+      "category": "alerts",
+      "slot": "CLOSE",
+      "pushDate": "2026-11-21",
+      "title": "收盘汇总 · 美股11月20日",
+      "summary": "6只跌超5%，NVDA -14.01%收盘",
+      "body": "周五收盘，8只里6只跌超5%，午盘的提醒低估了收盘跌幅。NBIS $81.31（-16.11%，两天 -24.0%），盘后 $84.34；NVDA $125.53（-14.01%，盘中最低 $124.50，5个交易日 -24.47%），盘后 $129.65；MU $594.51（-13.89%）；AVGO $304.41（-12.19%）；SPCX $127.79（-7.69%）；TSLA $346.23（-7.53%）。防御的两只没触发：BRKB $570.00（-0.36%），COST $1,102.15（+0.76%），8只里唯一收涨。盘后 NVDA、NBIS 有所回升，周一开盘再看。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-21T04:09:37.996Z",
+      "isPinned": false
+    },
     {
       "key": "alerts||2026-11-21",
       "id": 111,
