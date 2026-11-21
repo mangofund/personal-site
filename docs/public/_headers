@@ -333,6 +333,12 @@
 /ai/trends/next-stage/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/nvidia-ai-bubble-crash
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/nvidia-ai-bubble-crash/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/nvidia-founder-risk-pricing
   Cache-Control: public, max-age=0, must-revalidate
 
