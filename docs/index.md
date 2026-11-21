@@ -51,14 +51,14 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>56</span></a><a class="home-topic" href="/investment/">投资<span>13</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 76 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>57</span></a><a class="home-topic" href="/investment/">投资<span>13</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 77 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
         <a class="hc-slide is-active" href="/ai/trends/nvidia-ai-bubble-crash"><img class="hc-img" src="/images/nvidia-ai-bubble-crash-cover.jpg" alt="英伟达一天暴跌14%，AI泡沫还在吗？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/claude-riemann-hypothesis-proof"><img class="hc-img" src="/images/claude-riemann-hypothesis-proof-cover.jpg" alt="Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/investment/tesla/musk-china-shanghai-factory-role"><img class="hc-img" src="/images/2026-11-20-musk-china-shanghai-factory-role-cover-shi-tu-pei-wen.jpg" alt="马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/investment/hk-stocks/tencent-qq-wechat-gap"><img class="hc-img" src="/images/2026-11-20-tencent-qq-wechat-gap-cover-scrapbook.jpg" alt="微信QQ月活差9亿，腾讯为什么还留着QQ？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
@@ -68,23 +68,23 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-21">2026.11.21</time></span>
           <strong>英伟达一天暴跌14%，AI泡沫还在吗？</strong><small>英伟达单日暴跌 14%，纳斯达克一天跌 5.28%，年内涨幅全部蒸发。财报创纪录却照样被抛售：拆 AI 泡沫的三个层次、融资链条与 SEC 审查。</small>
         </a>
+        <a class="hc-panel" href="/ai/trends/claude-riemann-hypothesis-proof">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-21">2026.11.21</time></span>
+          <strong>Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了</strong><small>Anthropic 数学研究员 Levent Alpöge 宣布与 Claude 合作找到了黎曼猜想的证明：25 万页文字版、1700 万行 Lean 代码，MIT 独立核验已通过多项机器检查。机器能验算，不等于人类已理解。</small>
+        </a>
         <a class="hc-panel" href="/investment/tesla/musk-china-shanghai-factory-role">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span>
           <strong>马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？</strong><small>马斯克 11 月 19 日访华说要继续提高中国产量，但前 10 个月特斯拉中国零售跌了 15%，上海工厂出口 42.1 万辆、占比 51.9%，首次超过国内零售。增产的钱，到底从哪赚回来？</small>
         </a>
-        <a class="hc-panel" href="/investment/hk-stocks/tencent-qq-wechat-gap">
-          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span>
-          <strong>微信QQ月活差9亿，腾讯为什么还留着QQ？</strong><small>微信及WeChat合并月活14.49亿，QQ移动终端月活5.33亿，相差9.16亿。但QQ连续三个季度环比增长，18至35岁用户占比超一半。腾讯留着QQ，留的不是情怀，是另一张关系网。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/investment/hk-stocks/tencent-qq-wechat-gap">
+        <img class="article-card-thumb" src="/images/2026-11-20-tencent-qq-wechat-gap-cover-scrapbook.jpg" alt="微信QQ月活差9亿，腾讯为什么还留着QQ？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span><strong>微信QQ月活差9亿，腾讯为什么还留着QQ？</strong></div>
+      </a>
       <a class="article-card" href="/investment/us-stocks/catl-li-auto-payment-terms">
         <img class="article-card-thumb" src="/images/2026-11-20-catl-li-auto-payment-terms-cover-shi-tu-pei-wen.jpg" alt="宁德时代一天三封催款邮件？车企的钱到底卡在哪？" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span><strong>宁德时代一天三封催款邮件？车企的钱到底卡在哪？</strong></div>
-      </a>
-      <a class="article-card" href="/investment/us-stocks/pinduoduo-q3-2026-earnings">
-        <img class="article-card-thumb" src="/images/2026-11-20-pinduoduo-q3-earnings-cover-paper-cut.jpg" alt="拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-20">2026.11.20</time></span><strong>拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,12 +96,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/investment/us-stocks/pinduoduo-q3-2026-earnings"><span class="latest-row-head"><span class="latest-row-title">拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？</span><span class="latest-row-date">· <time datetime="2026-11-20">2026.11.20</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-20-pinduoduo-q3-earnings-cover-paper-cut.jpg" alt="拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？" loading="lazy" decoding="async" /><span class="latest-row-desc">拼多多三季度营收 1083.41 亿元基本持平、低于华尔街预期 6.6%，但营销费用减少 50 亿元推动营业利润增长 24.5%，Non-GAAP 净利润超预期 10.7%；11 月 19 日股价收涨 11.04%，同一天纳指跌 2.3%。</span></span></a></li>
       <li><a href="/ai/trends/anthropic-ipo-83"><span class="latest-row-head"><span class="latest-row-title">Anthropic IPO：83美元定价，凭什么值1.5万亿美元？</span><span class="latest-row-date">· <time datetime="2026-11-19">2026.11.19</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-19-anthropic-ipo-83-cover-scrapbook.jpg" alt="Anthropic IPO：83美元定价，凭什么值1.5万亿美元？" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 以 83 美元定价上市，完全稀释估值约 1.5 万亿美元，史上最大 IPO。813 亿美元募资、332 亿美元收入、9000 亿美元算力承诺，1.5 万亿到底贵不贵。</span></span></a></li>
       <li><a href="/investment/asset-allocation/gold-below-3800"><span class="latest-row-head"><span class="latest-row-title">金价跌破3800美元，现在抄底还是再等等？</span><span class="latest-row-date">· <time datetime="2026-11-19">2026.11.19</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-19-gold-below-3800-cover-paper-cut.jpg" alt="金价跌破3800美元，现在抄底还是再等等？" loading="lazy" decoding="async" /><span class="latest-row-desc">金价 11 月 18 日跌破 3800 美元，创 14 个月新低，美联储纪要比市场想的更鹰。跌了三成多是不是便宜了，央行还在买意味着什么，现在抄底要赌对什么。</span></span></a></li>
       <li><a href="/ai/trends/nvidia-q3-earnings-followup"><span class="latest-row-head"><span class="latest-row-title">没有黄仁勋的第一份财报，英伟达还转得动吗？</span><span class="latest-row-date">· <time datetime="2026-11-18">2026.11.18</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-q3-earnings-followup-cover.jpg" alt="没有黄仁勋的第一份财报，英伟达还转得动吗？" loading="lazy" decoding="async" /><span class="latest-row-desc">黄仁勋辞职六天后，英伟达交出 Q3 财报：营收 1158 亿美元，Q4 指引 1300 亿美元，Kress 把 FY2028 增速抬到 75%，董事会当场关上黄仁勋回归的大门。</span></span></a></li>
       <li><a href="/ai/trends/doubao-wechat-challenge"><span class="latest-row-head"><span class="latest-row-title">豆包新增聊天功能，国内互联网进入“字节时间”？</span><span class="latest-row-date">· <time datetime="2026-11-18">2026.11.18</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/doubao-wechat-challenge-cover-scrapbook.jpg" alt="豆包新增聊天功能，国内互联网进入“字节时间”？" loading="lazy" decoding="async" /><span class="latest-row-desc">豆包加聊天功能，字节能做出下一个微信吗？从使用时长、网络效应、AI 入口三个层面，拆字节与微信的较量。</span></span></a></li>
       <li><a href="/ai/trends/ai-datacenter-diesel-generator"><span class="latest-row-head"><span class="latest-row-title">AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？</span><span class="latest-row-date">· <time datetime="2026-11-17">2026.11.17</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-datacenter-diesel-generator-cover-scrapbook.jpg" alt="AI 算力烧到了柴油发电机：订单排到 2027 年，电网为什么跟不上？" loading="lazy" decoding="async" /><span class="latest-row-desc">AI 带火了柴油发电机：玉柴订单排到 2027 年 10 月，2026 年国内需求预计突破 6000 台。数据中心用电翻倍在即，电网为什么跟不上？</span></span></a></li>
-      <li><a href="/ai/trends/microsoft-outage-cascade"><span class="latest-row-head"><span class="latest-row-title">微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？</span><span class="latest-row-date">· <time datetime="2026-11-17">2026.11.17</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-17-microsoft-outage-cascade-cover-paper-cut.jpg" alt="微软宕机近24小时，银行转账卡住、航班延误：为什么大公司都挡不住一个Bug？" loading="lazy" decoding="async" /><span class="latest-row-desc">五天之内，微软 365 全球中断近 24 小时、FAA 全国停飞、Chase 转账变慢、美联航航班延误。四场事故没有同一个原因，但都指向同一个问题。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
