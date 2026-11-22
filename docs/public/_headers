@@ -429,6 +429,12 @@
 /ai/trends/xi-yin-ai/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/xpeng-robot-ces-visa-denial
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/xpeng-robot-ces-visa-denial/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/workflows/agent-skills-installation-guide
   Cache-Control: public, max-age=0, must-revalidate
 
