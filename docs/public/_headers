@@ -990,6 +990,12 @@
 /investment/us-stocks/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/us-stocks/masters-holdings-returns
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/us-stocks/masters-holdings-returns/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/us-stocks/pinduoduo-q3-2026-earnings
   Cache-Control: public, max-age=0, must-revalidate
 
