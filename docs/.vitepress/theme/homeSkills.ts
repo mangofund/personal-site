@@ -2291,7 +2291,7 @@ export function homeFeaturedSkills(
   latestCount = 3
 ): HomeFeatured {
   const featured = skills.find((skill) => skill.id === HOME_FEATURED_SKILL_ID)
-  const latest = newestSkills(skills, latestCount, [HOME_FEATURED_SKILL_ID])
+  const latest = newestSkills(skills, latestCount, SKILL_EDITOR_PICK_IDS)
   const shownIds = new Set([HOME_FEATURED_SKILL_ID, ...latest.map((skill) => skill.id)])
   const rest = catalogDefaultOrder(skills)
     .slice(0, HOME_SKILL_SHOWCASE_LIMIT)
