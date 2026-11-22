@@ -114,7 +114,7 @@ const SECTION_NAMES: Record<string, { zh: string; en: string }> = {
   skills: { zh: '技能', en: 'Skills' },
   'enterprise-mcp': { zh: '企业MCP', en: 'Enterprise MCP' },
   projects: { zh: '项目', en: 'Projects' },
-  unnoticed: { zh: '无人问津', en: 'Unnoticed' },
+  unnoticed: { zh: '工具', en: 'Tools' },
   about: { zh: '关于', en: 'About' }
 }
 
@@ -173,7 +173,7 @@ export default defineConfig({
       { text: 'AI', link: '/ai/', activeMatch: '^/ai/' },
       { text: '技能', link: '/skills/', activeMatch: '^/skills/' },
       { text: '项目', link: '/projects/', activeMatch: '^/projects/' },
-      { text: '无人问津', link: '/unnoticed/', activeMatch: '^/unnoticed/' },
+      { text: '工具', link: '/unnoticed/', activeMatch: '^/unnoticed/' },
       {
         text: '关于',
         activeMatch: '^/(enterprise-mcp|friends|subscribe|guestbook)(/|$)',
@@ -265,7 +265,7 @@ export default defineConfig({
           { text: 'AI', link: '/en/ai/', activeMatch: '^/en/ai/' },
           { text: 'Skills', link: '/en/skills/', activeMatch: '^/en/skills/' },
           { text: 'Projects', link: '/en/projects/', activeMatch: '^/en/projects/' },
-          { text: 'Unnoticed', link: '/en/unnoticed/', activeMatch: '^/en/unnoticed/' },
+          { text: 'Tools', link: '/en/unnoticed/', activeMatch: '^/en/unnoticed/' },
           {
             text: 'About',
             activeMatch: '^(/en/enterprise-mcp|/en/friends|/subscribe|/guestbook)',

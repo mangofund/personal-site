@@ -53,7 +53,7 @@ const messageTone = ref<'muted' | 'bad'>('muted')
 const copy = computed(() =>
   isEnglish.value
     ? {
-        back: '← Unnoticed',
+        back: '← Tools',
         loading: 'Loading',
         notFound: 'This work was not found.',
         unavailable: 'The gallery database is not connected yet.',
@@ -84,7 +84,7 @@ const copy = computed(() =>
         storage_error: 'That did not save. Try again.'
       }
     : {
-        back: '← 无人问津',
+        back: '← 工具',
         loading: '正在读取',
         notFound: '没有找到这个作品。',
         unavailable: '作品库还没接上。',
@@ -208,7 +208,7 @@ async function load() {
   comments.value = Array.isArray(data.comments) ? (data.comments as CommentItem[]) : []
   commentsReady.value = data.commentsReady !== false
   liked.value = data.liked === true
-  document.title = `${work.value.title} - ${isEnglish.value ? 'Unnoticed' : '无人问津'}`
+  document.title = `${work.value.title} - ${isEnglish.value ? 'Tools' : '工具'}`
 }
 
 async function toggleLike() {

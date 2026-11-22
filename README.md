@@ -70,7 +70,7 @@ git checkout -- scripts/content-dates.json docs/public/articles.json
 | `docs/thinking/` | 思考 |
 | `docs/skills/` | 技能页。条目数据在 `docs/.vitepress/theme/homeSkills.ts`；源文件在 `docs/public/skills/sources/`，构建时打成 ZIP |
 | `docs/projects/` | 项目 |
-| `docs/unnoticed/` | 无人问津。公开页 `/unnoticed/`，英文 `/en/unnoticed/`，审核页 `/unnoticed/review` |
+| `docs/unnoticed/` | 工具。公开页 `/unnoticed/`，英文 `/en/unnoticed/`，审核页 `/unnoticed/review` |
 | `docs/about/` | 关于 |
 | `docs/archive.md`、`docs/en/archive.md` | 中文归档、英文归档 |
 | `docs/friends.md`、`subscribe.md`、`guestbook.md`、`sponsor.md`、`privacy.md`、`utm.md` | 友链、订阅、留言、赞助、隐私、UTM 生成页。英文稿目前有 `docs/en/friends.md`、`docs/en/sponsor.md` |
@@ -116,7 +116,7 @@ Pages 项目接在 Cloudflare 控制台。依据在仓库里：`functions/`（Pa
 - 推到 `main` 后由 Pages 自动构建上线。分支预览：`https://<分支名，/ 换成 ->.mangofund.pages.dev`
 - 主站 `base` 为 `/`。Pages 默认浅克隆；`gen-seo.mjs` 会尝试加深 git 历史，失败则用 frontmatter 和 `scripts/content-dates.json` 写 lastmod
 - `functions/api/hit.ts`、`stats.ts`、`skill-rank.ts` 只在 Pages 上生效。未绑定 KV 时统计接口静默返回，不影响页面
-- `functions/api/unnoticed/` 是栏目「无人问津」（`/unnoticed/`）。需要 D1 绑定 `UNNOTICED_DB` 和密钥 `UNNOTICED_REVIEW_TOKEN`。表在 `migrations/0001_unnoticed.sql`。未配置时接口返回错误，页面仍可打开。审核页是 `/unnoticed/review`，不进导航
+- `functions/api/unnoticed/` 是栏目「工具」（`/unnoticed/`）。需要 D1 绑定 `UNNOTICED_DB` 和密钥 `UNNOTICED_REVIEW_TOKEN`。表在 `migrations/0001_unnoticed.sql`。未配置时接口返回错误，页面仍可打开。审核页是 `/unnoticed/review`，不进导航
 
 ### GitHub Pages 镜像
 

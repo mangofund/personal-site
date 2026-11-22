@@ -58,7 +58,7 @@ const THUMB_ATTEMPTS = [
 const copy = computed(() =>
   isEnglish.value
     ? {
-        heading: 'Unnoticed',
+        heading: 'Tools',
         intro: 'Leave a link and one sentence about who it is for. The blurb comes from the page, and it appears on the list after you confirm it.',
         sortLabel: 'Order',
         latest: 'Latest',
@@ -110,7 +110,7 @@ const copy = computed(() =>
         not_found: 'That work is not on the page.'
       }
     : {
-        heading: '无人问津',
+        heading: '工具',
         intro: '把作品链接和一句话留下。简介按页面上能读到的信息生成，确认后出现在列表里。',
         sortLabel: '排序',
         latest: '最新',

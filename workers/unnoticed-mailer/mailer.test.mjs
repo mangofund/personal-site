@@ -37,7 +37,7 @@ test('mailer sends only the pinned recipient and sender, with escaped html', asy
   assert.equal(sent.length, 1)
   assert.equal(sent[0].to, RECIPIENT)
   assert.equal(sent[0].from, SENDER)
-  assert.equal(sent[0].subject, '无人问津：A <script> & "name"')
+  assert.equal(sent[0].subject, '工具：A <script> & "name"')
   assert.equal(sent[0].html.includes('<script>'), false)
   assert.equal(sent[0].html.includes('&lt;script&gt;'), true)
   assert.equal(sent[0].html.includes('&amp;'), true)

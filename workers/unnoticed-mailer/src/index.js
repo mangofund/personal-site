@@ -79,7 +79,7 @@ export async function handleMailerRequest(request, env) {
     await email.send({
       to: RECIPIENT,
       from: SENDER,
-      subject: `无人问津：${notice.title}`,
+      subject: `工具：${notice.title}`,
       text: `${notice.title}\n${notice.url}\n${notice.summary}\n\n${REVIEW_URL}`,
       html: noticeHtml(notice)
     })
