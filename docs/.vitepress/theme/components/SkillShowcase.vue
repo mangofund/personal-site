@@ -2,8 +2,6 @@
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute, withBase } from 'vitepress'
 import {
-  HOME_FEATURED_REASON_EN,
-  HOME_FEATURED_REASON_ZH,
   SKILL_EDITOR_PICK_IDS,
   SKILL_FILTER_ALL,
   SKILL_SCENE_FILTERS,
@@ -11,7 +9,6 @@ import {
   SKILL_SORT_RECOMMENDED,
   SKILL_TYPE_FILTERS,
   editorPickSkills,
-  homeFeaturedSkills,
   homeShowcaseSkills,
   homeSkills,
   newestSkills,
@@ -26,8 +23,6 @@ import { useSkillCopy, type SkillActionSource } from '../useSkillCopy'
 import { useBarePath } from '../useLocale'
 import { loadSkillHeat, skillHeat } from '../skillHeat'
 
-const props = withDefaults(defineProps<{ variant?: 'default' | 'featured' }>(), { variant: 'default' })
-
 const barePath = useBarePath()
 const { isEnglish, feedbackBySkillId, buttonLabel, buttonAriaLabel, zipLabel, zipAriaLabel, copySkill, trackDownload } = useSkillCopy()
 onMounted(loadSkillHeat)
@@ -39,9 +34,6 @@ const onCatalog = computed(() => {
   const path = barePath.value.replace(/\/$/, '') || '/'
   return path === '/skills' || path === '/en/skills'
 })
-
-/** 首页精选位：仅首页 variant="featured" 时生效，目录页不受影响 */
-const isFeatured = computed(() => props.variant === 'featured' && !onCatalog.value)
 
 /** 目录页默认视图：无搜索、无筛选、排序未改动；此时分三个区展示，否则恢复平铺过滤结果 */
 const isDefaultView = computed(
@@ -71,27 +63,16 @@ const skillCountText = computed(() => {
   return count === 1 ? '1 Skill' : `${count} Skills`
 })
 
-/** 展示行：分组标题或一张卡。分组只在目录页默认视图与首页精选位出现，其余情况就是平铺列表。 */
+/** 展示行：分组标题或一张卡。分组只在目录页默认视图出现，其余情况就是平铺列表。 */
 interface DisplayRow {
   kind: 'heading' | 'skill'
   key: string
   titleZh?: string
   titleEn?: string
   skill?: HomeSkill
-  featured?: boolean
 }
 
 const displayRows = computed<DisplayRow[]>(() => {
-  if (isFeatured.value) {
-    const rows: DisplayRow[] = []
-    const { featured, latest, rest } = homeFeaturedSkills()
-    if (featured) rows.push({ kind: 'skill', key: featured.id, skill: featured, featured: true })
-    rows.push({ kind: 'heading', key: 'latest', titleZh: '最新上架', titleEn: 'Newest' })
-    latest.forEach((skill) => rows.push({ kind: 'skill', key: skill.id, skill }))
-    rows.push({ kind: 'heading', key: 'more', titleZh: '更多推荐', titleEn: 'More recommended' })
-    rest.forEach((skill) => rows.push({ kind: 'skill', key: skill.id, skill }))
-    return rows
-  }
   if (onCatalog.value && isDefaultView.value) {
     const latest = newestSkills(homeSkills, 3, SKILL_EDITOR_PICK_IDS)
     const latestIdSet = new Set(latest.map((skill) => skill.id))
@@ -163,14 +144,6 @@ function sourceLabel(skill: HomeSkill): string | null {
   const name = isEnglish.value ? source.nameEn ?? source.nameZh ?? '' : source.nameZh ?? source.nameEn ?? ''
   if (source.rewritten === false) return isEnglish.value ? `Source: ${name}` : `来源 ${name}`
   return isEnglish.value ? `Concept from ${name}, rewritten from scratch` : `概念来源 ${name}，原创重写`
-}
-
-function featuredReason(): string {
-  return isEnglish.value ? HOME_FEATURED_REASON_EN : HOME_FEATURED_REASON_ZH
-}
-
-function storeHref(): string {
-  return withBase(isEnglish.value ? '/en/skills/' : '/skills/')
 }
 
 const actionSource = computed<SkillActionSource>(() => (onCatalog.value ? 'catalog' : 'home'))
@@ -306,7 +279,7 @@ onUnmounted(() => {
         v-if="row.kind === 'heading'"
         style="grid-column:1/-1;margin:6px 0 0;font-size:16px;font-weight:700;line-height:1.4;"
       >{{ isEnglish ? row.titleEn : row.titleZh }}</component>
-      <article v-else-if="row.skill" :id="row.skill.id" class="skill-tile" :style="row.featured ? 'grid-column:1/-1;' : undefined">
+      <article v-else-if="row.skill" :id="row.skill.id" class="skill-tile">
       <a v-if="hrefFor(row.skill)" class="skill-thumb" :href="hrefFor(row.skill) || undefined">
         <video
           v-if="row.skill.video"
@@ -353,19 +326,11 @@ onUnmounted(() => {
           decoding="async"
         />
       </div>
-      <p
-        v-if="row.featured"
-        style="margin:12px 0 0;color:var(--vp-c-text-2);font-size:12px;font-weight:650;line-height:1.4;"
-      >{{ isEnglish ? 'Featured this month' : '本月推荐' }}</p>
       <component :is="onCatalog ? 'h2' : 'h3'" class="skill-title">
         <a v-if="hrefFor(row.skill)" :href="hrefFor(row.skill) || undefined">{{ titleFor(row.skill) }}</a>
         <span v-else>{{ titleFor(row.skill) }}</span>
       </component>
       <p class="skill-pitch">{{ pitchFor(row.skill) }}</p>
-      <p
-        v-if="row.featured"
-        style="margin:6px 0 0;color:var(--vp-c-text-1);font-size:13px;line-height:1.5;"
-      >{{ featuredReason() }}</p>
       <p
         v-if="sourceLabel(row.skill)"
         style="margin:6px 0 0;color:var(--vp-c-text-2);font-size:12px;line-height:1.5;"
@@ -399,9 +364,6 @@ onUnmounted(() => {
     </article>
     </template>
       </div>
-      <p v-if="isFeatured" style="margin:18px 0 0;font-size:14px;">
-        <a :href="storeHref()">{{ isEnglish ? 'Browse the Skills Store →' : '进入技能商店 →' }}</a>
-      </p>
     </div>
   </div>
 </template>

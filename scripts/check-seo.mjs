@@ -63,6 +63,30 @@ function skillTileTitles(html) {
   })
 }
 
+/**
+ * 首页展示的 9 张卡 = 推荐顺序（SKILL_POPULAR_IDS）的前 9 个。
+ * 注意：不能再从目录页 HTML 的前 9 张卡推导——目录默认视图自 2026-11-22 改造起是三区
+ * 分组（最新上架 3 + 编辑推荐 4 + 其余全部），展示顺序不再是推荐顺序；推荐顺序的唯一口径
+ * 是 homeSkills.ts 里的 SKILL_POPULAR_IDS。首页恢复平铺后仍按该顺序取前 9 个。
+ */
+const HOME_SKILLS_SRC = fileURLToPath(new URL('../docs/.vitepress/theme/homeSkills.ts', import.meta.url))
+function recommendedSkillTitles(isEnglish) {
+  const src = readFileSync(HOME_SKILLS_SRC, 'utf8')
+  const listMatch = src.match(/const SKILL_POPULAR_IDS = \[([\s\S]*?)\] as const/)
+  if (!listMatch) throw new Error('check-seo: homeSkills.ts 里找不到 SKILL_POPULAR_IDS')
+  const ids = [...listMatch[1].matchAll(/'([^']+)'/g)].map((m) => m[1])
+  const names = new Map()
+  // 先去掉 source: { ... } 行：改编来源里也有 nameZh/nameEn，会抢在技能名前面被匹配到。
+  const withoutSource = src.replace(/source:\s*\{[^}]*\},/g, '')
+  const entryRe = /id:\s*'([^']+)'[\s\S]{0,300}?nameZh:\s*'([^']*)'\s*,\s*nameEn:\s*'([^']*)'/g
+  for (const m of withoutSource.matchAll(entryRe)) names.set(m[1], { zh: m[2], en: m[3] })
+  return ids.slice(0, HOME_SKILL_CARD_LIMIT).map((id) => {
+    const name = names.get(id)
+    if (!name) throw new Error(`check-seo: SKILL_POPULAR_IDS 里的 ${id} 在 homeSkills 里找不到名字`)
+    return isEnglish ? name.en : name.zh
+  })
+}
+
 function assertHomeShowsRecommended(homeHtml, catalogHtml, label) {
   const homeTitles = skillTileTitles(homeHtml)
   const catalogTitles = skillTileTitles(catalogHtml)
@@ -73,12 +97,9 @@ function assertHomeShowsRecommended(homeHtml, catalogHtml, label) {
   if (!countMatch || Number(countMatch[1]) !== catalogTitles.length) {
     errors.push(`${label}技能目录数量标签与卡片数量不一致：${catalogTitles.length} 张卡片`)
   }
-  const expected = catalogTitles.slice(0, HOME_SKILL_CARD_LIMIT)
-  // 首页精选位把本月推荐大卡拉到最前面，其余 8 张仍是目录推荐顺序前 9 个里的成员：按集合比，不按顺序比。
-  const homeSorted = [...homeTitles].sort()
-  const expectedSorted = [...expected].sort()
-  if (homeSorted.join('\n') !== expectedSorted.join('\n')) {
-    errors.push(`${label}首页技能集合不是目录推荐顺序的前 ${HOME_SKILL_CARD_LIMIT} 个：${homeTitles.join('、')}`)
+  const expected = recommendedSkillTitles(label === '英文')
+  if (homeTitles.join('\n') !== expected.join('\n')) {
+    errors.push(`${label}首页技能不是目录推荐顺序的前 ${HOME_SKILL_CARD_LIMIT} 个：${homeTitles.join('、')}`)
   }
 }
 

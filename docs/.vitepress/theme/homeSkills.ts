@@ -2253,52 +2253,6 @@ export function editorPickSkills(skills: readonly HomeSkill[] = homeSkills): Hom
   )
 }
 
-/**
- * 目录页默认视图的顺序（三个区拼起来的完整顺序）：最新上架 3 个（录入最晚、且不在编辑推荐里）
- * + 编辑推荐 4 个 + 其余全部（按编辑推荐顺序）。首页精选位从这个顺序的前 9 个里补齐，
- * 保证首页展示的 9 个技能集合与目录推荐顺序前 9 个一致（精选位只是把本月推荐拉到最前面）。
- */
-export function catalogDefaultOrder(skills: readonly HomeSkill[] = homeSkills): HomeSkill[] {
-  const latest = newestSkills(skills, 3, SKILL_EDITOR_PICK_IDS)
-  const latestIds = new Set(latest.map((skill) => skill.id))
-  const picks = editorPickSkills(skills)
-  const pickIds = new Set(picks.map((skill) => skill.id))
-  const rest = sortSkills(skills, SKILL_SORT_RECOMMENDED).filter(
-    (skill) => !latestIds.has(skill.id) && !pickIds.has(skill.id)
-  )
-  return [...latest, ...picks, ...rest]
-}
-
-/**
- * 首页精选位（SkillShowcase variant="featured"）：1 张本月推荐大卡 + 3 张最新上架 + 5 张更多推荐，
- * 共 9 张，与目录推荐顺序前 9 个是同一集合（本月推荐只是被拉到最前面展示）。
- * 本月推荐选 shi-tu-pei-wen：自研三件里最新的一件（2026-11-20 上架），也是三件里唯一能同时解决「配图」和「排字」的。
- */
-export const HOME_FEATURED_SKILL_ID = 'shi-tu-pei-wen'
-export const HOME_FEATURED_REASON_ZH =
-  '给内容配真实照片，文字用代码渲染，一个字都不会错；做封面和图文卡片最省返工。'
-export const HOME_FEATURED_REASON_EN =
-  'It pairs content with a real photo and renders the text in code, so not a single character comes out wrong — the least rework for covers and content cards.'
-
-export interface HomeFeatured {
-  featured: HomeSkill | undefined
-  latest: HomeSkill[]
-  rest: HomeSkill[]
-}
-
-export function homeFeaturedSkills(
-  skills: readonly HomeSkill[] = homeSkills,
-  latestCount = 3
-): HomeFeatured {
-  const featured = skills.find((skill) => skill.id === HOME_FEATURED_SKILL_ID)
-  const latest = newestSkills(skills, latestCount, SKILL_EDITOR_PICK_IDS)
-  const shownIds = new Set([HOME_FEATURED_SKILL_ID, ...latest.map((skill) => skill.id)])
-  const rest = catalogDefaultOrder(skills)
-    .slice(0, HOME_SKILL_SHOWCASE_LIMIT)
-    .filter((skill) => !shownIds.has(skill.id))
-  return { featured, latest, rest }
-}
-
 for (const [skillId, example] of Object.entries(SKILL_EXAMPLES)) {
   const skill = homeSkills.find((item) => item.id === skillId)
   if (!skill?.detail) throw new Error(`示例对应的技能不存在或没有详情: ${skillId}`)

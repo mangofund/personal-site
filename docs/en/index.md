@@ -25,7 +25,7 @@ aside: false
 
   <section class="home-section">
     <h2>Skills Store</h2>
-    <SkillShowcase variant="featured" />
+    <SkillShowcase />
     <p class="home-more"><a href="skills/">Enter Skills Store</a></p>
   </section>
 </div>
