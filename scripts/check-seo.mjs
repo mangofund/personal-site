@@ -74,8 +74,11 @@ function assertHomeShowsRecommended(homeHtml, catalogHtml, label) {
     errors.push(`${label}技能目录数量标签与卡片数量不一致：${catalogTitles.length} 张卡片`)
   }
   const expected = catalogTitles.slice(0, HOME_SKILL_CARD_LIMIT)
-  if (homeTitles.join('\n') !== expected.join('\n')) {
-    errors.push(`${label}首页技能不是目录推荐顺序的前 ${HOME_SKILL_CARD_LIMIT} 个：${homeTitles.join('、')}`)
+  // 首页精选位把本月推荐大卡拉到最前面，其余 8 张仍是目录推荐顺序前 9 个里的成员：按集合比，不按顺序比。
+  const homeSorted = [...homeTitles].sort()
+  const expectedSorted = [...expected].sort()
+  if (homeSorted.join('\n') !== expectedSorted.join('\n')) {
+    errors.push(`${label}首页技能集合不是目录推荐顺序的前 ${HOME_SKILL_CARD_LIMIT} 个：${homeTitles.join('、')}`)
   }
 }
 
@@ -522,7 +525,8 @@ if (existsSync(zhSkills)) {
   for (const sortLabel of ['推荐', '热门', '最新']) {
     if (!zhSkillsHtml.includes(`>${sortLabel}</button>`)) errors.push(`中文技能页排序缺少 ${sortLabel}`)
   }
-  const zhPriorityExpected = ['口播分镜', '落地页设计', 'Grill Me 质询', 'Impeccable 设计审阅', 'AI 项目交付', '网站上线验收', '出海新词上站', '前端设计']
+  // 目录默认视图三区分组后的前 8 张：最新上架 3 个 + 编辑推荐 4 个 + 其余第 1 个（2026-11-22 改造后顺序）。
+  const zhPriorityExpected = ['Impeccable 设计审阅', 'Grill Me 质询', '落地页设计', '直说', '需求访谈', '实图配文', '口播分镜', 'AI 项目交付']
   const zhPriorityActual = skillTileTitles(zhSkillsHtml).slice(0, zhPriorityExpected.length)
   if (zhPriorityActual.join('、') !== zhPriorityExpected.join('、')) {
     errors.push(`中文技能页八个优先方向顺序异常：${zhPriorityActual.join('、')}`)
@@ -557,7 +561,8 @@ if (existsSync(enSkills)) {
   for (const sortLabel of ['Recommended', 'Popular', 'Newest']) {
     if (!enSkillsHtml.includes(`>${sortLabel}</button>`)) errors.push(`英文技能页排序缺少 ${sortLabel}`)
   }
-  const enPriorityExpected = ['Spoken Storyboard', 'Landing Page Design', 'Grill Me', 'Impeccable Design Review', 'AI Project Delivery', 'Website Launch QA', 'Overseas New-Keyword Launch', 'Frontend Design']
+  // 目录默认视图三区分组后的前 8 张：最新上架 3 个 + 编辑推荐 4 个 + 其余第 1 个（2026-11-22 改造后顺序）。
+  const enPriorityExpected = ['Impeccable Design Review', 'Grill Me', 'Landing Page Design', 'Speak Directly', 'Requirements Interview', 'Real Photo Captions', 'Spoken Storyboard', 'AI Project Delivery']
   const enPriorityActual = skillTileTitles(enSkillsHtml).slice(0, enPriorityExpected.length)
   if (enPriorityActual.join('、') !== enPriorityExpected.join('、')) {
     errors.push(`英文技能页八个优先方向顺序异常：${enPriorityActual.join('、')}`)

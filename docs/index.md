@@ -111,7 +111,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
       <h2>技能商店</h2>
       <a href="skills/" style="font-size:14px;color:#1d9bf0;white-space:nowrap;">进入技能商店 →</a>
     </div>
-    <SkillShowcase />
+    <SkillShowcase variant="featured" />
   </section>
 
   <section class="home-section" id="projects">

@@ -2,6 +2,7 @@ import skillPackages from './data/skill-packages.json'
 import skillTickerRows from './data/skill-ticker.json'
 import { SKILL_EXAMPLES } from './skillExamples'
 import { SKILL_DEMOS } from './skillDemos'
+import { SKILL_BEFORE_AFTER, SKILL_INFO } from './skillDetailMeta'
 
 export const SKILL_COPY_FEEDBACK_MS = 1600
 
@@ -36,8 +37,53 @@ export interface SkillDemoText {
   noteEn: string
 }
 
+/** 详情页 FAQ 一条问答；答案至少含一处该技能的具体信息，不写套话 */
+export interface SkillFaqItem {
+  qZh: string
+  qEn: string
+  aZh: string
+  aEn: string
+}
+
+/** 详情页「前后对比实证」：文字对比用 items，图片对比用 image，两者可并存 */
+export interface SkillBeforeAfterItem {
+  labelZh: string
+  labelEn: string
+  beforeZh: string
+  beforeEn: string
+  afterZh: string
+  afterEn: string
+}
+
+export interface SkillBeforeAfter {
+  titleZh: string
+  titleEn: string
+  introZh?: string
+  introEn?: string
+  items?: SkillBeforeAfterItem[]
+  /** 对比图（站内相对路径），例如实图配文的纯文字 vs 配图对比 */
+  image?: string
+  imageAltZh?: string
+  imageAltEn?: string
+  imageCaptionZh?: string
+  imageCaptionEn?: string
+  noteZh?: string
+  noteEn?: string
+}
+
 export interface SkillDetailCopy extends Partial<SkillExampleCopy> {
   demo?: SkillDemoText
+  /** P0-3 结构化信息头三行：包内容 / 兼容 Agent / 安装步骤（只写步骤，不写未经实测的耗时） */
+  packageZh?: string
+  packageEn?: string
+  agentsZh?: string
+  agentsEn?: string
+  installZh?: string
+  installEn?: string
+  /** P1-2 FAQ：每技能 3 条 */
+  faq?: SkillFaqItem[]
+  /** P0-2 前后对比实证区（目前仅自研三件） */
+  beforeAfter?: SkillBeforeAfter
   metaZh: string
   metaEn: string
   leadZh: string
@@ -95,6 +141,18 @@ export const SKILL_SCENE_FILTERS: readonly SkillFilterOption[] = [
 
 export const SKILL_FILTER_ALL = 'all'
 
+/** 卡片来源徽章：自研 / 官方 / 改编三档。来源须以技能 SKILL.md 里实际写的为准，核实不了的不填、不显示。 */
+export type SkillSourceKind = 'original' | 'official' | 'adapted'
+
+export interface SkillSource {
+  kind: SkillSourceKind
+  /** 改编来源名，例如 obra/superpowers；自研/官方不填 */
+  nameZh?: string
+  nameEn?: string
+  /** 改编但并非原创重写时为 false（例如直接打包原作者的技能） */
+  rewritten?: boolean
+}
+
 export interface HomeSkill {
   id: string
   nameZh: string
@@ -121,6 +179,8 @@ export interface HomeSkill {
   /** 有详情页时为站内 slug，不含语言前缀，例如 skills/cover-image-gen */
   detailSlug?: string
   detail?: SkillDetailCopy
+  /** 来源徽章：不填不显示 */
+  source?: SkillSource
 }
 
 interface SkillPackageRef {
@@ -676,6 +736,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'frontend-design',
+    source: { kind: 'official' },
     nameZh: '前端设计',
     nameEn: 'Frontend Design',
     pitchZh: 'Anthropic 官方前端设计 Skill，做出有辨识度、不像 AI 默认审美的页面。',
@@ -740,6 +801,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'ui-design-refs',
+    source: { kind: 'adapted', nameZh: 'PamelaAI·H', nameEn: 'PamelaAI·H' },
     nameZh: 'UI设计参考清单',
     nameEn: 'UI Design Refs',
     pitchZh: '8 大类 60+ UI 参考站，按场景挑链接再交给 AI。',
@@ -932,6 +994,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'writing-skills',
+    source: { kind: 'adapted', nameZh: 'obra/superpowers', nameEn: 'obra/superpowers' },
     nameZh: '技能编写',
     nameEn: 'Writing Skills',
     pitchZh: '把可复用的工作方法写成 Agent 能直接用的技能。',
@@ -996,6 +1059,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'brainstorming',
+    source: { kind: 'adapted', nameZh: 'obra/superpowers', nameEn: 'obra/superpowers' },
     nameZh: '头脑风暴',
     nameEn: 'Brainstorming',
     pitchZh: '动手之前，先问对问题，把真正想要的东西聊清楚。',
@@ -1060,6 +1124,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'systematic-debugging',
+    source: { kind: 'adapted', nameZh: 'obra/superpowers', nameEn: 'obra/superpowers' },
     nameZh: '系统化排查',
     nameEn: 'Systematic Debugging',
     pitchZh: '按四阶段排查：先找根因，再动手修。',
@@ -1124,6 +1189,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'verification-before-completion',
+    source: { kind: 'adapted', nameZh: 'obra/superpowers', nameEn: 'obra/superpowers' },
     nameZh: '交付前验证',
     nameEn: 'Verification Before Completion',
     pitchZh: '宣称完成之前，先拿出证据。',
@@ -1188,6 +1254,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'writing-plans',
+    source: { kind: 'adapted', nameZh: 'obra/superpowers', nameEn: 'obra/superpowers' },
     nameZh: '写计划',
     nameEn: 'Writing Plans',
     pitchZh: '多步骤任务先写成计划，再动手执行。',
@@ -1572,6 +1639,7 @@ export const homeSkills: HomeSkill[] = [
   // === NEW 2026-10-30: append so 「最新」reverse() puts these first ===
   {
     id: 'landing-page-design',
+    source: { kind: 'adapted', nameZh: 'taste-skill（Leon Lin）', nameEn: 'taste-skill by Leon Lin' },
     nameZh: '落地页设计',
     nameEn: 'Landing Page Design',
     pitchZh: '高转化落地页体系：一页一事，结构、文案与视觉硬规则一次给齐。',
@@ -1636,6 +1704,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'grill-me',
+    source: { kind: 'adapted', nameZh: 'mattpocock/skills', nameEn: 'mattpocock/skills', rewritten: false },
     nameZh: 'Grill Me 质询',
     nameEn: 'Grill Me',
     pitchZh: '无情访谈：用设计树一轮轮追问，把计划里没说出口的假设烤出来。',
@@ -1700,6 +1769,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'zhishuo',
+    source: { kind: 'adapted', nameZh: 'ayghri/i-have-adhd', nameEn: 'ayghri/i-have-adhd' },
     nameZh: '直说',
     nameEn: 'Speak Directly',
     pitchZh: '先给结论，再给理由：一句一件事，数字代替形容词。',
@@ -1764,6 +1834,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'xu-qiu-fang-tan',
+    source: { kind: 'adapted', nameZh: 'mattpocock/skills 的 grill-me', nameEn: 'grill-me by mattpocock/skills' },
     nameZh: '需求访谈',
     nameEn: 'Requirements Interview',
     pitchZh: '动手前先把需求问清楚：三轮访谈挖出隐含需求，产出一份九字段结构化 brief。',
@@ -1828,6 +1899,7 @@ export const homeSkills: HomeSkill[] = [
   },
   {
     id: 'shi-tu-pei-wen',
+    source: { kind: 'adapted', nameZh: 'op7418/guizang-social-card-skill', nameEn: 'op7418/guizang-social-card-skill' },
     nameZh: '实图配文',
     nameEn: 'Real Photo Captions',
     pitchZh: '给内容配一张真实照片，再把文字用代码排上去：图是真的，字是渲的，一个字都不会错。',
@@ -2159,6 +2231,74 @@ function assertHomeShowcase(): void {
 
 assertHomeShowcase()
 
+/**
+ * 目录页默认视图的三个区（见 SkillShowcase）：最新上架、编辑推荐、其余全部。
+ * HomeSkill 没有日期字段，「最新」指录入顺序倒序，与「最新」排序（sortSkills 的 reverse）同一口径。
+ * 三个区互不重叠：最新上架取录入最晚、且不在编辑推荐里的 3 个，避免同一张卡出现两次。
+ */
+export const SKILL_EDITOR_PICK_IDS = ['zhishuo', 'xu-qiu-fang-tan', 'shi-tu-pei-wen', 'koubo-storyboard'] as const
+
+export function newestSkills(
+  skills: readonly HomeSkill[] = homeSkills,
+  count = 3,
+  excludeIds: readonly string[] = []
+): HomeSkill[] {
+  const excluded = new Set(excludeIds)
+  return [...skills].reverse().filter((skill) => !excluded.has(skill.id)).slice(0, count)
+}
+
+export function editorPickSkills(skills: readonly HomeSkill[] = homeSkills): HomeSkill[] {
+  return SKILL_EDITOR_PICK_IDS.map((skillId) => skills.find((skill) => skill.id === skillId)).filter(
+    (skill): skill is HomeSkill => Boolean(skill)
+  )
+}
+
+/**
+ * 目录页默认视图的顺序（三个区拼起来的完整顺序）：最新上架 3 个（录入最晚、且不在编辑推荐里）
+ * + 编辑推荐 4 个 + 其余全部（按编辑推荐顺序）。首页精选位从这个顺序的前 9 个里补齐，
+ * 保证首页展示的 9 个技能集合与目录推荐顺序前 9 个一致（精选位只是把本月推荐拉到最前面）。
+ */
+export function catalogDefaultOrder(skills: readonly HomeSkill[] = homeSkills): HomeSkill[] {
+  const latest = newestSkills(skills, 3, SKILL_EDITOR_PICK_IDS)
+  const latestIds = new Set(latest.map((skill) => skill.id))
+  const picks = editorPickSkills(skills)
+  const pickIds = new Set(picks.map((skill) => skill.id))
+  const rest = sortSkills(skills, SKILL_SORT_RECOMMENDED).filter(
+    (skill) => !latestIds.has(skill.id) && !pickIds.has(skill.id)
+  )
+  return [...latest, ...picks, ...rest]
+}
+
+/**
+ * 首页精选位（SkillShowcase variant="featured"）：1 张本月推荐大卡 + 3 张最新上架 + 5 张更多推荐，
+ * 共 9 张，与目录推荐顺序前 9 个是同一集合（本月推荐只是被拉到最前面展示）。
+ * 本月推荐选 shi-tu-pei-wen：自研三件里最新的一件（2026-11-20 上架），也是三件里唯一能同时解决「配图」和「排字」的。
+ */
+export const HOME_FEATURED_SKILL_ID = 'shi-tu-pei-wen'
+export const HOME_FEATURED_REASON_ZH =
+  '给内容配真实照片，文字用代码渲染，一个字都不会错；做封面和图文卡片最省返工。'
+export const HOME_FEATURED_REASON_EN =
+  'It pairs content with a real photo and renders the text in code, so not a single character comes out wrong — the least rework for covers and content cards.'
+
+export interface HomeFeatured {
+  featured: HomeSkill | undefined
+  latest: HomeSkill[]
+  rest: HomeSkill[]
+}
+
+export function homeFeaturedSkills(
+  skills: readonly HomeSkill[] = homeSkills,
+  latestCount = 3
+): HomeFeatured {
+  const featured = skills.find((skill) => skill.id === HOME_FEATURED_SKILL_ID)
+  const latest = newestSkills(skills, latestCount, [HOME_FEATURED_SKILL_ID])
+  const shownIds = new Set([HOME_FEATURED_SKILL_ID, ...latest.map((skill) => skill.id)])
+  const rest = catalogDefaultOrder(skills)
+    .slice(0, HOME_SKILL_SHOWCASE_LIMIT)
+    .filter((skill) => !shownIds.has(skill.id))
+  return { featured, latest, rest }
+}
+
 for (const [skillId, example] of Object.entries(SKILL_EXAMPLES)) {
   const skill = homeSkills.find((item) => item.id === skillId)
   if (!skill?.detail) throw new Error(`示例对应的技能不存在或没有详情: ${skillId}`)
@@ -2169,6 +2309,19 @@ for (const [skillId, demo] of Object.entries(SKILL_DEMOS)) {
   const skill = homeSkills.find((item) => item.id === skillId)
   if (!skill?.detail) throw new Error(`真实案例对应的技能不存在或没有详情: ${skillId}`)
   skill.detail.demo = demo
+}
+
+for (const [skillId, info] of Object.entries(SKILL_INFO)) {
+  const skill = homeSkills.find((item) => item.id === skillId)
+  if (!skill?.detail) throw new Error(`详情信息头/FAQ 对应的技能不存在或没有详情: ${skillId}`)
+  if (info.faq.length !== 3) throw new Error(`详情 FAQ 必须是 3 条: ${skillId}`)
+  Object.assign(skill.detail, info)
+}
+
+for (const [skillId, beforeAfter] of Object.entries(SKILL_BEFORE_AFTER)) {
+  const skill = homeSkills.find((item) => item.id === skillId)
+  if (!skill?.detail) throw new Error(`前后对比对应的技能不存在或没有详情: ${skillId}`)
+  skill.detail.beforeAfter = beforeAfter
 }
 
 export function findSkill(skillId: string): HomeSkill | undefined {

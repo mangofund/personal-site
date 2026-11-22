@@ -39,6 +39,17 @@ watch(() => props.skillId, () => {
 })
 const listHref = computed(() => withBase(isEnglish.value ? '/en/skills/' : '/skills/'))
 
+/** 来源徽章：与 SkillShowcase 卡片同一文案；没填 source 的技能不显示 */
+function sourceLabel(): string | null {
+  const source = skill.value?.source
+  if (!source) return null
+  if (source.kind === 'original') return isEnglish.value ? 'Original by PRO的茶里芒果' : 'PRO的茶里芒果原创'
+  if (source.kind === 'official') return isEnglish.value ? 'Official by Anthropic' : 'Anthropic 官方'
+  const name = isEnglish.value ? source.nameEn ?? source.nameZh ?? '' : source.nameZh ?? source.nameEn ?? ''
+  if (source.rewritten === false) return isEnglish.value ? `Source: ${name}` : `来源 ${name}`
+  return isEnglish.value ? `Concept from ${name}, rewritten from scratch` : `概念来源 ${name}，原创重写`
+}
+
 function pick(zh: string, en: string): string {
   return isEnglish.value ? en : zh
 }
@@ -112,6 +123,7 @@ watch(() => props.skillId, trackView)
           <span class="skill-chip">{{ pick(skill.chipZh, skill.chipEn) }}</span>
           <span class="skill-meta">{{ pick(detail.metaZh, detail.metaEn) }}</span>
         </p>
+        <p v-if="sourceLabel()" class="skill-source">{{ sourceLabel() }}</p>
         <h1>{{ pick(skill.nameZh, skill.nameEn) }}</h1>
         <p class="skill-lead">{{ pick(detail.leadZh, detail.leadEn) }}</p>
         <div class="skill-actions">
@@ -136,6 +148,21 @@ watch(() => props.skillId, trackView)
         </div>
       </div>
     </div>
+
+    <dl v-if="detail.packageZh" class="skill-info">
+      <div>
+        <dt>{{ pick('包内容', 'What’s included') }}</dt>
+        <dd>{{ pick(detail.packageZh, detail.packageEn || '') }}</dd>
+      </div>
+      <div>
+        <dt>{{ pick('兼容 Agent', 'Works with') }}</dt>
+        <dd>{{ pick(detail.agentsZh || '', detail.agentsEn || '') }}</dd>
+      </div>
+      <div>
+        <dt>{{ pick('安装', 'Install') }}</dt>
+        <dd>{{ pick(detail.installZh || '', detail.installEn || '') }}</dd>
+      </div>
+    </dl>
 
     <div class="skill-fit">
       <section>
@@ -202,6 +229,43 @@ watch(() => props.skillId, trackView)
         </div>
       </div>
       <p class="skill-example-note">{{ pick(detail.demo.noteZh, detail.demo.noteEn) }}</p>
+    </section>
+
+    <section v-if="detail.beforeAfter" class="skill-example skill-before-after">
+      <h2>{{ pick(detail.beforeAfter.titleZh, detail.beforeAfter.titleEn) }}</h2>
+      <p v-if="detail.beforeAfter.introZh" class="skill-ba-intro">{{ pick(detail.beforeAfter.introZh, detail.beforeAfter.introEn || '') }}</p>
+      <div v-if="detail.beforeAfter.items" class="skill-ba-list">
+        <div v-for="item in detail.beforeAfter.items" :key="item.labelZh" class="skill-ba-item">
+          <h3>{{ pick(item.labelZh, item.labelEn) }}</h3>
+          <div class="skill-example-grid">
+            <div>
+              <p class="skill-example-label">{{ pick('改前', 'Before') }}</p>
+              <pre>{{ pick(item.beforeZh, item.beforeEn) }}</pre>
+            </div>
+            <div>
+              <p class="skill-example-label">{{ pick('改后', 'After') }}</p>
+              <pre>{{ pick(item.afterZh, item.afterEn) }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure v-if="detail.beforeAfter.image" class="skill-ba-figure">
+        <img
+          :src="withBase(detail.beforeAfter.image)"
+          :alt="pick(detail.beforeAfter.imageAltZh || '', detail.beforeAfter.imageAltEn || '')"
+          loading="lazy"
+        />
+        <figcaption v-if="detail.beforeAfter.imageCaptionZh">{{ pick(detail.beforeAfter.imageCaptionZh, detail.beforeAfter.imageCaptionEn || '') }}</figcaption>
+      </figure>
+      <p v-if="detail.beforeAfter.noteZh" class="skill-example-note">{{ pick(detail.beforeAfter.noteZh, detail.beforeAfter.noteEn || '') }}</p>
+    </section>
+
+    <section v-if="detail.faq && detail.faq.length" class="skill-example skill-faq">
+      <h2>{{ pick('常见问题', 'FAQ') }}</h2>
+      <div v-for="item in detail.faq" :key="item.qZh" class="skill-faq-item">
+        <h3>{{ pick(item.qZh, item.qEn) }}</h3>
+        <p>{{ pick(item.aZh, item.aEn) }}</p>
+      </div>
     </section>
 
   </div>

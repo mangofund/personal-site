@@ -735,6 +735,18 @@
 /en/skills/landing-page-design/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/skills/mcp-starter-bundle
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/mcp-starter-bundle/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/overseas-bundle
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/overseas-bundle/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en/skills/overseas-new-keyword-launch
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -775,6 +787,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/skills/website-launch-check/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/writing-bundle
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/skills/writing-bundle/
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/skills/writing-plans
@@ -1098,6 +1116,18 @@
 /skills/landing-page-design/
   Cache-Control: public, max-age=0, must-revalidate
 
+/skills/mcp-starter-bundle
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/mcp-starter-bundle/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/overseas-bundle
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/overseas-bundle/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /skills/overseas-new-keyword-launch
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -1138,6 +1168,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/website-launch-check/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/writing-bundle
+  Cache-Control: public, max-age=0, must-revalidate
+
+/skills/writing-bundle/
   Cache-Control: public, max-age=0, must-revalidate
 
 /skills/writing-plans
