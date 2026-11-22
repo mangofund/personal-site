@@ -4,8 +4,8 @@ import { withBase } from 'vitepress'
 import { useIsEnglish } from '../useLocale'
 import { TICKER_DISMISS_KEY, tickerItems } from '../siteTickerItems'
 
-const TICKER_MIN_SECONDS = 56
-const TICKER_SECONDS_PER_ITEM = 3.2
+const TICKER_MIN_SECONDS = 28
+const TICKER_SECONDS_PER_ITEM = 1.6
 
 const isEnglish = useIsEnglish()
 const items = computed(() => tickerItems(isEnglish.value))
