@@ -411,6 +411,12 @@
 /ai/trends/tesla-cybertruck-winddown/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/tesla-fsd-v15-rollout
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/tesla-fsd-v15-rollout/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/us-market-crash-retail
   Cache-Control: public, max-age=0, must-revalidate
 
