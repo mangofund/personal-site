@@ -261,6 +261,12 @@
 /ai/trends/anthropic-residency-500k/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/chip-war-supply-chain
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/chip-war-supply-chain/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/claude-ban-reasons
   Cache-Control: public, max-age=0, must-revalidate
 
