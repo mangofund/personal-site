@@ -116,7 +116,7 @@ FSD v15另一个重要变化，是导航开始通过车队路线偏好进行端�
 </div>
 
 <div class="article-video">
-<video controls preload="metadata" src="/videos/tesla-fsd-v15/2026-11-22-tesla-fsd-v15-rollout-video-autopark.mp4"></video>
+<video controls preload="metadata" poster="/videos/tesla-fsd-v15/poster-autopark.jpg" src="/videos/tesla-fsd-v15/2026-11-22-tesla-fsd-v15-rollout-video-autopark.mp4"></video>
 <p>FSD v15 自动泊车实录：驾驶员点选车位，显示“Autopark Ready”后车辆自己倒进车位（用户提供的实拍视频）</p>
 </div>
 
@@ -155,7 +155,7 @@ FSD v15另一个重要变化，是导航开始通过车队路线偏好进行端�
 </div>
 
 <div class="article-video">
-<video controls preload="metadata" src="/videos/tesla-fsd-v15/2026-11-22-tesla-fsd-v15-rollout-video-night-drive.mp4"></video>
+<video controls preload="metadata" poster="/videos/tesla-fsd-v15/poster-night-drive.jpg" src="/videos/tesla-fsd-v15/2026-11-22-tesla-fsd-v15-rollout-video-night-drive.mp4"></video>
 <p>FSD v15 夜间城市驾驶实录：Reality View 实时渲染周围路况与行驶路径（用户提供的实拍视频）</p>
 </div>
 
