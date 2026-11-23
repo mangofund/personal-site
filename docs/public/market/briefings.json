@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-22T07:59:38.877407Z",
+  "generatedAt": "2026-11-23T00:00:03.901067Z",
   "source": "mei-ri-tui-song",
-  "count": 118,
+  "count": 119,
   "items": [
+    {
+      "key": "wechat||2026-11-23",
+      "id": 119,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-23",
+      "title": "公众号数据 11月23日",
+      "summary": "需扫码登录，未读取到数据",
+      "body": "公众号数据 11月23日\n\n今天是 2026-11-23。打开公众号后台 mp.weixin.qq.com 后停在扫码登录页，需扫码登录，未进入后台，未读取到任何数据。\n\n请扫码登录 PRO的茶里芒果 后台后，再重新读取数据。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-22T23:56:32.168Z",
+      "isPinned": false
+    },
     {
       "key": "gold|close|2026-11-22",
       "id": 118,
