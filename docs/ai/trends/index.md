@@ -1,7 +1,7 @@
 ---
 title: "趋势"
 description: "AI 行业的趋势与大事件：Anthropic 上市、英伟达与黄仁勋、Claude、算力基建与 SpaceX。"
-updated: 2026-11-20
+updated: 2026-11-23
 ---
 
 # 趋势
@@ -10,6 +10,13 @@ updated: 2026-11-20
 
 ## 文章列表
 
+- [特朗普要黄仁勋回来，老黄是不是被他坑大了？](/ai/trends/trump-huang-return) · 2026.11.23
+- [芯片战争打到供应链，谁在卡谁的脖子？](/ai/trends/chip-war-supply-chain) · 2026.11.23
+- [黎曼猜想的第二份证明出来了](/ai/trends/riemann-second-proof) · 2026.11.23
+- [小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？](/ai/trends/xpeng-robot-ces-visa-denial) · 2026.11.22
+- [特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？](/ai/trends/tesla-fsd-v15-rollout) · 2026.11.22
+- [Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了](/ai/trends/claude-riemann-hypothesis-proof) · 2026.11.21
+- [英伟达一天暴跌14%，AI泡沫还在吗？](/ai/trends/nvidia-ai-bubble-crash) · 2026.11.21
 - [Anthropic IPO：83美元定价，凭什么值1.5万亿美元？](/ai/trends/anthropic-ipo-83) · 2026.11.19
 - [豆包新增聊天功能，国内互联网进入“字节时间”？](/ai/trends/doubao-wechat-challenge) · 2026.11.18
 - [没有黄仁勋的第一份财报，英伟达还转得动吗？](/ai/trends/nvidia-q3-earnings-followup) · 2026.11.18

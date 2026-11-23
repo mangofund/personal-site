@@ -56,15 +56,19 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/trump-huang-return"><img class="hc-img" src="/images/trump-huang-return-cover.jpg" alt="特朗普要黄仁勋回来，老黄是不是被他坑大了？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/investment/asset-allocation/shuibei-gold-rush"><img class="hc-img" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/trump-huang-return"><img class="hc-img" src="/images/trump-huang-return-cover.jpg" alt="特朗普要黄仁勋回来，老黄是不是被他坑大了？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/chip-war-supply-chain"><img class="hc-img" src="/images/2026-11-23-chip-war-supply-chain-cover-scrapbook.jpg" alt="芯片战争打到供应链，谁在卡谁的脖子？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/riemann-second-proof"><img class="hc-img" src="/images/riemann-second-proof-cover.jpg" alt="黎曼猜想的第二份证明出来了" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/trump-huang-return">
+        <a class="hc-panel is-active" href="/investment/asset-allocation/shuibei-gold-rush">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span>
+          <strong>深圳水贝排队买金的人又多起来了</strong><small>11月22日深圳水贝黄金柜台挤满顾客，金价大跌后买金的人多了起来。但买入价与回收价之间有一道价差：20克金条回本要涨8.9%，首饰23.2%，品牌金饰47.0%。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/trump-huang-return">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
           <strong>特朗普要黄仁勋回来，老黄是不是被他坑大了？</strong><small>特朗普两次公开呼吁黄仁勋复职，贝森特却在 CBS 上说「黄仁勋现在已经是外部人员了」。拆这场风波的五条线：离任原因、SEC 会计调查、新加坡收入口径、循环融资与纳指 -10.86% 的真相。</small>
         </a>
@@ -72,19 +76,15 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
           <strong>芯片战争打到供应链，谁在卡谁的脖子？</strong><small>《芯片战争》作者米勒11月21日在《金融时报》发文：AI供应链成为美中竞争的下一个战场。美国卡设计与设备，中国卡材料精炼与电子制造——谁更容易被对方卡住？</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/riemann-second-proof">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
-          <strong>黎曼猜想的第二份证明出来了</strong><small>2026 年 11 月 20 日，数学界同一天迎来两份黎曼猜想证明：Alpöge 与 Claude 的 1700 万行 Lean 形式化证明已通过多项独立机器核验；Masullo 的 940 页传统手稿，第 13 章关键定理还没写出来。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/riemann-second-proof">
+        <img class="article-card-thumb" src="/images/riemann-second-proof-cover.jpg" alt="黎曼猜想的第二份证明出来了" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span><strong>黎曼猜想的第二份证明出来了</strong></div>
+      </a>
       <a class="article-card" href="/investment/us-stocks/masters-holdings-returns">
         <img class="article-card-thumb" src="/images/2026-11-23-masters-holdings-returns-cover-shi-tu-pei-wen.jpg" alt="股神们一年都白干，段永平却赚了12%" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span><strong>股神们一年都白干，段永平却赚了12%</strong></div>
-      </a>
-      <a class="article-card" href="/investment/asset-allocation/shuibei-gold-rush">
-        <img class="article-card-thumb" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span><strong>深圳水贝排队买金的人又多起来了</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
