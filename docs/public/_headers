@@ -387,6 +387,12 @@
 /ai/trends/reddit-ai-search-traffic/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/riemann-second-proof
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/riemann-second-proof/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/spacex-orbital-supercomputer
   Cache-Control: public, max-age=0, must-revalidate
 

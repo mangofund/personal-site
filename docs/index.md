@@ -51,14 +51,14 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>59</span></a><a class="home-topic" href="/investment/">投资<span>15</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 81 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>60</span></a><a class="home-topic" href="/investment/">投资<span>15</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 82 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
         <a class="hc-slide is-active" href="/investment/us-stocks/masters-holdings-returns"><img class="hc-img" src="/images/2026-11-23-masters-holdings-returns-cover-shi-tu-pei-wen.jpg" alt="股神们一年都白干，段永平却赚了12%" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/riemann-second-proof"><img class="hc-img" src="/images/riemann-second-proof-cover.jpg" alt="黎曼猜想的第二份证明出来了" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/tesla-fsd-v15-rollout"><img class="hc-img" src="/images/2026-11-22-tesla-fsd-v15-cover-shi-tu-pei-wen.jpg" alt="特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/xpeng-robot-ces-visa-denial"><img class="hc-img" src="/images/2026-11-22-xpeng-robot-ces-visa-denial-cover-shi-tu-pei-wen.jpg" alt="小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
@@ -68,23 +68,23 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span>
           <strong>股神们一年都白干，段永平却赚了12%</strong><small>11月20日纳指暴跌5.28%，六位华人投资大佬近一年只有段永平赚钱：+12.29%。拆他的13F持仓：苹果加伯克希尔占了三分之二，英伟达三季度减仓63%。</small>
         </a>
+        <a class="hc-panel" href="/ai/trends/riemann-second-proof">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
+          <strong>黎曼猜想的第二份证明出来了</strong><small>2026 年 11 月 20 日，数学界同一天迎来两份黎曼猜想证明：Alpöge 与 Claude 的 1700 万行 Lean 形式化证明已通过多项独立机器核验；Masullo 的 940 页传统手稿，第 13 章关键定理还没写出来。</small>
+        </a>
         <a class="hc-panel" href="/ai/trends/tesla-fsd-v15-rollout">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-22">2026.11.22</time></span>
           <strong>特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？</strong><small>11月21日特斯拉开始向首批用户推送FSD v15，关键接管指标改善25倍。视觉编码器与Robotaxi、Optimus共享，Reality View上线，路线规划开始学习车队偏好。25倍到底指什么，离无人驾驶还有多远？</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/xpeng-robot-ces-visa-denial">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-22">2026.11.22</time></span>
-          <strong>小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？</strong><small>11月19日《日经亚洲》报道，小鹏、众擎等中国机器人企业的部分技术人员申请赴美参加 CES 遭拒签，一家企业 15 名技术人员全被拒后退出 CES。签证、设备认证、出口管制，三重门槛意味着什么？</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/xpeng-robot-ces-visa-denial">
+        <img class="article-card-thumb" src="/images/2026-11-22-xpeng-robot-ces-visa-denial-cover-shi-tu-pei-wen.jpg" alt="小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-22">2026.11.22</time></span><strong>小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？</strong></div>
+      </a>
       <a class="article-card" href="/investment/asset-allocation/fed-rate-hikes-market-crash">
         <img class="article-card-thumb" src="/images/2026-11-21-fed-rate-hikes-market-crash-cover-paper-cut.jpg" alt="美联储又要连续加息？黄金、比特币、美股一起暴跌，制造黑色星期五" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-21">2026.11.21</time></span><strong>美联储又要连续加息？黄金、比特币、美股一起暴跌，制造黑色星期五</strong></div>
-      </a>
-      <a class="article-card" href="/ai/trends/claude-riemann-hypothesis-proof">
-        <img class="article-card-thumb" src="/images/claude-riemann-hypothesis-proof-cover.jpg" alt="Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-21">2026.11.21</time></span><strong>Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,12 +96,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/ai/trends/claude-riemann-hypothesis-proof"><span class="latest-row-head"><span class="latest-row-title">Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了</span><span class="latest-row-date">· <time datetime="2026-11-21">2026.11.21</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/claude-riemann-hypothesis-proof-cover.jpg" alt="Claude证明了黎曼猜想？25万页写不完的证明，机器已经开始验了" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 数学研究员 Levent Alpöge 宣布与 Claude 合作找到了黎曼猜想的证明：25 万页文字版、1700 万行 Lean 代码，MIT 独立核验已通过多项机器检查。机器能验算，不等于人类已理解。</span></span></a></li>
       <li><a href="/ai/trends/nvidia-ai-bubble-crash"><span class="latest-row-head"><span class="latest-row-title">英伟达一天暴跌14%，AI泡沫还在吗？</span><span class="latest-row-date">· <time datetime="2026-11-21">2026.11.21</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/nvidia-ai-bubble-crash-cover.jpg" alt="英伟达一天暴跌14%，AI泡沫还在吗？" loading="lazy" decoding="async" /><span class="latest-row-desc">英伟达单日暴跌 14%，纳斯达克一天跌 5.28%，年内涨幅全部蒸发。财报创纪录却照样被抛售：拆 AI 泡沫的三个层次、融资链条与 SEC 审查。</span></span></a></li>
       <li><a href="/investment/tesla/musk-china-shanghai-factory-role"><span class="latest-row-head"><span class="latest-row-title">马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？</span><span class="latest-row-date">· <time datetime="2026-11-20">2026.11.20</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-20-musk-china-shanghai-factory-role-cover-shi-tu-pei-wen.jpg" alt="马斯克访华说要增产，但是中国的销量跌了15%：上海工厂的角色变了？" loading="lazy" decoding="async" /><span class="latest-row-desc">马斯克 11 月 19 日访华说要继续提高中国产量，但前 10 个月特斯拉中国零售跌了 15%，上海工厂出口 42.1 万辆、占比 51.9%，首次超过国内零售。增产的钱，到底从哪赚回来？</span></span></a></li>
       <li><a href="/investment/hk-stocks/tencent-qq-wechat-gap"><span class="latest-row-head"><span class="latest-row-title">微信QQ月活差9亿，腾讯为什么还留着QQ？</span><span class="latest-row-date">· <time datetime="2026-11-20">2026.11.20</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-20-tencent-qq-wechat-gap-cover-scrapbook.jpg" alt="微信QQ月活差9亿，腾讯为什么还留着QQ？" loading="lazy" decoding="async" /><span class="latest-row-desc">微信及WeChat合并月活14.49亿，QQ移动终端月活5.33亿，相差9.16亿。但QQ连续三个季度环比增长，18至35岁用户占比超一半。腾讯留着QQ，留的不是情怀，是另一张关系网。</span></span></a></li>
       <li><a href="/investment/us-stocks/catl-li-auto-payment-terms"><span class="latest-row-head"><span class="latest-row-title">宁德时代一天三封催款邮件？车企的钱到底卡在哪？</span><span class="latest-row-date">· <time datetime="2026-11-20">2026.11.20</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-20-catl-li-auto-payment-terms-cover-shi-tu-pei-wen.jpg" alt="宁德时代一天三封催款邮件？车企的钱到底卡在哪？" loading="lazy" decoding="async" /><span class="latest-row-desc">理想供应部门员工称，自研电池官宣后每天收到宁德时代至少三封催款邮件。理想账上有 875 亿元现金，14 家车企应付账款合计 7825 亿元、平均周转 187 天，60 天承诺与财报数字之间差了三倍。</span></span></a></li>
       <li><a href="/investment/us-stocks/pinduoduo-q3-2026-earnings"><span class="latest-row-head"><span class="latest-row-title">拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？</span><span class="latest-row-date">· <time datetime="2026-11-20">2026.11.20</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-20-pinduoduo-q3-earnings-cover-paper-cut.jpg" alt="拼多多盘中大涨近13%：营收没增长，华尔街为什么反而买单？" loading="lazy" decoding="async" /><span class="latest-row-desc">拼多多三季度营收 1083.41 亿元基本持平、低于华尔街预期 6.6%，但营销费用减少 50 亿元推动营业利润增长 24.5%，Non-GAAP 净利润超预期 10.7%；11 月 19 日股价收涨 11.04%，同一天纳指跌 2.3%。</span></span></a></li>
-      <li><a href="/ai/trends/anthropic-ipo-83"><span class="latest-row-head"><span class="latest-row-title">Anthropic IPO：83美元定价，凭什么值1.5万亿美元？</span><span class="latest-row-date">· <time datetime="2026-11-19">2026.11.19</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-19-anthropic-ipo-83-cover-scrapbook.jpg" alt="Anthropic IPO：83美元定价，凭什么值1.5万亿美元？" loading="lazy" decoding="async" /><span class="latest-row-desc">Anthropic 以 83 美元定价上市，完全稀释估值约 1.5 万亿美元，史上最大 IPO。813 亿美元募资、332 亿美元收入、9000 亿美元算力承诺，1.5 万亿到底贵不贵。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
