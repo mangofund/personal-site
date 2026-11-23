@@ -10,6 +10,7 @@ updated: 2026-11-23
 
 ## 文章列表
 
+- [Meta首席AI官：超级智能正在到来](/ai/trends/meta-wang-superintelligence-arriving) · 2026.11.23
 - [特朗普要黄仁勋回来，老黄是不是被他坑大了？](/ai/trends/trump-huang-return) · 2026.11.23
 - [芯片战争打到供应链，谁在卡谁的脖子？](/ai/trends/chip-war-supply-chain) · 2026.11.23
 - [黎曼猜想的第二份证明出来了](/ai/trends/riemann-second-proof) · 2026.11.23

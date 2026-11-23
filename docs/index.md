@@ -56,15 +56,19 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/asset-allocation/shuibei-gold-rush"><img class="hc-img" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/meta-wang-superintelligence-arriving"><img class="hc-img" src="/images/2026-11-23-meta-wang-superintelligence-arriving-cover-photo.jpg" alt="Meta首席AI官：超级智能正在到来" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/asset-allocation/shuibei-gold-rush"><img class="hc-img" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/trump-huang-return"><img class="hc-img" src="/images/trump-huang-return-cover.jpg" alt="特朗普要黄仁勋回来，老黄是不是被他坑大了？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/chip-war-supply-chain"><img class="hc-img" src="/images/2026-11-23-chip-war-supply-chain-cover-scrapbook.jpg" alt="芯片战争打到供应链，谁在卡谁的脖子？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/asset-allocation/shuibei-gold-rush">
+        <a class="hc-panel is-active" href="/ai/trends/meta-wang-superintelligence-arriving">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
+          <strong>Meta首席AI官：超级智能正在到来</strong><small>Meta 首席 AI 官 Alexandr Wang 称超级智能正在到来，论据是 Claude 协助证明的黎曼猜想；本文逐项拆解他的推理链——AIME 类比、递归自我改进、1000 倍、控制权与权限，以及 Meta 与 OpenAI 的路线分歧。</small>
+        </a>
+        <a class="hc-panel" href="/investment/asset-allocation/shuibei-gold-rush">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span>
           <strong>深圳水贝排队买金的人又多起来了</strong><small>11月22日深圳水贝黄金柜台挤满顾客，金价大跌后买金的人多了起来。但买入价与回收价之间有一道价差：20克金条回本要涨8.9%，首饰23.2%，品牌金饰47.0%。</small>
         </a>
@@ -72,19 +76,15 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
           <strong>特朗普要黄仁勋回来，老黄是不是被他坑大了？</strong><small>特朗普两次公开呼吁黄仁勋复职，贝森特却在 CBS 上说「黄仁勋现在已经是外部人员了」。拆这场风波的五条线：离任原因、SEC 会计调查、新加坡收入口径、循环融资与纳指 -10.86% 的真相。</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/chip-war-supply-chain">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span>
-          <strong>芯片战争打到供应链，谁在卡谁的脖子？</strong><small>《芯片战争》作者米勒11月21日在《金融时报》发文：AI供应链成为美中竞争的下一个战场。美国卡设计与设备，中国卡材料精炼与电子制造——谁更容易被对方卡住？</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/chip-war-supply-chain">
+        <img class="article-card-thumb" src="/images/2026-11-23-chip-war-supply-chain-cover-scrapbook.jpg" alt="芯片战争打到供应链，谁在卡谁的脖子？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span><strong>芯片战争打到供应链，谁在卡谁的脖子？</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/riemann-second-proof">
         <img class="article-card-thumb" src="/images/riemann-second-proof-cover.jpg" alt="黎曼猜想的第二份证明出来了" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span><strong>黎曼猜想的第二份证明出来了</strong></div>
-      </a>
-      <a class="article-card" href="/investment/us-stocks/masters-holdings-returns">
-        <img class="article-card-thumb" src="/images/2026-11-23-masters-holdings-returns-cover-shi-tu-pei-wen.jpg" alt="股神们一年都白干，段永平却赚了12%" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span><strong>股神们一年都白干，段永平却赚了12%</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,7 +96,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
-      <li><a href="/ai/trends/meta-wang-superintelligence-arriving"><span class="latest-row-head"><span class="latest-row-title">Meta首席AI官：超级智能正在到来</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-meta-wang-superintelligence-arriving-cover-photo.jpg" alt="Meta首席AI官：超级智能正在到来" loading="lazy" decoding="async" /><span class="latest-row-desc">Meta 首席 AI 官 Alexandr Wang 称超级智能正在到来，论据是 Claude 协助证明的黎曼猜想；本文逐项拆解他的推理链——AIME 类比、递归自我改进、1000 倍、控制权与权限，以及 Meta 与 OpenAI 的路线分歧。</span></span></a></li>
+      <li><a href="/investment/us-stocks/masters-holdings-returns"><span class="latest-row-head"><span class="latest-row-title">股神们一年都白干，段永平却赚了12%</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-masters-holdings-returns-cover-shi-tu-pei-wen.jpg" alt="股神们一年都白干，段永平却赚了12%" loading="lazy" decoding="async" /><span class="latest-row-desc">11月20日纳指暴跌5.28%，六位华人投资大佬近一年只有段永平赚钱：+12.29%。拆他的13F持仓：苹果加伯克希尔占了三分之二，英伟达三季度减仓63%。</span></span></a></li>
       <li><a href="/ai/trends/tesla-fsd-v15-rollout"><span class="latest-row-head"><span class="latest-row-title">特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？</span><span class="latest-row-date">· <time datetime="2026-11-22">2026.11.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-22-tesla-fsd-v15-cover-shi-tu-pei-wen.jpg" alt="特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？" loading="lazy" decoding="async" /><span class="latest-row-desc">11月21日特斯拉开始向首批用户推送FSD v15，关键接管指标改善25倍。视觉编码器与Robotaxi、Optimus共享，Reality View上线，路线规划开始学习车队偏好。25倍到底指什么，离无人驾驶还有多远？</span></span></a></li>
       <li><a href="/ai/trends/xpeng-robot-ces-visa-denial"><span class="latest-row-head"><span class="latest-row-title">小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？</span><span class="latest-row-date">· <time datetime="2026-11-22">2026.11.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-22-xpeng-robot-ces-visa-denial-cover-shi-tu-pei-wen.jpg" alt="小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？" loading="lazy" decoding="async" /><span class="latest-row-desc">11月19日《日经亚洲》报道，小鹏、众擎等中国机器人企业的部分技术人员申请赴美参加 CES 遭拒签，一家企业 15 名技术人员全被拒后退出 CES。签证、设备认证、出口管制，三重门槛意味着什么？</span></span></a></li>
       <li><a href="/investment/asset-allocation/fed-rate-hikes-market-crash"><span class="latest-row-head"><span class="latest-row-title">美联储又要连续加息？黄金、比特币、美股一起暴跌，制造黑色星期五</span><span class="latest-row-date">· <time datetime="2026-11-21">2026.11.21</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-21-fed-rate-hikes-market-crash-cover-paper-cut.jpg" alt="美联储又要连续加息？黄金、比特币、美股一起暴跌，制造黑色星期五" loading="lazy" decoding="async" /><span class="latest-row-desc">11月20日纳指单日跌5.28%、年内涨幅全部蒸发，黄金跌破3600美元、比特币跌破6万美元。摩根大通预计美联储12月、明年1月和3月连续加息三次，利率预期翻转之下，为什么避险资产也一起跌？</span></span></a></li>
