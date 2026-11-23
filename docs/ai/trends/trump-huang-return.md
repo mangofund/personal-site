@@ -52,6 +52,7 @@ draft: false
 <div class="article-figure">
 <img src="/images/trump-huang-return-screenshot.png" alt="2026 年 11 月 23 日，X 用户 @cherryPayment 转发的 CBS《Face the Nation》贝森特采访画面" />
 </div>
+
 ## 黄仁勋究竟为什么离开英伟达？
 
 先还原公司的正式记录。
