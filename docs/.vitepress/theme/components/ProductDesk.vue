@@ -48,7 +48,8 @@ async function load() {
       items.value = result.items
       listState.value = 'ready'
     } else {
-      const data = await api('observations?product=' + (which === 'resets' ? 'signals' : key))
+      const query = which === 'resets' ? 'signals&source=codex-x' : key
+      const data = await api('observations?product=' + query)
       if (seq !== revision) return
       if (which === 'resets') signals.value = { ...data, codex: data.codex?.posts ? data.codex : initialCodex }
       else { prices.value = { ...prices.value, [key]: data.stores }; fx.value = data.fx }
