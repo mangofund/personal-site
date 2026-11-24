@@ -363,6 +363,12 @@
 /ai/trends/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/mental-obesity
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/mental-obesity/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/meta-wang-superintelligence-arriving
   Cache-Control: public, max-age=0, must-revalidate
 

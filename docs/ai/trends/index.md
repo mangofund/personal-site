@@ -10,6 +10,7 @@ updated: 2026-11-24
 
 ## 文章列表
 
+- [人类正在进入精神肥胖时代](/ai/trends/mental-obesity) · 2026.11.24
 - [全球最大的娱乐产品：GTA 6首日卖了37.9亿美元](/ai/trends/gta-6-first-day-sales) · 2026.11.24
 - [黄仁勋回来了，但AI泡沫消失了吗？](/ai/trends/huang-return-ai-bubble) · 2026.11.24
 - [让100个Agent协作，真的比1个Agent更聪明吗？](/ai/trends/multi-agent-100-vs-1) · 2026.11.24

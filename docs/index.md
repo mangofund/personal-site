@@ -51,20 +51,24 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/archive?category=AI">AI<span>66</span></a><a class="home-topic" href="/investment/">投资<span>18</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 91 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/archive?category=AI">AI<span>67</span></a><a class="home-topic" href="/investment/">投资<span>18</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 92 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/ai-server-price-cost-profit"><img class="hc-img" src="/images/ai-server-price-cost-profit-cover.jpg" alt="AI服务器最高涨价45%，谁在赚走算力的钱？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/investment/tesla/spacex-tesla-merger"><img class="hc-img" src="/images/2026-11-24-spacex-tesla-merger-cover.jpg" alt="SpaceX与特斯拉合并提速，3.5万亿美元巨头将诞生？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/ai-server-price-cost-profit"><img class="hc-img" src="/images/ai-server-price-cost-profit-cover.jpg" alt="AI服务器最高涨价45%，谁在赚走算力的钱？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/gta-6-first-day-sales"><img class="hc-img" src="/images/gta-6-first-day-sales-cover.jpg" alt="全球最大的娱乐产品：GTA 6首日卖了37.9亿美元" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/huang-return-ai-bubble"><img class="hc-img" src="/images/huang-return-ai-bubble-cover.jpg" alt="黄仁勋回来了，但AI泡沫消失了吗？" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/ai-server-price-cost-profit">
+        <a class="hc-panel is-active" href="/investment/tesla/spacex-tesla-merger">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-24">2026.11.24</time></span>
+          <strong>SpaceX与特斯拉合并提速，3.5万亿美元巨头将诞生？</strong><small>《金融时报》11月24日披露，SpaceX与特斯拉特别委员会成员及投行安排浮出水面：五名董事、摩根士丹利与高盛、Evercore，全股票合并指向约3.5万亿美元。本文拆解谈判进度、换股机制、协同逻辑与监管障碍，以及特斯拉股东可能面临的五种情景。</small>
+        </a>
+        <a class="hc-panel" href="/investment/ai-server-price-cost-profit">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-24">2026.11.24</time></span>
           <strong>AI服务器最高涨价45%，谁在赚走算力的钱？</strong><small>AI服务器部分订单最高涨价45%，背后是GPU、HBM、DRAM及企业级SSD的供需变化。本文从产业链定价权、成本传导、算力利用率和资本回报出发，分析AI基础设施涨价最终由谁承担。</small>
         </a>
@@ -72,19 +76,15 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
           <strong>全球最大的娱乐产品：GTA 6首日卖了37.9亿美元</strong><small>11月19日，Rockstar正式发售《GTA 6》，首日零售销售额37.9亿美元，发售前已售出3250万份。为什么消费者愿意提前数月为尚未交付的产品付款？这套打法对软件开发者、AI创业公司有什么值得学习的地方？</small>
         </a>
-        <a class="hc-panel" href="/ai/trends/huang-return-ai-bubble">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
-          <strong>黄仁勋回来了，但AI泡沫消失了吗？</strong><small>黄仁勋回来了，AI概念股集体反弹。但循环融资、算力过剩、资本开支失控这些问题，真的随着他的归来一并消失了吗？从塔勒布的反脆弱视角，重新审视AI产业的风险结构。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/ai/trends/huang-return-ai-bubble">
+        <img class="article-card-thumb" src="/images/huang-return-ai-bubble-cover.jpg" alt="黄仁勋回来了，但AI泡沫消失了吗？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span><strong>黄仁勋回来了，但AI泡沫消失了吗？</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/multi-agent-100-vs-1">
         <img class="article-card-thumb" src="/images/multi-agent-100-vs-1-cover.jpg" alt="让100个Agent协作，真的比1个Agent更聪明吗？" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span><strong>让100个Agent协作，真的比1个Agent更聪明吗？</strong></div>
-      </a>
-      <a class="article-card" href="/investment/tesla/spacex-tesla-merger">
-        <img class="article-card-thumb" src="/images/2026-11-24-spacex-tesla-merger-cover.jpg" alt="SpaceX与特斯拉合并提速，3.5万亿美元巨头将诞生？" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-24">2026.11.24</time></span><strong>SpaceX与特斯拉合并提速，3.5万亿美元巨头将诞生？</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,12 +96,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/ai/trends/mental-obesity"><span class="latest-row-head"><span class="latest-row-title">人类正在进入精神肥胖时代</span><span class="latest-row-date">· <time datetime="2026-11-24">2026.11.24</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-24-mental-obesity-cover.jpg" alt="人类正在进入精神肥胖时代" loading="lazy" decoding="async" /><span class="latest-row-desc">Dan Koe 说人类正在变得“精神肥胖”：信息生产能力暴涨，处理能力原地踏步，AI 还在加速。NIH 实验、微软 319 人研究与多巴胺排毒的真相，都指向同一件事——该像管理饮食一样管理信息了。</span></span></a></li>
       <li><a href="/ai/trends/meta-wang-superintelligence-arriving"><span class="latest-row-head"><span class="latest-row-title">Meta首席AI官：超级智能正在到来</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-meta-wang-superintelligence-arriving-cover-photo.jpg" alt="Meta首席AI官：超级智能正在到来" loading="lazy" decoding="async" /><span class="latest-row-desc">Meta 首席 AI 官 Alexandr Wang 称超级智能正在到来，论据是 Claude 协助证明的黎曼猜想；本文逐项拆解他的推理链——AIME 类比、递归自我改进、1000 倍、控制权与权限，以及 Meta 与 OpenAI 的路线分歧。</span></span></a></li>
       <li><a href="/investment/asset-allocation/shuibei-gold-rush"><span class="latest-row-head"><span class="latest-row-title">深圳水贝排队买金的人又多起来了</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="lazy" decoding="async" /><span class="latest-row-desc">11月22日深圳水贝黄金柜台挤满顾客，金价大跌后买金的人多了起来。但买入价与回收价之间有一道价差：20克金条回本要涨8.9%，首饰23.2%，品牌金饰47.0%。</span></span></a></li>
       <li><a href="/ai/trends/trump-huang-return"><span class="latest-row-head"><span class="latest-row-title">特朗普要黄仁勋回来，老黄是不是被他坑大了？</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/trump-huang-return-cover.jpg" alt="特朗普要黄仁勋回来，老黄是不是被他坑大了？" loading="lazy" decoding="async" /><span class="latest-row-desc">特朗普两次公开呼吁黄仁勋复职，贝森特却在 CBS 上说「黄仁勋现在已经是外部人员了」。拆这场风波的五条线：离任原因、SEC 会计调查、新加坡收入口径、循环融资与纳指 -10.86% 的真相。</span></span></a></li>
       <li><a href="/ai/trends/chip-war-supply-chain"><span class="latest-row-head"><span class="latest-row-title">芯片战争打到供应链，谁在卡谁的脖子？</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-chip-war-supply-chain-cover-scrapbook.jpg" alt="芯片战争打到供应链，谁在卡谁的脖子？" loading="lazy" decoding="async" /><span class="latest-row-desc">《芯片战争》作者米勒11月21日在《金融时报》发文：AI供应链成为美中竞争的下一个战场。美国卡设计与设备，中国卡材料精炼与电子制造——谁更容易被对方卡住？</span></span></a></li>
       <li><a href="/ai/trends/riemann-second-proof"><span class="latest-row-head"><span class="latest-row-title">黎曼猜想的第二份证明出来了</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/riemann-second-proof-cover.jpg" alt="黎曼猜想的第二份证明出来了" loading="lazy" decoding="async" /><span class="latest-row-desc">2026 年 11 月 20 日，数学界同一天迎来两份黎曼猜想证明：Alpöge 与 Claude 的 1700 万行 Lean 形式化证明已通过多项独立机器核验；Masullo 的 940 页传统手稿，第 13 章关键定理还没写出来。</span></span></a></li>
-      <li><a href="/investment/us-stocks/masters-holdings-returns"><span class="latest-row-head"><span class="latest-row-title">股神们一年都白干，段永平却赚了12%</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-masters-holdings-returns-cover-shi-tu-pei-wen.jpg" alt="股神们一年都白干，段永平却赚了12%" loading="lazy" decoding="async" /><span class="latest-row-desc">11月20日纳指暴跌5.28%，六位华人投资大佬近一年只有段永平赚钱：+12.29%。拆他的13F持仓：苹果加伯克希尔占了三分之二，英伟达三季度减仓63%。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
