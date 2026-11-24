@@ -51,6 +51,30 @@
 /about/timeline/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai-products/reset-signals/antigravity
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/antigravity/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/glm
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/glm/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/grok-bot
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/grok-bot/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/qoder
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai-products/reset-signals/qoder/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/agents/agent-os
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -529,6 +553,30 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/about/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/antigravity
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/antigravity/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/glm
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/glm/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/grok-bot
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/grok-bot/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/qoder
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/ai-products/reset-signals/qoder/
   Cache-Control: public, max-age=0, must-revalidate
 
 /en/ai/coding
@@ -1018,6 +1066,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /investment/tesla/q3-earnings-preview/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/tesla/spacex-tesla-merger
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/tesla/spacex-tesla-merger/
   Cache-Control: public, max-age=0, must-revalidate
 
 /investment/us-stocks/ai-stage-invest-guide
