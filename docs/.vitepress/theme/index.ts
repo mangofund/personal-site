@@ -24,6 +24,7 @@ const EnterpriseMcpShowcase = defineAsyncComponent(() => import('./components/En
 const UnnoticedBoard = defineAsyncComponent(() => import('./components/UnnoticedBoard.vue'))
 const UnnoticedReview = defineAsyncComponent(() => import('./components/UnnoticedReview.vue'))
 const UnnoticedDetail = defineAsyncComponent(() => import('./components/UnnoticedDetail.vue'))
+const PlatformIndexBoard = defineAsyncComponent(() => import('./components/PlatformIndexBoard.vue'))
 
 // ---------- 哈苏式机械快门音效（Web Audio 合成）：反光板"咔" + 快门"嚓" ----------
 let audioCtx: AudioContext | null = null
@@ -456,6 +457,7 @@ export default {
     app.component('UnnoticedBoard', UnnoticedBoard)
     app.component('UnnoticedReview', UnnoticedReview)
     app.component('UnnoticedDetail', UnnoticedDetail)
+    app.component('PlatformIndexBoard', PlatformIndexBoard)
     // 订阅页 markdown 里直接用 <FollowButton />
     app.component('FollowButton', FollowButton)
     // 覆盖主题默认的明暗切换（VPSwitchAppearance 通过 inject('toggle-appearance') 调用）
