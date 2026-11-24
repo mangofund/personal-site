@@ -1,13 +1,17 @@
 <script setup>
 import { computed, ref, onMounted, onBeforeUnmount, watch } from 'vue'
-import { regions, subscriptions, trackers, initialStore, initialFx, initialSignals, snapshotDate, storeUrl, signalUrl } from '../../../../lib/ai-product-data.mjs'
+import { regions, subscriptions, webPlans, trackers, initialStore, initialFx, initialSignals, snapshotDate, storeUrl, signalUrl } from '../../../../lib/ai-product-data.mjs'
 
-const props = defineProps({ english: Boolean })
+const props = defineProps({ english: Boolean, detail: String })
 const t = (zh, en) => props.english ? en : zh
 const sections = ['pricing', 'resets', 'invites']
 const labels = [t('订阅比价', 'Subscription prices'), t('额度重置', 'Quota resets'), t('邀请码共享', 'Invite exchange')]
-const section = ref('pricing')
-const selected = ref('codex'), plan = ref(0), tracker = ref('codex')
+const catalog = { ...subscriptions, ...webPlans }
+const section = ref(props.detail ? 'resets' : 'pricing')
+const selected = ref('codex'), plan = ref(0), tracker = ref(props.detail || 'codex')
+const official = computed(() => webPlans[selected.value])
+const base = import.meta.env.BASE_URL + (props.english ? 'en/' : '')
+const detailUrl = id => base + 'ai-products/reset-signals/' + id
 const prices = ref({}), fx = ref(initialFx)
 const signals = ref(Object.fromEntries(Object.entries(initialSignals).map(([key, date]) => [key, { checked: snapshotDate, dates: [date] }])))
 const items = ref([]), product = ref(''), code = ref(''), received = ref(null)
@@ -30,6 +34,7 @@ async function api(path, options) {
 async function load() {
   const seq = ++revision
   const which = section.value, key = selected.value
+  if (which === 'pricing' && official.value) { refreshState.value = ''; return }
   refreshState.value = 'loading'
   if (which === 'invites') listState.value = 'loading'
   try {
@@ -56,6 +61,7 @@ function choose(value) {
   history.replaceState(history.state, '', '#' + value)
 }
 function readHash() {
+  if (props.detail) return
   const value = location.hash.slice(1)
   section.value = sections.includes(value) ? value : 'pricing'
 }
@@ -97,8 +103,9 @@ async function mutate(action, id) {
 </script>
 <template>
 <main class="desk">
-  <header><h1>{{ t('AI 产品工具', 'AI product tools') }}</h1></header>
-  <nav :aria-label="t('产品工具', 'Product tools')">
+  <header v-if="detail"><a :href="base + 'ai/#resets'">{{ t('全部重置记录', 'All reset reports') }}</a><h1>{{ trackers[detail] }} · {{ labels[1] }}</h1></header>
+  <header v-else><h1>{{ t('AI 产品工具', 'AI product tools') }}</h1></header>
+  <nav v-if="!detail" :aria-label="t('产品工具', 'Product tools')">
     <a v-for="(id, i) in sections" :key="id" :href="'#' + id" :aria-current="section === id ? 'page' : undefined" @click.prevent="choose(id)">{{ labels[i] }}</a>
   </nav>
   <section v-if="section === 'pricing'">
@@ -106,17 +113,30 @@ async function mutate(action, id) {
     <fieldset class="switches">
       <legend>{{ t('产品', 'Product') }}</legend>
       <div class="choices">
-        <button v-for="(product, id) in subscriptions" :key="id" type="button"
+        <button v-for="(product, id) in catalog" :key="id" type="button"
           :aria-pressed="selected === id" @click="selected = id">{{ product.name }}</button>
       </div>
     </fieldset>
     <fieldset class="switches">
       <legend>{{ t('套餐', 'Plan') }}</legend>
       <div class="choices">
-        <button v-for="(name, i) in subscriptions[selected].plans" :key="name" type="button"
+        <button v-for="(name, i) in catalog[selected].plans" :key="name" type="button"
           :aria-pressed="plan === i" @click="plan = i">{{ name }}</button>
       </div>
     </fieldset>
+    <template v-if="official">
+      <p v-if="official.note">{{ official.note[english ? 1 : 0] }}</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>{{ t('官方渠道', 'Official channel') }}</th><th>{{ t('月费', 'Monthly price') }}</th><th>{{ t('核对日期', 'Checked') }}</th></tr></thead>
+        <tbody><tr v-for="offer in official.offers" :key="offer.channel">
+          <td><a :href="offer.source">{{ offer.channel }} ↗</a></td>
+          <td>{{ offer.currency }} {{ money(offer.amounts[plan]) }} <del v-if="offer.regular">{{ offer.currency }} {{ money(offer.regular[plan]) }}</del></td>
+          <td>2026-11-24</td>
+        </tr></tbody>
+      </table></div>
+      <a :href="detailUrl(selected)">{{ official.name }} · {{ t('查看额度重置记录', 'View quota reset reports') }} →</a>
+    </template>
+    <template v-else>
     <p>{{ t('按人民币参考价排序。同名内购有多个价格时取最低展示价，扣费周期及税费请核对当地商店。', 'Sorted by estimated CNY. For duplicate purchase names, the lowest listed price is shown. Check the store for billing period and tax.') }}</p>
     <div class="table-wrap"><table><thead><tr><th>{{ t('地区 / 来源', 'Storefront') }}</th><th>{{ t('当地价格', 'Local price') }}</th><th>{{ t('约合人民币', 'Est. CNY') }}</th><th>{{ t('采集日期', 'Observed') }}</th></tr></thead>
     <tbody><tr v-for="row in sorted" :key="row.id"><td><a :href="storeUrl(selected, row.id)">{{ english ? row.region.en : row.region.zh }} ↗</a></td>
@@ -126,18 +146,20 @@ async function mutate(action, id) {
     <div v-for="row in sorted" :key="row.id"><strong>{{ english ? row.region.en : row.region.zh }}</strong>
     <span v-for="point in [...(row.entry.history || []), row.entry].filter(x => x.prices[plan] != null)" :key="point.date" class="point">{{ point.date }} · {{ row.region.currency }} {{ money(point.prices[plan]) }}</span></div>
     <small>{{ t('有访问时采样，缺少记录的日期留空。', 'Sampled on visits. Unobserved dates are omitted.') }}</small></details>
+    </template>
   </section>
   <section v-else-if="section === 'resets'">
-    <h2>{{ labels[1] }}</h2><p>{{ t('跟踪 BetterOPC 公开报道的产品级额度重置。个人账号的剩余额度和刷新时间请在产品内查看。', 'Tracks product-wide reset reports from BetterOPC. Check your account for your own usage window.') }}</p>
-    <fieldset class="switches">
+    <h2 v-if="!detail">{{ labels[1] }}</h2><p>{{ t('跟踪 BetterOPC 公开报道的产品级额度重置。个人账号的剩余额度和刷新时间请在产品内查看。', 'Tracks product-wide reset reports from BetterOPC. Check your account for your own usage window.') }}</p>
+    <fieldset v-if="!detail" class="switches">
       <legend>{{ t('产品', 'Product') }}</legend>
       <div class="choices">
         <button v-for="(name, id) in trackers" :key="id" type="button"
           :aria-pressed="tracker === id" @click="tracker = id">{{ name }}</button>
       </div>
     </fieldset>
-    <h3>{{ trackers[tracker] }}</h3><small>{{ t('来源核对日期', 'Source checked') }} {{ signals[tracker].checked }}</small>
+    <h3 v-if="!detail">{{ trackers[tracker] }}</h3><small>{{ t('来源核对日期', 'Source checked') }} {{ signals[tracker].checked }}</small>
     <ul><li v-for="date in signals[tracker].dates" :key="date"><time>{{ date }}</time> · {{ t('来源收录了额度重置', 'Quota reset reported') }}</li></ul>
+    <p v-if="!detail && webPlans[tracker]"><a :href="detailUrl(tracker)">{{ trackers[tracker] }} · {{ t('打开详情页', 'Open detail page') }} →</a></p>
     <a :href="signalUrl(tracker)">{{ t('查看来源及完整历史', 'Source and full history') }} ↗</a>
   </section>
   <section v-else>
