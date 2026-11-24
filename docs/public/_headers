@@ -1428,6 +1428,12 @@
 /unnoticed/
   Cache-Control: public, max-age=0, must-revalidate
 
+/unnoticed/platform-index
+  Cache-Control: public, max-age=0, must-revalidate
+
+/unnoticed/platform-index/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /unnoticed/review
   Cache-Control: public, max-age=0, must-revalidate
 
