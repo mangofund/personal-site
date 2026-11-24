@@ -1,7 +1,7 @@
 ---
 title: "趋势"
 description: "AI 行业的趋势与大事件：Anthropic 上市、英伟达与黄仁勋、Claude、算力基建与 SpaceX。"
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 # 趋势
@@ -10,6 +10,9 @@ updated: 2026-11-23
 
 ## 文章列表
 
+- [全球最大的娱乐产品：GTA 6首日卖了37.9亿美元](/ai/trends/gta-6-first-day-sales) · 2026.11.24
+- [黄仁勋回来了，但AI泡沫消失了吗？](/ai/trends/huang-return-ai-bubble) · 2026.11.24
+- [让100个Agent协作，真的比1个Agent更聪明吗？](/ai/trends/multi-agent-100-vs-1) · 2026.11.24
 - [Meta首席AI官：超级智能正在到来](/ai/trends/meta-wang-superintelligence-arriving) · 2026.11.23
 - [特朗普要黄仁勋回来，老黄是不是被他坑大了？](/ai/trends/trump-huang-return) · 2026.11.23
 - [芯片战争打到供应链，谁在卡谁的脖子？](/ai/trends/chip-war-supply-chain) · 2026.11.23

@@ -56,25 +56,25 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/huang-return-ai-bubble"><img class="hc-img" src="/images/huang-return-ai-bubble-cover.jpg" alt="黄仁勋回来了，但AI泡沫消失了吗？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/gta-6-first-day-sales"><img class="hc-img" src="/images/gta-6-first-day-sales-cover.jpg" alt="全球最大的娱乐产品：GTA 6首日卖了37.9亿美元" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/huang-return-ai-bubble"><img class="hc-img" src="/images/huang-return-ai-bubble-cover.jpg" alt="黄仁勋回来了，但AI泡沫消失了吗？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/multi-agent-100-vs-1"><img class="hc-img" src="/images/multi-agent-100-vs-1-cover.jpg" alt="让100个Agent协作，真的比1个Agent更聪明吗？" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/gta-6-first-day-sales"><img class="hc-img" src="/images/gta-6-first-day-sales-cover.jpg" alt="全球最大的娱乐产品：GTA 6首日卖了37.9亿美元" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/ai/trends/huang-return-ai-bubble">
+        <a class="hc-panel is-active" href="/ai/trends/gta-6-first-day-sales">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
+          <strong>全球最大的娱乐产品：GTA 6首日卖了37.9亿美元</strong><small>11月19日，Rockstar正式发售《GTA 6》，首日零售销售额37.9亿美元，发售前已售出3250万份。为什么消费者愿意提前数月为尚未交付的产品付款？这套打法对软件开发者、AI创业公司有什么值得学习的地方？</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/huang-return-ai-bubble">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
           <strong>黄仁勋回来了，但AI泡沫消失了吗？</strong><small>黄仁勋回来了，AI概念股集体反弹。但循环融资、算力过剩、资本开支失控这些问题，真的随着他的归来一并消失了吗？从塔勒布的反脆弱视角，重新审视AI产业的风险结构。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/multi-agent-100-vs-1">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
           <strong>让100个Agent协作，真的比1个Agent更聪明吗？</strong><small>11月22日，一个挑战 P vs NP 的 Agent 集群项目登上 Hacker News，拿了 187 个积分。Google 的实验显示，多 Agent 在金融分析上能提升 80.9%，却在顺序推理上倒退 39% 至 70%。100 个 Agent 协作，到底是更聪明，还是更贵、更乱？</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/gta-6-first-day-sales">
-          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
-          <strong>全球最大的娱乐产品：GTA 6首日卖了37.9亿美元</strong><small>11月19日，Rockstar正式发售《GTA 6》，首日零售销售额37.9亿美元，发售前已售出3250万份。为什么消费者愿意提前数月为尚未交付的产品付款？这套打法对软件开发者、AI创业公司有什么值得学习的地方？</small>
         </a>
       </div>
     </div>
