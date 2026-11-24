@@ -51,7 +51,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>66</span></a><a class="home-topic" href="/investment/">投资<span>16</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 89 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/ai/">AI<span>66</span></a><a class="home-topic" href="/investment/">投资<span>17</span></a><a class="home-topic" href="/thinking/">思考<span>6</span></a><a class="home-topic is-all" href="/archive">全部 90 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
@@ -78,13 +78,13 @@ onUnmounted(() => { if (hcStop) hcStop() })
         </a>
       </div>
     </div>
+      <a class="article-card" href="/investment/ai-server-price-cost-profit">
+        <img class="article-card-thumb" src="/images/ai-server-price-cost-profit-cover.jpg" alt="AI服务器最高涨价45%，谁在赚走算力的钱？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-24">2026.11.24</time></span><strong>AI服务器最高涨价45%，谁在赚走算力的钱？</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/meta-wang-superintelligence-arriving">
         <img class="article-card-thumb" src="/images/2026-11-23-meta-wang-superintelligence-arriving-cover-photo.jpg" alt="Meta首席AI官：超级智能正在到来" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-23">2026.11.23</time></span><strong>Meta首席AI官：超级智能正在到来</strong></div>
-      </a>
-      <a class="article-card" href="/investment/asset-allocation/shuibei-gold-rush">
-        <img class="article-card-thumb" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-23">2026.11.23</time></span><strong>深圳水贝排队买金的人又多起来了</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,12 +96,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/investment/asset-allocation/shuibei-gold-rush"><span class="latest-row-head"><span class="latest-row-title">深圳水贝排队买金的人又多起来了</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-shuibei-gold-rush-cover-scrapbook.jpg" alt="深圳水贝排队买金的人又多起来了" loading="lazy" decoding="async" /><span class="latest-row-desc">11月22日深圳水贝黄金柜台挤满顾客，金价大跌后买金的人多了起来。但买入价与回收价之间有一道价差：20克金条回本要涨8.9%，首饰23.2%，品牌金饰47.0%。</span></span></a></li>
       <li><a href="/ai/trends/trump-huang-return"><span class="latest-row-head"><span class="latest-row-title">特朗普要黄仁勋回来，老黄是不是被他坑大了？</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/trump-huang-return-cover.jpg" alt="特朗普要黄仁勋回来，老黄是不是被他坑大了？" loading="lazy" decoding="async" /><span class="latest-row-desc">特朗普两次公开呼吁黄仁勋复职，贝森特却在 CBS 上说「黄仁勋现在已经是外部人员了」。拆这场风波的五条线：离任原因、SEC 会计调查、新加坡收入口径、循环融资与纳指 -10.86% 的真相。</span></span></a></li>
       <li><a href="/ai/trends/chip-war-supply-chain"><span class="latest-row-head"><span class="latest-row-title">芯片战争打到供应链，谁在卡谁的脖子？</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-chip-war-supply-chain-cover-scrapbook.jpg" alt="芯片战争打到供应链，谁在卡谁的脖子？" loading="lazy" decoding="async" /><span class="latest-row-desc">《芯片战争》作者米勒11月21日在《金融时报》发文：AI供应链成为美中竞争的下一个战场。美国卡设计与设备，中国卡材料精炼与电子制造——谁更容易被对方卡住？</span></span></a></li>
       <li><a href="/ai/trends/riemann-second-proof"><span class="latest-row-head"><span class="latest-row-title">黎曼猜想的第二份证明出来了</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/riemann-second-proof-cover.jpg" alt="黎曼猜想的第二份证明出来了" loading="lazy" decoding="async" /><span class="latest-row-desc">2026 年 11 月 20 日，数学界同一天迎来两份黎曼猜想证明：Alpöge 与 Claude 的 1700 万行 Lean 形式化证明已通过多项独立机器核验；Masullo 的 940 页传统手稿，第 13 章关键定理还没写出来。</span></span></a></li>
       <li><a href="/investment/us-stocks/masters-holdings-returns"><span class="latest-row-head"><span class="latest-row-title">股神们一年都白干，段永平却赚了12%</span><span class="latest-row-date">· <time datetime="2026-11-23">2026.11.23</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-23-masters-holdings-returns-cover-shi-tu-pei-wen.jpg" alt="股神们一年都白干，段永平却赚了12%" loading="lazy" decoding="async" /><span class="latest-row-desc">11月20日纳指暴跌5.28%，六位华人投资大佬近一年只有段永平赚钱：+12.29%。拆他的13F持仓：苹果加伯克希尔占了三分之二，英伟达三季度减仓63%。</span></span></a></li>
       <li><a href="/ai/trends/tesla-fsd-v15-rollout"><span class="latest-row-head"><span class="latest-row-title">特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？</span><span class="latest-row-date">· <time datetime="2026-11-22">2026.11.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-22-tesla-fsd-v15-cover-shi-tu-pei-wen.jpg" alt="特斯拉FSD v15开始推送：安全提升25倍，离真正无人驾驶还有多远？" loading="lazy" decoding="async" /><span class="latest-row-desc">11月21日特斯拉开始向首批用户推送FSD v15，关键接管指标改善25倍。视觉编码器与Robotaxi、Optimus共享，Reality View上线，路线规划开始学习车队偏好。25倍到底指什么，离无人驾驶还有多远？</span></span></a></li>
-      <li><a href="/ai/trends/xpeng-robot-ces-visa-denial"><span class="latest-row-head"><span class="latest-row-title">小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？</span><span class="latest-row-date">· <time datetime="2026-11-22">2026.11.22</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-22-xpeng-robot-ces-visa-denial-cover-shi-tu-pei-wen.jpg" alt="小鹏机器人赴美遭拒签：美国开始限制中国AI工程师了？" loading="lazy" decoding="async" /><span class="latest-row-desc">11月19日《日经亚洲》报道，小鹏、众擎等中国机器人企业的部分技术人员申请赴美参加 CES 遭拒签，一家企业 15 名技术人员全被拒后退出 CES。签证、设备认证、出口管制，三重门槛意味着什么？</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>

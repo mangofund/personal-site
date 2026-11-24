@@ -912,6 +912,12 @@
 /
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/ai-server-price-cost-profit
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/ai-server-price-cost-profit/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/asset-allocation/fed-rate-hikes-market-crash
   Cache-Control: public, max-age=0, must-revalidate
 
