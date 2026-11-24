@@ -435,12 +435,6 @@
 /ai/trends/october-cpi-rate-hike-covered-calls/
   Cache-Control: public, max-age=0, must-revalidate
 
-/ai/trends/platform-index-catalog
-  Cache-Control: public, max-age=0, must-revalidate
-
-/ai/trends/platform-index-catalog/
-  Cache-Control: public, max-age=0, must-revalidate
-
 /ai/trends/rea-software-replicability
   Cache-Control: public, max-age=0, must-revalidate
 
