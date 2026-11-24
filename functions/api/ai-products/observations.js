@@ -1,4 +1,5 @@
 import { regions, subscriptions, trackers, initialStore, initialFx, initialSignals, storeUrl, snapshotDate } from '../../../lib/ai-product-data.mjs'
+import { initialCodex, refreshCodex } from '../../../lib/codex-reset.mjs'
 
 const hour = 3600
 const day = 24 * hour
@@ -84,7 +85,7 @@ export function signalDate(text, date) {
   const parsed = Date.parse(iso)
   return Number.isFinite(parsed) && new Date(parsed).toISOString().startsWith(iso) ? iso : null
 }
-async function signals(kv) {
+async function otherSignals(kv) {
   const fallback = Object.fromEntries(Object.entries(initialSignals).map(([id, date]) => [id, { checked: snapshotDate, dates: [date] }]))
   return observe('signals', fallback, hour, async previous => {
     const entries = await collect(await remote('https://betteropc.com/'), 'a[href*="/ai-products/reset-signals/"]')
@@ -92,7 +93,7 @@ async function signals(kv) {
     let found = false
     for (const { href, text } of entries) {
       const id = href?.split('/').pop()
-      if (!Object.hasOwn(trackers, id)) continue
+      if (id === 'codex' || !Object.hasOwn(trackers, id)) continue
       const date = signalDate(text, today())
       if (!date) continue
       next[id] = { checked: today(), dates: [...new Set([date, ...next[id].dates])].sort().reverse().slice(0, 60) }
@@ -106,6 +107,15 @@ async function signals(kv) {
 export async function onRequestGet({ request, env }) {
   const product = new URL(request.url).searchParams.get('product')
   if (product !== 'signals' && !Object.hasOwn(subscriptions, product)) return new Response(null, { status: 400 })
-  const data = product === 'signals' ? await signals(env.STATS_KV) : await prices(product, env.STATS_KV)
+  let data
+  if (product === 'signals') {
+    const [others, codex] = await Promise.all([
+      otherSignals(env.STATS_KV),
+      observe('codex-x', initialCodex, hour, previous => refreshCodex(previous, env.X_BEARER_TOKEN, remote, today), env.STATS_KV)
+    ])
+    data = { ...others, codex: { ...codex, dates: [...new Set(codex.posts.map(post => post.date))] } }
+  } else {
+    data = await prices(product, env.STATS_KV)
+  }
   return Response.json(data, { headers: { 'Cache-Control': 'public, max-age=900' } })
 }
