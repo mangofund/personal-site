@@ -3,7 +3,7 @@ import { regions, subscriptions, trackers, initialStore, initialFx, initialSigna
 const hour = 3600
 const day = 24 * hour
 const today = () => new Date(Date.now() + 8 * hour * 1000).toISOString().slice(0, 10)
-const namespace = 'ai-products:v1:'
+const namespace = 'ai-products:v2:'
 
 async function observe(key, fallback, ttl, read, kv) {
   const cached = kv && await kv.get(namespace + key, 'json').catch(() => null)
@@ -42,12 +42,12 @@ async function collect(response, selector) {
 }
 
 export function pricesFromRows(entries, plans, region) {
-  const symbol = region === 'gb' ? '£' : '$'
+  const symbol = ({ gb: '£', ph: '₱' })[region] || '$'
   return plans.map(plan => {
     const amounts = entries.flatMap(({ text }) => {
       const row = text.replace(/\s+/g, ' ').trim()
       if (!row.startsWith(plan)) return []
-      const match = /^(?:US|CA|CAD|USD|GBP)?\s*([$£])\s*([\d,]+\.\d{2})$/.exec(row.slice(plan.length).trim())
+      const match = /^(?:US|CA|CAD|USD|GBP)?\s*([$£₱])\s*([\d,]+\.\d{2})$/.exec(row.slice(plan.length).trim())
       return match && match[1] === symbol ? [Number(match[2].replace(/,/g, ''))] : []
     })
     return amounts.length ? Math.min(...amounts) : null
