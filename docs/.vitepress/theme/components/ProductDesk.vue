@@ -103,8 +103,20 @@ async function mutate(action, id) {
   </nav>
   <section v-if="section === 'pricing'">
     <h2>{{ labels[0] }}</h2>
-    <div class="controls"><label>{{ t('产品', 'Product') }}<select v-model="selected"><option v-for="(p, id) in subscriptions" :value="id">{{ p.name }}</option></select></label>
-    <label>{{ t('套餐', 'Plan') }}<select v-model="plan"><option v-for="(p, i) in subscriptions[selected].plans" :value="i">{{ p }}</option></select></label></div>
+    <fieldset class="switches">
+      <legend>{{ t('产品', 'Product') }}</legend>
+      <div class="choices">
+        <button v-for="(product, id) in subscriptions" :key="id" type="button"
+          :aria-pressed="selected === id" @click="selected = id">{{ product.name }}</button>
+      </div>
+    </fieldset>
+    <fieldset class="switches">
+      <legend>{{ t('套餐', 'Plan') }}</legend>
+      <div class="choices">
+        <button v-for="(name, i) in subscriptions[selected].plans" :key="name" type="button"
+          :aria-pressed="plan === i" @click="plan = i">{{ name }}</button>
+      </div>
+    </fieldset>
     <p>{{ t('按人民币参考价排序。同名内购有多个价格时取最低展示价，扣费周期及税费请核对当地商店。', 'Sorted by estimated CNY. For duplicate purchase names, the lowest listed price is shown. Check the store for billing period and tax.') }}</p>
     <div class="table-wrap"><table><thead><tr><th>{{ t('地区 / 来源', 'Storefront') }}</th><th>{{ t('当地价格', 'Local price') }}</th><th>{{ t('约合人民币', 'Est. CNY') }}</th><th>{{ t('采集日期', 'Observed') }}</th></tr></thead>
     <tbody><tr v-for="row in sorted" :key="row.id"><td><a :href="storeUrl(selected, row.id)">{{ english ? row.region.en : row.region.zh }} ↗</a></td>
@@ -117,7 +129,13 @@ async function mutate(action, id) {
   </section>
   <section v-else-if="section === 'resets'">
     <h2>{{ labels[1] }}</h2><p>{{ t('跟踪 BetterOPC 公开报道的产品级额度重置。个人账号的剩余额度和刷新时间请在产品内查看。', 'Tracks product-wide reset reports from BetterOPC. Check your account for your own usage window.') }}</p>
-    <div class="controls"><label>{{ t('产品', 'Product') }}<select v-model="tracker"><option v-for="(name, id) in trackers" :value="id">{{ name }}</option></select></label></div>
+    <fieldset class="switches">
+      <legend>{{ t('产品', 'Product') }}</legend>
+      <div class="choices">
+        <button v-for="(name, id) in trackers" :key="id" type="button"
+          :aria-pressed="tracker === id" @click="tracker = id">{{ name }}</button>
+      </div>
+    </fieldset>
     <h3>{{ trackers[tracker] }}</h3><small>{{ t('来源核对日期', 'Source checked') }} {{ signals[tracker].checked }}</small>
     <ul><li v-for="date in signals[tracker].dates" :key="date"><time>{{ date }}</time> · {{ t('来源收录了额度重置', 'Quota reset reported') }}</li></ul>
     <a :href="signalUrl(tracker)">{{ t('查看来源及完整历史', 'Source and full history') }} ↗</a>
@@ -147,10 +165,17 @@ nav a{padding:10px 0;color:var(--vp-c-text-2);border-bottom:3px solid transparen
 nav a[aria-current]{color:var(--vp-c-brand-1);border-color:currentColor}
 h2{font-size:1.5rem;font-weight:650;margin-bottom:12px}h3{font-weight:650;font-size:1.1rem;margin:22px 0 8px}
 p,small{color:var(--vp-c-text-2);line-height:1.65}p{margin:12px 0}small{display:block}
+.switches{min-width:0;margin:16px 0;padding:0;border:0}
+.switches legend{padding:0;margin-bottom:6px;font-size:.86rem;font-weight:600;color:var(--vp-c-text-2)}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choices button{min-height:44px;max-width:100%;padding:7px 14px;border-radius:8px;color:var(--vp-c-text-2);line-height:1.35}
+.choices button:hover{border-color:var(--vp-c-brand-1)}
+.choices button[aria-pressed=true]{background:var(--vp-c-brand-soft);border-color:var(--vp-c-brand-1);color:var(--vp-c-brand-1)}
+.choices button:focus-visible{outline:2px solid var(--vp-c-brand-1);outline-offset:2px}
 .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:18px 0}
 label{display:grid;gap:5px;font-size:.86rem;font-weight:600}
-select,input,button{font:inherit;border:1px solid var(--vp-c-divider);padding:8px 12px;border-radius:7px;background:var(--vp-c-bg);color:var(--vp-c-text-1)}
-select{appearance:auto}button,summary{cursor:pointer}button{font-weight:600;color:var(--vp-c-brand-1)}button:disabled{opacity:.6}
+input,button{font:inherit;border:1px solid var(--vp-c-divider);padding:8px 12px;border-radius:7px;background:var(--vp-c-bg);color:var(--vp-c-text-1)}
+button,summary{cursor:pointer}button{font-weight:600;color:var(--vp-c-brand-1)}button:disabled{opacity:.6}
 a{color:var(--vp-c-brand-1)}section a{text-decoration:underline;text-underline-offset:3px}
 .table-wrap{overflow:auto;margin:16px 0 8px}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;white-space:nowrap}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--vp-c-divider)}th{background:var(--vp-c-bg-soft);font-size:.85rem}
 details{margin:20px 0;padding:12px 0;border-top:1px solid var(--vp-c-divider)}details div{margin-top:10px}.point{display:block;font-size:.88rem}
