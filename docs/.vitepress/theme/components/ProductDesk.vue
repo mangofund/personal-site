@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { regions, subscriptions, webPlans, trackers, initialStore, initialFx, initialSignals, snapshotDate, storeUrl, signalUrl } from '../../../../lib/ai-product-data.mjs'
+import { initialCodex, codexProfile } from '../../../../lib/codex-reset.mjs'
 
 const props = defineProps({ english: Boolean, detail: String })
 const t = (zh, en) => props.english ? en : zh
@@ -13,7 +14,10 @@ const official = computed(() => webPlans[selected.value])
 const base = import.meta.env.BASE_URL + (props.english ? 'en/' : '')
 const detailUrl = id => base + 'ai-products/reset-signals/' + id
 const prices = ref({}), fx = ref(initialFx)
-const signals = ref(Object.fromEntries(Object.entries(initialSignals).map(([key, date]) => [key, { checked: snapshotDate, dates: [date] }])))
+const signals = ref({
+  ...Object.fromEntries(Object.entries(initialSignals).map(([key, date]) => [key, { checked: snapshotDate, dates: [date] }])),
+  codex: initialCodex
+})
 const items = ref([]), product = ref(''), code = ref(''), received = ref(null)
 const listState = ref('loading'), notice = ref(''), busy = ref(false), refreshState = ref('')
 let revision = 0, mounted = false
@@ -46,7 +50,7 @@ async function load() {
     } else {
       const data = await api('observations?product=' + (which === 'resets' ? 'signals' : key))
       if (seq !== revision) return
-      if (which === 'resets') signals.value = data
+      if (which === 'resets') signals.value = { ...data, codex: data.codex?.posts ? data.codex : initialCodex }
       else { prices.value = { ...prices.value, [key]: data.stores }; fx.value = data.fx }
     }
     refreshState.value = ''
@@ -149,7 +153,7 @@ async function mutate(action, id) {
     </template>
   </section>
   <section v-else-if="section === 'resets'">
-    <h2 v-if="!detail">{{ labels[1] }}</h2><p>{{ t('跟踪 BetterOPC 公开报道的产品级额度重置。个人账号的剩余额度和刷新时间请在产品内查看。', 'Tracks product-wide reset reports from BetterOPC. Check your account for your own usage window.') }}</p>
+    <h2 v-if="!detail">{{ labels[1] }}</h2><p>{{ t('跟踪公开发布的产品级额度重置。个人账号的剩余额度和刷新时间请在产品内查看。', 'Tracks public product-wide reset reports. Check your account for your own usage window.') }}</p>
     <fieldset v-if="!detail" class="switches">
       <legend>{{ t('产品', 'Product') }}</legend>
       <div class="choices">
@@ -157,10 +161,21 @@ async function mutate(action, id) {
           :aria-pressed="tracker === id" @click="tracker = id">{{ name }}</button>
       </div>
     </fieldset>
-    <h3 v-if="!detail">{{ trackers[tracker] }}</h3><small>{{ t('来源核对日期', 'Source checked') }} {{ signals[tracker].checked }}</small>
-    <ul><li v-for="date in signals[tracker].dates" :key="date"><time>{{ date }}</time> · {{ t('来源收录了额度重置', 'Quota reset reported') }}</li></ul>
+    <h3 v-if="!detail">{{ trackers[tracker] }}</h3><small v-if="signals[tracker].checked">{{ t('来源核对日期', 'Source checked') }} {{ signals[tracker].checked }}</small>
+    <template v-if="tracker === 'codex'">
+      <a :href="codexProfile">X · @thsottiaux ↗</a>
+      <small v-if="signals.codex.via !== 'x'">{{ t('通过公开索引查找原帖。日期为北京时间的发帖日期。', 'Original posts found through a public index. Dates use China Standard Time.') }}</small>
+      <ul>
+        <li v-for="post in signals.codex.posts" :key="post.id">
+          <time :datetime="post.date">{{ post.date }}</time> ·
+          {{ post.kind === 'credit' ? t('已发放重置卡', 'Banked reset issued') : t('已确认额度重置', 'Reset confirmed') }} ·
+          <a :href="post.url">{{ t('查看原帖', 'View original post') }} ↗</a>
+        </li>
+      </ul>
+    </template>
+    <ul v-else><li v-for="date in signals[tracker].dates" :key="date"><time>{{ date }}</time> · {{ t('来源收录了额度重置', 'Quota reset reported') }}</li></ul>
     <p v-if="!detail && webPlans[tracker]"><a :href="detailUrl(tracker)">{{ trackers[tracker] }} · {{ t('打开详情页', 'Open detail page') }} →</a></p>
-    <a :href="signalUrl(tracker)">{{ t('查看来源及完整历史', 'Source and full history') }} ↗</a>
+    <a v-if="tracker !== 'codex'" :href="signalUrl(tracker)">{{ t('查看来源及完整历史', 'Source and full history') }} ↗</a>
   </section>
   <section v-else>
     <h2>{{ labels[2] }}</h2><p>{{ t('分享单次使用的公开邀请码。每个码仅发给一位领取者，未领取的码保留七天。', 'Share a single-use public product invite. Each code goes to one visitor and expires here after seven days.') }}</p>
