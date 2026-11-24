@@ -530,7 +530,7 @@ const llms = `# ${SITE_TITLE}
 
 ## 栏目
 
-- [AI](${CANONICAL_URL}/ai)：AI 趋势、Agent、AI 编程
+- [AI 产品工具](${CANONICAL_URL}/ai/)：订阅比价、额度重置记录与邀请码共享
 - [投资](${CANONICAL_URL}/investment)：美股与长期主义
 - [思考](${CANONICAL_URL}/thinking)：财富、技术与社会
 - [工具](${CANONICAL_URL}/unnoticed/)：网友提交的独立作品，确认简介后即公开展示
@@ -550,7 +550,7 @@ writeFileSync(join(PUBLIC_DIR, 'llms.txt'), llms)
 const LATEST_CAROUSEL = 3
 const LATEST_CARDS = 4
 const LATEST_ROWS = 6
-const TOPIC_LINKS = { AI: '/ai/', 投资: '/investment/', 思考: '/thinking/' }
+const TOPIC_LINKS = { AI: '/archive?category=AI', 投资: '/investment/', 思考: '/thinking/' }
 const imgPath = (it) => (it.image ? (it.image.startsWith('/') ? it.image : '/' + it.image) : '')
 const isoDay = (it) => it.dateStr.replace(/\./g, '-')
 const metaHtml = (it) => '<span class="article-card-meta">' + (it.category ? '<span class="article-card-cat">' + esc(it.category) + '</span>' : '') +
@@ -732,12 +732,15 @@ function writeFeedBlock(mdPath, marker, html) {
   if (updated !== src) writeFileSync(mdPath, updated)
 }
 
-writeFeedBlock(join(DOCS_DIR, 'archive.md'), 'ARCHIVE', renderFeed(items, (it) => it.category || '未分类'))
+// Keep former AI section entries discoverable, including undated workflow guides.
+function archiveItems(dated, locale) {
+  const existing = new Set(dated.map(item => item.urlPath))
+  const guides = collectSectionItems('ai', locale).filter(item => !existing.has(item.urlPath))
+  return [...dated, ...guides.map(item => ({ ...item, category: 'AI' }))].sort(compareByRecency)
+}
 
-// ---- AI 栏目页:同归档页版式(无侧栏),收 docs/ai/ 下全部中文页面,按子目录筛选 ----
-// workflows 等落地页没写 date,也不进 RSS/归档,这里用内容最后修改日期补上
-const AI_TABS = [['design', '设计'], ['trends', '趋势'], ['agents', 'Agent'], ['coding', 'Coding'], ['workflows', '工作流'], ['products', '产品'], ['thinking', '思考']]
-const AI_TABS_EN = [['trends', 'Trends'], ['agents', 'Agents'], ['coding', 'Coding'], ['workflows', 'Workflows'], ['products', 'Products'], ['thinking', 'Thinking']]
+writeFeedBlock(join(DOCS_DIR, 'archive.md'), 'ARCHIVE', renderFeed(archiveItems(items, 'zh'), (it) => it.category || '未分类'))
+
 // 栏目页共用:收 docs/<栏目>/ 或 docs/en/<栏目>/ 下的页面,按子目录筛选
 function collectSectionItems(section, locale = 'zh') {
   const prefix = locale === 'en' ? `en/${section}/` : `${section}/`
@@ -765,7 +768,6 @@ function collectSectionItems(section, locale = 'zh') {
   }
   return out.sort(compareByRecency)
 }
-writeFeedBlock(join(DOCS_DIR, 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai'), (it) => it.group, AI_TABS, 'list'))
 
 const THINKING_TABS = [['society', '社会'], ['first-principles', '第一性原理'], ['wealth', '财富'], ['technology', '技术'], ['life', '生活']]
 const INVESTMENT_TABS = [['tesla', 'Tesla'], ['us-stocks', '美股'], ['hk-stocks', '港股'], ['ai-infrastructure', 'AI 基础设施'], ['asset-allocation', '资产配置'], ['methodology', '方法论'], ['crypto', '加密货币']]
@@ -776,7 +778,6 @@ writeFeedBlock(join(DOCS_DIR, 'investment', 'index.md'), 'INVESTMENT-FEED', rend
 const EN_FEED_LABELS = { all: 'All', aria: 'Filter by category', empty: 'No English notes in this section yet.' }
 const THINKING_TABS_EN = [['society', 'Society'], ['first-principles', 'First principles'], ['wealth', 'Wealth'], ['technology', 'Technology'], ['life', 'Life']]
 const INVESTMENT_TABS_EN = [['tesla', 'Tesla'], ['us-stocks', 'US stocks'], ['hk-stocks', 'Hong Kong stocks'], ['ai-infrastructure', 'AI infrastructure'], ['asset-allocation', 'Asset allocation'], ['methodology', 'Methodology']]
-writeFeedBlock(join(DOCS_DIR, 'en', 'ai', 'index.md'), 'AI-FEED', renderFeed(collectSectionItems('ai', 'en'), (it) => it.group, AI_TABS_EN, 'list', EN_FEED_LABELS))
 writeFeedBlock(join(DOCS_DIR, 'en', 'thinking', 'index.md'), 'THINKING-FEED', renderFeed(collectSectionItems('thinking', 'en'), (it) => it.group, THINKING_TABS_EN, 'list', EN_FEED_LABELS))
 writeFeedBlock(join(DOCS_DIR, 'en', 'investment', 'index.md'), 'INVESTMENT-FEED', renderFeed(collectSectionItems('investment', 'en'), (it) => it.group, INVESTMENT_TABS_EN, 'list', EN_FEED_LABELS))
 
@@ -803,7 +804,7 @@ function collectEnglishArticles() {
   }
   return out.sort(compareByRecency)
 }
-writeFeedBlock(join(DOCS_DIR, 'en', 'archive.md'), 'ARCHIVE', renderFeed(collectEnglishArticles(), (it) => it.category, undefined, 'cards', EN_FEED_LABELS))
+writeFeedBlock(join(DOCS_DIR, 'en', 'archive.md'), 'ARCHIVE', renderFeed(archiveItems(collectEnglishArticles(), 'en'), (it) => it.category, undefined, 'cards', EN_FEED_LABELS))
 
 // ---- articles.json:给「我的收藏」页用的文章清单(含更新时间) ----
 // updated 取 git 最后提交时间(frontmatter 写了 updated 则优先),收藏夹用它判断"有更新"

@@ -6,9 +6,12 @@ pageClass: archive-discover
 ---
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 // 分类筛选:'all' 或分类名;卡片和标签的绑定由 scripts/gen-seo.mjs 生成
 const filter = ref('all')
+onMounted(() => {
+  if (new URLSearchParams(location.search).get('category') === 'AI') filter.value = 'AI'
+})
 </script>
 
 <div class="archive-page">
