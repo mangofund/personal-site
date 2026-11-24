@@ -978,6 +978,12 @@
 /investment/asset-allocation/fed-rate-hikes-market-crash/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/asset-allocation/fu-peng-market-crash
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/asset-allocation/fu-peng-market-crash/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/asset-allocation/gold-below-3800
   Cache-Control: public, max-age=0, must-revalidate
 
