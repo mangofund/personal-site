@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-23T15:01:15.460467Z",
+  "generatedAt": "2026-11-24T00:00:17.057524Z",
   "source": "mei-ri-tui-song",
-  "count": 128,
+  "count": 129,
   "items": [
+    {
+      "key": "wechat||2026-11-24",
+      "id": 129,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-24",
+      "title": "公众号数据 11月24日",
+      "summary": "需扫码登录，未出数据",
+      "body": "公众号数据 11月24日\n\n今天是 2026 年 11 月 24 日。打开微信公众平台后台 mp.weixin.qq.com 后，页面停留在登录页，显示二维码，提示“微信扫一扫，选择公众平台账号登录”。保存的登录会话已失效，未能进入 PRO的茶里芒果 后台，无法读取任何数据。\n\n本期日报暂无数据：昨日阅读、近 7 天数据、最近群发文数据均未读取到。需用户本人用微信扫码登录公众号后台后，重新执行数据核查。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-23T23:55:54.159Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|TSLA|2026-11-23",
       "id": 128,
