@@ -321,6 +321,12 @@
 /ai/trends/hongguo-ai-attention/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/huang-return-ai-bubble
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/huang-return-ai-bubble/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends
   Cache-Control: public, max-age=0, must-revalidate
 
