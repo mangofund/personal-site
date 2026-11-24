@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-24T15:00:01.583424Z",
+  "generatedAt": "2026-11-24T16:59:47.619993Z",
   "source": "mei-ri-tui-song",
-  "count": 137,
+  "count": 138,
   "items": [
+    {
+      "key": "alerts|SPCX|2026-11-25",
+      "id": 138,
+      "category": "alerts",
+      "slot": "SPCX",
+      "pushDate": "2026-11-25",
+      "title": "异动提醒 · SpaceX（SPCX）",
+      "summary": "SPCX -5.93%",
+      "body": "SpaceX（SPCX）盘中跌 5.93%，现价 125.45 美元，上收 133.35 美元。\n\n昨天刚涨 4.35%，今天跟着整个 AI 板块回吐，英伟达跌 6% 出头，美光跌 8% 多。\n\nMizuho 今天给了 Buy 评级、目标价 205 美元，不过这只是接手前任分析师的评级，目标价和原来一样，没托住股价。",
+      "metrics": null,
+      "status": "ok",
+      "statusNote": null,
+      "fetchedAt": "2026-11-24T16:39:42.056Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|NBIS|2026-11-24",
       "id": 137,
