@@ -56,15 +56,19 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/xiaomi-2026-q3"><img class="hc-img" src="/images/xiaomi-2026-q3-cover.jpg" alt="小米少赚64亿元，钱到底去哪了？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/investment/shenzhou-24"><img class="hc-img" src="/images/2026-11-25-shenzhou-24-cover-photo.jpg" alt="神舟二十四号之后，中国商业航天离赚钱还有多远？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/xiaomi-2026-q3"><img class="hc-img" src="/images/xiaomi-2026-q3-cover.jpg" alt="小米少赚64亿元，钱到底去哪了？" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/ai-short-drama-chouhu"><img class="hc-img" src="/images/ai-short-drama-chouhu-cover.jpg" alt="有人用AI做出《丑狐》短剧，首集三天播放破亿" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/investment/asset-allocation/fu-peng-market-crash"><img class="hc-img" src="/images/2026-11-25-fu-peng-market-crash-cover.jpg" alt="为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/xiaomi-2026-q3">
+        <a class="hc-panel is-active" href="/investment/shenzhou-24">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
+          <strong>神舟二十四号之后，中国商业航天离赚钱还有多远？</strong><small>一枚火箭的平均成本降了近两成，造火箭的公司却在九个月里亏了约7.49亿元。本文从中科宇航的招股书出发，拆解成本、发射频率、回收复用与星座订单，看中国商业航天离赚钱还有多远。</small>
+        </a>
+        <a class="hc-panel" href="/investment/xiaomi-2026-q3">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
           <strong>小米少赚64亿元，钱到底去哪了？</strong><small>小米三季度经调整净利润 48.84 亿元，同比少赚 64.27 亿元。研发只多花了 1.83 亿，钱到底去哪了？本文从利润表出发，拆四门生意的毛利缺口、汽车的盈亏平衡与 AI 投入的回报周期。</small>
         </a>
@@ -72,15 +76,11 @@ onUnmounted(() => { if (hcStop) hcStop() })
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-25">2026.11.25</time></span>
           <strong>有人用AI做出《丑狐》短剧，首集三天播放破亿</strong><small>一个人加 AI 做出《丑狐》，首集三天播放破亿。但能复制的不是爆款本身，而是它背后的工时分配、定脸返工与结算结构。</small>
         </a>
-        <a class="hc-panel" href="/investment/asset-allocation/fu-peng-market-crash">
-          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
-          <strong>为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感</strong><small>读付鹏访谈有感：泡沫里人人都觉得自己能跑掉，但低波动、高杠杆与拥挤交易会让流动性瞬间消失。从凯恩斯选美、明斯基时刻到欧洲央行对 AI 债务融资的警告，一次讲清崩盘的剧本。</small>
-        </a>
       </div>
     </div>
-      <a class="article-card" href="/investment/shenzhou-24">
-        <img class="article-card-thumb" src="/images/2026-11-25-shenzhou-24-cover-photo.jpg" alt="神舟二十四号之后，中国商业航天离赚钱还有多远？" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span><strong>神舟二十四号之后，中国商业航天离赚钱还有多远？</strong></div>
+      <a class="article-card" href="/investment/asset-allocation/fu-peng-market-crash">
+        <img class="article-card-thumb" src="/images/2026-11-25-fu-peng-market-crash-cover.jpg" alt="为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span><strong>为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/mental-obesity">
         <img class="article-card-thumb" src="/images/2026-11-24-mental-obesity-cover.jpg" alt="人类正在进入精神肥胖时代" loading="lazy" decoding="async" />

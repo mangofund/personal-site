@@ -64,10 +64,10 @@ draft: false
 如果把2023年的平均成本标成100，2024年约为89，2025年前三季度约为71，这条曲线告诉我们生产端已经出现改善，至于每卖一发能留下多少钱，曲线还缺了成交价那一半。
 
 <div class="article-figure">
-**还原后单发平均成本指数**2023　100
-2024　89
-2025年前三季度　71
-
+<b>还原后单发平均成本指数</b><br>
+2023　<i style="display:inline-block;height:10px;background:#328485;width:100%"></i> 100<br>
+2024　<i style="display:inline-block;height:10px;background:#328485;width:89%"></i> 89<br>
+2025年前三季度　<i style="display:inline-block;height:10px;background:#328485;width:71%"></i> 71<br>
 <small>按招股书披露的降幅推算，2023年＝100。</small>
 </div>
 
