@@ -56,21 +56,21 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/asset-allocation/fu-peng-market-crash"><img class="hc-img" src="/images/2026-11-25-fu-peng-market-crash-cover.jpg" alt="为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/ai/trends/ai-short-drama-chouhu"><img class="hc-img" src="/images/2026-11-25-chouhu-cover.png" alt="AI短剧《丑狐》：一个人如何接住爆款？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/ai-short-drama-chouhu"><img class="hc-img" src="/images/2026-11-25-chouhu-cover.png" alt="AI短剧《丑狐》：一个人如何接住爆款？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/asset-allocation/fu-peng-market-crash"><img class="hc-img" src="/images/2026-11-25-fu-peng-market-crash-cover.jpg" alt="为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/mental-obesity"><img class="hc-img" src="/images/2026-11-24-mental-obesity-cover.jpg" alt="人类正在进入精神肥胖时代" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/asset-allocation/fu-peng-market-crash">
-          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
-          <strong>为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感</strong><small>读付鹏访谈有感：泡沫里人人都觉得自己能跑掉，但低波动、高杠杆与拥挤交易会让流动性瞬间消失。从凯恩斯选美、明斯基时刻到欧洲央行对 AI 债务融资的警告，一次讲清崩盘的剧本。</small>
-        </a>
-        <a class="hc-panel" href="/ai/trends/ai-short-drama-chouhu">
+        <a class="hc-panel is-active" href="/ai/trends/ai-short-drama-chouhu">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-25">2026.11.25</time></span>
           <strong>AI短剧《丑狐》：一个人如何接住爆款？</strong><small>一个人加 AI，三天做一集，八集不到一个月，《丑狐》爆了。但能复制的不是爆款本身，而是它背后的故事交付、返工控制与结算结构。</small>
+        </a>
+        <a class="hc-panel" href="/investment/asset-allocation/fu-peng-market-crash">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
+          <strong>为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感</strong><small>读付鹏访谈有感：泡沫里人人都觉得自己能跑掉，但低波动、高杠杆与拥挤交易会让流动性瞬间消失。从凯恩斯选美、明斯基时刻到欧洲央行对 AI 债务融资的警告，一次讲清崩盘的剧本。</small>
         </a>
         <a class="hc-panel" href="/ai/trends/mental-obesity">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-24">2026.11.24</time></span>
