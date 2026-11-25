@@ -363,6 +363,12 @@
 /ai/trends/huang-return-ai-bubble/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/humanoid-factory-orders
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/humanoid-factory-orders/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends
   Cache-Control: public, max-age=0, must-revalidate
 
