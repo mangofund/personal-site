@@ -56,7 +56,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/ai/trends/ai-short-drama-chouhu"><img class="hc-img" src="/images/2026-11-25-chouhu-cover.png" alt="AI短剧《丑狐》：一个人如何接住爆款？" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/ai/trends/ai-short-drama-chouhu"><img class="hc-img" src="/images/ai-short-drama-chouhu-cover.jpg" alt="有人用AI做出《丑狐》短剧，首集三天播放破亿" loading="eager" fetchpriority="high" decoding="async" /></a>
         <a class="hc-slide" href="/investment/asset-allocation/fu-peng-market-crash"><img class="hc-img" src="/images/2026-11-25-fu-peng-market-crash-cover.jpg" alt="为什么每次市场崩盘，大多数人都跑不掉？——读付鹏访谈有感" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/mental-obesity"><img class="hc-img" src="/images/2026-11-24-mental-obesity-cover.jpg" alt="人类正在进入精神肥胖时代" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
@@ -66,7 +66,7 @@ onUnmounted(() => { if (hcStop) hcStop() })
       <div class="hc-panels">
         <a class="hc-panel is-active" href="/ai/trends/ai-short-drama-chouhu">
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-25">2026.11.25</time></span>
-          <strong>AI短剧《丑狐》：一个人如何接住爆款？</strong><small>一个人加 AI，三天做一集，八集不到一个月，《丑狐》爆了。但能复制的不是爆款本身，而是它背后的故事交付、返工控制与结算结构。</small>
+          <strong>有人用AI做出《丑狐》短剧，首集三天播放破亿</strong><small>一个人加 AI 做出《丑狐》，首集三天播放破亿。但能复制的不是爆款本身，而是它背后的工时分配、定脸返工与结算结构。</small>
         </a>
         <a class="hc-panel" href="/investment/asset-allocation/fu-peng-market-crash">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
