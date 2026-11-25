@@ -1128,6 +1128,12 @@
 /investment/us-stocks/pinduoduo-q3-2026-earnings/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/xiaomi-2026-q3
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/xiaomi-2026-q3/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /privacy
   Cache-Control: public, max-age=0, must-revalidate
 
