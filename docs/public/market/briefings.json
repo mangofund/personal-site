@@ -1,9 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-24T16:59:47.619993Z",
+  "generatedAt": "2026-11-25T00:00:19.833452Z",
   "source": "mei-ri-tui-song",
-  "count": 138,
+  "count": 139,
   "items": [
+    {
+      "key": "wechat||2026-11-25",
+      "id": 139,
+      "category": "wechat",
+      "slot": "",
+      "pushDate": "2026-11-25",
+      "title": "公众号数据 11月25日",
+      "summary": "需扫码登录，后台未读取",
+      "body": "公众号数据 11月25日\n\n今天是 11月25日。微信公众号后台 mp.weixin.qq.com 未能登录，停在扫码登录页（提示“暂未开启微信快捷登录”），且没有可用于 qq.com 的已保存登录，无法复用 PRO的茶里芒果 的登录会话。本期日报无数据可报：昨日（11月24日）及近 7 天数据、最近 5 篇群发文数据、草稿箱核对均未读取，未用旧数顶替。\n\n需扫码登录后重新读取后台数据。",
+      "metrics": null,
+      "status": "blocked",
+      "statusNote": "需扫码登录",
+      "fetchedAt": "2026-11-24T23:56:28.068Z",
+      "isPinned": false
+    },
     {
       "key": "alerts|SPCX|2026-11-25",
       "id": 138,
