@@ -711,6 +711,30 @@
 /en/friends/
   Cache-Control: public, max-age=0, must-revalidate
 
+/en/games/courier
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games/courier/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games/merge
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games/merge/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games/survey
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/games/survey/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /en
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -973,6 +997,30 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /friends/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/courier
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/courier/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/merge
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/merge/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/survey
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/survey/
   Cache-Control: public, max-age=0, must-revalidate
 
 /guestbook

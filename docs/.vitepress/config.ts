@@ -171,6 +171,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: 'AI', link: '/ai/', activeMatch: '^/ai/' },
+      { text: '小游戏', link: '/games/', activeMatch: '^/games/' },
       { text: '技能', link: '/skills/', activeMatch: '^/skills/' },
       { text: '项目', link: '/projects/', activeMatch: '^/projects/' },
       { text: '工具', link: '/unnoticed/', activeMatch: '^/unnoticed/' },
@@ -263,6 +264,7 @@ export default defineConfig({
         nav: [
           { text: 'Home', link: '/en/', activeMatch: '^/en/?$' },
           { text: 'AI', link: '/en/ai/', activeMatch: '^/en/ai/' },
+          { text: 'Games', link: '/en/games/', activeMatch: '^/en/games/' },
           { text: 'Skills', link: '/en/skills/', activeMatch: '^/en/skills/' },
           { text: 'Projects', link: '/en/projects/', activeMatch: '^/en/projects/' },
           { text: 'Tools', link: '/en/unnoticed/', activeMatch: '^/en/unnoticed/' },
