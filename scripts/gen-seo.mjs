@@ -236,9 +236,14 @@ function publishedAtOf(file, frontmatterDate) {
     return parsed
   }
   const snap = Date.parse(snapshotDates.get(rel) || '')
-  if (Number.isNaN(snap)) return 0
-  if (wantDay && shanghaiDay(snap) !== day) return 0
-  return snap
+  if (!Number.isNaN(snap) && (!wantDay || shanghaiDay(snap) === day)) return snap
+  // 全新未提交文件:git 无记录、快照无记录。回退到构建时刻(正在发布),而不是 0。
+  // 回 0 会让它在同日里 publishedAt 最小、排最后,首建沉底,下次构建 git 里有了
+  // 提交时间才跳回正确位置。不用文件 mtime:它是写入时间,不是发布时间;
+  // 构建时刻才是发布时刻,且一定晚于同日已提交文章,首建即排到正确位置。
+  // 已提交过的文件不走这条(history 非空),保持回 0。
+  if (history.length === 0 && Number.isNaN(snap)) return Date.now()
+  return 0
 }
 
 function articleOrder(fm) {
@@ -823,7 +828,9 @@ for (const file of files) {
     const ud = new Date(fm.updated)
     if (!Number.isNaN(ud.getTime())) updated = ud.toISOString()
   }
-  if (!updated) updated = gitDates.get(repoRel(file)) || snapshotDates.get(repoRel(file)) || d.toISOString()
+  // 全新未提交文件:git 与快照里都没有。回退到构建时刻(正在发布),
+  // 而不是 date 当天 UTC 午夜(d.toISOString());午夜比同日已提交文章的真实时间早,看着也旧。
+  if (!updated) updated = gitDates.get(repoRel(file)) || snapshotDates.get(repoRel(file)) || new Date().toISOString()
   // tags: [AI, X, 自动化] 解析成数组,给每日统计的热门页面配标题用
   let tags = []
   if (fm.tags) {
