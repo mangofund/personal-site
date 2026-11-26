@@ -1062,6 +1062,12 @@
 /investment/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/liang-wenfeng-deepseek-valuation
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/liang-wenfeng-deepseek-valuation/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/methodology/ai-invest-clear
   Cache-Control: public, max-age=0, must-revalidate
 
