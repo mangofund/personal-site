@@ -1086,6 +1086,12 @@
 /investment/shenzhou-24/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/spacex-starmind
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/spacex-starmind/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/tesla
   Cache-Control: public, max-age=0, must-revalidate
 
