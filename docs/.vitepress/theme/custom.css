@@ -456,11 +456,31 @@ html {
   margin-top: -5px;
 }
 
-/* ---- 首页「今日」区：金价 / 热搜两块，桌面两列、手机上下堆 ---- */
-.home-today .today-grid {
+/* ---- 首页文章区三栏：左栏金价 / 中间文章 / 右栏热搜 ---- */
+/* 手机单列：金价、热搜叠在文章上面（和原来今日区在顶部的顺序一致） */
+.home-article-layout {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  padding: 0 0 28px;
+}
+.home-article-layout > .home-latest {
+  padding: 0;
+  order: 3;
+}
+.home-rail {
+  min-width: 0;
+}
+.home-rail-left {
+  order: 1;
+}
+.home-rail-right {
+  order: 2;
+}
+.rail-date {
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+  margin-bottom: 8px;
 }
 .today-card {
   display: flex;
@@ -479,7 +499,7 @@ html {
   font-weight: 650;
   line-height: 1.5;
 }
-.today-date {
+.rail-date {
   color: var(--vp-c-text-3);
   font-size: 12px;
   white-space: nowrap;
@@ -540,11 +560,6 @@ html {
 }
 .today-link:hover {
   text-decoration: underline;
-}
-@media (max-width: 640px) {
-  .home-today .today-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* footer 上下留白收紧（默认 32px） */
@@ -3846,5 +3861,53 @@ button:not(:disabled):hover,
 
   .unnoticed-stage .unnoticed-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---- 首页文章区三栏（桌面 ≥1150px）：左栏金价 / 中间文章 / 右栏热搜 ---- */
+@media (min-width: 1150px) {
+  /* 首页放宽，容纳左右两栏 */
+  .Layout:has(.home-page) .VPDoc:not(.has-sidebar) .container {
+    max-width: 1360px;
+  }
+  .Layout:has(.home-page) .VPDoc:not(.has-sidebar) .content {
+    max-width: 1300px;
+  }
+  .home-page {
+    max-width: 1280px;
+  }
+  .home-article-layout {
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
+    gap: 16px;
+    align-items: start;
+  }
+  .home-rail-left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .home-article-layout > .home-latest {
+    grid-column: 2;
+    grid-row: 1;
+    order: 0;
+  }
+  .home-rail-right {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  /* 两栏吸顶，滚文章列表时每日数据一直在 */
+  .home-rail {
+    position: sticky;
+    top: 76px;
+  }
+  /* 中间栏变窄，文章网格从 4 列改 2 列，轮播整行通栏 */
+  .home-article-layout .latest-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-article-layout .latest-grid .home-carousel {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .home-article-layout .latest-rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -90,12 +90,9 @@ onMounted(async () => {
 
 <!-- Latest 板块由构建脚本按当次部署目标自动生成。技能卡链到 /skills/，相对路径兼容 GitHub Pages 与 Cloudflare Pages。-->
 <div class="home-page">
-  <section class="home-section home-today" aria-label="今日">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
-      <h2>今日</h2>
-      <span class="today-date" v-if="todayDate">{{ todayDate }} · 每日更新</span>
-    </div>
-    <div class="today-grid">
+  <div class="home-article-layout">
+    <aside class="home-rail home-rail-left" aria-label="今日金价">
+      <div class="rail-date" v-if="todayDate">{{ todayDate }} · 每日更新</div>
       <article class="today-card">
         <h3>今日金价</h3>
         <div v-if="todayGold" class="today-rows">
@@ -108,19 +105,8 @@ onMounted(async () => {
         <p v-else class="today-empty">加载中…</p>
         <a class="today-link" href="/investment/asset-allocation/shuibei-gold-rush">水贝买金 →</a>
       </article>
-      <article class="today-card">
-        <h3>今日热搜</h3>
-        <ol v-if="todayTrends.length" class="today-list">
-          <li v-for="(t, i) in todayTrends" :key="i">{{ t }}</li>
-        </ol>
-        <p v-else-if="todayError" class="today-empty">暂无数据</p>
-        <p v-else class="today-empty">加载中…</p>
-        <a class="today-link" href="/archive">更多文章 →</a>
-      </article>
-    </div>
-  </section>
-
-  <section class="home-section home-latest">
+    </aside>
+    <section class="home-section home-latest">
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
@@ -177,7 +163,19 @@ onMounted(async () => {
       <li><a href="/ai/trends/ai-short-drama-chouhu"><span class="latest-row-head"><span class="latest-row-title">有人用AI做出《丑狐》短剧，首集三天播放破亿</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-short-drama-chouhu-cover.jpg" alt="有人用AI做出《丑狐》短剧，首集三天播放破亿" loading="lazy" decoding="async" /><span class="latest-row-desc">一个人加 AI 做出《丑狐》，首集三天播放破亿。但能复制的不是爆款本身，而是它背后的工时分配、定脸返工与结算结构。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
-  </section>
+    </section>
+    <aside class="home-rail home-rail-right" aria-label="今日热搜">
+      <article class="today-card">
+        <h3>今日热搜</h3>
+        <ol v-if="todayTrends.length" class="today-list">
+          <li v-for="(t, i) in todayTrends" :key="i">{{ t }}</li>
+        </ol>
+        <p v-else-if="todayError" class="today-empty">暂无数据</p>
+        <p v-else class="today-empty">加载中…</p>
+        <a class="today-link" href="/archive">更多文章 →</a>
+      </article>
+    </aside>
+  </div>
 
   <section class="home-section">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
