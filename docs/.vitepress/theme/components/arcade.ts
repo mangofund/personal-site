@@ -33,8 +33,12 @@ export function randomCell(cells: number[]) {
   return cells[Math.floor(Math.random() * cells.length)]
 }
 
+export type TileMotion = { from: number; to: number; value: number }
+
 export function slideTiles(board: number[], direction: number) {
   const next = Array<number>(16).fill(0)
+  const motions: TileMotion[] = []
+  const merged: number[] = []
   let points = 0
   for (let line = 0; line < 4; line++) {
     const indices = Array.from({ length: 4 }, (_, step) => {
@@ -43,19 +47,23 @@ export function slideTiles(board: number[], direction: number) {
       if (direction === 2) return (3 - step) * 4 + line
       return line * 4 + 3 - step
     })
-    const tiles = indices.map(index => board[index]).filter(Boolean)
+    const tiles = indices.filter(index => board[index])
     let slot = 0
     for (let i = 0; i < tiles.length; i++) {
-      let value = tiles[i]
-      if (value === tiles[i + 1]) {
+      const from = tiles[i]
+      const to = indices[slot++]
+      let value = board[from]
+      motions.push({ from, to, value })
+      if (value === board[tiles[i + 1]]) {
+        motions.push({ from: tiles[++i], to, value })
         value *= 2
         points += value
-        i++
+        merged.push(to)
       }
-      next[indices[slot++]] = value
+      next[to] = value
     }
   }
-  return { next, points, changed: next.some((tile, index) => tile !== board[index]) }
+  return { next, points, motions, merged, changed: next.some((tile, index) => tile !== board[index]) }
 }
 
 export function neighbors(index: number, width: number) {

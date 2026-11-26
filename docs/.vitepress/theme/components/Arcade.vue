@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
-import { directions, games, neighbors, randomCell, slideTiles } from './arcade'
+import { directions, games, neighbors, randomCell, slideTiles, type TileMotion } from './arcade'
 
 const props = defineProps<{ game: string; english?: boolean }>()
 const t = (zh: string, en: string) => props.english ? en : zh
@@ -9,6 +9,15 @@ const lang = computed(() => Number(Boolean(props.english)))
 const home = computed(() => props.english ? '/en/games/' : '/games/')
 const game = computed(() => games.find(item => item.id === props.game))
 const board = ref<number[]>([])
+const motions = ref<TileMotion[]>([])
+const merged = ref<number[]>([])
+const spawned = ref(-1)
+const mergeTurn = ref(0)
+let slideTimer: ReturnType<typeof setTimeout> | undefined
+let queuedDirection: number | undefined
+const visibleTiles = computed(() => motions.value.length ? motions.value : board.value.flatMap((value, index) =>
+  value ? [{ from: index, to: index, value }] : []
+))
 const state = ref('ready')
 const score = ref(0)
 const best = ref(0)
@@ -53,7 +62,10 @@ function finish(result: 'won' | 'lost') {
 
 function addTile(value: number) {
   const empty = cells(16).filter(index => !board.value[index])
-  if (empty.length) board.value[randomCell(empty)] = value
+  if (!empty.length) return -1
+  const index = randomCell(empty)
+  board.value[index] = value
+  return index
 }
 
 function newParcel() {
@@ -61,11 +73,21 @@ function newParcel() {
   parcel.value = randomCell(free)
 }
 
+function cancelSlide() {
+  clearTimeout(slideTimer)
+  slideTimer = undefined
+  queuedDirection = undefined
+}
+
 function reset() {
   stop()
   state.value = 'ready'
   score.value = 0
   if (props.game === 'merge') {
+    cancelSlide()
+    motions.value = []
+    merged.value = []
+    spawned.value = -1
     board.value = Array<number>(16).fill(0)
     addTile(3)
     addTile(3)
@@ -134,14 +156,65 @@ function move(direction: number) {
     if (state.value === 'ready') run()
     return
   }
-  const { next, points, changed } = slideTiles(board.value, direction)
-  if (!changed) return
-  board.value = next
-  score.value += points
-  updateBest()
-  addTile(Math.random() < 0.9 ? 3 : 6)
-  if (board.value.includes(3072)) finish('won')
-  else if (!directions.some((_, index) => slideTiles(board.value, index).changed)) finish('lost')
+  if (slideTimer !== undefined) {
+    queuedDirection = direction
+    return
+  }
+  const result = slideTiles(board.value, direction)
+  if (!result.changed) return
+
+  const settle = () => {
+    slideTimer = undefined
+    mergeTurn.value++
+    board.value = result.next
+    motions.value = []
+    merged.value = result.merged
+    score.value += result.points
+    updateBest()
+    spawned.value = addTile(Math.random() < 0.9 ? 3 : 6)
+    if (board.value.includes(3072)) finish('won')
+    else if (!directions.some((_, index) => slideTiles(board.value, index).changed)) finish('lost')
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    settle()
+    return
+  }
+
+  merged.value = []
+  spawned.value = -1
+  motions.value = result.motions
+  const duration = Math.max(...result.motions.map(slideDuration))
+  slideTimer = setTimeout(() => {
+    const next = queuedDirection
+    queuedDirection = undefined
+    settle()
+    if (next !== undefined && !terminal.value) move(next)
+  }, duration)
+}
+
+function slideDuration(tile: TileMotion) {
+  if (tile.from === tile.to) return 0
+  const weight = Math.log2(tile.value / 3)
+  const steps = Math.abs(tile.to % 4 - tile.from % 4) + Math.abs(Math.floor(tile.to / 4) - Math.floor(tile.from / 4))
+  return 115 + steps * 17 + weight * 9
+}
+
+function tileStyle(tile: TileMotion) {
+  const weight = Math.log2(tile.value / 3)
+  const dx = tile.to % 4 - tile.from % 4
+  const dy = Math.floor(tile.to / 4) - Math.floor(tile.from / 4)
+  return {
+    gridColumn: tile.to % 4 + 1,
+    gridRow: Math.floor(tile.to / 4) + 1,
+    background: 'hsl(' + (48 - weight * 4) + ' 84% 70%)',
+    '--slide-x': `calc(${-dx * 100}% + ${-dx * 6}px)`,
+    '--slide-y': `calc(${-dy * 100}% + ${-dy * 6}px)`,
+    '--overshoot-x': `calc(${dx * 2}% + ${dx * 0.12}px)`,
+    '--overshoot-y': `calc(${dy * 2}% + ${dy * 0.12}px)`,
+    '--slide-duration': slideDuration(tile) + 'ms',
+    '--landing-scale': 1.08 + weight * 0.008
+  }
 }
 
 function key(event: KeyboardEvent) {
@@ -220,6 +293,7 @@ onMounted(() => {
   window.addEventListener('blur', pause)
 })
 onBeforeUnmount(() => {
+  cancelSlide()
   stop()
   window.removeEventListener('blur', pause)
 })
@@ -260,8 +334,14 @@ onBeforeUnmount(() => {
           @keydown="key" @pointerdown="pointer = { x: $event.clientX, y: $event.clientY }; $event.currentTarget.setPointerCapture($event.pointerId)"
           @pointerup="swipe" @pointercancel="pointer = undefined">
           <div v-if="game.id === 'merge'" class="board merge-board">
-            <div v-for="(tile, index) in board" :key="index" class="tile" :class="{ filled: tile }"
-              :style="tile ? { background: 'hsl(' + (48 - Math.log2(tile / 3) * 4) + ' 84% 70%)' } : undefined">{{ tile || '' }}</div>
+            <div v-for="index in cells(16)" :key="'cell-' + index" class="tile" aria-hidden="true"
+              :style="{ gridColumn: index % 4 + 1, gridRow: Math.floor(index / 4) + 1 }" />
+            <div v-for="tile in visibleTiles" :key="`${mergeTurn}-${motions.length ? 'slide' : 'land'}-${tile.from}`"
+              class="tile filled merge-tile" :class="{
+                'is-sliding': tile.from !== tile.to,
+                'is-merged': merged.includes(tile.to),
+                'is-spawned': tile.to === spawned
+              }" :style="tileStyle(tile)">{{ tile.value }}</div>
           </div>
           <div v-else class="board courier-board" aria-hidden="true">
             <div v-for="index in cells(size ** 2)" :key="index" class="tile" :class="{
@@ -336,6 +416,28 @@ onBeforeUnmount(() => {
 .tile { display: grid; place-items: center; aspect-ratio: 1; min-width: 0; border-radius: 5px; background: #29362f; font-weight: 750; line-height: 1; }
 .merge-board .tile { font-size: clamp(1rem, 5vw, 2.5rem); }
 .tile.filled { color: #251b0d; }
+.merge-tile { z-index: 1; }
+.merge-tile.is-sliding { z-index: 2; animation: tile-slide var(--slide-duration) both; }
+.merge-tile.is-merged { animation: tile-merge 180ms ease-out both; }
+.merge-tile.is-spawned { animation: tile-spawn 145ms ease-out both; }
+@keyframes tile-slide {
+  0% { transform: translate(var(--slide-x), var(--slide-y)); animation-timing-function: cubic-bezier(.3, .05, .23, 1); }
+  80% { transform: translate(var(--overshoot-x), var(--overshoot-y)); animation-timing-function: ease-out; }
+  100% { transform: translate(0, 0); }
+}
+@keyframes tile-merge {
+  0% { transform: scale(.96); }
+  45% { transform: scale(var(--landing-scale)); }
+  75% { transform: scale(.99); }
+  100% { transform: scale(1); }
+}
+@keyframes tile-spawn {
+  from { opacity: 0; transform: scale(.65); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .merge-tile.is-sliding, .merge-tile.is-merged, .merge-tile.is-spawned { animation: none; }
+}
 .courier-board .tile { color: var(--game-accent); font-size: clamp(.7rem, 3vw, 1.2rem); border-radius: 3px; }
 .tile.wall { background: #687872; }
 .tile.trail { background: #4f825e; }
