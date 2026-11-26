@@ -13,6 +13,9 @@ const motions = ref<TileMotion[]>([])
 const merged = ref<number[]>([])
 const spawned = ref(-1)
 const mergeTurn = ref(0)
+const burstThreshold = 96
+const bursts = ref<{ id: string; cell: number; value: number }[]>([])
+const burstAngles = [8, 41, 82, 117, 153, 191, 225, 259, 297, 331]
 let slideTimer: ReturnType<typeof setTimeout> | undefined
 let queuedDirection: number | undefined
 const visibleTiles = computed(() => motions.value.length ? motions.value : board.value.flatMap((value, index) =>
@@ -88,6 +91,7 @@ function reset() {
     motions.value = []
     merged.value = []
     spawned.value = -1
+    bursts.value = []
     board.value = Array<number>(16).fill(0)
     addTile(3)
     addTile(3)
@@ -163,12 +167,19 @@ function move(direction: number) {
   const result = slideTiles(board.value, direction)
   if (!result.changed) return
 
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const settle = () => {
     slideTimer = undefined
     mergeTurn.value++
     board.value = result.next
     motions.value = []
     merged.value = result.merged
+    if (!reducedMotion) {
+      for (const cell of result.merged) {
+        const value = result.next[cell]
+        if (value >= burstThreshold) bursts.value.push({ id: `${mergeTurn.value}-${cell}`, cell, value })
+      }
+    }
     score.value += result.points
     updateBest()
     spawned.value = addTile(Math.random() < 0.9 ? 3 : 6)
@@ -176,7 +187,7 @@ function move(direction: number) {
     else if (!directions.some((_, index) => slideTiles(board.value, index).changed)) finish('lost')
   }
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (reducedMotion) {
     settle()
     return
   }
@@ -198,6 +209,20 @@ function slideDuration(tile: TileMotion) {
   const weight = Math.log2(tile.value / 3)
   const steps = Math.abs(tile.to % 4 - tile.from % 4) + Math.abs(Math.floor(tile.to / 4) - Math.floor(tile.from / 4))
   return 115 + steps * 17 + weight * 9
+}
+
+function removeBurst(id: string) {
+  bursts.value = bursts.value.filter(burst => burst.id !== id)
+}
+
+function burstStyle(cell: number, value: number) {
+  const intensity = Math.min(4, Math.log2(value / burstThreshold))
+  return {
+    gridColumn: cell % 4 + 1,
+    gridRow: Math.floor(cell / 4) + 1,
+    '--burst-scale': 1.4 + intensity * 0.14,
+    '--burst-distance': 64 + intensity * 12 + '%'
+  }
 }
 
 function tileStyle(tile: TileMotion) {
@@ -342,6 +367,14 @@ onBeforeUnmount(() => {
                 'is-merged': merged.includes(tile.to),
                 'is-spawned': tile.to === spawned
               }" :style="tileStyle(tile)">{{ tile.value }}</div>
+            <div v-for="burst in bursts" :key="burst.id" class="merge-burst" aria-hidden="true"
+              :style="burstStyle(burst.cell, burst.value)" @animationend.self="removeBurst(burst.id)">
+              <span class="burst-halo"></span>
+              <span v-for="(angle, index) in burstAngles" :key="angle" class="burst-ray"
+                :style="{ '--ray-angle': angle + 'deg', '--ray-delay': (index % 3) * 18 + 'ms' }">
+                <span class="burst-particle"></span>
+              </span>
+            </div>
           </div>
           <div v-else class="board courier-board" aria-hidden="true">
             <div v-for="index in cells(size ** 2)" :key="index" class="tile" :class="{
@@ -435,7 +468,53 @@ onBeforeUnmount(() => {
   from { opacity: 0; transform: scale(.65); }
   to { opacity: 1; transform: scale(1); }
 }
+.merge-burst {
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+  animation: burst-fade 540ms ease-out both;
+}
+.burst-halo, .burst-ray { position: absolute; inset: 0; }
+.burst-halo {
+  border: 2px solid #ffe4a0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffbd480 0%, #ffc85b40 48%, transparent 72%);
+  box-shadow: 0 0 16px #ffbf58, inset 0 0 12px #ffebae;
+  animation: burst-halo 480ms ease-out both;
+}
+.burst-ray { transform: rotate(var(--ray-angle)); }
+.burst-particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 0;
+  animation: burst-particle 420ms var(--ray-delay) cubic-bezier(.12, .56, .36, 1) both;
+}
+.burst-particle::after {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff4b5;
+  box-shadow: 0 0 8px #ffb83f;
+}
+@keyframes burst-fade {
+  0%, 55% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes burst-halo {
+  0% { transform: scale(.45); opacity: .95; }
+  100% { transform: scale(var(--burst-scale)); opacity: 0; }
+}
+@keyframes burst-particle {
+  0% { transform: translateX(8%) scale(.55); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateX(var(--burst-distance)) scale(.35); opacity: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
+  .merge-burst { visibility: hidden; }
   .merge-tile.is-sliding, .merge-tile.is-merged, .merge-tile.is-spawned { animation: none; }
 }
 .courier-board .tile { color: var(--game-accent); font-size: clamp(.7rem, 3vw, 1.2rem); border-radius: 3px; }
