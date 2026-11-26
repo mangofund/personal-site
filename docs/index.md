@@ -8,7 +8,7 @@ aside: false
 
 <script setup>
 import { withBase } from 'vitepress'
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 const xmadeImg = withBase('/images/projects/xmade.jpg')
 const storeUrl = 'https://chromewebstore.google.com/detail/xmade-twitter-video-downl/bgopfpaklpnjmjbngflljdnjnblhnbjm'
 const streamlyricImg = withBase('/images/projects/streamlyric.jpg')
@@ -43,10 +43,95 @@ onMounted(() => {
   hcStop = stop
 })
 onUnmounted(() => { if (hcStop) hcStop() })
+
+// 首页「今日」区：客户端拉同源 /market/briefings.json，按分类取最新一条渲染。
+// feed 每小时同步更新，页面每次打开都重新校验取最新，不用等网站重新构建。
+const todayDate = ref('')
+const todayGold = ref(null)
+const todayTrends = ref([])
+const todayBriefs = ref([])
+const todayError = ref(false)
+const fmtNum = (n, d = 2) => Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d })
+const fmtPct = (n) => (n > 0 ? '+' : '') + Number(n).toFixed(2) + '%'
+const stripBold = (s) => (s || '').replace(/\*\*/g, '')
+const fmtPushDate = (s) => {
+  const m = (s || '').match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  return m ? `${m[1]}年${Number(m[2])}月${Number(m[3])}日` : (s || '')
+}
+onMounted(async () => {
+  try {
+    const res = await fetch(withBase('/market/briefings.json'), { cache: 'no-cache' })
+    if (!res.ok) throw new Error('feed ' + res.status)
+    const data = await res.json()
+    const items = (data.items || []).filter((it) => it && it.status === 'ok')
+    const byDateId = (a, b) => (a.pushDate < b.pushDate ? 1 : a.pushDate > b.pushDate ? -1 : b.id - a.id)
+    const golds = items.filter((it) => it.category === 'gold').sort(byDateId)
+    const gold = golds.find((it) => it.slot === 'close') || golds[0]
+    const trend = items.filter((it) => it.category === 'trends').sort(byDateId)[0]
+    const briefs = items.filter((it) => it.category !== 'gold' && it.category !== 'trends').sort(byDateId).slice(0, 3)
+    if (gold) {
+      const m = gold.metrics || {}
+      todayGold.value = {
+        date: fmtPushDate(gold.pushDate),
+        slot: gold.slot === 'close' ? '收盘' : '参考',
+        domestic: m.domestic ? { price: fmtNum(m.domestic.price), chg: fmtPct(m.domestic.chgPct) } : null,
+        au9999: m.au9999 ? { price: fmtNum(m.au9999.price), chg: fmtPct(m.au9999.chgPct) } : null,
+        intl: m.intl ? { price: fmtNum(m.intl.price), chg: fmtPct(m.intl.chgPct) } : null,
+      }
+      todayDate.value = fmtPushDate(gold.pushDate)
+    }
+    if (trend) {
+      todayTrends.value = (trend.summary || '').split('\n').map((s) => stripBold(s).trim()).filter(Boolean).slice(0, 5)
+      if (!todayDate.value) todayDate.value = fmtPushDate(trend.pushDate)
+    }
+    todayBriefs.value = briefs.map((it) => ({ title: it.title, summary: stripBold(it.summary || '') }))
+  } catch (e) {
+    todayError.value = true
+  }
+})
 </script>
 
 <!-- Latest 板块由构建脚本按当次部署目标自动生成。技能卡链到 /skills/，相对路径兼容 GitHub Pages 与 Cloudflare Pages。-->
 <div class="home-page">
+  <section class="home-section home-today" aria-label="今日">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+      <h2>今日</h2>
+      <span class="today-date" v-if="todayDate">{{ todayDate }} · 每日更新</span>
+    </div>
+    <div class="today-grid">
+      <article class="today-card">
+        <h3>今日金价</h3>
+        <div v-if="todayGold" class="today-rows">
+          <div v-if="todayGold.domestic" class="today-row"><span>国内金价</span><strong>{{ todayGold.domestic.price }} 元/克 <em>{{ todayGold.domestic.chg }}</em></strong></div>
+          <div v-if="todayGold.au9999" class="today-row"><span>黄金9999</span><strong>{{ todayGold.au9999.price }} 元/克 <em>{{ todayGold.au9999.chg }}</em></strong></div>
+          <div v-if="todayGold.intl" class="today-row"><span>国际黄金</span><strong>{{ todayGold.intl.price }} 美元/盎司 <em>{{ todayGold.intl.chg }}</em></strong></div>
+          <div class="today-note">{{ todayGold.date }} {{ todayGold.slot }}</div>
+        </div>
+        <p v-else-if="todayError" class="today-empty">暂无数据</p>
+        <p v-else class="today-empty">加载中…</p>
+        <a class="today-link" href="/investment/asset-allocation/shuibei-gold-rush">水贝买金 →</a>
+      </article>
+      <article class="today-card">
+        <h3>今日热搜</h3>
+        <ol v-if="todayTrends.length" class="today-list">
+          <li v-for="(t, i) in todayTrends" :key="i">{{ t }}</li>
+        </ol>
+        <p v-else-if="todayError" class="today-empty">暂无数据</p>
+        <p v-else class="today-empty">加载中…</p>
+        <a class="today-link" href="/archive">更多文章 →</a>
+      </article>
+      <article class="today-card">
+        <h3>最新简报</h3>
+        <ul v-if="todayBriefs.length" class="today-list today-briefs">
+          <li v-for="(b, i) in todayBriefs" :key="i"><strong>{{ b.title }}</strong><span>{{ b.summary }}</span></li>
+        </ul>
+        <p v-else-if="todayError" class="today-empty">暂无数据</p>
+        <p v-else class="today-empty">加载中…</p>
+        <a class="today-link" href="/market/briefings.json">全部简报 →</a>
+      </article>
+    </div>
+  </section>
+
   <section class="home-section home-latest">
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">

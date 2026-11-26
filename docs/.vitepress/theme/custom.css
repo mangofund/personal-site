@@ -456,6 +456,114 @@ html {
   margin-top: -5px;
 }
 
+/* ---- 首页「今日」区：金价 / 热搜 / 简报三块，桌面三列、手机上下堆 ---- */
+.home-today .today-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.today-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  background: var(--rn-paper);
+  padding: 15px 16px 14px;
+}
+.today-card h3 {
+  margin: 0 0 10px;
+  color: var(--vp-c-text-1);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.today-date {
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.today-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.today-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.today-row strong {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.today-row strong em {
+  font-style: normal;
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+}
+.today-note {
+  margin-top: 2px;
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+}
+.today-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.today-list li {
+  margin-bottom: 6px;
+}
+.today-list li:last-child {
+  margin-bottom: 0;
+}
+.today-briefs {
+  list-style: none;
+  padding-left: 0;
+}
+.today-briefs li strong {
+  display: block;
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.today-briefs li span {
+  display: block;
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.today-empty {
+  margin: 0;
+  color: var(--vp-c-text-3);
+  font-size: 13px;
+}
+.today-link {
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 13px;
+  color: var(--rn-ink);
+  text-decoration: none;
+}
+.today-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .home-today .today-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* footer 上下留白收紧（默认 32px） */
 #app .VPFooter {
   padding-top: 10px;
