@@ -1128,6 +1128,12 @@
 /investment/tesla/spacex-tesla-merger/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/trump-shenzhen-tariffs
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/trump-shenzhen-tariffs/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/us-stocks/ai-stage-invest-guide
   Cache-Control: public, max-age=0, must-revalidate
 

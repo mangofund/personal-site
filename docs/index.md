@@ -136,20 +136,24 @@ onMounted(async () => {
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/archive?category=AI">AI<span>70</span></a><a class="home-topic" href="/investment/">投资<span>24</span></a><a class="home-topic" href="/thinking/">思考<span>7</span></a><a class="home-topic is-all" href="/archive">全部 102 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/archive?category=AI">AI<span>70</span></a><a class="home-topic" href="/investment/">投资<span>25</span></a><a class="home-topic" href="/thinking/">思考<span>7</span></a><a class="home-topic is-all" href="/archive">全部 103 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/spacex-starmind"><img class="hc-img" src="/images/2026-11-26-spacex-starmind-cover-photo.jpg" alt="SpaceX获批部署百万颗卫星，什么样的AI生意值得搬上太空?" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/investment/liang-wenfeng-deepseek-valuation"><img class="hc-img" src="/images/liang-wenfeng/cover.jpg" alt="梁文锋身价飙升到550亿美元，持股变少但钱变多了" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/spacex-starmind"><img class="hc-img" src="/images/2026-11-26-spacex-starmind-cover-photo.jpg" alt="SpaceX获批部署百万颗卫星，什么样的AI生意值得搬上太空?" loading="lazy" decoding="async" /></a>
         <a class="hc-slide" href="/ai/trends/tesla-fsd-duan-yongping"><img class="hc-img" src="/images/tesla-fsd-duan/cover.jpg" alt="特斯拉FSD年度最好的免费代言：段永平雇了一个月薪99美元没驾照的“司机”" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/thinking/life/dan-koe-deep-work-routine"><img class="hc-img" src="/images/dan-koe-deep-work/cover.jpg" alt="Dan Koe：改变我人生的深度工作法（每天早上 1 小时）" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/spacex-starmind">
+        <a class="hc-panel is-active" href="/investment/liang-wenfeng-deepseek-valuation">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-26">2026.11.26</time></span>
+          <strong>梁文锋身价飙升到550亿美元，持股变少但钱变多了</strong><small>梁文锋持股从 81.65% 降到 67.4%，身家却从 360 亿美元涨到 550 亿美元。涨的不是他收到的钱，是投资人重新给 DeepSeek 定的价。</small>
+        </a>
+        <a class="hc-panel" href="/investment/spacex-starmind">
           <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-26">2026.11.26</time></span>
           <strong>SpaceX获批部署百万颗卫星，什么样的AI生意值得搬上太空?</strong><small>FCC 附条件批准 SpaceX 部署最多 100 万颗计算卫星 Starmind，美国历史上首个太空数据中心星座授权。本文从第一颗卫星的生意算起：谁愿意付钱，把一道原本可以在地面算的题送上天？</small>
         </a>
@@ -157,19 +161,15 @@ onMounted(async () => {
           <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-26">2026.11.26</time></span>
           <strong>特斯拉FSD年度最好的免费代言：段永平雇了一个月薪99美元没驾照的“司机”</strong><small>段永平在雪球上说，自己的司机没驾照，一个月 99 美元。FSD 从新鲜感变成日常习惯，再变成租车时的必要条件——特斯拉卖的可能是一份数字劳动力。</small>
         </a>
-        <a class="hc-panel" href="/thinking/life/dan-koe-deep-work-routine">
-          <span class="article-card-meta"><span class="article-card-cat">思考</span><time datetime="2026-11-26">2026.11.26</time></span>
-          <strong>Dan Koe：改变我人生的深度工作法（每天早上 1 小时）</strong><small>Dan Koe：如果你能花 8 小时帮别人实现梦想，就能花 1 小时实现自己的梦想。每天早上 1 小时深度工作，365 小时改变人生。全文翻译，附版权说明。</small>
-        </a>
       </div>
     </div>
+      <a class="article-card" href="/thinking/life/dan-koe-deep-work-routine">
+        <img class="article-card-thumb" src="/images/dan-koe-deep-work/cover.jpg" alt="Dan Koe：改变我人生的深度工作法（每天早上 1 小时）" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">思考</span><time datetime="2026-11-26">2026.11.26</time></span><strong>Dan Koe：改变我人生的深度工作法（每天早上 1 小时）</strong></div>
+      </a>
       <a class="article-card" href="/investment/asset-allocation/fu-peng-market-crash">
         <img class="article-card-thumb" src="/images/fu-peng-v2-cover.jpg" alt="《付鹏深度访谈》完整解读版" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-26">2026.11.26</time></span><strong>《付鹏深度访谈》完整解读版</strong></div>
-      </a>
-      <a class="article-card" href="/investment/liang-wenfeng-deepseek-valuation">
-        <img class="article-card-thumb" src="/images/liang-wenfeng/cover.jpg" alt="梁文锋身价飙升到550亿美元，持股变少但钱变多了" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-26">2026.11.26</time></span><strong>梁文锋身价飙升到550亿美元，持股变少但钱变多了</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -181,12 +181,12 @@ onMounted(async () => {
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/investment/trump-shenzhen-tariffs"><span class="latest-row-head"><span class="latest-row-title">特朗普刚夸完深圳，转身就想对华加20%关税？</span><span class="latest-row-date">· <time datetime="2026-11-26">2026.11.26</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/trump-tariffs/cover.jpg" alt="特朗普刚夸完深圳，转身就想对华加20%关税？" loading="lazy" decoding="async" /><span class="latest-row-desc">特朗普刚夸完深圳干净无瑕，六天后 USTR 就对华提出最高 20% 的关税方案。20% 从哪来、手机和餐盘为什么待遇不同、40% 又在什么情况下才会用？</span></span></a></li>
       <li><a href="/investment/openai-125t-valuation"><span class="latest-row-head"><span class="latest-row-title">OpenAI估值低了1500亿美元，谁拿回了定价权？</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-25-openai-125t-valuation-cover-photo.jpg" alt="OpenAI估值低了1500亿美元，谁拿回了定价权？" loading="lazy" decoding="async" /><span class="latest-row-desc">OpenAI一个季度做了100亿美元收入，经调整经营亏损却达到109亿美元，而新投资人愿意给它的投前估值，仍有1.25万亿美元。本文从这组反差出发，拆解定价权、收入结构与五年业绩兑现。</span></span></a></li>
       <li><a href="/ai/trends/humanoid-factory-orders"><span class="latest-row-head"><span class="latest-row-title">人形机器人刷屏，工厂为什么还在买机械臂？</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-25-humanoid-factory-orders-cover-photo.jpg" alt="人形机器人刷屏，工厂为什么还在买机械臂？" loading="lazy" decoding="async" /><span class="latest-row-desc">宝马让人形机器人搬过逾 9 万件钣金件，支持生产逾 3 万辆 X3，可公开资料里能找到的结算数字，是约 1,250 个运行小时。本文从这组反差出发，拆解工厂订单、成本账与 2,300 亿美元市场的归属。</span></span></a></li>
       <li><a href="/investment/xiaomi-2026-q3"><span class="latest-row-head"><span class="latest-row-title">小米少赚64亿元，钱到底去哪了？</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/xiaomi-2026-q3-cover.jpg" alt="小米少赚64亿元，钱到底去哪了？" loading="lazy" decoding="async" /><span class="latest-row-desc">小米三季度经调整净利润 48.84 亿元，同比少赚 64.27 亿元。研发只多花了 1.83 亿，钱到底去哪了？本文从利润表出发，拆四门生意的毛利缺口、汽车的盈亏平衡与 AI 投入的回报周期。</span></span></a></li>
       <li><a href="/investment/shenzhou-24"><span class="latest-row-head"><span class="latest-row-title">神舟二十四号之后，中国商业航天离赚钱还有多远？</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-25-shenzhou-24-cover-photo.jpg" alt="神舟二十四号之后，中国商业航天离赚钱还有多远？" loading="lazy" decoding="async" /><span class="latest-row-desc">一枚火箭的平均成本降了近两成，造火箭的公司却在九个月里亏了约7.49亿元。本文从中科宇航的招股书出发，拆解成本、发射频率、回收复用与星座订单，看中国商业航天离赚钱还有多远。</span></span></a></li>
       <li><a href="/ai/trends/ai-short-drama-chouhu"><span class="latest-row-head"><span class="latest-row-title">有人用AI做出《丑狐》短剧，首集三天播放破亿</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-short-drama-chouhu-cover.jpg" alt="有人用AI做出《丑狐》短剧，首集三天播放破亿" loading="lazy" decoding="async" /><span class="latest-row-desc">一个人加 AI 做出《丑狐》，首集三天播放破亿。但能复制的不是爆款本身，而是它背后的工时分配、定脸返工与结算结构。</span></span></a></li>
-      <li><a href="/ai/trends/mental-obesity"><span class="latest-row-head"><span class="latest-row-title">人类正在进入精神肥胖时代</span><span class="latest-row-date">· <time datetime="2026-11-24">2026.11.24</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-24-mental-obesity-cover.jpg" alt="人类正在进入精神肥胖时代" loading="lazy" decoding="async" /><span class="latest-row-desc">Dan Koe 说人类正在变得“精神肥胖”：信息生产能力暴涨，处理能力原地踏步，AI 还在加速。NIH 实验、微软 319 人研究与多巴胺排毒的真相，都指向同一件事——该像管理饮食一样管理信息了。</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
