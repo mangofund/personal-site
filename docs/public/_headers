@@ -1068,6 +1068,12 @@
 /investment/methodology/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/openai-125t-valuation
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/openai-125t-valuation/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/shenzhou-24
   Cache-Control: public, max-age=0, must-revalidate
 
