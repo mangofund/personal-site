@@ -10,5 +10,6 @@ updated: 2026-11-20
 
 ## 文章列表
 
+- [Dan Koe：改变我人生的深度工作法（每天早上 1 小时）](/thinking/life/dan-koe-deep-work-routine) · 2026.11.26
 - [如何用一天重启你的人生](/thinking/life/fix-life-in-1-day) · 2026.11.05
 - [别急着移民：未来十年，如何设计自己的全球生活系统](/thinking/life/global-living-system) · 2026.10.18

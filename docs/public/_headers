@@ -1392,6 +1392,12 @@
 /thinking/
   Cache-Control: public, max-age=0, must-revalidate
 
+/thinking/life/dan-koe-deep-work-routine
+  Cache-Control: public, max-age=0, must-revalidate
+
+/thinking/life/dan-koe-deep-work-routine/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /thinking/life/fix-life-in-1-day
   Cache-Control: public, max-age=0, must-revalidate
 
