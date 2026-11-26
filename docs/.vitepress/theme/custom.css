@@ -3864,22 +3864,24 @@ button:not(:disabled):hover,
   }
 }
 
-/* ---- 首页文章区三栏（桌面 ≥1150px）：左栏金价 / 中间文章 / 右栏热搜 ---- */
-@media (min-width: 1150px) {
+/* ---- 首页文章区三栏（桌面 ≥1360px）：左栏金价 / 中间文章（原布局不动） / 右栏热搜 ---- */
+/* 中间栏保持原来 4 列网格、轮播占左两列两行，宽屏时 1060px；中屏时略收窄给两栏让路，结构不变。窄屏时两栏叠在文章上下。 */
+@media (min-width: 1360px) {
   /* 首页放宽，容纳左右两栏 */
   .Layout:has(.home-page) .VPDoc:not(.has-sidebar) .container {
-    max-width: 1360px;
+    max-width: 1700px;
   }
   .Layout:has(.home-page) .VPDoc:not(.has-sidebar) .content {
-    max-width: 1300px;
+    max-width: 1660px;
   }
   .home-page {
-    max-width: 1280px;
+    max-width: 1640px;
   }
   .home-article-layout {
-    grid-template-columns: 230px minmax(0, 1fr) 230px;
+    grid-template-columns: minmax(180px, 230px) minmax(0, 1060px) minmax(180px, 230px);
     gap: 16px;
     align-items: start;
+    justify-content: center;
   }
   .home-rail-left {
     grid-column: 1;
@@ -3909,16 +3911,5 @@ button:not(:disabled):hover,
   .home-rail .today-row > span {
     font-size: 12px;
     color: var(--vp-c-text-3);
-  }
-  /* 中间栏变窄，文章网格从 4 列改 2 列，轮播整行通栏 */
-  .home-article-layout .latest-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .home-article-layout .latest-grid .home-carousel {
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-  .home-article-layout .latest-rows {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
