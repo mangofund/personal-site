@@ -10,6 +10,7 @@ updated: 2026-11-25
 
 ## 文章列表
 
+- [特斯拉FSD年度最好的免费代言：段永平雇了一个月薪99美元没驾照的“司机”](/ai/trends/tesla-fsd-duan-yongping) · 2026.11.26
 - [人形机器人刷屏，工厂为什么还在买机械臂？](/ai/trends/humanoid-factory-orders) · 2026.11.25
 - [AI短剧《丑狐》：一个人如何接住爆款？](/ai/trends/ai-short-drama-chouhu) · 2026.11.25
 - [人类正在进入精神肥胖时代](/ai/trends/mental-obesity) · 2026.11.24

@@ -51,40 +51,40 @@ onUnmounted(() => { if (hcStop) hcStop() })
 <!-- LATEST-START:以下由 scripts/gen-seo.mjs 构建时自动生成,勿手工改 -->
     <div class="home-head">
       <h1>最新文章</h1>
-      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/archive?category=AI">AI<span>69</span></a><a class="home-topic" href="/investment/">投资<span>22</span></a><a class="home-topic" href="/thinking/">思考<span>7</span></a><a class="home-topic is-all" href="/archive">全部 99 篇 →</a></nav>
+      <nav class="home-topics" aria-label="文章栏目"><a class="home-topic" href="/archive?category=AI">AI<span>70</span></a><a class="home-topic" href="/investment/">投资<span>22</span></a><a class="home-topic" href="/thinking/">思考<span>7</span></a><a class="home-topic is-all" href="/archive">全部 100 篇 →</a></nav>
     </div>
     <div class="article-list latest-grid">
     <div class="home-carousel" data-carousel>
       <div class="hc-stage">
-        <a class="hc-slide is-active" href="/investment/asset-allocation/fu-peng-market-crash"><img class="hc-img" src="/images/fu-peng-v2-cover.jpg" alt="《付鹏深度访谈》完整解读版" loading="eager" fetchpriority="high" decoding="async" /></a>
-        <a class="hc-slide" href="/thinking/life/dan-koe-deep-work-routine"><img class="hc-img" src="/images/dan-koe-deep-work/cover.jpg" alt="Dan Koe：改变我人生的深度工作法（每天早上 1 小时）" loading="lazy" decoding="async" /></a>
-        <a class="hc-slide" href="/investment/openai-125t-valuation"><img class="hc-img" src="/images/2026-11-25-openai-125t-valuation-cover-photo.jpg" alt="OpenAI估值低了1500亿美元，谁拿回了定价权？" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide is-active" href="/thinking/life/dan-koe-deep-work-routine"><img class="hc-img" src="/images/dan-koe-deep-work/cover.jpg" alt="Dan Koe：改变我人生的深度工作法（每天早上 1 小时）" loading="eager" fetchpriority="high" decoding="async" /></a>
+        <a class="hc-slide" href="/investment/asset-allocation/fu-peng-market-crash"><img class="hc-img" src="/images/fu-peng-v2-cover.jpg" alt="《付鹏深度访谈》完整解读版" loading="lazy" decoding="async" /></a>
+        <a class="hc-slide" href="/ai/trends/tesla-fsd-duan-yongping"><img class="hc-img" src="/images/tesla-fsd-duan/cover.jpg" alt="特斯拉FSD年度最好的免费代言：段永平雇了一个月薪99美元没驾照的“司机”" loading="lazy" decoding="async" /></a>
         <button class="hc-arrow hc-prev" type="button" aria-label="上一篇">‹</button>
         <button class="hc-arrow hc-next" type="button" aria-label="下一篇">›</button>
         <div class="hc-dots"><button class="hc-dot is-active" type="button" aria-label="第 1 篇"></button><button class="hc-dot" type="button" aria-label="第 2 篇"></button><button class="hc-dot" type="button" aria-label="第 3 篇"></button></div>
       </div>
       <div class="hc-panels">
-        <a class="hc-panel is-active" href="/investment/asset-allocation/fu-peng-market-crash">
-          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-26">2026.11.26</time></span>
-          <strong>《付鹏深度访谈》完整解读版</strong><small>为什么每次市场崩盘，大多数人都跑不掉？付鹏在《不会就问》完整访谈中，从 2015 年提前撤出、杠杆链条、AI 产业周期，一路拆解到财富积累的底层规律。</small>
-        </a>
-        <a class="hc-panel" href="/thinking/life/dan-koe-deep-work-routine">
+        <a class="hc-panel is-active" href="/thinking/life/dan-koe-deep-work-routine">
           <span class="article-card-meta"><span class="article-card-cat">思考</span><time datetime="2026-11-26">2026.11.26</time></span>
           <strong>Dan Koe：改变我人生的深度工作法（每天早上 1 小时）</strong><small>Dan Koe：如果你能花 8 小时帮别人实现梦想，就能花 1 小时实现自己的梦想。每天早上 1 小时深度工作，365 小时改变人生。全文翻译，附版权说明。</small>
         </a>
-        <a class="hc-panel" href="/investment/openai-125t-valuation">
-          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span>
-          <strong>OpenAI估值低了1500亿美元，谁拿回了定价权？</strong><small>OpenAI一个季度做了100亿美元收入，经调整经营亏损却达到109亿美元，而新投资人愿意给它的投前估值，仍有1.25万亿美元。本文从这组反差出发，拆解定价权、收入结构与五年业绩兑现。</small>
+        <a class="hc-panel" href="/investment/asset-allocation/fu-peng-market-crash">
+          <span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-26">2026.11.26</time></span>
+          <strong>《付鹏深度访谈》完整解读版</strong><small>为什么每次市场崩盘，大多数人都跑不掉？付鹏在《不会就问》完整访谈中，从 2015 年提前撤出、杠杆链条、AI 产业周期，一路拆解到财富积累的底层规律。</small>
+        </a>
+        <a class="hc-panel" href="/ai/trends/tesla-fsd-duan-yongping">
+          <span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-26">2026.11.26</time></span>
+          <strong>特斯拉FSD年度最好的免费代言：段永平雇了一个月薪99美元没驾照的“司机”</strong><small>段永平在雪球上说，自己的司机没驾照，一个月 99 美元。FSD 从新鲜感变成日常习惯，再变成租车时的必要条件——特斯拉卖的可能是一份数字劳动力。</small>
         </a>
       </div>
     </div>
+      <a class="article-card" href="/investment/openai-125t-valuation">
+        <img class="article-card-thumb" src="/images/2026-11-25-openai-125t-valuation-cover-photo.jpg" alt="OpenAI估值低了1500亿美元，谁拿回了定价权？" loading="lazy" decoding="async" />
+        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span><strong>OpenAI估值低了1500亿美元，谁拿回了定价权？</strong></div>
+      </a>
       <a class="article-card" href="/ai/trends/humanoid-factory-orders">
         <img class="article-card-thumb" src="/images/2026-11-25-humanoid-factory-orders-cover-photo.jpg" alt="人形机器人刷屏，工厂为什么还在买机械臂？" loading="lazy" decoding="async" />
         <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">AI</span><time datetime="2026-11-25">2026.11.25</time></span><strong>人形机器人刷屏，工厂为什么还在买机械臂？</strong></div>
-      </a>
-      <a class="article-card" href="/investment/xiaomi-2026-q3">
-        <img class="article-card-thumb" src="/images/xiaomi-2026-q3-cover.jpg" alt="小米少赚64亿元，钱到底去哪了？" loading="lazy" decoding="async" />
-        <div class="article-card-body"><span class="article-card-meta"><span class="article-card-cat">投资</span><time datetime="2026-11-25">2026.11.25</time></span><strong>小米少赚64亿元，钱到底去哪了？</strong></div>
       </a>
       <a class="article-card" href="/ai/trends/claude-search-surge">
         <img class="article-card-thumb" src="/images/claude-search-surge/fig01_gt_compare.png" alt="Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude" loading="lazy" decoding="async" />
@@ -96,12 +96,12 @@ onUnmounted(() => { if (hcStop) hcStop() })
       </a>
     </div>
     <ul class="latest-rows">
+      <li><a href="/investment/xiaomi-2026-q3"><span class="latest-row-head"><span class="latest-row-title">小米少赚64亿元，钱到底去哪了？</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/xiaomi-2026-q3-cover.jpg" alt="小米少赚64亿元，钱到底去哪了？" loading="lazy" decoding="async" /><span class="latest-row-desc">小米三季度经调整净利润 48.84 亿元，同比少赚 64.27 亿元。研发只多花了 1.83 亿，钱到底去哪了？本文从利润表出发，拆四门生意的毛利缺口、汽车的盈亏平衡与 AI 投入的回报周期。</span></span></a></li>
       <li><a href="/investment/shenzhou-24"><span class="latest-row-head"><span class="latest-row-title">神舟二十四号之后，中国商业航天离赚钱还有多远？</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-25-shenzhou-24-cover-photo.jpg" alt="神舟二十四号之后，中国商业航天离赚钱还有多远？" loading="lazy" decoding="async" /><span class="latest-row-desc">一枚火箭的平均成本降了近两成，造火箭的公司却在九个月里亏了约7.49亿元。本文从中科宇航的招股书出发，拆解成本、发射频率、回收复用与星座订单，看中国商业航天离赚钱还有多远。</span></span></a></li>
       <li><a href="/ai/trends/ai-short-drama-chouhu"><span class="latest-row-head"><span class="latest-row-title">有人用AI做出《丑狐》短剧，首集三天播放破亿</span><span class="latest-row-date">· <time datetime="2026-11-25">2026.11.25</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-short-drama-chouhu-cover.jpg" alt="有人用AI做出《丑狐》短剧，首集三天播放破亿" loading="lazy" decoding="async" /><span class="latest-row-desc">一个人加 AI 做出《丑狐》，首集三天播放破亿。但能复制的不是爆款本身，而是它背后的工时分配、定脸返工与结算结构。</span></span></a></li>
       <li><a href="/ai/trends/mental-obesity"><span class="latest-row-head"><span class="latest-row-title">人类正在进入精神肥胖时代</span><span class="latest-row-date">· <time datetime="2026-11-24">2026.11.24</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-24-mental-obesity-cover.jpg" alt="人类正在进入精神肥胖时代" loading="lazy" decoding="async" /><span class="latest-row-desc">Dan Koe 说人类正在变得“精神肥胖”：信息生产能力暴涨，处理能力原地踏步，AI 还在加速。NIH 实验、微软 319 人研究与多巴胺排毒的真相，都指向同一件事——该像管理饮食一样管理信息了。</span></span></a></li>
       <li><a href="/investment/tesla/spacex-tesla-merger"><span class="latest-row-head"><span class="latest-row-title">SpaceX与特斯拉合并提速，3.5万亿美元巨头将诞生？</span><span class="latest-row-date">· <time datetime="2026-11-24">2026.11.24</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/2026-11-24-spacex-tesla-merger-cover.jpg" alt="SpaceX与特斯拉合并提速，3.5万亿美元巨头将诞生？" loading="lazy" decoding="async" /><span class="latest-row-desc">《金融时报》11月24日披露，SpaceX与特斯拉特别委员会成员及投行安排浮出水面：五名董事、摩根士丹利与高盛、Evercore，全股票合并指向约3.5万亿美元。本文拆解谈判进度、换股机制、协同逻辑与监管障碍，以及特斯拉股东可能面临的五种情景。</span></span></a></li>
       <li><a href="/investment/ai-server-price-cost-profit"><span class="latest-row-head"><span class="latest-row-title">AI服务器最高涨价45%，谁在赚走算力的钱？</span><span class="latest-row-date">· <time datetime="2026-11-24">2026.11.24</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/ai-server-price-cost-profit-cover.jpg" alt="AI服务器最高涨价45%，谁在赚走算力的钱？" loading="lazy" decoding="async" /><span class="latest-row-desc">AI服务器部分订单最高涨价45%，背后是GPU、HBM、DRAM及企业级SSD的供需变化。本文从产业链定价权、成本传导、算力利用率和资本回报出发，分析AI基础设施涨价最终由谁承担。</span></span></a></li>
-      <li><a href="/ai/trends/gta-6-first-day-sales"><span class="latest-row-head"><span class="latest-row-title">全球最大的娱乐产品：GTA 6首日卖了37.9亿美元</span><span class="latest-row-date">· <time datetime="2026-11-24">2026.11.24</time></span></span><span class="latest-row-body"><img class="latest-row-thumb" src="/images/gta-6-first-day-sales-cover.jpg" alt="全球最大的娱乐产品：GTA 6首日卖了37.9亿美元" loading="lazy" decoding="async" /><span class="latest-row-desc">11月19日，Rockstar正式发售《GTA 6》，首日零售销售额37.9亿美元，发售前已售出3250万份。为什么消费者愿意提前数月为尚未交付的产品付款？这套打法对软件开发者、AI创业公司有什么值得学习的地方？</span></span></a></li>
     </ul>
     <!-- LATEST-END -->
   </section>
