@@ -456,10 +456,10 @@ html {
   margin-top: -5px;
 }
 
-/* ---- 首页「今日」区：金价 / 热搜 / 简报三块，桌面三列、手机上下堆 ---- */
+/* ---- 首页「今日」区：金价 / 热搜两块，桌面两列、手机上下堆 ---- */
 .home-today .today-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 .today-card {
@@ -525,23 +525,6 @@ html {
 }
 .today-list li:last-child {
   margin-bottom: 0;
-}
-.today-briefs {
-  list-style: none;
-  padding-left: 0;
-}
-.today-briefs li strong {
-  display: block;
-  color: var(--vp-c-text-1);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.today-briefs li span {
-  display: block;
-  color: var(--vp-c-text-2);
-  font-size: 12px;
-  line-height: 1.5;
 }
 .today-empty {
   margin: 0;
