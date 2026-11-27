@@ -1146,6 +1146,12 @@
 /investment/spacex-starmind/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/spacex-two-shares-trump-account
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/spacex-two-shares-trump-account/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/tesla
   Cache-Control: public, max-age=0, must-revalidate
 
