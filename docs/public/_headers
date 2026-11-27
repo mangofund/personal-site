@@ -35,6 +35,10 @@
   Cache-Control: public, max-age=0, must-revalidate
   Link: <https://promangofund.com/feed.xml>; rel="canonical"
 
+/en/feed.xml
+  Cache-Control: public, max-age=0, must-revalidate
+  Link: <https://promangofund.com/en/feed.xml>; rel="canonical"
+
 /sitemap.xml
   Cache-Control: public, max-age=0, must-revalidate
   Link: <https://promangofund.com/sitemap.xml>; rel="canonical"
@@ -1570,6 +1574,9 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /llms.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
+/llms-full.txt
   Cache-Control: public, max-age=0, must-revalidate
 
 /articles.json

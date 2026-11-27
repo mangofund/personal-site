@@ -475,3 +475,9 @@ Claude Duet 是 Anthropic 推出的主动型 AI 助理研究预览版。它能�
 ### 中国用户能用 Claude Duet 吗？
 
 目前尚无明确的中国大陆开放时间。可以先整理日常任务、巡查触发条件和审批规则，明确哪些事情适合交给 AI、哪些必须由自己决定，为后续使用主动助理做好准备。
+
+## 延伸阅读
+
+- [我用 Muse 搭建了一套 X 账号自动化运营系统：从选题、写作到发布](/ai/agents/x-auto-ops)
+- [AI Agent 会成为下一代操作系统吗？](/ai/agents/agent-os)
+- [Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude](/ai/trends/claude-search-surge)

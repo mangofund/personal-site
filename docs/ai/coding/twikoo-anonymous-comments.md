@@ -185,3 +185,9 @@ IP 属地功能也可以按需开启，但需要注意展示范围和准确性�
 目前，我的网站已经有了文章评论和独立留言板。接下来，就看读者是否真的会使用它们，以及评论能不能带来一些值得继续讨论的问题。
 
 先把功能做出来，再根据真实使用情况慢慢调整。这大概就是个人网站折腾起来最有意思的地方。
+
+## 延伸阅读
+
+- [我是如何用 Muse 自动化部署个人网站的](/ai/coding/muse-auto-deploy)
+- [网站上线检查清单：部署前验证功能、SEO、移动端与回滚](/ai/workflows/website-launch-checklist)
+- [AI Coding 项目交付流程：从需求到可验收成果](/ai/workflows/ai-project-delivery-workflow)

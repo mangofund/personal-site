@@ -372,6 +372,7 @@ headerBlocks.push([
   '  X-Frame-Options: SAMEORIGIN',
   '  Referrer-Policy: strict-origin-when-cross-origin',
   '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  ...(SITE_DOMAIN !== CANONICAL_URL ? ['  X-Robots-Tag: noindex, nofollow'] : []),
   ''
 ].join('\n'))
 // /admin 规则必须排在文件最前：Cloudflare Pages 的 _headers 最多只认前 100 条规则，
@@ -395,7 +396,7 @@ for (const pattern of ['/admin', '/admin/', '/admin/*']) {
 // “重复网页，用户未选定规范网页”）。用 HTTP Link 头指明规范地址。
 // 必须排在前 100 条规则内才在线上生效（Cloudflare Pages 上限），不能放在
 // 后面 assets 循环里（/feed.xml 原先排在约第 300 条，线上根本不生效）。
-for (const xml of ['/feed.xml', '/sitemap.xml']) {
+for (const xml of ['/feed.xml', '/en/feed.xml', '/sitemap.xml']) {
   headerBlocks.push(`${xml}\n  Cache-Control: ${htmlCache}\n  Link: <${CANONICAL_URL}${xml}>; rel="canonical"\n`)
 }
 const seenHeaderPaths = new Set()
@@ -410,7 +411,7 @@ for (const file of files) {
     pushCache(variant, htmlCache)
   }
 }
-for (const asset of ['/robots.txt', '/llms.txt', '/articles.json', '/404.html']) {
+for (const asset of ['/robots.txt', '/llms.txt', '/llms-full.txt', '/articles.json', '/404.html']) {
   pushCache(asset, htmlCache)
 }
 pushCache('/assets/*', `public, max-age=${HASHED_ASSET_CACHE_SECONDS}, immutable`)
@@ -488,6 +489,31 @@ for (const it of items) {
 const llmsSections = [...llmsByCat.entries()]
   .map(([cat, list]) => `## ${cat}\n\n${list.map((it) => `- [${it.title}](${it.link})：${it.description}（${it.dateStr}）`).join('\n')}`)
   .join('\n\n')
+
+// 中文非定时文章页（工作流指南 + 技能详情页），避免中文 llms.txt 漏掉核心资产
+const zhGuideItems = []
+const zhSkillItems = []
+for (const file of files) {
+  if (isEnglishDoc(file)) continue
+  const rel = relative(DOCS_DIR, file).split(sep).join('/')
+  const fm = parseFrontmatter(file)
+  if (!fm || !fm.title || !fm.description) continue
+  if (fm.draft === 'true' || fm.noindex === 'true') continue
+  if (rel.startsWith('ai/workflows/') && !fm.date) {
+    zhGuideItems.push({ title: fm.title, description: fm.description, link: CANONICAL_URL + toUrlPath(file), file })
+  } else if (rel.startsWith('skills/') && rel !== 'skills/index.md') {
+    zhSkillItems.push({ title: fm.title, description: fm.description, link: CANONICAL_URL + toUrlPath(file), file })
+  }
+}
+zhGuideItems.sort((a, b) => a.title.localeCompare(b.title, 'zh-CN'))
+zhSkillItems.sort((a, b) => a.title.localeCompare(b.title, 'zh-CN'))
+const zhGuidesSection = zhGuideItems.length
+  ? `\n## 工作流指南\n\n${zhGuideItems.map((it) => `- [${it.title}](${it.link})：${it.description}`).join('\n')}\n`
+  : ''
+const zhSkillsSection = zhSkillItems.length
+  ? `\n## 技能商店\n\n${zhSkillItems.map((it) => `- [${it.title}](${it.link})：${it.description}`).join('\n')}\n`
+  : ''
+
 const enLlmsItems = []
 for (const file of files) {
   if (!isEnglishDoc(file)) continue
@@ -496,28 +522,60 @@ for (const file of files) {
   if (fm.draft === 'true' || fm.noindex === 'true') continue
   const d = new Date(fm.date)
   if (Number.isNaN(d.getTime())) continue
+  const rawBody = readFileSync(file, 'utf8')
   enLlmsItems.push({
     title: fm.title,
     description: fm.description || '',
+    category: fm.category || '',
+    image: fm.image || (rawBody.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || ''),
     date: d,
     dateStr: fm.date.replace(/-/g, '.'),
     order: articleOrder(fm),
     publishedAt: publishedAtOf(file, fm.date),
-    link: CANONICAL_URL + toUrlPath(file)
+    link: CANONICAL_URL + toUrlPath(file),
+    urlPath: baseNoSlash + toUrlPath(file),
+    file
   })
 }
 enLlmsItems.sort(compareByRecency)
 const enPageItems = []
+const enWorkflowItems = []
 for (const file of files) {
   if (!isEnglishDoc(file)) continue
+  const rel = relative(DOCS_DIR, file).split(sep).join('/')
   const fm = parseFrontmatter(file)
   if (!fm || !fm.title || !fm.description || fm.date) continue
   if (fm.draft === 'true' || fm.noindex === 'true') continue
-  enPageItems.push({
+  const item = {
     title: fm.title,
     description: fm.description,
-    link: CANONICAL_URL + toUrlPath(file)
-  })
+    link: CANONICAL_URL + toUrlPath(file),
+    urlPath: baseNoSlash + toUrlPath(file),
+    file
+  }
+  enPageItems.push(item)
+  if (rel.startsWith('en/ai/workflows/')) {
+    const rawBody = readFileSync(file, 'utf8')
+    const dateRaw = String(contentLastmod(file, fm, gitDates, snapshotDates) || '2026-10-20').slice(0, 10)
+    const d = new Date(dateRaw)
+    const zhCounterpart = join(DOCS_DIR, rel.slice('en/'.length))
+    let img = fm.image || (rawBody.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1] || '')
+    if (!img) {
+      try {
+        const zhFm = parseFrontmatter(zhCounterpart)
+        if (zhFm?.image) img = zhFm.image
+      } catch { /* ignore */ }
+    }
+    enWorkflowItems.push({
+      ...item,
+      category: 'AI',
+      image: img,
+      date: Number.isNaN(d.getTime()) ? new Date('2026-10-20') : d,
+      dateStr: dateRaw.replace(/-/g, '.'),
+      order: 0,
+      publishedAt: Number.isNaN(d.getTime()) ? 0 : d.getTime()
+    })
+  }
 }
 enPageItems.sort((a, b) => a.title.localeCompare(b.title))
 const enLlmsLines = [
@@ -531,24 +589,163 @@ const llms = `# ${SITE_TITLE}
 
 > ${SITE_DESC}
 
-中文个人知识库网站，主域名 ${CANONICAL_URL}/。内容围绕 AI、投资、产品思考展开，均为原创文章。
+中文个人知识库网站，主域名 ${CANONICAL_URL}/，作者 pro（PRO的茶里芒果 / Pro's MangoFund）。内容围绕 AI、Agent Skills、投资、产品与长期思考展开，均为原创文章与可复用工作流。
 
 ## 栏目
 
 - [AI 产品工具](${CANONICAL_URL}/ai/)：订阅比价、额度重置记录与邀请码共享
-- [投资](${CANONICAL_URL}/investment)：美股与长期主义
-- [思考](${CANONICAL_URL}/thinking)：财富、技术与社会
+- [投资](${CANONICAL_URL}/investment/)：美股与长期主义
+- [思考](${CANONICAL_URL}/thinking/)：财富、技术与社会
+- [技能商店](${CANONICAL_URL}/skills/)：可直接用于 Codex / Claude Code 的 Agent Skills
+- [项目](${CANONICAL_URL}/projects/)：自研产品与朋友的开源项目
 - [工具](${CANONICAL_URL}/unnoticed/)：网友提交的独立作品，确认简介后即公开展示
-- [关于](${CANONICAL_URL}/about)
+- [全部归档](${CANONICAL_URL}/archive)
+- [关于](${CANONICAL_URL}/about/)
 
 ${llmsSections}
-${enLlmsSection}
-## 订阅
+${zhGuidesSection}${zhSkillsSection}${enLlmsSection}
+## 订阅与完整索引
 
-- RSS: ${CANONICAL_URL}/feed.xml
+- RSS (中文): ${CANONICAL_URL}/feed.xml
+- RSS (English): ${CANONICAL_URL}/en/feed.xml
+- 完整站内知识摘要: ${CANONICAL_URL}/llms-full.txt
 - Sitemap: ${CANONICAL_URL}/sitemap.xml
 `
 writeFileSync(join(PUBLIC_DIR, 'llms.txt'), llms)
+
+// ---- llms-full.txt:面向 AI 检索与 RAG 的全站结构化摘要（含 H2 提纲与 FAQ 问答）----
+function extractOutlineAndFaq(filePath) {
+  let raw = ''
+  try { raw = readFileSync(filePath, 'utf8') } catch { return { headings: [], faqs: [] } }
+  let fmPart = ''
+  let body = raw
+  if (raw.startsWith('---')) {
+    const end = raw.indexOf('\n---', 3)
+    if (end !== -1) { fmPart = raw.slice(3, end); body = raw.slice(end + 4) }
+  }
+  const cleanBody = body.replace(/```[\s\S]*?```/g, '')
+  const headings = [...cleanBody.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim()).slice(0, 8)
+  const faqs = []
+  const faqMatch = fmPart.match(/^faq:\s*\n([\s\S]*?)(?=^[A-Za-z_]+:|\Z)/m)
+  if (faqMatch) {
+    const lines = faqMatch[1].split('\n')
+    let curQ = null
+    for (const line of lines) {
+      const qm = line.match(/^\s*-\s*q:\s*(.+)$/)
+      const am = line.match(/^\s*a:\s*(.+)$/)
+      if (qm) curQ = qm[1].trim().replace(/^['"]|['"]$/g, '')
+      else if (am && curQ) {
+        faqs.push({ q: curQ, a: am[1].trim().replace(/^['"]|['"]$/g, '') })
+        curQ = null
+      }
+    }
+  }
+  return { headings, faqs }
+}
+
+function formatFullEntry(it, filePath) {
+  const { headings, faqs } = filePath ? extractOutlineAndFaq(filePath) : { headings: [], faqs: [] }
+  const lines = [
+    `### ${it.title}`,
+    `- URL: ${it.link}`,
+    ...(it.dateStr ? [`- Date: ${it.dateStr}`] : []),
+    ...(it.category ? [`- Category: ${it.category}`] : []),
+    `- Summary: ${it.description}`
+  ]
+  if (headings.length) lines.push(`- Sections: ${headings.join(' / ')}`)
+  if (faqs.length) {
+    lines.push('- FAQ:')
+    for (const f of faqs) lines.push(`  - Q: ${f.q}\n    A: ${f.a}`)
+  }
+  return lines.join('\n')
+}
+
+const zhFileByLink = new Map(files.filter((f) => !isEnglishDoc(f)).map((f) => [CANONICAL_URL + toUrlPath(f), f]))
+const llmsFullParts = [
+  `# ${SITE_TITLE} — Full Knowledge Digest`,
+  '',
+  `> ${SITE_DESC}`,
+  '',
+  `- Site: ${CANONICAL_URL}/`,
+  `- Author: pro (PRO的茶里芒果 / Pro's MangoFund)`,
+  `- GitHub: https://github.com/mangofund`,
+  `- X: https://x.com/PRO_AI_99T`,
+  '',
+  '## 中文原创文章',
+  '',
+  ...items.map((it) => formatFullEntry(it, zhFileByLink.get(it.link))),
+  '',
+  '## 中文工作流指南',
+  '',
+  ...zhGuideItems.map((it) => formatFullEntry(it, it.file)),
+  '',
+  '## 中文技能商店（Agent Skills）',
+  '',
+  ...zhSkillItems.map((it) => `- [${it.title}](${it.link})：${it.description}`),
+  '',
+  '## English Articles',
+  '',
+  ...enLlmsItems.map((it) => formatFullEntry(it, it.file)),
+  '',
+  '## English Workflow Guides',
+  '',
+  ...enWorkflowItems.map((it) => formatFullEntry(it, it.file))
+]
+writeFileSync(join(PUBLIC_DIR, 'llms-full.txt'), llmsFullParts.join('\n') + '\n')
+
+// ---- 英文 RSS (/en/feed.xml) ----
+const enFeedEntries = [...enLlmsItems, ...enWorkflowItems].sort(compareByRecency)
+const enFeedItems = enFeedEntries
+  .map(
+    (it) => `    <item>
+      <title>${esc(it.title)}</title>
+      <link>${esc(it.link)}</link>
+      <guid isPermaLink="true">${esc(it.link)}</guid>
+      <pubDate>${it.date.toUTCString()}</pubDate>
+      <description>${esc(it.description)}</description>
+    </item>`
+  )
+  .join('\n')
+const enFeed = `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pro's MangoFund</title>
+    <link>${CANONICAL_URL}/en/</link>
+    <atom:link href="${CANONICAL_URL}/en/feed.xml" rel="self" type="application/rss+xml" />
+    <description>English notes from Pro's MangoFund on AI products, investing, and building software with AI coding agents.</description>
+    <language>en</language>
+${enFeedEntries.length > 0 ? `    <lastBuildDate>${enFeedEntries[0].date.toUTCString()}</lastBuildDate>\n` : ''}${enFeedItems}
+  </channel>
+</rss>
+`
+mkdirSync(join(PUBLIC_DIR, 'en'), { recursive: true })
+writeFileSync(join(PUBLIC_DIR, 'en', 'feed.xml'), enFeed)
+
+// ---- 英文首页文章流自动生成 + 英文首页 Blog JSON-LD 清单 ----
+writeFileSync(join(DOCS_DIR, '.vitepress', 'en-latest-posts.json'), JSON.stringify(enFeedEntries.slice(0, 12).map((it) => ({
+  title: it.title,
+  description: it.description,
+  category: it.category || 'AI',
+  url: it.link,
+  date: it.date.toISOString(),
+  image: it.image ? CANONICAL_URL + (it.image.startsWith('/') ? it.image : '/' + it.image) : ''
+}))))
+const enFeedRowsHtml = enFeedEntries.map((it, i) => {
+  const image = it.image ? (it.image.startsWith('/') ? it.image : '/' + it.image) : ''
+  const loadAttrs = i === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'
+  const media = image
+    ? `<img class="archive-card-img" src="${esc(image)}" alt="${esc(it.title)}" ${loadAttrs} decoding="async" />`
+    : `<div class="archive-card-img archive-card-placeholder" aria-hidden="true"><span>AI</span></div>`
+  const iso = it.dateStr.replace(/\./g, '-')
+  return `      <a class="feed-row" href="${it.urlPath}"><div class="feed-row-head"><strong>${esc(it.title)}</strong><span class="feed-row-date"> · <time datetime="${iso}">${it.dateStr}</time></span></div><div class="feed-row-body"><div class="feed-row-thumb">${media}</div><p>${esc(it.description)}</p></div></a>`
+}).join('\n')
+const enIndexPath = join(DOCS_DIR, 'en', 'index.md')
+try {
+  const enIndexSrc = readFileSync(enIndexPath, 'utf8')
+  const enBlock = `<!-- EN-LATEST-START:auto-generated by scripts/gen-seo.mjs -->\n    <div class="feed-list">\n${enFeedRowsHtml}\n    </div>\n    <!-- EN-LATEST-END -->`
+  const enUpdated = enIndexSrc.replace(/<!-- EN-LATEST-START[\s\S]*?<!-- EN-LATEST-END -->/, enBlock)
+  if (enUpdated !== enIndexSrc) writeFileSync(enIndexPath, enUpdated)
+} catch { /* ignore if en/index.md not present */ }
 
 // ---- 首页 Latest:横幅轮播 3 篇 + 图文小卡 4 篇 + 文字列表 6 篇,自动写入 docs/index.md ----
 // 首屏尽量多露出文章:轮播占整行(横幅图 + 下方随轮播同步切换的标题摘要),下面 2×2 小卡,再下面是紧凑列表。

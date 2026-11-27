@@ -5,6 +5,13 @@ description: Claude Skills 安装全流程：SKILL.md 下载后放哪里、怎�
 keywords: Agent Skills 安装, SKILL.md, Codex Skills, Claude Code Skills, AI Agent 技能
 aside: false
 image: /images/workflows/agent-skills-install.jpg
+faq:
+  - q: Agent Skill 和普通 Prompt 有什么区别？
+    a: 普通 Prompt 是一次性指令；Agent Skill 是包含 SKILL.md、参考文档、脚本与验收清单的可复用目录，Agent 可以按触发条件自动加载并稳定复现整套流程。
+  - q: 为什么放好了 SKILL.md，但 Codex 或 Claude Code 没有自动触发？
+    a: 常见原因包括目录位置不在工具扫描路径内、frontmatter 里的 name 或 description 不够明确，或需要重启会话重新扫描技能目录；也可以在提示词中直接点名技能名称强制调用。
+  - q: 安装第三方 Agent Skill 前需要做哪些安全检查？
+    a: 先检查 SKILL.md 和附带脚本是否包含网络外传、读取环境变量/密钥、修改系统配置或执行未声明命令的操作，确认无误后再放入工作区或全局技能目录。
 ---
 
 # Claude Skills 安装指南：SKILL.md 放哪里、怎么验证（Claude Code / Codex）

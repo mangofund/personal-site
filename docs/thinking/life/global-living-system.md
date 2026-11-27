@@ -515,3 +515,9 @@ draft: false
 - 美国非居民非公民遗产税：[美国国税局官方页面](https://www.irs.gov/individuals/international-taxpayers/some-nonresidents-with-us-assets-must-file-estate-tax-returns)
 
 需要特别注意：文中的预算区间是个人规划估算，不是官方规定的资金门槛；不同签证类别、家庭人数和城市会造成明显差异。税务部分属于一般性说明，不应直接当作个人税务意见。涉及跨境资产、公司股权或大额投资时，应在实际迁移前由熟悉相关国家规则的专业人士核验。
+
+## 延伸阅读
+
+- [财富的第一性原理是什么？](/thinking/wealth/first-principles)
+- [当智能可以无限复制，什么才是真正稀缺？](/thinking/first-principles/scarcity)
+- [AI 技术终将造福每个人吗？](/thinking/society/ai-labor-capital)

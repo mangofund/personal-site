@@ -1081,13 +1081,57 @@ if (existsSync(homeHtmlPath)) {
   if (!getMetaAll(html, 'og:locale:alternate').includes('en_US')) errors.push('中文首页缺少 og:locale:alternate=en_US')
 }
 
-// 5. 检查 robots.txt
+// 5. 检查 robots.txt、llms.txt、llms-full.txt、英文 RSS 与技能/工作流结构化数据
 const robots = join(DIST, 'robots.txt')
 if (!existsSync(robots)) warnings.push('缺少 robots.txt')
+const llmsTxt = join(DIST, 'llms.txt')
+if (!existsSync(llmsTxt)) {
+  errors.push('缺少 llms.txt')
+} else {
+  const llmsContent = readFileSync(llmsTxt, 'utf8')
+  if (!llmsContent.includes('## 工作流指南') || !llmsContent.includes('## 技能商店')) {
+    errors.push('llms.txt 中文区缺少工作流指南或技能商店')
+  }
+}
+const llmsFullTxt = join(DIST, 'llms-full.txt')
+if (!existsSync(llmsFullTxt) || statSync(llmsFullTxt).size < 5000) {
+  errors.push('缺少或过小的 llms-full.txt')
+}
+const enFeedFile = join(DIST, 'en', 'feed.xml')
+if (!existsSync(enFeedFile)) {
+  errors.push('缺少英文 RSS /en/feed.xml')
+} else {
+  const enFeedXml = readFileSync(enFeedFile, 'utf8')
+  if (!enFeedXml.includes('/en/ai/products/bing-wallpaper-for-mac') || !enFeedXml.includes('/en/ai/products/claude-duet')) {
+    errors.push('英文 RSS 缺少最新英文文章')
+  }
+}
+const sampleSkillPage = join(DIST, 'skills', 'de-ai-writing.html')
+if (existsSync(sampleSkillPage)) {
+  const html = readFileSync(sampleSkillPage, 'utf8')
+  const nodes = readJsonLd(html, sampleSkillPage)
+  if (!nodes.some((n) => n['@type'] === 'SoftwareApplication')) {
+    errors.push('技能详情页缺少 SoftwareApplication JSON-LD')
+  }
+  if (!(getMeta(html, 'og:image') || '').includes('/images/skills/de-ai-writing.jpg')) {
+    errors.push('技能详情页 og:image 未使用专属封面图')
+  }
+}
+const sampleWorkflowPage = join(DIST, 'ai', 'workflows', 'ai-project-delivery-workflow.html')
+if (existsSync(sampleWorkflowPage)) {
+  const html = readFileSync(sampleWorkflowPage, 'utf8')
+  const nodes = readJsonLd(html, sampleWorkflowPage)
+  if (!nodes.some((n) => n['@type'] === 'TechArticle')) {
+    errors.push('工作流指南页缺少 TechArticle JSON-LD')
+  }
+  if (!nodes.some((n) => n['@type'] === 'FAQPage')) {
+    errors.push('工作流指南页缺少 FAQPage JSON-LD')
+  }
+}
 
 // 6. 意外 noindex（timeline 和草稿是预期的）
 // 草稿页通过 gen-seo.mjs 已从 sitemap 排除，但 HTML 仍会生成，noindex 是正确的
-const expectedNoindex = ['timeline', 'muse-seo-automation', 'guestbook', 'sponsor', 'subscribe', 'unnoticed/review', 'unnoticed/detail']  // timeline/guestbook/sponsor/subscribe/unnoticed review: 主动 noindex；muse-seo-automation: 正文里出现该词；unnoticed detail: 动态内容页
+const expectedNoindex = ['timeline', 'muse-seo-automation', 'guestbook', 'sponsor', 'subscribe', 'utm.html', 'unnoticed/review', 'unnoticed/detail']  // timeline/guestbook/sponsor/subscribe/utm/unnoticed review: 主动 noindex；muse-seo-automation: 正文里出现该词；unnoticed detail: 动态内容页
 for (const p of pages) {
   const html = readFileSync(p, 'utf8')
   if (html.includes('noindex') && !expectedNoindex.some(s => p.includes(s)) && !isCmsAdmin(p)) {

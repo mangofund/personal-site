@@ -45,10 +45,55 @@ function readJson<T>(path: string, fallback: T): T {
 }
 
 type LatestPost = { title: string; description: string; category: string; url: string; date: string; image: string }
-// gen-seo.mjs 写出的首页最新文章，用于首页 Blog 结构化数据
+// gen-seo.mjs 写出的中英文首页最新文章，用于首页 Blog 结构化数据
 const latestPosts = () => readJson<LatestPost[]>(join(DOCS_DIR, '.vitepress', 'latest-posts.json'), [])
+const enLatestPosts = () => readJson<LatestPost[]>(join(DOCS_DIR, '.vitepress', 'en-latest-posts.json'), [])
 // gen-seo.mjs 维护的内容更新时间快照(key: docs/<relativePath>)，用作 dateModified
 const contentDates = readJson<Record<string, string>>(fileURLToPath(new URL('../../scripts/content-dates.json', import.meta.url)), {})
+
+interface SkillMeta {
+  id: string
+  name: string
+  pitch: string
+  image: string
+  video: string
+  zipPath: string
+}
+
+let cachedHomeSkillsText: string | null = null
+function readHomeSkillsText(): string {
+  if (cachedHomeSkillsText === null) {
+    cachedHomeSkillsText = readFileSync(join(DOCS_DIR, '.vitepress', 'theme', 'homeSkills.ts'), 'utf8')
+  }
+  return cachedHomeSkillsText
+}
+
+/** 解析技能详情页对应的 homeSkills.ts 元数据（封面图、视频、ZIP、简介） */
+function pageSkillMeta(source: string, isEn: boolean): SkillMeta | null {
+  const skillId = source.match(/<SkillDetail\s+skill-id="([^"]+)"/)?.[1]
+  if (!skillId) return null
+  const text = readHomeSkillsText()
+  const start = text.search(new RegExp(`\\n {4}id: '${skillId}',`))
+  if (start < 0) return null
+  const next = text.slice(start + 1).search(/\n {4}id: '/)
+  const block = next >= 0 ? text.slice(start, start + 1 + next) : text.slice(start)
+  const video = block.match(/video: '([^']+)'/)?.[1] ?? ''
+  const image = block.match(/image: '([^']+)'/)?.[1] ?? ''
+  const name = block.match(isEn ? /nameEn: '([^']+)'/ : /nameZh: '([^']+)'/)?.[1] ?? ''
+  const pitch = block.match(isEn ? /pitchEn: '([^']+)'/ : /pitchZh: '([^']+)'/)?.[1] ?? ''
+  const zipFile = block.match(/zipFile: '([^']+)'/)?.[1] ?? ''
+  const zipPath = zipFile ? `/skills/zips/${zipFile}` : ''
+  return { id: skillId, name, pitch, image, video, zipPath }
+}
+
+/** 估算正文有效字数（中文按字、英文按词，排除 frontmatter 和代码块），用于 Article.wordCount */
+function estimateWordCount(source: string): number {
+  const withoutFm = source.startsWith('---') ? source.slice(source.indexOf('\n---', 3) + 4) : source
+  const plain = withoutFm.replace(/```[\s\S]*?```/g, ' ').replace(/<[^>]+>/g, ' ')
+  const cjk = (plain.match(/[\u4e00-\u9fff]/g) ?? []).length
+  const words = (plain.replace(/[\u4e00-\u9fff]/g, ' ').match(/[A-Za-z0-9_'-]+/g) ?? []).length
+  return cjk + words
+}
 
 interface ArticleMeta {
   key: string
@@ -412,13 +457,27 @@ export default defineConfig({
     const title = typeof fm.title === 'string' && fm.title ? fm.title : siteTitle
     const desc = typeof fm.description === 'string' && fm.description ? fm.description : siteDesc
     const isHome = pageData.relativePath === 'index.md' || pageData.relativePath === 'en/index.md'
+    const rawDateStr = typeof fm.date === 'string' ? fm.date.trim().replace(/^(\d{4})\.(\d{2})\.(\d{2})$/, '$1-$2-$3') : ''
+    const isArticle = rawDateStr.length > 0 && !Number.isNaN(Date.parse(rawDateStr))
+    const isGuide = !isArticle && /^(?:en\/)?ai\/workflows\/(?!index\.md)/.test(pageData.relativePath)
+    const isCollection = pageData.relativePath.endsWith('/index.md') || pageData.relativePath === 'archive.md'
     const isAbout = pageData.relativePath === 'about/index.md' || pageData.relativePath === 'en/about/index.md'
-    // 默认分享卡(1200x630);文章可在 frontmatter 里用 image: /images/xxx.png 覆盖(站内相对路径)
-    const imgPath = typeof fm.image === 'string' && fm.image ? fm.image : '/images/social-card.png'
-    const imgUrl = `${SITE_URL}${baseNoSlash}${imgPath.startsWith('/') ? imgPath : '/' + imgPath}`
-    const hasArticleCover = typeof fm.image === 'string' && fm.image.length > 0
+    const pageSource = existsSync(join(DOCS_DIR, pageData.relativePath))
+      ? readFileSync(join(DOCS_DIR, pageData.relativePath), 'utf8')
+      : ''
+    const skillMeta = pageSource ? pageSkillMeta(pageSource, isEn) : null
+    // 默认分享卡(1200x630);文章可在 frontmatter 里用 image 覆盖，技能详情页自动复用 homeSkills.ts 封面图
+    const rawCover = typeof fm.image === 'string' && fm.image
+      ? fm.image
+      : skillMeta?.image
+        ? skillMeta.image
+        : ''
+    const hasArticleCover = rawCover.length > 0
+    const imgPath = hasArticleCover ? rawCover : '/images/social-card.png'
+    // 分享图与结构化数据图片一律走 CANONICAL_URL，避免镜像/预览域泄露非规范图片地址
+    const imgUrl = `${CANONICAL_URL}${imgPath.startsWith('/') ? imgPath : '/' + imgPath}`
     // 默认封面再配一张正方形微信版：微信只读 og:image 且缩略图是小正方形，X 则优先读 twitter:image(1200x630)
-    const squareImgUrl = `${SITE_URL}${baseNoSlash}/images/social-card-square.png`
+    const squareImgUrl = `${CANONICAL_URL}/images/social-card-square.png`
 
     const head: HeadConfig[] = [
       ['link', { rel: 'canonical', href: canonical }],
@@ -429,6 +488,9 @@ export default defineConfig({
       ['meta', { property: 'og:url', content: canonical }],
       ['meta', { property: 'og:image', content: hasArticleCover ? imgUrl : squareImgUrl }],
     ]
+    if (isEn) {
+      head.push(['link', { rel: 'alternate', type: 'application/rss+xml', title: `${EN_TITLE} RSS`, href: `${baseNoSlash}/en/feed.xml` }])
+    }
     // 尺寸只标在默认分享卡上。文章封面尺寸不固定，不写死 1200×630。
     // 默认封面：og:image 用正方形微信版(800x800)，twitter:image 继续用宽版(1200x630)。
     if (!hasArticleCover) {
@@ -456,24 +518,40 @@ export default defineConfig({
       head.push(['link', { rel: 'alternate', hreflang: 'x-default', href: alternates.zh }])
     }
 
-    if (fm.noindex === true) {
-      head.push(['meta', { name: 'robots', content: 'noindex' }])
+    if (fm.noindex === true || fm.draft === true) {
+      head.push(['meta', { name: 'robots', content: 'noindex, follow' }])
     }
 
-    if (isHome || isAbout) {
+    const updatedRawGlobal = typeof fm.updated === 'string' && fm.updated ? fm.updated : contentDates[`docs/${pageData.relativePath}`]
+    const updatedDate = updatedRawGlobal ? new Date(updatedRawGlobal) : null
+    const tags = Array.isArray(fm.tags) ? fm.tags.filter((t: unknown): t is string => typeof t === 'string') : []
+
+    if (!isArticle && !isGuide) {
       head.push(['meta', { property: 'og:type', content: 'website' }])
     } else {
       head.push(['meta', { property: 'og:type', content: 'article' }])
-      if (typeof fm.date === 'string' && fm.date) {
-        const d = new Date(fm.date)
+      if (isArticle && rawDateStr) {
+        const d = new Date(rawDateStr)
         if (!Number.isNaN(d.getTime())) {
           head.push(['meta', { property: 'article:published_time', content: d.toISOString() }])
+          if (updatedDate && !Number.isNaN(updatedDate.getTime()) && updatedDate >= d) {
+            head.push(['meta', { property: 'article:modified_time', content: updatedDate.toISOString() }])
+          }
         }
+      } else if (isGuide && updatedDate && !Number.isNaN(updatedDate.getTime())) {
+        head.push(['meta', { property: 'article:modified_time', content: updatedDate.toISOString() }])
+      }
+      if (typeof fm.category === 'string' && fm.category) {
+        head.push(['meta', { property: 'article:section', content: fm.category }])
+      }
+      for (const tag of tags) {
+        head.push(['meta', { property: 'article:tag', content: tag }])
       }
     }
 
     // ---- 结构化数据 JSON-LD(供搜索引擎/AI 问答引擎摘取) ----
-    // 首页 → WebSite;关于页 → AboutPage;带 title 的文章页 → Article;frontmatter 写 faq: [{q, a}] 的页面追加 FAQPage
+    // 首页 → WebSite + Blog;关于页 → AboutPage;技能详情页 → SoftwareApplication;
+    // 带日期文章 → Article;工作流指南 → TechArticle;栏目页 → CollectionPage;frontmatter faq → FAQPage
     // author 只保留站上既有的 name / url / sameAs，不补职务、邮箱等未公开字段。
     const schemas: Record<string, unknown>[] = []
     const author = {
@@ -498,8 +576,8 @@ export default defineConfig({
         author
       })
       schemas.push({ '@context': 'https://schema.org', ...author })
-      // 首页文章流：给搜索引擎和 AI 问答引擎一份带日期、栏目和摘要的最新文章清单
-      const posts = isEn ? [] : latestPosts()
+      // 中英文首页文章流：给搜索引擎和 AI 问答引擎一份带日期、栏目和摘要的最新文章清单
+      const posts = isEn ? enLatestPosts() : latestPosts()
       if (posts.length > 0) {
         schemas.push({
           '@context': 'https://schema.org',
@@ -538,43 +616,69 @@ export default defineConfig({
         mainEntity: author
       })
     } else if (title) {
-      const article: Record<string, unknown> = {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: title,
-        description: desc,
-        url: canonical,
-        mainEntityOfPage: canonical,
-        inLanguage: localeLang,
-        author,
-        publisher: {
-          '@type': 'Organization',
-          name: siteTitle,
-          logo: { '@type': 'ImageObject', url: `${CANONICAL_URL}/images/site-icon.png` }
-        },
-        image: imgUrl
+      const publisher = {
+        '@type': 'Organization',
+        name: siteTitle,
+        url: `${CANONICAL_URL}${isEn ? '/en/' : '/'}`,
+        logo: { '@type': 'ImageObject', url: `${CANONICAL_URL}/images/site-icon.png` }
       }
-      if (typeof fm.date === 'string' && fm.date) {
-        const d = new Date(fm.date)
-        if (!Number.isNaN(d.getTime())) {
-          article.datePublished = d.toISOString()
-          // 优先 frontmatter updated，其次内容更新时间快照，都没有时退回发布日期
-          const updatedRaw = typeof fm.updated === 'string' && fm.updated ? fm.updated : contentDates[`docs/${pageData.relativePath}`]
-          const u = updatedRaw ? new Date(updatedRaw) : d
-          article.dateModified = (!Number.isNaN(u.getTime()) && u >= d ? u : d).toISOString()
+      if (skillMeta) {
+        const appSchema: Record<string, unknown> = {
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: title,
+          description: desc,
+          url: canonical,
+          applicationCategory: 'DeveloperApplication',
+          operatingSystem: 'Any',
+          inLanguage: localeLang,
+          image: imgUrl,
+          author,
+          publisher,
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          },
+          isPartOf: { '@type': 'WebSite', name: siteTitle, url: `${CANONICAL_URL}${isEn ? '/en/' : '/'}` }
         }
+        if (skillMeta.zipPath) appSchema.downloadUrl = `${CANONICAL_URL}${skillMeta.zipPath}`
+        if (updatedDate && !Number.isNaN(updatedDate.getTime())) {
+          appSchema.dateModified = updatedDate.toISOString()
+        }
+        schemas.push(appSchema)
+      } else {
+        const pageType = isArticle ? 'Article' : isGuide ? 'TechArticle' : isCollection ? 'CollectionPage' : 'WebPage'
+        const article: Record<string, unknown> = {
+          '@context': 'https://schema.org',
+          '@type': pageType,
+          ...(isArticle || isGuide ? { headline: title } : { name: title }),
+          description: desc,
+          url: canonical,
+          mainEntityOfPage: canonical,
+          inLanguage: localeLang,
+          author,
+          publisher,
+          image: imgUrl
+        }
+        if (isArticle) {
+          const d = new Date(rawDateStr)
+          if (!Number.isNaN(d.getTime())) {
+            article.datePublished = d.toISOString()
+            article.dateModified = (updatedDate && !Number.isNaN(updatedDate.getTime()) && updatedDate >= d ? updatedDate : d).toISOString()
+          }
+          if (pageSource) article.wordCount = estimateWordCount(pageSource)
+        } else if (isGuide) {
+          if (updatedDate && !Number.isNaN(updatedDate.getTime())) {
+            article.dateModified = updatedDate.toISOString()
+          }
+          if (pageSource) article.wordCount = estimateWordCount(pageSource)
+        }
+        if (typeof fm.category === 'string' && fm.category) article.articleSection = fm.category
+        if (tags.length > 0) article.keywords = tags.join(', ')
+        article.isPartOf = { '@type': 'WebSite', name: siteTitle, url: `${CANONICAL_URL}${isEn ? '/en/' : '/'}` }
+        schemas.push(article)
       }
-      // 没有 frontmatter date 的页面（如工作流指南）不进 feed，但仍给搜索/AI 引擎一个更新时间
-      if (!article.dateModified) {
-        const snap = contentDates[`docs/${pageData.relativePath}`]
-        const sd = snap ? new Date(snap) : null
-        if (sd && !Number.isNaN(sd.getTime())) article.dateModified = sd.toISOString()
-      }
-      if (typeof fm.category === 'string' && fm.category) article.articleSection = fm.category
-      const tags = Array.isArray(fm.tags) ? fm.tags.filter((t: unknown) => typeof t === 'string') : []
-      if (tags.length > 0) article.keywords = tags.join(', ')
-      article.isPartOf = { '@type': 'WebSite', name: siteTitle, url: `${CANONICAL_URL}${isEn ? '/en/' : '/'}` }
-      schemas.push(article)
 
       // 面包屑：首页 → 栏目 → 文章
       const { slug } = localeSlug(pageData.relativePath)

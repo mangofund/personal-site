@@ -577,3 +577,9 @@ cp -r agent-skills/x-ops-automation ~/.claude/skills/
 第一，Skill 不提供模型，模型费用走你自己的 Agent 订阅或 API，Skill 本身免费。
 
 第二，这个 Skill 记录的是 2026 年 10 月的实战版本。系统还在迭代，Skill 也会跟着更新，仓库里直接 `git pull` 就行。
+
+## 延伸阅读
+
+- [我是如何用 Muse 自动化部署个人网站的](/ai/coding/muse-auto-deploy)
+- [Anthropic上线官方AI 管家App：Claude Duet](/ai/products/claude-duet)
+- [我的 AI 技能包（上）：每天在用的 10 个技能，全部带演示视频](/ai/workflows/my-ai-skills-part-1)

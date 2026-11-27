@@ -370,3 +370,9 @@ Anthropic这份报告宣示了一个新趋势，前沿模型能力不仅仅是�
 **主要参考来源：** Anthropic 公开报告和博客；TechCrunch 新闻；商务部声明等。
 
 免责声明：本文仅为个人观点记录，不构成投资建议。
+
+## 延伸阅读
+
+- [Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude](/ai/trends/claude-search-surge)
+- [AI 产业的下一阶段](/ai/trends/next-stage)
+- [REA 逆向一切 App：互联网即将进入「软件可复制性」的新阶段](/ai/trends/rea-software-replicability)

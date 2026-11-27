@@ -180,3 +180,9 @@ AI 很可能继续改变知识工作、软件开发、企业组织和社会生�
 当市场把目光集中在少数赢家身上时，保持独立判断、坚持合理估值、耐心等待真正有吸引力的机会，或许比预测下一轮风口更重要。
 
 本文仅为个人观点记录，不构成投资建议。
+
+## 延伸阅读
+
+- [AI 进行到哪一步了？普通人如何投资美股](/investment/us-stocks/ai-stage-invest-guide)
+- [AI 产业的下一阶段](/ai/trends/next-stage)
+- [财富的第一性原理是什么？](/thinking/wealth/first-principles)

@@ -7,6 +7,13 @@ date: 2026-10-16
 category: Investing
 tags: [Investing, Tesla earnings, Tesla Q3 2026, Tesla Roadster, FSD v14, Tesla stock]
 draft: false
+faq:
+  - q: Will the flying Roadster announcement change Tesla's Q3 2026 financial results?
+    a: No. The Roadster is a marketing event with production targeted years out, not current-quarter revenue. Post-earnings pricing still hinges on margins, deliveries, and FSD/Robotaxi execution.
+  - q: What are the three key things to watch in Tesla's Q3 2026 earnings report?
+    a: Watch concrete milestones for FSD and Robotaxi, management's stance on the HW3 cutoff for FSD v15, and whether roughly 487,000 deliveries hold healthy automotive margins alongside energy storage growth.
+  - q: Is this Tesla Q3 2026 earnings preview investment advice?
+    a: No. This is a personal note, not investment advice. Always verify current filings and market data before making any financial decision.
 ---
 
 # Tesla Q3 2026 Earnings Preview: What Actually Moves the Stock

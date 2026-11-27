@@ -4,6 +4,13 @@ description: 网站发布前的实用验收清单，覆盖关键页面、链接�
 keywords: 网站上线检查清单, 网站发布验收, SEO 检查, 移动端测试, VitePress 部署
 aside: false
 image: /images/workflows/website-launch-checklist.jpg
+faq:
+  - q: 网站本地构建成功了，为什么上线前还需要做验收检查？
+    a: 构建通过只代表没有语法或打包错误，无法覆盖线上死链、移动端溢出、canonical 指向错误域名、OG 分享图未更新、统计埋点未触发等真实访问问题。
+  - q: 个人网站上线前最核心的 SEO 检查项有哪些？
+    a: 至少核对每页唯一的 title 与 description、canonical 与 sitemap 域名一致、robots.txt 未误封爬虫、多语言页面 hreflang 互指正确，以及首屏大图已压缩且带 alt 文本。
+  - q: 静态网站发布前为什么要准备回滚方案？
+    a: 即使静态站也可能因路由重定向、构建脚本或环境变量失误导致页面 404 或索引异常；提前确认上一版本部署记录与一键回滚路径，能把线上故障窗口压到分钟级。
 ---
 
 # 网站上线检查清单：部署前验证功能、SEO、移动端与回滚

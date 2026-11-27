@@ -6,6 +6,13 @@ date: 2026-10-16
 category: AI
 tags: [AI, Claude, Claude Opus 5, Claude vs ChatGPT, Claude怎么用, Anthropic]
 draft: false
+faq:
+  - q: Google Trends 上 Claude 达到 94–100、OpenAI 只有 7–8，是不是说明 Claude 用户数是 ChatGPT 的 13 倍？
+    a: 不是。Google Trends 统计的是相对搜索热度而不是活跃用户数，而且对比词是公司名“OpenAI”而非产品名“ChatGPT”；它反映的是近期搜索增长动能和话题集中度。
+  - q: 为什么越来越多开发者把 Claude 当作主力编程模型？
+    a: 开发者在长上下文代码理解、多文件重构、Agent 工具调用与工程稳定性上对 Claude（尤其是 Opus 系列与 Claude Code 工作流）反馈更稳定，直接降低了复杂任务的返工成本。
+  - q: 中文用户使用 Claude 有哪些门槛，有什么替代思路？
+    a: 主要门槛在于地区限制、支付与网络稳定性；如果不便直接使用官方订阅，可以结合兼容 API 网关、Codex 或国产开源/闭源编程模型做分层分工。
 ---
 
 # Claude 搜索热度是 OpenAI 的 13 倍？开发者为什么都在用 Claude

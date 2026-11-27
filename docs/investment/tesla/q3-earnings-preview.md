@@ -6,6 +6,13 @@ date: 2026-10-16
 category: 投资
 tags: [投资, 特斯拉财报, 特斯拉Q3, Tesla Roadster, FSD v14, 特斯拉股价]
 draft: false
+faq:
+  - q: 新一代会飞的 Roadster 会直接推高特斯拉 Q3 财报营收吗？
+    a: 不会。新一代 Roadster 量产目标指向 2028 年，属于品牌与情绪事件，无法改写当季利润表；决定 Q3 财报后股价定价的仍是交付利润率与 FSD/Robotaxi 兑现进度。
+  - q: 特斯拉 Q3 2026 财报最值得关注的三个核心指标是什么？
+    a: 一是 FSD 与 Robotaxi 的落地时间表与监管进展；二是 HW3 硬件无法升级至 v15 带来的存量车主预期与成本边界；三是约 48.7 万辆交付背后的汽车毛利率与储能业务贡献。
+  - q: 这篇特斯拉财报前瞻构成投资建议吗？
+    a: 不构成投资建议。本文仅记录个人在 2026 年 10 月财报前的观察清单，具体投资决策请结合官方最新财报数据与个人风险承受能力判断。
 ---
 
 # 特斯拉 Q3 财报前瞻：会飞的 Roadster 之后，真正决定股价的是什么
@@ -103,3 +110,9 @@ Roadster 可以继续占热搜。对持仓决策，10 月 21 日晚上那份 upd
 **主要参考来源：** Tesla IR《Third Quarter 2026 Production, Deliveries & Deployments》（2026-10-02）及过往季度同系列公告；Tesla Q3 2026 财报日程说明；Not a Tesla App / Teslascope 等对 FSD v14.3 Lite 与 HW3/v15 边界的跟踪；Reuters / CNBC / TechCrunch / The Verge 对 2026-10-15 Roadster 发布会的报道。
 
 免责声明：本文仅为个人观点记录，不构成投资建议。
+
+## 延伸阅读
+
+- [Tesla 的长期价值究竟来自汽车吗？](/investment/tesla/long-term-value)
+- [AI 进行到哪一步了？普通人如何投资美股](/investment/us-stocks/ai-stage-invest-guide)
+- [AI 越成功，投资者越需要保持清醒](/investment/methodology/ai-invest-clear)

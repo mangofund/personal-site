@@ -120,3 +120,9 @@ macOS 只允许应用修改当前 Space 的壁纸。切到另一个 Space 时，
 ### 会不会偷偷上传数据？
 
 不会。没有账号，没有遥测，图片和索引都在本地目录。源码全开，可以自己核对。
+
+## 延伸阅读
+
+- [REA 逆向一切 App：互联网即将进入「软件可复制性」的新阶段](/ai/trends/rea-software-replicability)
+- [Codex Usage Desktop 使用指南：看清 Token 去向与剩余额度](/ai/products/codex-usage-desktop-guide)
+- [更多开源与自研项目](/projects/)

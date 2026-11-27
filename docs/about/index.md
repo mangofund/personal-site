@@ -11,6 +11,16 @@ description: 持续研究 AI、投资、产品与技术,记录自己如何理解
 
 ![一张公开的思考地图](/images/about-map.webp)
 
+## 作者与公开账号
+
+本站由 pro（PRO的茶里芒果 / Pro's MangoFund）维护，记录个人对 AI、投资、产品与技术的研究和实践。
+
+- [GitHub：mangofund](https://github.com/mangofund)
+- [X：@PRO_AI_99T](https://x.com/PRO_AI_99T)
+- [英文介绍](/en/about/)
+
+投资栏目是个人研究笔记，不构成投资建议。阅读时请结合文章发布日期与文中来源，核对可能变化的信息。
+
 ## 这里有什么？
 
 AI：Agent、AI Coding、基础设施与产业变化。

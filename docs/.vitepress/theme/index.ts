@@ -1,3 +1,4 @@
+import ArticleFaq from './components/ArticleFaq.vue'
 import DefaultTheme from 'vitepress/theme'
 import { useData, inBrowser } from 'vitepress'
 import type { EnhanceAppContext, Router } from 'vitepress'
@@ -205,12 +206,14 @@ function detectChannel(): string {
       if (u === 'wx' || u === 'wechat') return 'wechat'
       if (u === 'twitter') return 'x'
       if (u === 'google' || u === 'bing' || u === 'baidu') return 'search'
+      if (/^(chatgpt|openai|perplexity|claude|gemini|copilot|kimi|doubao|ai_search)$/.test(u)) return 'ai_search'
       return u || 'direct'
     }
     const ref = document.referrer || ''
     if (!ref) return 'direct'
     const host = new URL(ref).hostname
     if (host === window.location.hostname) return 'direct'
+    if (/(^|\.)(chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com|kimi\.moonshot\.cn|doubao\.com|you\.com|phind\.com|meta\.ai|grok\.com)$/.test(host)) return 'ai_search'
     if (/google\.|bing\.com|baidu\.com|duckduckgo\.com|sogou\.com/.test(host)) return 'search'
     if (/x\.com|twitter\.com|(^|\.)t\.co$/.test(host)) return 'x'
     if (/weixin|wechat/.test(host)) return 'wechat'
@@ -443,7 +446,7 @@ export default {
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
     'layout-top': () => [h(SiteTicker), h(UpdateBanner), h(ShareRail)],
-    'doc-footer-before': () => [h(RelatedArticles), h(UsefulButton), h(ShareBar), h(Twikoo)],
+    'doc-footer-before': () => [h(ArticleFaq), h(RelatedArticles), h(UsefulButton), h(ShareBar), h(Twikoo)],
     'nav-bar-content-after': () => h(WechatNav)
   }),
   enhanceApp({ app, router }: EnhanceAppContext) {
