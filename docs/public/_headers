@@ -349,6 +349,12 @@
 /ai/trends/doubao-wechat-challenge/
   Cache-Control: public, max-age=0, must-revalidate
 
+/ai/trends/gpt6-quantum-gravity
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ai/trends/gpt6-quantum-gravity/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ai/trends/gta-6-first-day-sales
   Cache-Control: public, max-age=0, must-revalidate
 
