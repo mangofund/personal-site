@@ -1078,6 +1078,12 @@
 /investment/asset-allocation/shuibei-gold-rush/
   Cache-Control: public, max-age=0, must-revalidate
 
+/investment/chinext-rally-1161
+  Cache-Control: public, max-age=0, must-revalidate
+
+/investment/chinext-rally-1161/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /investment/crypto/binance-security-incident-2026
   Cache-Control: public, max-age=0, must-revalidate
 
